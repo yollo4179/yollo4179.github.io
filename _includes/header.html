@@ -1,0 +1,25 @@
+<header class="site-header">
+  <div class="site-header__inner">
+    <div class="site-header__identity">
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="primary-navigation"
+        aria-label="메뉴 열기"
+        data-menu-toggle
+      >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+
+      <a class="site-brand" href="{{ '/' | relative_url }}" aria-label="포트폴리오 홈">
+        <span class="site-brand__mark" aria-hidden="true"></span>
+        {{ site.data.site.brand }}
+      </a>
+    </div>
+    <p class="site-header__context">{{ page.nav_context | default: "PROJECT ARCHIVE" }}</p>
+  </div>
+</header>
+
+{% include sidebar.html %}

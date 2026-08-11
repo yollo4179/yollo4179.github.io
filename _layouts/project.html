@@ -1,0 +1,60 @@
+---
+layout: default
+---
+
+<main id="main-content">
+  <article class="project-detail">
+    <header class="project-detail__hero">
+      <div class="page-container">
+        <a class="breadcrumb" href="{{ '/#projects' | relative_url }}">
+          <span aria-hidden="true">←</span> 프로젝트 목록
+        </a>
+        <p class="eyebrow"><span>{{ page.category }}</span> / {{ page.project_type }}</p>
+        <h1>{{ page.title }}</h1>
+        <p class="project-detail__lead">{{ page.summary }}</p>
+        <ul class="project-detail__tags" aria-label="프로젝트 태그">
+          {% for tag in page.tags %}<li>#{{ tag }}</li>{% endfor %}
+        </ul>
+      </div>
+    </header>
+
+    <div class="page-container project-detail__layout">
+      <aside class="project-summary" aria-labelledby="summary-title">
+        <p class="section-index" id="summary-title">PROJECT SNAPSHOT</p>
+        <dl>
+          <div>
+            <dt>상태</dt>
+            <dd><span class="status-chip">{{ page.status }}</span></dd>
+          </div>
+          <div>
+            <dt>기간</dt>
+            <dd>{{ page.period }}</dd>
+          </div>
+          <div>
+            <dt>담당 역할</dt>
+            <dd>{{ page.role }}</dd>
+          </div>
+          <div>
+            <dt>팀 구성</dt>
+            <dd>{{ page.team }}</dd>
+          </div>
+          <div>
+            <dt>기술</dt>
+            <dd>{{ page.stack }}</dd>
+          </div>
+        </dl>
+      </aside>
+
+      <div class="markdown-content">
+        {{ content }}
+      </div>
+    </div>
+
+    <nav class="project-pagination page-container" aria-label="프로젝트 이동">
+      <a href="{{ '/#projects' | relative_url }}">
+        <span>모든 프로젝트</span>
+        <strong>목록으로 돌아가기</strong>
+      </a>
+    </nav>
+  </article>
+</main>

@@ -1,0 +1,26 @@
+<nav
+  class="site-navigation"
+  id="primary-navigation"
+  aria-label="주요 메뉴"
+  data-site-navigation
+>
+  <p class="site-navigation__label">INDEX / MENU</p>
+  {% for navigation_item in site.data.site.navigation %}
+    {% assign navigation_url = navigation_item.url | relative_url %}
+    <a
+      href="{{ navigation_url }}"
+      {% if page.url == navigation_item.url %}aria-current="page"{% endif %}
+    >
+      <span>{{ navigation_item.index }}</span>
+      {{ navigation_item.label }}
+    </a>
+  {% endfor %}
+</nav>
+<button
+  class="navigation-backdrop"
+  type="button"
+  aria-label="메뉴 닫기"
+  aria-hidden="true"
+  tabindex="-1"
+  data-menu-backdrop
+></button>

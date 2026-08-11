@@ -1,0 +1,25 @@
+title: Portfolio
+description: 프로젝트에서 배운 것과 문제 해결 과정을 기록하는 개발 포트폴리오입니다.
+lang: ko
+url: "https://yollo4179.github.io"
+baseurl: ""
+timezone: Asia/Seoul
+
+markdown: kramdown
+permalink: pretty
+
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: project
+
+exclude:
+  - AGENTS.md
+  - README.md

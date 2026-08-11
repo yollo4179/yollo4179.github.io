@@ -1,0 +1,26 @@
+<figure class="evidence-card">
+  <div class="evidence-card__visual">
+    <img
+      src="{{ include.image | relative_url }}"
+      alt="{{ include.alt }}"
+      width="1200"
+      height="675"
+      loading="lazy"
+    >
+    <span>PLACEHOLDER / REPLACE ME</span>
+  </div>
+  <figcaption class="evidence-card__caption">
+    <p class="evidence-card__label">WHAT TO SHOW</p>
+    <h3>{{ include.title }}</h3>
+    <p>{{ include.description }}</p>
+    {% assign evidence_items = include.items | split: "|" %}
+    <ul>
+      {% for evidence_item in evidence_items %}
+        <li>{{ evidence_item }}</li>
+      {% endfor %}
+    </ul>
+    {% if include.note %}
+      <p class="evidence-card__note"><strong>주의</strong> {{ include.note }}</p>
+    {% endif %}
+  </figcaption>
+</figure>
