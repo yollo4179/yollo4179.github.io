@@ -4,9 +4,10 @@
       <p class="site-footer__label">
         {{ page.footer_label | default: site.data.site.footer.label }}
       </p>
-      <p class="site-footer__title">
-        {{ page.footer_title | default: site.data.site.footer.title }}
-      </p>
+      {% assign footer_title = page.footer_title | default: site.data.site.footer.title %}
+      {% if footer_title %}
+        <p class="site-footer__title">{{ footer_title }}</p>
+      {% endif %}
     </div>
     <a class="back-to-top" href="#main-content">맨 위로 <span aria-hidden="true">↑</span></a>
   </div>

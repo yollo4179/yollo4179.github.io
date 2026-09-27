@@ -1,0 +1,47 @@
+---
+layout: default
+---
+
+{% assign ssketch_details = site.details | where: "project_slug", "ssketch" | sort: "order" %}
+{% assign category_details = ssketch_details | where: "detail_category", page.detail_category %}
+
+<main id="main-content">
+  <article class="project-detail detail-archive">
+    <header class="project-detail__hero">
+      <div class="page-container">
+        <nav class="breadcrumbs" aria-label="현재 위치">
+          <ol>
+            <li><a href="{{ '/projects/ssketch/' | relative_url }}">특화 · SSKETCH</a></li>
+            <li><a href="{{ '/projects/ssketch/details/' | relative_url }}">핵심 코드</a></li>
+            <li aria-current="page">{{ page.detail_category }}</li>
+          </ol>
+        </nav>
+        <p class="eyebrow"><span>SSKETCH</span> / 핵심 코드</p>
+        <h1>{{ page.detail_category }}</h1>
+        <p class="project-detail__lead">{{ page.description }}</p>
+      </div>
+    </header>
+
+    <section class="page-container detail-archive__content" aria-labelledby="detail-list-title">
+      <div class="detail-category-nav" aria-label="핵심 코드 카테고리">
+        <a aria-current="page" href="{{ '/projects/ssketch/server-test/' | relative_url }}">서버 테스트</a>
+      </div>
+
+      <div class="section-heading">
+        <div>
+          <p class="section-index">{{ category_details.size }} DETAIL RECORDS</p>
+          <h2 id="detail-list-title">{{ page.detail_category }} 기록</h2>
+        </div>
+      </div>
+
+      {% include ssketch-detail-cards.html items=category_details total=category_details.size %}
+    </section>
+
+    <nav class="project-pagination page-container" aria-label="핵심 코드 전체 목록으로 이동">
+      <a href="{{ '/projects/ssketch/details/' | relative_url }}">
+        <span>핵심 코드</span>
+        <strong>상세 기록 전체 보기</strong>
+      </a>
+    </nav>
+  </article>
+</main>

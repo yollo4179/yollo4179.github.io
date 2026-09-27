@@ -1,0 +1,64 @@
+Mono path[0] = 'C:/ssafy/S15P21D204/Client/Build/SSketch_Data/Managed'
+Mono config path = 'C:/ssafy/S15P21D204/Client/Build/MonoBleedingEdge/etc'
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+Initialize engine version: 6000.3.22f1 (1c726e1fb402)
+[Subsystems] Discovering subsystems at path C:/ssafy/S15P21D204/Client/Build/SSketch_Data/UnitySubsystems
+[D3D12 Device Filter] Vendor Name: NVIDIA
+[D3D12 Device Filter] Device Name: NVIDIA GeForce RTX 4050 Laptop GPU
+[D3D12 Device Filter] Driver Version: 32.0.15.7657
+[D3D12 Device Filter] Feature Level: 12.2
+[D3D12 Device Filter] Graphics Memory: 5924 MB
+[D3D12 Device Filter] Processor Count: 22
+[D3D12 Device Filter] Device Type: Discrete
+GfxDevice: creating device client; kGfxThreadingModeSplitJobs
+d3d12: failed to query info queue interface (0x80004002).
+Direct3D:
+    Version:         Direct3D 12 [level 12.2]
+    Renderer:        NVIDIA GeForce RTX 4050 Laptop GPU (ID=0x28a1)
+    Vendor:          NVIDIA
+    VRAM:            5924 MB
+    App VRAM Budget: 5156 MB
+    Driver:          32.0.15.7657
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.147 seconds
+- Finished resetting the current domain, in  0.003 seconds
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+<RI> Initializing input.
+Using Windows.Gaming.Input
+UnloadTime: 0.440100 ms
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 7.096200 ms
+Unloading 361 unused Assets to reduce memory usage. Loaded Objects now: 12307.
+Total: 4.198500 ms (FindLiveObjects: 0.632800 ms CreateObjectMapping: 0.412300 ms MarkObjects: 2.998700 ms  DeleteObjects: 0.154000 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.867400 ms
+Unloading 125 unused Assets to reduce memory usage. Loaded Objects now: 47757.
+Total: 17.462000 ms (FindLiveObjects: 1.944100 ms CreateObjectMapping: 3.252100 ms MarkObjects: 12.023500 ms  DeleteObjects: 0.241700 ms)
+
+InvalidOperationException: GameInstance에 UIRoot가 연결되지 않았습니다.
+  at GameInstance.InitializeServices () [0x0000e] in <6d070f670a2041eca87ac76246d43810>:0 
+  at GameInstance.InitializeInstance () [0x0002e] in <6d070f670a2041eca87ac76246d43810>:0 
+  at GameInstance.Awake () [0x0002c] in <6d070f670a2041eca87ac76246d43810>:0 
+UnityEngine.GameObject:Internal_AddComponentWithType_Injected(IntPtr, Type)
+UnityEngine.GameObject:Internal_AddComponentWithType(Type)
+UnityEngine.GameObject:AddComponent(Type)
+UnityEngine.GameObject:AddComponent()
+GameInstance:Initialize()
+GameInstance:get_Instance()
+DevWaitingRoomStage:OnDestroy()
+
+[Physics::Module] Cleanup current backend.
+[Physics::Module] Id: 0xf2b8ea05
+Input System module state changed to: ShutdownInProgress.
+Input System polling thread exited.
+Input System module state changed to: Shutdown.
+Internal: There are remaining Allocations on the JobTempAlloc. This is a leak, and will impact performance
+To Debug, run app with -diag-job-temp-memory-leak-validation cmd line argument. This will output the callstacks of the leaked allocations.

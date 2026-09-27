@@ -1,0 +1,10 @@
+_site/
+.jekyll-cache/
+.sass-cache/
+.jekyll-metadata
+내정보.txt
+
+# Local installer and debug output
+/VEDEOS/cuda_12.9.1_576.57_windows.exe
+/debug.log
+/VEDEOS/*.zip

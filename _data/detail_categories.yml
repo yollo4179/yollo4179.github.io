@@ -1,0 +1,14 @@
+- slug: troubleshooting
+  label: 트러블슈팅
+  url: /projects/gilbom/troubleshooting/
+  description: 오류와 비정상 동작의 원인, 해결 과정과 검증 결과를 정리합니다.
+
+- slug: performance
+  label: 성능 향상
+  url: /projects/gilbom/performance/
+  description: 화면 갱신과 실행 흐름에서 발생한 성능 문제의 개선 과정을 정리합니다.
+
+- slug: maintainability
+  label: 유지보수,확장성
+  url: /projects/gilbom/maintainability/
+  description: 설정과 구현의 변경 경계를 분리해 유지보수와 확장을 준비한 과정을 정리합니다.

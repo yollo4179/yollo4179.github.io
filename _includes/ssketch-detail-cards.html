@@ -1,0 +1,23 @@
+<div class="detail-grid{% if include.preview %} detail-grid--preview{% endif %}">
+  {% assign detail_total = include.total | prepend: "0" | slice: -2, 2 %}
+  {% for detail in include.items %}
+    <article class="detail-card{% if detail.status_tone == 'warning' %} is-warning{% endif %}">
+      <a href="{{ detail.url | relative_url }}" aria-label="{{ detail.title }} 읽기">
+        <div class="detail-card__category">
+          <span>{{ detail.detail_category }}</span>
+        </div>
+        <div class="detail-card__meta">
+          <span>{{ detail.number }} / {{ detail_total }}</span>
+          <span>{{ detail.domain }}</span>
+        </div>
+        <h3>{{ detail.title }}</h3>
+        <p>{{ detail.summary }}</p>
+        <div class="detail-card__result">
+          <small>{{ detail.result_heading | default: '검증 요약' }}</small>
+          <strong>{{ detail.result_label }}</strong>
+        </div>
+        <span class="detail-card__link">상세 보기 <span aria-hidden="true">↗</span></span>
+      </a>
+    </article>
+  {% endfor %}
+</div>

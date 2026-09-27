@@ -1,0 +1,60 @@
+---
+layout: default
+title: 길봄 상세 기록
+description: 길봄 프로젝트의 상세 기록을 트러블슈팅, 성능 향상, 유지보수,확장성으로 나누어 관리합니다.
+nav_context: GILBOM / DETAIL ARCHIVE
+footer_label: GILBOM / DETAIL ARCHIVE
+---
+
+{% assign details = site.details | sort: "order" %}
+
+<main id="main-content">
+  <article class="project-detail detail-archive">
+    <header class="project-detail__hero">
+      <div class="page-container">
+        <nav class="breadcrumbs" aria-label="현재 위치">
+          <ol>
+            <li><a href="{{ '/projects/gilbom/' | relative_url }}">공통 · 길봄</a></li>
+            <li aria-current="page">상세 기록</li>
+          </ol>
+        </nav>
+        <p class="eyebrow"><span>GILBOM</span> / DETAIL ARCHIVE</p>
+        <h1>상세 기록</h1>
+        <p class="project-detail__lead">
+          길봄 프로젝트의 상세 페이지를 트러블슈팅, 성능 향상, 유지보수,확장성으로 나누었습니다.
+        </p>
+      </div>
+    </header>
+
+    <section class="page-container detail-archive__content" aria-labelledby="detail-list-title">
+      <h2 class="sr-only" id="detail-list-title">카테고리별 상세 기록</h2>
+
+      <div class="detail-category-nav" aria-label="상세 기록 카테고리">
+        {% for category in site.data.detail_categories %}
+          <a href="#{{ category.slug }}">{{ category.label }}</a>
+        {% endfor %}
+      </div>
+
+      {% for category in site.data.detail_categories %}
+        {% assign category_details = details | where: "detail_category", category.label %}
+        <section class="detail-category-section" id="{{ category.slug }}" aria-labelledby="{{ category.slug }}-title">
+          <div class="detail-category-section__heading">
+            <div>
+              <p class="section-index">{{ category_details.size }} DETAIL RECORDS</p>
+              <h2 id="{{ category.slug }}-title">{{ category.label }}</h2>
+            </div>
+            <p>{{ category.description }}</p>
+          </div>
+          {% include detail-cards.html items=category_details %}
+        </section>
+      {% endfor %}
+    </section>
+
+    <nav class="project-pagination page-container" aria-label="길봄 프로젝트로 이동">
+      <a href="{{ '/projects/gilbom/' | relative_url }}">
+        <span>공통 내용</span>
+        <strong>길봄 프로젝트 개요로 돌아가기</strong>
+      </a>
+    </nav>
+  </article>
+</main>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="6" result="Passed" total="6" passed="6" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-09-19 03:27:39Z" end-time="2026-09-19 03:27:39Z" duration="0.0559586">
+  <test-suite type="TestSuite" id="1000" name="SSketch" fullname="SSketch" runstate="Runnable" testcasecount="668" result="Passed" start-time="2026-09-19 03:27:39Z" end-time="2026-09-19 03:27:39Z" duration="0.055959" total="6" passed="6" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1742" name="Assembly-CSharp-Editor.dll" fullname="C:/ssafy/S15P21D204/Client/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll" runstate="Runnable" testcasecount="668" result="Passed" start-time="2026-09-19 03:27:39Z" end-time="2026-09-19 03:27:39Z" duration="0.043492" total="6" passed="6" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="34924" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestFixture" id="1249" name="HostWorldSimulationTests" fullname="HostWorldSimulationTests" classname="HostWorldSimulationTests" runstate="Runnable" testcasecount="6" result="Passed" start-time="2026-09-19 03:27:39Z" end-time="2026-09-19 03:27:39Z" duration="0.037010" total="6" passed="6" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1251" name="Step_ManyQueuedInputsStillSimulatesActorOnlyOncePerTick" fullname="HostWorldSimulationTests.Step_ManyQueuedInputsStillSimulatesActorOnlyOncePerTick" methodname="Step_ManyQueuedInputsStillSimulatesActorOnlyOncePerTick" classname="HostWorldSimulationTests" runstate="Runnable" seed="868808769" result="Passed" start-time="2026-09-19 03:27:39Z" end-time="2026-09-19 03:27:39Z" duration="0.018258" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1253" name="Step_MissingInputNeverRepeatsJumpEdge" fullname="HostWorldSimulationTests.Step_MissingInputNeverRepeatsJumpEdge" methodname="Step_MissingInputNeverRepeatsJumpEdge" classname="HostWorldSimulationTests" runstate="Runnable" seed="700081170" result="Passed" start-time="2026-09-19 03:27:39Z" end-time="2026-09-19 03:27:39Z" duration="0.000426" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1250" name="Step_SimulatesActorsByEntityId_ThenPhysics_ThenCaptures" fullname="HostWorldSimulationTests.Step_SimulatesActorsByEntityId_ThenPhysics_ThenCaptures" methodname="Step_SimulatesActorsByEntityId_ThenPhysics_ThenCaptures" classname="HostWorldSimulationTests" runstate="Runnable" seed="1714121695" result="Passed" start-time="2026-09-19 03:27:39Z" end-time="2026-09-19 03:27:39Z" duration="0.002094" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1252" name="SubmitInput_DuplicateLocalLoopbackDoesNotCauseSecondSimulation" fullname="HostWorldSimulationTests.SubmitInput_DuplicateLocalLoopbackDoesNotCauseSecondSimulation" methodname="SubmitInput_DuplicateLocalLoopbackDoesNotCauseSecondSimulation" classname="HostWorldSimulationTests" runstate="Runnable" seed="236028475" result="Passed" start-time="2026-09-19 03:27:39Z" end-time="2026-09-19 03:27:39Z" duration="0.000482" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1254" name="TickCompleted_ObservesAlreadyCapturedImmutableFrame" fullname="HostWorldSimulationTests.TickCompleted_ObservesAlreadyCapturedImmutableFrame" methodname="TickCompleted_ObservesAlreadyCapturedImmutableFrame" classname="HostWorldSimulationTests" runstate="Runnable" seed="387833617" result="Passed" start-time="2026-09-19 03:27:39Z" end-time="2026-09-19 03:27:39Z" duration="0.000502" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1255" name="UnregisterActor_RemovesDepartedEntityFromFollowingSnapshot" fullname="HostWorldSimulationTests.UnregisterActor_RemovesDepartedEntityFromFollowingSnapshot" methodname="UnregisterActor_RemovesDepartedEntityFromFollowingSnapshot" classname="HostWorldSimulationTests" runstate="Runnable" seed="236867585" result="Passed" start-time="2026-09-19 03:27:39Z" end-time="2026-09-19 03:27:39Z" duration="0.001277" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[<b><color=#2EA3FF>MCP-FOR-UNITY</color></b>: [TestRunnerNoThrottle] Restored Interaction Mode after test run.
+Saving results to: C:/Users/SSAFY/AppData/LocalLow/TeamSSketch/SSketch\TestResults.xml
+]]></output>
+        </test-case>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

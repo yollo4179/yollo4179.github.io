@@ -12,6 +12,8 @@ collections:
   projects:
     output: true
     permalink: /projects/:name/
+  details:
+    output: true
 
 defaults:
   - scope:
@@ -19,7 +21,19 @@ defaults:
       type: projects
     values:
       layout: project
+  - scope:
+      path: ""
+      type: details
+    values:
+      layout: detail
 
 exclude:
   - AGENTS.md
+  - CLAUDE.md
   - README.md
+  - 내정보.txt
+  - VEDEOS/cuda_12.9.1_576.57_windows.exe
+  - VEDEOS/Samsung_Metaverse_SkeletonCode.zip
+  - VEDEOS/MoraiLauncher_Win.zip
+  - VEDEOS/SSAFY_FILE.zip
+  - debug.log

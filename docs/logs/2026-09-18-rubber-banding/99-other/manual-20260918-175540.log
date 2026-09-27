@@ -1,0 +1,65 @@
+Mono path[0] = 'C:/ssafy/S15P21D204/Client/Build/My project_Data/Managed'
+Mono config path = 'C:/ssafy/S15P21D204/Client/Build/MonoBleedingEdge/etc'
+Found 2 interfaces on host : 0) 172.25.64.1 1) 192.168.100.191
+Player connection [53472]  Target information:
+
+Player connection [53472]  * "[IP] 172.25.64.1 [Port] 55000 [Flags] 2 [Guid] 1971932725 [EditorId] 1642380850 [Version] 1048832 [Id] WindowsPlayer(2,DESKTOP-MS327CL) [Debug] 0 [PackageName] WindowsPlayer [ProjectName] SSketch" 
+
+Player connection [53472]  * "[IP] 192.168.100.191 [Port] 55000 [Flags] 2 [Guid] 1971932725 [EditorId] 1642380850 [Version] 1048832 [Id] WindowsPlayer(2,DESKTOP-MS327CL) [Debug] 0 [PackageName] WindowsPlayer [ProjectName] SSketch" 
+
+Player connection [53472] Started UDP target info broadcast (1) on [225.0.0.222:54997].
+
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+Initialize engine version: 6000.3.22f1 (1c726e1fb402)
+[Subsystems] Discovering subsystems at path C:/ssafy/S15P21D204/Client/Build/My project_Data/UnitySubsystems
+[D3D12 Device Filter] Vendor Name: NVIDIA
+[D3D12 Device Filter] Device Name: NVIDIA GeForce RTX 4050 Laptop GPU
+[D3D12 Device Filter] Driver Version: 32.0.15.7657
+[D3D12 Device Filter] Feature Level: 12.2
+[D3D12 Device Filter] Graphics Memory: 5924 MB
+[D3D12 Device Filter] Processor Count: 22
+[D3D12 Device Filter] Device Type: Discrete
+GfxDevice: creating device client; kGfxThreadingModeSplitJobs
+d3d12: failed to query info queue interface (0x80004002).
+Direct3D:
+    Version:         Direct3D 12 [level 12.2]
+    Renderer:        NVIDIA GeForce RTX 4050 Laptop GPU (ID=0x28a1)
+    Vendor:          NVIDIA
+    VRAM:            5924 MB
+    App VRAM Budget: 5156 MB
+    Driver:          32.0.15.7657
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.165 seconds
+- Finished resetting the current domain, in  0.002 seconds
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+<RI> Initializing input.
+Using Windows.Gaming.Input
+UnloadTime: 0.586100 ms
+Direct3D: detected that IDXGISwapChain::GetFrameStatistics is broken (it does not return proper timestamps). Delta time will now be calculated using cpu-side time stampling until the game window is moved.
+Direct3D: detected that IDXGISwapChain::GetFrameStatistics is broken (it does not return proper timestamps). Delta time will now be calculated using cpu-side time stampling until the game window is moved.
+Curl error 7: Failed to connect to engine-data.unity3d.com port 443 via 127.0.0.1 after 2042 ms: Could not connect to server
+Curl error 7: Failed to connect to config.uca.cloud.unity3d.com port 443 via 127.0.0.1 after 2038 ms: Could not connect to server
+Curl error 7: Failed to connect to cdp.cloud.unity3d.com port 443 via 127.0.0.1 after 2048 ms: Could not connect to server
+Curl error 7: Failed to connect to cdp.cloud.unity3d.com port 443 via 127.0.0.1 after 2017 ms: Could not connect to server
+Curl error 7: Failed to connect to engine-data.unity3d.com port 443 via 127.0.0.1 after 2043 ms: Could not connect to server
+Curl error 7: Failed to connect to cdp.cloud.unity3d.com port 443 via 127.0.0.1 after 2049 ms: Could not connect to server
+Curl error 7: Failed to connect to engine-data.unity3d.com port 443 via 127.0.0.1 after 2041 ms: Could not connect to server
+Curl error 7: Failed to connect to cdp.cloud.unity3d.com port 443 via 127.0.0.1 after 2037 ms: Could not connect to server
+Curl error 7: Failed to connect to engine-data.unity3d.com port 443 via 127.0.0.1 after 2041 ms: Could not connect to server
+Curl error 7: Failed to connect to engine-data.unity3d.com port 443 via 127.0.0.1 after 2046 ms: Could not connect to server
+Curl error 7: Failed to connect to cdp.cloud.unity3d.com port 443 via 127.0.0.1 after 2035 ms: Could not connect to server
+Curl error 7: Failed to connect to engine-data.unity3d.com port 443 via 127.0.0.1 after 2046 ms: Could not connect to server
+Curl error 7: Failed to connect to cdp.cloud.unity3d.com port 443 via 127.0.0.1 after 2050 ms: Could not connect to server
+Curl error 7: Failed to connect to engine-data.unity3d.com port 443 via 127.0.0.1 after 21331 ms: Could not connect to server
+Direct3D: detected that IDXGISwapChain::GetFrameStatistics is broken (it does not return proper timestamps). Delta time will now be calculated using cpu-side time stampling until the game window is moved.
+Curl error 7: Failed to connect to cdp.cloud.unity3d.com port 443 via 127.0.0.1 after 2032 ms: Could not connect to server
+Curl error 7: Failed to connect to engine-data.unity3d.com port 443 via 127.0.0.1 after 2048 ms: Could not connect to server
+Curl error 7: Failed to connect to engine-data.unity3d.com port 443 via 127.0.0.1 after 2037 ms: Could not connect to server
+Curl error 7: Failed to connect to cdp.cloud.unity3d.com port 443 via 127.0.0.1 after 2045 ms: Could not connect to server

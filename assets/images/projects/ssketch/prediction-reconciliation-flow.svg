@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1520 1080" role="img" aria-labelledby="title desc">
+<title id="title">호스트 확정 상태와 로컬·원격 화면의 연결</title>
+<desc id="desc">호스트 권위 시뮬레이션 / 로컬 플레이어 / 게스트 / 원격 플레이어</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L9 4.5 L0 9 Z" fill="#536174" /></marker></defs>
+<style>text{font-family:Pretendard,"Noto Sans KR","Malgun Gothic",sans-serif;fill:#172033;font-size:19px;text-anchor:middle} .heading{font-size:27px;font-weight:700}.edge{fill:none;stroke:#536174;stroke-width:2.5;stroke-linejoin:round;marker-end:url(#arrow)}.label{font-size:21px;paint-order:stroke;stroke:#eaf3ff;stroke-width:8px;stroke-linejoin:round}</style>
+<rect x="40" y="20" width="1440" height="185" rx="12" fill="#FFF1E6" stroke="#F2994A" stroke-width="2" />
+<text class="heading" x="760.0" y="59">호스트 권위 시뮬레이션</text>
+<rect x="40" y="275" width="1060" height="770" rx="12" fill="#EAF3FF" stroke="#4A90E2" stroke-width="2" />
+<text class="heading" x="570.0" y="314">로컬 플레이어</text>
+<rect x="1140" y="275" width="340" height="770" rx="12" fill="#EAF8EE" stroke="#27AE60" stroke-width="2" />
+<text class="heading" x="1310.0" y="314">게스트 / 원격 플레이어</text>
+<rect id="Authority" x="210" y="95" width="260" height="80" rx="7" fill="#FFFFFF" stroke="#64748b" stroke-width="2" />
+<text x="340.0" y="143.0"><tspan x="340.0" dy="0">호스트 권위 시뮬레이션</tspan></text><rect id="Confirmed" x="630" y="95" width="260" height="80" rx="7" fill="#FFFFFF" stroke="#64748b" stroke-width="2" />
+<text x="760.0" y="128.0"><tspan x="760.0" dy="0">물리 확정 상태</tspan><tspan x="760.0" dy="30">P_auth, HostTick</tspan></text><rect id="Collision" x="1050" y="95" width="260" height="80" rx="7" fill="#FFFFFF" stroke="#64748b" stroke-width="2" />
+<text x="1180.0" y="143.0"><tspan x="1180.0" dy="0">충돌 · 피격 · 접지 판정</tspan></text><rect id="Input" x="90" y="345" width="260" height="80" rx="7" fill="#FFFFFF" stroke="#64748b" stroke-width="2" />
+<text x="220.0" y="393.0"><tspan x="220.0" dy="0">플레이어 입력</tspan></text><rect id="Prediction" x="380" y="345" width="260" height="80" rx="7" fill="#FFFFFF" stroke="#64748b" stroke-width="2" />
+<text x="510.0" y="393.0"><tspan x="510.0" dy="0">로컬 예측 시뮬레이션</tspan></text><rect id="PredictedState" x="690" y="345" width="260" height="80" rx="7" fill="#FFFFFF" stroke="#64748b" stroke-width="2" />
+<text x="820.0" y="378.0"><tspan x="820.0" dy="0">현재 예측 상태</tspan><tspan x="820.0" dy="30">P_pred</tspan></text><rect id="SnapshotLocal" x="90" y="485" width="260" height="80" rx="7" fill="#FFFFFF" stroke="#64748b" stroke-width="2" />
+<text x="220.0" y="518.0"><tspan x="220.0" dy="0">HostTick 스냅샷</tspan><tspan x="220.0" dy="30">확정 상태 P_auth</tspan></text><rect id="Replay" x="380" y="485" width="260" height="80" rx="7" fill="#EEF2FF" stroke="#6366F1" stroke-width="2" />
+<text x="510.0" y="518.0"><tspan x="510.0" dy="0">확정 상태부터</tspan><tspan x="510.0" dy="30">미확정 입력 재적용</tspan></text><rect id="ReplayState" x="690" y="485" width="260" height="80" rx="7" fill="#EEF2FF" stroke="#6366F1" stroke-width="2" />
+<text x="820.0" y="518.0" font-size="17px"><tspan x="820.0" dy="0">현재 Tick 기준</tspan><tspan x="820.0" dy="30">재시뮬레이션 상태 P_replay</tspan></text><path id="Compare" d="M510.0 625 L670 690.0 L510.0 755 L350 690.0 Z" fill="#FFF8CC" stroke="#C9A700" stroke-width="2" />
+<text x="510" y="683"><tspan x="510" dy="0">P_pred와 P_replay의 차이가</tspan><tspan x="510" dy="30">보정 임계값 이상인가?</tspan></text><rect id="Adopt" x="770" y="655" width="260" height="80" rx="7" fill="#EDEDED" stroke="#666666" stroke-width="2" />
+<text x="900.0" y="688.0"><tspan x="900.0" dy="0">재시뮬레이션 결과를</tspan><tspan x="900.0" dy="30">현재 물리 상태로 채택</tspan></text><rect id="Keep" x="150" y="830" width="260" height="80" rx="7" fill="#FFFFFF" stroke="#64748b" stroke-width="2" />
+<text x="280.0" y="863.0"><tspan x="280.0" dy="0">현재 화면 유지</tspan><tspan x="280.0" dy="30">또는 미세 보정</tspan></text><rect id="Smooth" x="560" y="830" width="260" height="80" rx="7" fill="#F3ECFF" stroke="#8E5FD3" stroke-width="2" />
+<text x="690.0" y="863.0"><tspan x="690.0" dy="0">재시뮬레이션 결과 기준</tspan><tspan x="690.0" dy="30">부드러운 Visual 보정</tspan></text><rect id="LocalVisual" x="350" y="960" width="320" height="60" rx="7" fill="#FFFFFF" stroke="#64748b" stroke-width="2" />
+<text x="510.0" y="998.0"><tspan x="510.0" dy="0">로컬 화면 위치</tspan></text><rect id="SnapshotRemote" x="1180" y="345" width="260" height="80" rx="7" fill="#FFFFFF" stroke="#64748b" stroke-width="2" />
+<text x="1310.0" y="393.0"><tspan x="1310.0" dy="0">HostTick 스냅샷</tspan></text><rect id="Buffer" x="1180" y="485" width="260" height="80" rx="7" fill="#FFFFFF" stroke="#64748b" stroke-width="2" />
+<text x="1310.0" y="533.0"><tspan x="1310.0" dy="0">원격 스냅샷 버퍼</tspan></text><rect id="Interpolate" x="1180" y="625" width="260" height="80" rx="7" fill="#FFFFFF" stroke="#64748b" stroke-width="2" />
+<text x="1310.0" y="673.0"><tspan x="1310.0" dy="0">과거 두 HostTick 사이 보간</tspan></text><rect id="RemoteVisual" x="1180" y="830" width="260" height="80" rx="7" fill="#FFFFFF" stroke="#64748b" stroke-width="2" />
+<text x="1310.0" y="878.0"><tspan x="1310.0" dy="0">원격 화면 위치</tspan></text><path class="edge" data-from="Authority" data-to="Confirmed" d="M470 135 H630" />
+<path class="edge" data-from="Confirmed" data-to="Collision" d="M890 135 H1050" />
+<path class="edge" data-from="Input" data-to="Prediction" d="M350 385 H380" />
+<path class="edge" data-from="Prediction" data-to="PredictedState" d="M640 385 H690" />
+<path class="edge" data-from="SnapshotLocal" data-to="Replay" d="M350 525 H380" />
+<path class="edge" data-from="Replay" data-to="ReplayState" d="M640 525 H690" />
+<path class="edge" data-from="PredictedState" data-to="Compare" d="M950 385 H1060 V600 H510 V625" />
+<path class="edge" data-from="ReplayState" data-to="Compare" d="M820 565 V600 H670 V690" />
+<path class="edge" data-from="ReplayState" data-to="Adopt" d="M950 525 H990 V655" />
+<path class="edge" data-from="Compare" data-to="Keep" d="M350 690 H280 V830" />
+<text class="label" x="280" y="780">아니오</text>
+<path class="edge" data-from="Compare" data-to="Smooth" d="M510 755 V790 H690 V830" />
+<text class="label" x="600" y="780">예</text>
+<path class="edge" data-from="Keep" data-to="LocalVisual" d="M280 910 V940 H450 V960" />
+<path class="edge" data-from="Smooth" data-to="LocalVisual" d="M690 910 V940 H570 V960" />
+<path class="edge" data-from="SnapshotRemote" data-to="Buffer" d="M1310 425 V485" />
+<path class="edge" data-from="Buffer" data-to="Interpolate" d="M1310 565 V625" />
+<path class="edge" data-from="Interpolate" data-to="RemoteVisual" d="M1310 705 V830" />
+<path class="edge" data-from="Input" data-to="Authority" d="M90 385 H15 V135 H210" />
+<path class="edge" data-from="Confirmed" data-to="SnapshotLocal" d="M715 175 V240 H65 V460 H220 V485" />
+<path class="edge" data-from="Confirmed" data-to="SnapshotRemote" d="M805 175 V240 H1310 V345" />
+</svg>

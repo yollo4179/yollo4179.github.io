@@ -1,0 +1,14 @@
+{% assign all_series = site.details | where: 'project_slug', 'ssketch' | where: 'featured', true %}
+{% assign series_total = all_series.size | prepend: '0' | slice: -2, 2 %}
+<div class="ssketch-series-grid">
+  {% for detail in include.items %}
+  <article class="ssketch-series-card" id="series-{{ detail.number }}">
+    <a href="{{ detail.url | relative_url }}">
+      <div class="ssketch-series-card__meta"><span>{{ detail.number }} / {{ series_total }}</span><span>{{ detail.short_category }}</span></div>
+      <h3>{{ detail.title }}</h3>
+      <p>{{ detail.summary }}</p>
+      <div class="ssketch-series-card__result"><span>{{ detail.result_label }}</span><span aria-hidden="true">↗</span></div>
+    </a>
+  </article>
+  {% endfor %}
+</div>

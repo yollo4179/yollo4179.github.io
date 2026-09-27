@@ -1,0 +1,87 @@
+Mono path[0] = 'C:/ssafy/S15P21D204/Client/Build/My project_Data/Managed'
+Mono config path = 'C:/ssafy/S15P21D204/Client/Build/MonoBleedingEdge/etc'
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+Initialize engine version: 6000.3.22f1 (1c726e1fb402)
+[Subsystems] Discovering subsystems at path C:/ssafy/S15P21D204/Client/Build/My project_Data/UnitySubsystems
+[D3D12 Device Filter] Vendor Name: NVIDIA
+[D3D12 Device Filter] Device Name: NVIDIA GeForce RTX 4050 Laptop GPU
+[D3D12 Device Filter] Driver Version: 32.0.15.7657
+[D3D12 Device Filter] Feature Level: 12.2
+[D3D12 Device Filter] Graphics Memory: 5924 MB
+[D3D12 Device Filter] Processor Count: 22
+[D3D12 Device Filter] Device Type: Discrete
+GfxDevice: creating device client; kGfxThreadingModeSplitJobs
+d3d12: failed to query info queue interface (0x80004002).
+Direct3D:
+    Version:         Direct3D 12 [level 12.2]
+    Renderer:        NVIDIA GeForce RTX 4050 Laptop GPU (ID=0x28a1)
+    Vendor:          NVIDIA
+    VRAM:            5924 MB
+    App VRAM Budget: 5156 MB
+    Driver:          32.0.15.7657
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.457 seconds
+- Finished resetting the current domain, in  0.002 seconds
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+<RI> Initializing input.
+Using Windows.Gaming.Input
+UnloadTime: 0.542900 ms
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 5.823800 ms
+Unloading 361 unused Assets to reduce memory usage. Loaded Objects now: 12363.
+Total: 3.583400 ms (FindLiveObjects: 0.489900 ms CreateObjectMapping: 0.315100 ms MarkObjects: 2.642800 ms  DeleteObjects: 0.135500 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.527000 ms
+Unloading 124 unused Assets to reduce memory usage. Loaded Objects now: 24856.
+Total: 7.187100 ms (FindLiveObjects: 1.666300 ms CreateObjectMapping: 1.646300 ms MarkObjects: 3.717800 ms  DeleteObjects: 0.156600 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 13.891100 ms
+Unloading 355 unused Assets to reduce memory usage. Loaded Objects now: 22289.
+Total: 8.914900 ms (FindLiveObjects: 1.203700 ms CreateObjectMapping: 1.031700 ms MarkObjects: 6.450100 ms  DeleteObjects: 0.228600 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.366100 ms
+Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 42267.
+Total: 16.879900 ms (FindLiveObjects: 3.462000 ms CreateObjectMapping: 2.197500 ms MarkObjects: 11.038200 ms  DeleteObjects: 0.181400 ms)
+
+ObjectDisposedException: Cannot access a disposed object.
+Object name: 'GameLoopClientService'.
+  at GameLoopClientService.ThrowIfDisposed () [0x00008] in <69e3b4d2fbd1419c905ddfd5ec21dd61>:0 
+  at GameLoopClientService.MarkTransitionReadyAsync (System.UInt32 transitionId, System.Threading.CancellationToken cancellationToken) [0x00000] in <69e3b4d2fbd1419c905ddfd5ec21dd61>:0 
+  at InGamePhaseCoordinator.CompleteTransitionAsync (GameLoopSnapshot state, System.Threading.CancellationToken token) [0x00104] in <69e3b4d2fbd1419c905ddfd5ec21dd61>:0 
+UnityEngine.DebugLogHandler:Internal_LogException_Injected(Exception, IntPtr)
+UnityEngine.DebugLogHandler:Internal_LogException(Exception, Object)
+UnityEngine.DebugLogHandler:LogException(Exception, Object)
+UnityEngine.Logger:LogException(Exception, Object)
+UnityEngine.Debug:LogException(Exception)
+LogPrinter:LogException(Exception)
+<CompleteTransitionAsync>d__17:MoveNext()
+System.Runtime.CompilerServices.MoveNextRunner:InvokeMoveNext(Object)
+System.Threading.ExecutionContext:RunInternal(ExecutionContext, ContextCallback, Object, Boolean)
+System.Threading.ExecutionContext:Run(ExecutionContext, ContextCallback, Object, Boolean)
+System.Runtime.CompilerServices.MoveNextRunner:Run()
+System.Threading.Tasks.AwaitTaskContinuation:InvokeAction(Object)
+System.Threading.Tasks.AwaitTaskContinuation:RunCallback(ContextCallback, Object, Task&)
+System.Threading.Tasks.SynchronizationContextAwaitTaskContinuation:Run(Task, Boolean)
+System.Threading.Tasks.Task:FinishContinuations()
+System.Threading.Tasks.Task:FinishStageThree()
+System.Threading.Tasks.Task`1:TrySetResult(Boolean)
+System.Threading.Tasks.TaskCompletionSource`1:TrySetResult(Boolean)
+PhaseTransitionCutscene:OnDestroy()
+
+[Physics::Module] Cleanup current backend.
+[Physics::Module] Id: 0xf2b8ea05
+Input System module state changed to: ShutdownInProgress.
+Input System polling thread exited.
+Input System module state changed to: Shutdown.
+Internal: There are remaining Allocations on the JobTempAlloc. This is a leak, and will impact performance
+To Debug, run app with -diag-job-temp-memory-leak-validation cmd line argument. This will output the callstacks of the leaked allocations.

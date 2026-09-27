@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="6" result="Passed" total="6" passed="6" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-09-19 16:17:59Z" end-time="2026-09-19 16:17:59Z" duration="0.0518497">
+  <test-suite type="TestSuite" id="1000" name="SSketch" fullname="SSketch" runstate="Runnable" testcasecount="684" result="Passed" start-time="2026-09-19 16:17:59Z" end-time="2026-09-19 16:17:59Z" duration="0.051850" total="6" passed="6" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1759" name="Assembly-CSharp-Editor.dll" fullname="C:/ssafy/S15P21D204/Client/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll" runstate="Runnable" testcasecount="684" result="Passed" start-time="2026-09-19 16:17:59Z" end-time="2026-09-19 16:17:59Z" duration="0.041657" total="6" passed="6" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="13800" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestFixture" id="1134" name="HostAuthorityGuestVisualInterpolatorTests" fullname="HostAuthorityGuestVisualInterpolatorTests" classname="HostAuthorityGuestVisualInterpolatorTests" runstate="Runnable" testcasecount="6" result="Passed" start-time="2026-09-19 16:17:59Z" end-time="2026-09-19 16:17:59Z" duration="0.035178" total="6" passed="6" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1140" name="고정틱_진행률은_0과_1_사이로_제한한다" fullname="HostAuthorityGuestVisualInterpolatorTests.고정틱_진행률은_0과_1_사이로_제한한다" methodname="고정틱_진행률은_0과_1_사이로_제한한다" classname="HostAuthorityGuestVisualInterpolatorTests" runstate="Runnable" seed="1710461060" result="Passed" start-time="2026-09-19 16:17:59Z" end-time="2026-09-19 16:17:59Z" duration="0.009752" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1135" name="기본값은_OFF이고_명시적_인자만_ON이다" fullname="HostAuthorityGuestVisualInterpolatorTests.기본값은_OFF이고_명시적_인자만_ON이다" methodname="기본값은_OFF이고_명시적_인자만_ON이다" classname="HostAuthorityGuestVisualInterpolatorTests" runstate="Runnable" seed="698654428" result="Passed" start-time="2026-09-19 16:17:59Z" end-time="2026-09-19 16:17:59Z" duration="0.001199" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1138" name="렌더_중에만_VisualRoot를_옮기고_권위_root는_바꾸지_않는다" fullname="HostAuthorityGuestVisualInterpolatorTests.렌더_중에만_VisualRoot를_옮기고_권위_root는_바꾸지_않는다" methodname="렌더_중에만_VisualRoot를_옮기고_권위_root는_바꾸지_않는다" classname="HostAuthorityGuestVisualInterpolatorTests" runstate="Runnable" seed="2013141217" result="Passed" start-time="2026-09-19 16:17:59Z" end-time="2026-09-19 16:17:59Z" duration="0.006747" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1139" name="상태_리비전_변경은_표시_위치를_즉시_스냅한다" fullname="HostAuthorityGuestVisualInterpolatorTests.상태_리비전_변경은_표시_위치를_즉시_스냅한다" methodname="상태_리비전_변경은_표시_위치를_즉시_스냅한다" classname="HostAuthorityGuestVisualInterpolatorTests" runstate="Runnable" seed="1981987784" result="Passed" start-time="2026-09-19 16:17:59Z" end-time="2026-09-19 16:17:59Z" duration="0.000611" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1137" name="상태_리비전이_바뀌면_순간이동_이력을_초기화한다" fullname="HostAuthorityGuestVisualInterpolatorTests.상태_리비전이_바뀌면_순간이동_이력을_초기화한다" methodname="상태_리비전이_바뀌면_순간이동_이력을_초기화한다" classname="HostAuthorityGuestVisualInterpolatorTests" runstate="Runnable" seed="870826919" result="Passed" start-time="2026-09-19 16:17:59Z" end-time="2026-09-19 16:17:59Z" duration="0.000230" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1136" name="최근_두_권위_위치_사이를_보간한다" fullname="HostAuthorityGuestVisualInterpolatorTests.최근_두_권위_위치_사이를_보간한다" methodname="최근_두_권위_위치_사이를_보간한다" classname="HostAuthorityGuestVisualInterpolatorTests" runstate="Runnable" seed="2128423906" result="Passed" start-time="2026-09-19 16:17:59Z" end-time="2026-09-19 16:17:59Z" duration="0.000218" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[<b><color=#2EA3FF>MCP-FOR-UNITY</color></b>: [TestRunnerNoThrottle] Restored Interaction Mode after test run.
+Saving results to: C:/Users/SSAFY/AppData/LocalLow/TeamSSketch/SSketch\TestResults.xml
+]]></output>
+        </test-case>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

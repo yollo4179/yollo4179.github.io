@@ -1,0 +1,49 @@
+﻿{
+    "schemaVersion":  1,
+    "mode":  "Import",
+    "versionId":  "v0.1.0-53ceccfae690-dirty-asm-37ae4c79d449",
+    "runId":  "20260919-103418-pre-tick-4player-completed",
+    "runLabel":  "pre-tick-4player-completed",
+    "createdAt":  "2026-09-19T10:34:18.2504588+09:00",
+    "roomName":  null,
+    "bundleVersion":  "0.1.0",
+    "gitCommit":  "53ceccfae690",
+    "gitDirty":  true,
+    "assemblyCSharp":  {
+                           "path":  "C:\\ssafy\\S15P21D204\\Client\\Build\\fallback-4player\\SSketch_Data\\Managed\\Assembly-CSharp.dll",
+                           "sha256":  "37ae4c79d4496541f9e1c187a80bb9a9a2838814db91d2216644859224ee9bad",
+                           "length":  1347584,
+                           "lastWriteTime":  "2026-09-19T10:19:37.7536091+09:00"
+                       },
+    "playerPath":  "C:\\ssafy\\S15P21D204\\Client\\Build\\fallback-4player\\SSketch.exe",
+    "importedFrom":  "C:\\ssafy\\S15P21D204\\Client\\Build\\pre-tick-4player-20260919-102115",
+    "logs":  [
+                 {
+                     "requestedRole":  "Host",
+                     "observedRole":  "Guest",
+                     "fileName":  "host.log",
+                     "exists":  true
+                 },
+                 {
+                     "requestedRole":  "Guest1",
+                     "observedRole":  "Guest",
+                     "fileName":  "guest1.log",
+                     "exists":  true
+                 },
+                 {
+                     "requestedRole":  "Guest2",
+                     "observedRole":  "Guest",
+                     "fileName":  "guest2.log",
+                     "exists":  true
+                 },
+                 {
+                     "requestedRole":  "Guest3",
+                     "observedRole":  "Host",
+                     "fileName":  "guest3.log",
+                     "exists":  true
+                 }
+             ],
+    "processes":  [
+
+                  ]
+}

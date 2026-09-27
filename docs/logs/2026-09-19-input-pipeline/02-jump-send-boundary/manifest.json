@@ -1,0 +1,75 @@
+﻿{
+    "schemaVersion":  1,
+    "mode":  "Launch",
+    "versionId":  "v0.1.0-2ef05998fa83-dirty-asm-754274e3ae74",
+    "runId":  "20260919-120104-guest-send-trace-v6-4player",
+    "runLabel":  "guest-send-trace-v6-4player",
+    "createdAt":  "2026-09-19T12:01:14.4001561+09:00",
+    "roomName":  "Input4P-20260919-120104",
+    "bundleVersion":  "0.1.0",
+    "gitCommit":  "2ef05998fa83",
+    "gitDirty":  true,
+    "assemblyCSharp":  {
+                           "path":  "C:\\ssafy\\S15P21D204\\Client\\Build\\fallback-4player\\SSketch_Data\\Managed\\Assembly-CSharp.dll",
+                           "sha256":  "754274e3ae74451da379a268cf70d2fda92cd2c273c04139d734f0438a14bca3",
+                           "length":  1358336,
+                           "lastWriteTime":  "2026-09-19T12:00:43.4105781+09:00"
+                       },
+    "playerPath":  "C:\\ssafy\\S15P21D204\\Client\\Build\\fallback-4player\\SSketch.exe",
+    "importedFrom":  null,
+    "logs":  [
+                 {
+                     "requestedRole":  "Host",
+                     "observedRole":  "Host",
+                     "fileName":  "host.log",
+                     "exists":  true
+                 },
+                 {
+                     "requestedRole":  "Guest1",
+                     "observedRole":  "Guest",
+                     "fileName":  "guest1.log",
+                     "exists":  true
+                 },
+                 {
+                     "requestedRole":  "Guest2",
+                     "observedRole":  "Guest",
+                     "fileName":  "guest2.log",
+                     "exists":  true
+                 },
+                 {
+                     "requestedRole":  "Guest3",
+                     "observedRole":  "Guest",
+                     "fileName":  "guest3.log",
+                     "exists":  true
+                 }
+             ],
+    "processes":  [
+                      {
+                          "requestedRole":  "Host",
+                          "fileName":  "host.log",
+                          "processId":  31856,
+                          "positioned":  true
+                      },
+                      {
+                          "requestedRole":  "Guest1",
+                          "fileName":  "guest1.log",
+                          "processId":  8396,
+                          "positioned":  true
+                      },
+                      {
+                          "requestedRole":  "Guest2",
+                          "fileName":  "guest2.log",
+                          "processId":  31244,
+                          "positioned":  true
+                      },
+                      {
+                          "requestedRole":  "Guest3",
+                          "fileName":  "guest3.log",
+                          "processId":  36972,
+                          "positioned":  true
+                      }
+                  ],
+    "status":  "completed",
+    "powerStateNote":  "User confirmed the AC adapter was connected during the completed interaction segment; it was disconnected at initial launch, and the exact plug-in timestamp is not logged.",
+    "analysisScope":  "world=5, actors=4, summaryValid=1; 93 common summary windows, 5594 authority ticks per entity."
+}

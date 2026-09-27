@@ -1,0 +1,73 @@
+﻿{
+    "schemaVersion":  1,
+    "mode":  "Launch",
+    "versionId":  "v0.1.0-035fcee324b8-dirty-asm-29ec57deef4f",
+    "runId":  "20260919-194243-pump-cost-metrics-detail-off-4player-ac",
+    "runLabel":  "pump-cost-metrics-detail-off-4player-ac",
+    "createdAt":  "2026-09-19T19:43:01.6413571+09:00",
+    "roomName":  "Input4P-20260919-194243",
+    "rubberBandingDetailEnabled":  false,
+    "bundleVersion":  "0.1.0",
+    "gitCommit":  "035fcee324b8",
+    "gitDirty":  true,
+    "assemblyCSharp":  {
+                           "path":  "C:\\ssafy\\S15P21D204\\Client\\Build\\fallback-4player\\SSketch_Data\\Managed\\Assembly-CSharp.dll",
+                           "sha256":  "29ec57deef4fe9518b1c2279bd39fce3de9ac75ecadc1c1eb0e18804d4d084dd",
+                           "length":  1368576,
+                           "lastWriteTime":  "2026-09-19T19:42:20.1655222+09:00"
+                       },
+    "playerPath":  "C:\\ssafy\\S15P21D204\\Client\\Build\\fallback-4player\\SSketch.exe",
+    "importedFrom":  null,
+    "logs":  [
+                 {
+                     "requestedRole":  "Host",
+                     "observedRole":  "Host",
+                     "fileName":  "host.log",
+                     "exists":  true
+                 },
+                 {
+                     "requestedRole":  "Guest1",
+                     "observedRole":  "Guest",
+                     "fileName":  "guest1.log",
+                     "exists":  true
+                 },
+                 {
+                     "requestedRole":  "Guest2",
+                     "observedRole":  "Guest",
+                     "fileName":  "guest2.log",
+                     "exists":  true
+                 },
+                 {
+                     "requestedRole":  "Guest3",
+                     "observedRole":  "Guest",
+                     "fileName":  "guest3.log",
+                     "exists":  true
+                 }
+             ],
+    "processes":  [
+                      {
+                          "requestedRole":  "Host",
+                          "fileName":  "host.log",
+                          "processId":  3092,
+                          "positioned":  true
+                      },
+                      {
+                          "requestedRole":  "Guest1",
+                          "fileName":  "guest1.log",
+                          "processId":  38296,
+                          "positioned":  true
+                      },
+                      {
+                          "requestedRole":  "Guest2",
+                          "fileName":  "guest2.log",
+                          "processId":  8088,
+                          "positioned":  true
+                      },
+                      {
+                          "requestedRole":  "Guest3",
+                          "fileName":  "guest3.log",
+                          "processId":  14424,
+                          "positioned":  true
+                      }
+                  ]
+}

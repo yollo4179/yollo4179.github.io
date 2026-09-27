@@ -1,0 +1,68 @@
+---
+layout: default
+---
+
+{% assign ssketch_details = site.details | where: "project_slug", "ssketch" | where: "detail_category", page.detail_category %}
+{% assign ssketch_detail_total = ssketch_details.size | prepend: "0" | slice: -2, 2 %}
+
+<main id="main-content">
+  <article class="project-detail detail-page">
+    <header class="project-detail__hero">
+      <div class="page-container">
+        <nav class="breadcrumbs" aria-label="현재 위치">
+          <ol>
+            <li><a href="{{ '/projects/ssketch/' | relative_url }}">특화 · SSKETCH</a></li>
+            <li><a href="{{ '/projects/ssketch/details/' | relative_url }}">핵심 코드</a></li>
+            <li><a href="{{ page.category_url | relative_url }}">{{ page.detail_category }}</a></li>
+            <li aria-current="page">{{ page.title }}</li>
+          </ol>
+        </nav>
+        <p class="eyebrow"><span>{{ page.detail_category }}</span> / {{ page.number }}</p>
+        <h1>{{ page.title }}</h1>
+        <p class="project-detail__lead">{{ page.summary }}</p>
+        <ul class="project-detail__tags" aria-label="기술 태그">
+          {% for tag in page.tags %}<li>#{{ tag }}</li>{% endfor %}
+        </ul>
+      </div>
+    </header>
+
+    <div class="page-container project-detail__layout">
+      <aside class="project-summary" aria-labelledby="detail-summary-title">
+        <p class="section-index" id="detail-summary-title">DETAIL SNAPSHOT</p>
+        <dl>
+          <div>
+            <dt>분류</dt>
+            <dd><a href="{{ page.category_url | relative_url }}">핵심 코드 · {{ page.detail_category }}</a></dd>
+          </div>
+          <div>
+            <dt>기록</dt>
+            <dd>{{ page.number }} / {{ ssketch_detail_total }}</dd>
+          </div>
+          <div>
+            <dt>영역</dt>
+            <dd>{{ page.domain }}</dd>
+          </div>
+          {% if page.verified_at %}<div>
+            <dt>검증일</dt>
+            <dd>{{ page.verified_at }}</dd>
+          </div>{% endif %}
+          <div>
+            <dt>검증 범위</dt>
+            <dd>{{ page.validation_scope }}</dd>
+          </div>
+        </dl>
+      </aside>
+
+      <div class="markdown-content">
+        {{ content }}
+      </div>
+    </div>
+
+    <nav class="detail-pagination page-container" aria-label="상세 글 이동">
+      <a class="detail-pagination__index" href="{{ '/projects/ssketch/details/' | relative_url }}">
+        <span>전체</span>
+        <strong>핵심 코드 목록</strong>
+      </a>
+    </nav>
+  </article>
+</main>

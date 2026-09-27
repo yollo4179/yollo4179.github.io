@@ -1,0 +1,67 @@
+---
+layout: default
+title: SSketch 개발 기록
+ssketch_styles: true
+description: 전체 아키텍처, 클라이언트 프레임워크, 책임 분리, 동기화와 입력 문제 해결을 다룬 개발 기록.
+nav_context: SSKETCH / CORE CODE
+footer_label: SSKETCH / DETAIL ARCHIVE
+---
+
+{% assign ssketch_details = site.details | where: "project_slug", "ssketch" | sort: "order" %}
+{% assign server_test_details = ssketch_details | where: "detail_category", "서버 테스트" %}
+{% assign featured_details = ssketch_details | where: "featured", true | sort: "number" %}
+
+<main id="main-content">
+  <article class="project-detail detail-archive">
+    <header class="project-detail__hero">
+      <div class="page-container">
+        <nav class="breadcrumbs" aria-label="현재 위치">
+          <ol>
+            <li><a href="{{ '/projects/ssketch/' | relative_url }}">특화 · SSKETCH</a></li>
+            <li aria-current="page">개발 기록</li>
+          </ol>
+        </nav>
+        <p class="eyebrow"><span>SSKETCH</span> / CORE CODE</p>
+        <h1>프레임워크 설계와 멀티플레이 개발 기록</h1>
+        <p class="project-detail__lead">
+          클라이언트의 책임과 수명 설계, 서버의 실행 경계, 입력과 화면 동기화, 플레이 문제 해결 과정을 정리했다.
+        </p>
+      </div>
+    </header>
+
+    <section class="page-container detail-archive__content" aria-labelledby="detail-list-title">
+      <h2 class="sr-only" id="detail-list-title">카테고리별 핵심 코드 기록</h2>
+
+      <div class="detail-category-nav" aria-label="핵심 코드 카테고리">
+        {% for category in site.data.ssketch_series %}<a href="#{{ category.slug }}">{{ category.name }}</a>{% endfor %}
+        <a href="#server-test">서버 테스트</a>
+      </div>
+
+      {% for category in site.data.ssketch_series %}
+      {% assign category_details = featured_details | where: 'series_category', category.name %}
+      <section class="detail-category-section" id="{{ category.slug }}" aria-labelledby="{{ category.slug }}-title">
+        <h2 id="{{ category.slug }}-title">{{ category.name }}</h2>
+        {% include ssketch-series-cards.html items=category_details %}
+      </section>
+      {% endfor %}
+
+      <section class="detail-category-section" id="server-test" aria-labelledby="server-test-title">
+        <div class="detail-category-section__heading">
+          <div>
+            <p class="section-index">{{ server_test_details.size }} DETAIL RECORDS</p>
+            <h2 id="server-test-title">서버 테스트</h2>
+          </div>
+          <p>룸 서버의 동시 요청 처리와 상태 불변성을 검증한 기록입니다.</p>
+        </div>
+        {% include ssketch-detail-cards.html items=server_test_details total=server_test_details.size %}
+      </section>
+    </section>
+
+    <nav class="project-pagination page-container" aria-label="SSKETCH 프로젝트로 이동">
+      <a href="{{ '/projects/ssketch/' | relative_url }}">
+        <span>특화 프로젝트</span>
+        <strong>SSKETCH 프로젝트 개요로 돌아가기</strong>
+      </a>
+    </nav>
+  </article>
+</main>

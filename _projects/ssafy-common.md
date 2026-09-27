@@ -1,6 +1,8 @@
 ---
 title: SSAFY 공통 프로젝트
 order: 1
+team_project: false
+published: false
 category: SSAFY
 project_type: 공통 프로젝트
 summary: 팀 프로젝트의 문제 정의부터 구현과 회고까지, 선택의 이유와 배움을 중심으로 정리하는 프로젝트 기록입니다.

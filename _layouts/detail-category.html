@@ -1,0 +1,49 @@
+---
+layout: default
+---
+
+{% assign details = site.details | sort: "order" %}
+{% assign category_details = details | where: "detail_category", page.detail_category %}
+
+<main id="main-content">
+  <article class="project-detail detail-archive">
+    <header class="project-detail__hero">
+      <div class="page-container">
+        <nav class="breadcrumbs" aria-label="현재 위치">
+          <ol>
+            <li><a href="{{ '/projects/gilbom/' | relative_url }}">공통 · 길봄</a></li>
+            <li><a href="{{ '/projects/gilbom/details/' | relative_url }}">상세 기록</a></li>
+            <li aria-current="page">{{ page.detail_category }}</li>
+          </ol>
+        </nav>
+        <p class="eyebrow"><span>GILBOM</span> / {{ page.detail_category }}</p>
+        <h1>{{ page.detail_category }}</h1>
+        <p class="project-detail__lead">{{ page.description }}</p>
+      </div>
+    </header>
+
+    <section class="page-container detail-archive__content" aria-labelledby="detail-list-title">
+      <div class="detail-category-nav" aria-label="상세 기록 카테고리">
+        {% for category in site.data.detail_categories %}
+          <a{% if category.label == page.detail_category %} aria-current="page"{% endif %} href="{{ category.url | relative_url }}">{{ category.label }}</a>
+        {% endfor %}
+      </div>
+
+      <div class="section-heading">
+        <div>
+          <p class="section-index">{{ category_details.size }} DETAIL RECORDS</p>
+          <h2 id="detail-list-title">{{ page.detail_category }} 기록</h2>
+        </div>
+      </div>
+
+      {% include detail-cards.html items=category_details %}
+    </section>
+
+    <nav class="project-pagination page-container" aria-label="상세 기록 전체 목록으로 이동">
+      <a href="{{ '/projects/gilbom/details/' | relative_url }}">
+        <span>세 카테고리</span>
+        <strong>상세 기록 전체 보기</strong>
+      </a>
+    </nav>
+  </article>
+</main>

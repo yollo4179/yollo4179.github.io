@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+.ssketch-project, .ssketch-article { --ssketch-ink:#251d17; --ssketch-muted:#756352; --ssketch-red:#c84637; --ssketch-line:#e4d5bd; --ssketch-gold:#e2a62e; --ssketch-blue:#234b77; --ssketch-night:#101b31; color:var(--ssketch-ink); }
+.ssketch-hero h1,.ssketch-main-content h2,.ssketch-article .project-detail__hero h1,.ssketch-article__body h2 { font-family:"Gowun Dodum","Noto Sans KR",sans-serif; }
+.ssketch-project { --ssketch-content-padding:1.25rem; }
+.ssketch-hero { position:relative; margin-top:1.5rem; padding:2.5rem var(--ssketch-content-padding) 3rem; border-radius:1.5rem; overflow:hidden; background:linear-gradient(120deg,#f8f1e2 0%,#f3e6cd 48%,#e7d9c3 62%,#c9c2c9 78%,#a8a6bb 100%); }
+@media(max-width:36rem) { .ssketch-hero { padding-top:2rem; padding-bottom:2.5rem; border-radius:1.1rem; } }
+@media(min-width:40rem) { .ssketch-project { --ssketch-content-padding:2rem; } }
+.ssketch-hero__grid { display:grid; gap:2rem; align-items:center; margin-top:2rem; }
+.ssketch-logo { display:block; width:100%; max-width:27rem; height:auto; margin:1rem 0; }
+.ssketch-hero h1 { font-size:clamp(2rem,4vw,3.4rem); line-height:1.3; letter-spacing:-.045em; word-break:keep-all; overflow-wrap:anywhere; }
+.ssketch-intro { max-width:33rem; font-size:1.05rem; line-height:1.9; color:var(--ssketch-muted); }
+.ssketch-chips,.ssketch-actions { display:flex; flex-wrap:wrap; gap:.65rem; padding:0; list-style:none; margin:1.5rem 0; }
+.ssketch-chips li { padding:.35rem .8rem; border:1px solid var(--ssketch-line); border-radius:2rem; font-size:.85rem; }
+.ssketch-button { display:inline-flex; align-items:center; justify-content:center; min-height:3rem; padding:.65rem 1rem; border-radius:.4rem; background:var(--ssketch-red); color:#fff; text-decoration:none; font-weight:700; }
+.ssketch-button--secondary { background:#e9e1d3; color:#251d17; }
+.ssketch-hero__art { margin:0; }
+.ssketch-hero__art img { display:block; width:100%; height:auto; border-radius:.75rem; }
+.ssketch-hero__art figcaption { margin-top:.7rem; font-size:.78rem; line-height:1.6; color:var(--ssketch-muted); }
+.ssketch-section-nav { display:flex; flex-wrap:wrap; gap:.6rem 1.5rem; padding:1rem var(--ssketch-content-padding); border-top:1px solid var(--ssketch-line); border-bottom:1px solid var(--ssketch-line); }
+.ssketch-section-nav a { color:var(--ssketch-ink); font-weight:700; text-underline-offset:.3em; }
+.ssketch-main-content { padding:1rem var(--ssketch-content-padding) 3rem; line-height:1.9; }
+.ssketch-main-content > .detail-category-nav,.ssketch-main-content > .detail-category-section { margin-inline:0; }
+.ssketch-main-content h2 { margin:3.5rem 0 1rem; font-size:clamp(1.5rem,3vw,2rem); letter-spacing:-.04em; scroll-margin-top:6rem; word-break:keep-all; overflow-wrap:anywhere; }
+.ssketch-main-content > p { max-width:62rem; }
+.ssketch-main-content h3 { margin:2.2rem 0 .7rem; font-size:1.05rem; color:#9c4a30; }
+.ssketch-main-content hr { max-width:62rem; margin:2.4rem 0; border:0; border-top:1px solid var(--ssketch-line,#e4d5bd); }
+.ssketch-game-grid,.ssketch-role-grid,.ssketch-series-grid { display:grid; gap:1.25rem; margin:1.5rem 0; }
+.ssketch-game-card { background:#fffdf8; border:1px solid var(--ssketch-line); border-radius:.6rem; overflow:hidden; min-width:0; }
+.ssketch-game-card figure { margin:0; }
+.ssketch-game-card img { display:block; width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; }
+.ssketch-game-card figcaption { padding:.35rem 1rem; font-size:.75rem; color:var(--ssketch-muted); }
+.ssketch-game-card__copy { padding:.5rem 1.2rem 1.2rem; }
+.ssketch-game-card h3 { margin:.5rem 0; }
+.ssketch-game-card p { margin:.5rem 0 0; font-size:.95rem; }
+.ssketch-role-grid section { padding:1.5rem; background:#ece8dd; border-radius:.6rem; }
+.ssketch-role-grid h3 { margin:0 0 .7rem; }
+.ssketch-role-grid ul { margin:0; padding-left:1.25rem; }
+.ssketch-read-path { padding:1rem 1.25rem; background:#eeebe4; border-radius:.5rem; font-size:.95rem; }
+.ssketch-series-card { min-width:0; border:1px solid #e4d5bd; border-radius:.65rem; background:#fffdf8; overflow:hidden; }
+.ssketch-series-card > a { display:flex; height:100%; flex-direction:column; padding:1.5rem; color:#251d17; text-decoration:none; }
+.ssketch-series-card:hover { border-color:#c84637; }
+.ssketch-series-card__meta { display:flex; justify-content:space-between; gap:.75rem; color:#9c4a30; font-size:.8rem; font-weight:700; }
+.ssketch-series-card h3 { margin:.9rem 0; font-size:1.2rem; line-height:1.65; word-break:keep-all; overflow-wrap:anywhere; }
+.ssketch-series-card p { margin:0 0 1.5rem; color:#756352; line-height:1.8; }
+.ssketch-series-card__result { display:flex; justify-content:space-between; gap:1rem; margin-top:auto; padding-top:1rem; border-top:1px solid #e3dccc; font-size:.85rem; font-weight:700; }
+.ssketch-evidence { margin:1rem 0; padding:1.25rem 1.5rem; border-left:3px solid #c84637; background:#fffdf8; }
+.ssketch-evidence p { margin:.4rem 0; }
+.ssketch-source { font-size:.85rem; color:#756352; }
+.ssketch-article .project-detail__hero h1 { max-width:29em; font-size:clamp(2.1rem,4.4vw,3.4rem); line-height:1.4; color:var(--ssketch-ink); word-break:keep-all; overflow-wrap:anywhere; }
+.ssketch-article__layout { display:grid; gap:2rem; padding-top:2rem; padding-bottom:3rem; }
+.ssketch-article__body { min-width:0; max-width:52rem; order:1; }
+.ssketch-article__body > blockquote:first-child { margin-top:0; padding:1.1rem 1.4rem; background:#f5ecd8; border-left:3px solid #c84637; color:#251d17; }
+.ssketch-callout-label { display:inline-block; margin-right:.4rem; padding:.1rem .55rem; border-radius:.3rem; font-weight:700; font-size:.85em; white-space:nowrap; }
+.ssketch-callout-label--problem { background:#f4d9d3; color:#7a2b1f; }
+.ssketch-callout-label--cause { background:#f7e4b8; color:#7a5310; }
+.ssketch-callout-label--solution { background:#d9e3ee; color:#1f3f5c; }
+.ssketch-callout-label--result { background:#d8dbe3; color:#1a2333; }
+.ssketch-callout-label--role { background:#eee3d0; color:#5c4a34; }
+.ssketch-key { font-weight:700; }
+.ssketch-key--problem { color:#a3372a; }
+.ssketch-key--cause { color:#96650f; }
+.ssketch-key--solution { color:#1f3f5c; }
+.ssketch-key--result { color:#16202f; }
+.ssketch-article__body p,.ssketch-article__body li { line-height:1.95; }
+.ssketch-article__body h2 { margin-top:2.8rem; scroll-margin-top:6rem; font-size:clamp(1.5rem,3.6vw,2.1rem); color:var(--ssketch-red); }
+.ssketch-article__body h3 { margin-top:2rem; margin-bottom:.8rem; font-family:"Gowun Dodum","Noto Sans KR",sans-serif; font-size:1.2rem; color:var(--ssketch-blue); }
+.ssketch-article__body img { max-width:100%; height:auto; border-radius:.4rem; }
+.ssketch-article__body table { display:block; max-width:100%; overflow-x:auto; font-size:.88rem; }
+.ssketch-article__body pre { max-width:100%; overflow-x:auto; }
+.ssketch-reading { align-self:start; padding:1.25rem; border:1px solid #e4d5bd; border-radius:.5rem; background:#fffdf8; order:2; }
+.ssketch-reading h2 { margin:0 0 .8rem; font-size:1rem; }
+.ssketch-reading ol { margin:0; padding-left:1.2rem; }
+.ssketch-reading li { margin:.65rem 0; font-size:.9rem; }
+.ssketch-reading a { color:#756352; text-underline-offset:.2em; }
+.ssketch-reading a[aria-current] { color:#c84637; font-weight:700; }
+.ssketch-reading__note { margin:1.2rem 0 0; padding-top:1rem; border-top:1px solid #e4d5bd; font-size:.8rem; line-height:1.8; color:#756352; }
+.ssketch-project a:focus-visible,.ssketch-article a:focus-visible { outline:3px solid #175cd3; outline-offset:4px; }
+@media(min-width:48rem) { .ssketch-hero__grid { grid-template-columns:1fr 1.05fr; gap:2.5rem; } .ssketch-game-grid { grid-template-columns:repeat(3,minmax(0,1fr)); } .ssketch-role-grid,.ssketch-series-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+.ssketch-article__body pre.mermaid { display:block; overflow-x:auto; }
+.ssketch-article__body pre.mermaid svg { min-width:var(--diagram-readable-width,0); margin:0 auto; display:block; }
+.ssketch-article__body .ssketch-diagram-overview { margin:1.5rem 0; }
+.ssketch-article__body .ssketch-diagram-overview a { display:block; }
+.ssketch-article__body .ssketch-diagram-overview img { display:block; width:100%; height:auto; }
+.ssketch-article__body pre.mermaid--flowchart { min-height:0; padding:.75rem; }
+.ssketch-article__body pre.mermaid--flowchart svg { min-width:0; max-height:56.25rem; }
+.ssketch-article__body pre.mermaid:focus-visible { outline:3px solid #175cd3; outline-offset:3px; }
+@media(min-width:64rem) { .ssketch-article__layout { grid-template-columns:14rem minmax(0,1fr); gap:3rem; } .ssketch-reading { position:sticky; top:6.5rem; order:0; } }
+@media(prefers-reduced-motion:reduce) { .ssketch-project *,.ssketch-article * { scroll-behavior:auto; transition:none; } }
+.ssketch-article__body { --ssketch-media-inset:0rem; }
+.ssketch-article__body .ssketch-video { display:block; max-width:100%; border-radius:.4rem; background:#101b31; }
+.ssketch-video-shell { position:relative; width:100%; aspect-ratio:16/9; margin:1rem 0 .5rem; overflow:hidden; border-radius:.4rem; background:#101b31; }
+.ssketch-video-shell > .ssketch-video { width:100%; height:100%; margin:0; object-fit:contain; }
+.ssketch-article__body > .ssketch-video-shell,.ssketch-article__body > video { width:calc(100% - var(--ssketch-media-inset)); margin:1rem 0 .5rem var(--ssketch-media-inset); }
+.ssketch-article__body > video { height:auto; aspect-ratio:16/9; }
+@media(min-width:40rem) { .ssketch-article__body { --ssketch-media-inset:3.25rem; } }
+.ssketch-video-load { position:absolute; inset:50% auto auto 50%; z-index:1; transform:translate(-50%,-50%); min-width:8rem; padding:.8rem 1.2rem; border:1px solid #f0c66e; border-radius:.35rem; background:#f4c760; color:#251d17; font:inherit; font-weight:700; font-size:1rem; cursor:pointer; }
+.ssketch-video-load:disabled { cursor:wait; opacity:.85; }
+.ssketch-video-load[hidden] { display:none; }
+.ssketch-video-status { position:absolute; inset:auto 1rem 3rem; z-index:2; margin:0; color:#fff; font-size:.9rem; text-align:center; text-shadow:0 1px 3px #000; }
+@media(max-width:40rem) { .ssketch-video-load { min-width:7rem; padding:.65rem 1rem; } .ssketch-video-status { inset:auto .5rem 2.5rem; font-size:.8rem; } }

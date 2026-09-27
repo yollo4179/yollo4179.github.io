@@ -1,0 +1,77 @@
+﻿{
+    "schemaVersion":  1,
+    "mode":  "Launch",
+    "versionId":  "v0.1.0-2ef05998fa83-dirty-asm-767d77950ef9",
+    "runId":  "20260919-123516-jump-early-send-4player-ac",
+    "runLabel":  "jump-early-send-4player-ac",
+    "createdAt":  "2026-09-19T12:35:26.0713354+09:00",
+    "roomName":  "Input4P-20260919-123516",
+    "bundleVersion":  "0.1.0",
+    "gitCommit":  "2ef05998fa83",
+    "gitDirty":  true,
+    "assemblyCSharp":  {
+                           "path":  "C:\\ssafy\\S15P21D204\\Client\\Build\\fallback-4player\\SSketch_Data\\Managed\\Assembly-CSharp.dll",
+                           "sha256":  "767d77950ef9937eb09ead0088630ab58f31bdf0b7e3a3646378b029f0cddd69",
+                           "length":  1358336,
+                           "lastWriteTime":  "2026-09-19T12:34:45.1495375+09:00"
+                       },
+    "playerPath":  "C:\\ssafy\\S15P21D204\\Client\\Build\\fallback-4player\\SSketch.exe",
+    "importedFrom":  null,
+    "logs":  [
+                 {
+                     "requestedRole":  "Host",
+                     "observedRole":  "Host",
+                     "fileName":  "host.log",
+                     "exists":  true
+                 },
+                 {
+                     "requestedRole":  "Guest1",
+                     "observedRole":  "Guest",
+                     "fileName":  "guest1.log",
+                     "exists":  true
+                 },
+                 {
+                     "requestedRole":  "Guest2",
+                     "observedRole":  "Guest",
+                     "fileName":  "guest2.log",
+                     "exists":  true
+                 },
+                 {
+                     "requestedRole":  "Guest3",
+                     "observedRole":  "Guest",
+                     "fileName":  "guest3.log",
+                     "exists":  true
+                 }
+             ],
+    "processes":  [
+                      {
+                          "requestedRole":  "Host",
+                          "fileName":  "host.log",
+                          "processId":  38208,
+                          "positioned":  true
+                      },
+                      {
+                          "requestedRole":  "Guest1",
+                          "fileName":  "guest1.log",
+                          "processId":  25260,
+                          "positioned":  true
+                      },
+                      {
+                          "requestedRole":  "Guest2",
+                          "fileName":  "guest2.log",
+                          "processId":  29500,
+                          "positioned":  true
+                      },
+                      {
+                          "requestedRole":  "Guest3",
+                          "fileName":  "guest3.log",
+                          "processId":  34068,
+                          "positioned":  true
+                      }
+                  ],
+    "status":  "completed",
+    "powerCondition":  "ACLineStatus=1 before build and launch; battery=93%",
+    "verifiedActualHostLog":  "host.log",
+    "analysisScope":  "world=5 authority=5 actors=4 summaryValid=1 partial=0",
+    "jumpResult":  "169 Accepted / 172 attached; 3 RejectedStale; all firstSendDelayMs=0.000; user-observed floor snap not reproduced"
+}

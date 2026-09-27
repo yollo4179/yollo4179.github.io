@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="67" result="Passed" total="67" passed="67" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.1464683">
+  <test-suite type="TestSuite" id="1000" name="SSketch" fullname="SSketch" runstate="Runnable" testcasecount="668" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.146468" total="67" passed="67" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1742" name="Assembly-CSharp-Editor.dll" fullname="C:/ssafy/S15P21D204/Client/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll" runstate="Runnable" testcasecount="668" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.135436" total="67" passed="67" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="34184" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestFixture" id="1172" name="HostAuthorityServiceTests" fullname="HostAuthorityServiceTests" classname="HostAuthorityServiceTests" runstate="Runnable" testcasecount="67" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.127764" total="67" passed="67" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1192" name="backfill_중_Jump와_Fire_edge는_현재_목표_tick에만_한번_기록된다" fullname="HostAuthorityServiceTests.backfill_중_Jump와_Fire_edge는_현재_목표_tick에만_한번_기록된다" methodname="backfill_중_Jump와_Fire_edge는_현재_목표_tick에만_한번_기록된다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="499626377" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.026723" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1194" name="backfill은_uint_tick_wraparound에서도_연속된다" fullname="HostAuthorityServiceTests.backfill은_uint_tick_wraparound에서도_연속된다" methodname="backfill은_uint_tick_wraparound에서도_연속된다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="354669454" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.000943" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1214" name="history는_확정_tick_이후에만_지운다" fullname="HostAuthorityServiceTests.history는_확정_tick_이후에만_지운다" methodname="history는_확정_tick_이후에만_지운다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="9281752" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.003800" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1233" name="PhaseChange가_남은_초와_함께_나온다" fullname="HostAuthorityServiceTests.PhaseChange가_남은_초와_함께_나온다" methodname="PhaseChange가_남은_초와_함께_나온다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="968106985" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.005998" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1213" name="shotId는_Fire_edge에만_붙는다" fullname="HostAuthorityServiceTests.shotId는_Fire_edge에만_붙는다" methodname="shotId는_Fire_edge에만_붙는다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="283458659" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.000782" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1226" name="Spawn이_스냅샷_서비스에_Entity를_등록한다" fullname="HostAuthorityServiceTests.Spawn이_스냅샷_서비스에_Entity를_등록한다" methodname="Spawn이_스냅샷_서비스에_Entity를_등록한다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="41596717" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.005426" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1190" name="같은_tick에_늦게_들어온_점프_edge는_다음_tick에_보존된다" fullname="HostAuthorityServiceTests.같은_tick에_늦게_들어온_점프_edge는_다음_tick에_보존된다" methodname="같은_tick에_늦게_들어온_점프_edge는_다음_tick에_보존된다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1292868623" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.001056" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1189" name="같은_tick의_명령은_불변이다" fullname="HostAuthorityServiceTests.같은_tick의_명령은_불변이다" methodname="같은_tick의_명령은_불변이다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1912681597" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.000425" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1175" name="같은_세대를_다시_받아도_상태를_비우지_않는다" fullname="HostAuthorityServiceTests.같은_세대를_다시_받아도_상태를_비우지_않는다" methodname="같은_세대를_다시_받아도_상태를_비우지_않는다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1879183740" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.000331" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1235" name="같은_페이즈가_다시_와도_발행한다" fullname="HostAuthorityServiceTests.같은_페이즈가_다시_와도_발행한다" methodname="같은_페이즈가_다시_와도_발행한다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="954887296" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.000465" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1204" name="게스트_Fire_명령은_점프_전용_조기_송신을_사용하지_않는다" fullname="HostAuthorityServiceTests.게스트_Fire_명령은_점프_전용_조기_송신을_사용하지_않는다" methodname="게스트_Fire_명령은_점프_전용_조기_송신을_사용하지_않는다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="856914809" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.000492" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1203" name="게스트_새_점프_명령은_정기_송신_전에도_즉시_보낸다" fullname="HostAuthorityServiceTests.게스트_새_점프_명령은_정기_송신_전에도_즉시_보낸다" methodname="게스트_새_점프_명령은_정기_송신_전에도_즉시_보낸다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="104825714" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.001230" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1206" name="게스트_송신_API가_동기_실패하면_첫_송신으로_표시하지_않는다" fullname="HostAuthorityServiceTests.게스트_송신_API가_동기_실패하면_첫_송신으로_표시하지_않는다" methodname="게스트_송신_API가_동기_실패하면_첫_송신으로_표시하지_않는다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="130253717" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.006000" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[[HostAuthority] 입력 batch 전송 실패: phase=invoke room=7 world=1 authority=1 entity=2 firstTick=1002 lastTick=1002 count=1 error=synchronous send failure
+]]></output>
+        </test-case>
+        <test-case id="1211" name="게스트_입력_tick은_최근_확정보다_12틱_이상_앞서지_않는다" fullname="HostAuthorityServiceTests.게스트_입력_tick은_최근_확정보다_12틱_이상_앞서지_않는다" methodname="게스트_입력_tick은_최근_확정보다_12틱_이상_앞서지_않는다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1238328859" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.000519" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1208" name="게스트_점프_trace는_ACK_상한_전후_tick과_제한_이유를_남긴다" fullname="HostAuthorityServiceTests.게스트_점프_trace는_ACK_상한_전후_tick과_제한_이유를_남긴다" methodname="게스트_점프_trace는_ACK_상한_전후_tick과_제한_이유를_남긴다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1611401224" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.000795" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1205" name="게스트_점프의_첫_batch_포함은_재전송해도_한번만_기록한다" fullname="HostAuthorityServiceTests.게스트_점프의_첫_batch_포함은_재전송해도_한번만_기록한다" methodname="게스트_점프의_첫_batch_포함은_재전송해도_한번만_기록한다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1219269241" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.001108" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1207" name="게스트_진단_구독자_예외는_정상_송신을_invoke_실패로_바꾸지_않는다" fullname="HostAuthorityServiceTests.게스트_진단_구독자_예외는_정상_송신을_invoke_실패로_바꾸지_않는다" methodname="게스트_진단_구독자_예외는_정상_송신을_invoke_실패로_바꾸지_않는다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1420095177" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.001768" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[[HostAuthority] 입력 edge 진단 실패: stage=FirstSendRequested eventId=1 kind=Jump inputTick=1002 error=diagnostic subscriber failure
+]]></output>
+        </test-case>
+        <test-case id="1187" name="권위_구성_전에_Ready를_보내면_예외다" fullname="HostAuthorityServiceTests.권위_구성_전에_Ready를_보내면_예외다" methodname="권위_구성_전에_Ready를_보내면_예외다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="904711764" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.001773" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1173" name="권위_구성을_받기_전에는_어떤_패킷도_받지_않는다" fullname="HostAuthorityServiceTests.권위_구성을_받기_전에는_어떤_패킷도_받지_않는다" methodname="권위_구성을_받기_전에는_어떤_패킷도_받지_않는다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1910802873" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.000210" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1227" name="내_발사와_남의_발사를_구분한다" fullname="HostAuthorityServiceTests.내_발사와_남의_발사를_구분한다" methodname="내_발사와_남의_발사를_구분한다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1056731348" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.001712" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1223" name="내_확정_상태는_이벤트로_한_번만_발행된다" fullname="HostAuthorityServiceTests.내_확정_상태는_이벤트로_한_번만_발행된다" methodname="내_확정_상태는_이벤트로_한_번만_발행된다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="2133401871" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.000710" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1183" name="다른_actor거나_역전된_호스트_시계_응답은_버린다" fullname="HostAuthorityServiceTests.다른_actor거나_역전된_호스트_시계_응답은_버린다" methodname="다른_actor거나_역전된_호스트_시계_응답은_버린다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1569301848" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.001476" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1219" name="다른_세대의_스냅샷은_통째로_버린다" fullname="HostAuthorityServiceTests.다른_세대의_스냅샷은_통째로_버린다" methodname="다른_세대의_스냅샷은_통째로_버린다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1628364783" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.000570" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1232" name="다른_세대의_트랜잭션은_무시한다" fullname="HostAuthorityServiceTests.다른_세대의_트랜잭션은_무시한다" methodname="다른_세대의_트랜잭션은_무시한다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="235221915" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.000430" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1191" name="렌더가_밀려_세_tick이_비면_직전_held_입력으로_연속해서_채운다" fullname="HostAuthorityServiceTests.렌더가_밀려_세_tick이_비면_직전_held_입력으로_연속해서_채운다" methodname="렌더가_밀려_세_tick이_비면_직전_held_입력으로_연속해서_채운다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1944194002" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.000832" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1202" name="로컬_명령의_중계_Duplicate는_점프를_두번_실행하지_않는다" fullname="HostAuthorityServiceTests.로컬_명령의_중계_Duplicate는_점프를_두번_실행하지_않는다" methodname="로컬_명령의_중계_Duplicate는_점프를_두번_실행하지_않는다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1721831504" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.008875" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1218" name="모르는_Entity를_UDP만으로_등장시키지_않는다" fullname="HostAuthorityServiceTests.모르는_Entity를_UDP만으로_등장시키지_않는다" methodname="모르는_Entity를_UDP만으로_등장시키지_않는다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1828650338" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.000492" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1230" name="모르는_변경_종류가_섞여도_아는_종류는_처리한다" fullname="HostAuthorityServiceTests.모르는_변경_종류가_섞여도_아는_종류는_처리한다" methodname="모르는_변경_종류가_섞여도_아는_종류는_처리한다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="348435326" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.001953" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1239" name="모르는_페이즈가_섞여도_같은_트랜잭션의_Spawn은_산다" fullname="HostAuthorityServiceTests.모르는_페이즈가_섞여도_같은_트랜잭션의_Spawn은_산다" methodname="모르는_페이즈가_섞여도_같은_트랜잭션의_Spawn은_산다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="959606098" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.000624" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1224" name="모터_속도와_외력_속도는_분리되어_들어온다" fullname="HostAuthorityServiceTests.모터_속도와_외력_속도는_분리되어_들어온다" methodname="모터_속도와_외력_속도는_분리되어_들어온다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="882879755" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.000536" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1177" name="방을_나가면_시계_probe를_멈춘다" fullname="HostAuthorityServiceTests.방을_나가면_시계_probe를_멈춘다" methodname="방을_나가면_시계_probe를_멈춘다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1608686195" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.000527" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1178" name="방을_나갔다_다시_들어오면_다시_보낸다" fullname="HostAuthorityServiceTests.방을_나갔다_다시_들어오면_다시_보낸다" methodname="방을_나갔다_다시_들어오면_다시_보낸다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1441257106" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.000291" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1185" name="새_월드가_오면_시계와_시뮬레이션_상태를_비운다" fullname="HostAuthorityServiceTests.새_월드가_오면_시계와_시뮬레이션_상태를_비운다" methodname="새_월드가_오면_시계와_시뮬레이션_상태를_비운다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1240825419" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.000276" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1216" name="새_월드에서_history는_비우되_shotId는_잇는다" fullname="HostAuthorityServiceTests.새_월드에서_history는_비우되_shotId는_잇는다" methodname="새_월드에서_history는_비우되_shotId는_잇는다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1511114626" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.000440" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1225" name="새_월드에서_모든_상태를_비운다" fullname="HostAuthorityServiceTests.새_월드에서_모든_상태를_비운다" methodname="새_월드에서_모든_상태를_비운다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1252741015" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.000415" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1193" name="세_tick보다_긴_공백도_앞쪽_세_tick은_직전_held_입력으로_채운다" fullname="HostAuthorityServiceTests.세_tick보다_긴_공백도_앞쪽_세_tick은_직전_held_입력으로_채운다" methodname="세_tick보다_긴_공백도_앞쪽_세_tick은_직전_held_입력으로_채운다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1708699052" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.000644" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1174" name="세대가_다른_패킷은_거부한다" fullname="HostAuthorityServiceTests.세대가_다른_패킷은_거부한다" methodname="세대가_다른_패킷은_거부한다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="412760220" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.000223" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1201" name="소비_전_두_점프는_정책대로_하나로_합쳐지고_한번만_실행된다" fullname="HostAuthorityServiceTests.소비_전_두_점프는_정책대로_하나로_합쳐지고_한번만_실행된다" methodname="소비_전_두_점프는_정책대로_하나로_합쳐지고_한번만_실행된다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="2010818458" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.001344" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1231" name="순번이_건너뛰면_진단에_남기되_적용은_한다" fullname="HostAuthorityServiceTests.순번이_건너뛰면_진단에_남기되_적용은_한다" methodname="순번이_건너뛰면_진단에_남기되_적용은_한다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1186103874" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.001680" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1179" name="시계_probe는_주기를_지킨다" fullname="HostAuthorityServiceTests.시계_probe는_주기를_지킨다" methodname="시계_probe는_주기를_지킨다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="899919961" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.000548" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1176" name="시계가_없어도_시작_tick부터_추정이_흐른다" fullname="HostAuthorityServiceTests.시계가_없어도_시작_tick부터_추정이_흐른다" methodname="시계가_없어도_시작_tick부터_추정이_흐른다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="744558452" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.000238" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1188" name="시뮬레이션_전에는_입력을_기록도_송신도_하지_않는다" fullname="HostAuthorityServiceTests.시뮬레이션_전에는_입력을_기록도_송신도_하지_않는다" methodname="시뮬레이션_전에는_입력을_기록도_송신도_하지_않는다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1045579331" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.000282" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1180" name="시뮬레이션_종료_뒤에는_시계_probe를_보내지_않는다" fullname="HostAuthorityServiceTests.시뮬레이션_종료_뒤에는_시계_probe를_보내지_않는다" methodname="시뮬레이션_종료_뒤에는_시계_probe를_보내지_않는다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1612687506" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.000404" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1217" name="연결이_끊기면_보내지_않는다" fullname="HostAuthorityServiceTests.연결이_끊기면_보내지_않는다" methodname="연결이_끊기면_보내지_않는다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1408506631" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.000247" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1221" name="오래된_hostTick의_레코드는_버린다" fullname="HostAuthorityServiceTests.오래된_hostTick의_레코드는_버린다" methodname="오래된_hostTick의_레코드는_버린다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="923932565" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.000392" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1182" name="왕복_측정에서_호스트_보유_시간을_뺀다" fullname="HostAuthorityServiceTests.왕복_측정에서_호스트_보유_시간을_뺀다" methodname="왕복_측정에서_호스트_보유_시간을_뺀다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1573929345" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.000252" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1228" name="이미_스냅샷에_반영된_넉백은_다시_더하지_않는다" fullname="HostAuthorityServiceTests.이미_스냅샷에_반영된_넉백은_다시_더하지_않는다" methodname="이미_스냅샷에_반영된_넉백은_다시_더하지_않는다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="270621326" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.001666" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1229" name="이미_적용한_트랜잭션은_다시_적용하지_않는다" fullname="HostAuthorityServiceTests.이미_적용한_트랜잭션은_다시_적용하지_않는다" methodname="이미_적용한_트랜잭션은_다시_적용하지_않는다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1042865813" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.000752" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1186" name="이전_세대의_종료_알림은_무시한다" fullname="HostAuthorityServiceTests.이전_세대의_종료_알림은_무시한다" methodname="이전_세대의_종료_알림은_무시한다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="2124832635" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.000570" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1184" name="입력_목표_tick은_지연만큼_앞선다" fullname="HostAuthorityServiceTests.입력_목표_tick은_지연만큼_앞선다" methodname="입력_목표_tick은_지연만큼_앞선다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1530492933" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.000551" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1200" name="입력_잠금으로_취소한_점프는_나중_tick에_실행되지_않는다" fullname="HostAuthorityServiceTests.입력_잠금으로_취소한_점프는_나중_tick에_실행되지_않는다" methodname="입력_잠금으로_취소한_점프는_나중_tick에_실행되지_않는다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1668731597" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.000801" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1234" name="지난_tick과_시한없음은_0초다" fullname="HostAuthorityServiceTests.지난_tick과_시한없음은_0초다" methodname="지난_tick과_시한없음은_0초다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="863380665" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.000529" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1181" name="짝이_맞지_않는_시계_응답은_버린다" fullname="HostAuthorityServiceTests.짝이_맞지_않는_시계_응답은_버린다" methodname="짝이_맞지_않는_시계_응답은_버린다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1559313248" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.000254" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1212" name="첫_스냅샷_전에도_게스트_입력은_시작_tick_앞_12틱으로_제한된다" fullname="HostAuthorityServiceTests.첫_스냅샷_전에도_게스트_입력은_시작_tick_앞_12틱으로_제한된다" methodname="첫_스냅샷_전에도_게스트_입력은_시작_tick_앞_12틱으로_제한된다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1153720367" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.000289" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1220" name="최신성은_Entity별로_판단한다" fullname="HostAuthorityServiceTests.최신성은_Entity별로_판단한다" methodname="최신성은_Entity별로_판단한다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="213584234" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.000431" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1236" name="최종_결과_페이즈는_IsFinal이다" fullname="HostAuthorityServiceTests.최종_결과_페이즈는_IsFinal이다" methodname="최종_결과_페이즈는_IsFinal이다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1098071560" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.000394" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1237" name="평가_집계가_평균과_함께_나온다" fullname="HostAuthorityServiceTests.평가_집계가_평균과_함께_나온다" methodname="평가_집계가_평균과_함께_나온다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="679268552" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.004664" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[[Evaluation][S2C][2301][Received] loop=9 round=1 count=1
+[Evaluation][S2C][2301][Received] loop=9 round=1 artworkId=77 averageScore=7.33333349 commentCount=1
+]]></output>
+        </test-case>
+        <test-case id="1238" name="평가자가_없으면_평균은_0이다" fullname="HostAuthorityServiceTests.평가자가_없으면_평균은_0이다" methodname="평가자가_없으면_평균은_0이다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="351712791" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.001388" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[[Evaluation][S2C][2301][Received] loop=9 round=1 count=1
+[Evaluation][S2C][2301][Received] loop=9 round=1 artworkId=77 averageScore=0 commentCount=0
+]]></output>
+        </test-case>
+        <test-case id="1210" name="한_batch에_최대_8개만_싣는다" fullname="HostAuthorityServiceTests.한_batch에_최대_8개만_싣는다" methodname="한_batch에_최대_8개만_싣는다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="126322638" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.000373" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1199" name="호스트_pre_tick은_이동_해제_샘플을_다음_tick에_반영한다" fullname="HostAuthorityServiceTests.호스트_pre_tick은_이동_해제_샘플을_다음_tick에_반영한다" methodname="호스트_pre_tick은_이동_해제_샘플을_다음_tick에_반영한다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="672025443" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.000577" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1198" name="호스트_pre_tick은_점프_edge를_6틱_중_정확히_한번만_소비한다" fullname="HostAuthorityServiceTests.호스트_pre_tick은_점프_edge를_6틱_중_정확히_한번만_소비한다" methodname="호스트_pre_tick은_점프_edge를_6틱_중_정확히_한번만_소비한다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="929030988" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.000381" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1197" name="호스트_pre_tick은_한번_읽은_W를_추가_Update없이_6틱_공급한다" fullname="HostAuthorityServiceTests.호스트_pre_tick은_한번_읽은_W를_추가_Update없이_6틱_공급한다" methodname="호스트_pre_tick은_한번_읽은_W를_추가_Update없이_6틱_공급한다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1875535142" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.000576" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1196" name="호스트_로컬_명령은_Runner_pre_tick에서_한번만_발행된다" fullname="HostAuthorityServiceTests.호스트_로컬_명령은_Runner_pre_tick에서_한번만_발행된다" methodname="호스트_로컬_명령은_Runner_pre_tick에서_한번만_발행된다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1062807260" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.000958" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1195" name="호스트가_fallback으로_이미_확정한_tick은_backfill하지_않는다" fullname="HostAuthorityServiceTests.호스트가_fallback으로_이미_확정한_tick은_backfill하지_않는다" methodname="호스트가_fallback으로_이미_확정한_tick은_backfill하지_않는다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1668809218" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.000432" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1215" name="확정_tick은_뒤로_가지_않는다" fullname="HostAuthorityServiceTests.확정_tick은_뒤로_가지_않는다" methodname="확정_tick은_뒤로_가지_않는다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1711488202" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.000333" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1222" name="확정_상태가_입력_history를_지운다" fullname="HostAuthorityServiceTests.확정_상태가_입력_history를_지운다" methodname="확정_상태가_입력_history를_지운다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="341932959" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.000495" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1209" name="확정_전_명령을_다시_싣는다" fullname="HostAuthorityServiceTests.확정_전_명령을_다시_싣는다" methodname="확정_전_명령을_다시_싣는다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="553493404" result="Passed" start-time="2026-09-19 03:29:17Z" end-time="2026-09-19 03:29:17Z" duration="0.000516" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[<b><color=#2EA3FF>MCP-FOR-UNITY</color></b>: [TestRunnerNoThrottle] Restored Interaction Mode after test run.
+Saving results to: C:/Users/SSAFY/AppData/LocalLow/TeamSSketch/SSketch\TestResults.xml
+]]></output>
+        </test-case>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

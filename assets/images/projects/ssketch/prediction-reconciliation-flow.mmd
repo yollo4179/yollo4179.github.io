@@ -1,0 +1,88 @@
+flowchart TB
+
+    %% =========================
+    %% 호스트 권위 - 상단
+    %% =========================
+    subgraph AUTH["호스트 권위 시뮬레이션"]
+        direction LR
+        Authority[호스트 권위 시뮬레이션]
+        Confirmed[물리 확정 상태<br/>P_auth, HostTick]
+        Collision[충돌 · 피격 · 접지 판정]
+        Authority --> Confirmed
+        Confirmed --> Collision
+    end
+
+    %% =========================
+    %% 하단 영역
+    %% 로컬 = 왼쪽 / 원격 = 오른쪽
+    %% =========================
+    subgraph CLIENTS[" "]
+        direction LR
+
+        %% -------------------------
+        %% 로컬 플레이어 - 왼쪽
+        %% -------------------------
+        subgraph LOCAL["로컬 플레이어"]
+            direction TB
+            Input[플레이어 입력]
+            Prediction[로컬 예측 시뮬레이션]
+            PredictedState[현재 예측 상태<br/>P_pred]
+            SnapshotLocal[HostTick 스냅샷<br/>확정 상태 P_auth]
+            Replay[확정 상태부터<br/>미확정 입력 재적용]
+            ReplayState[현재 Tick 기준<br/>재시뮬레이션 상태 P_replay]
+            Compare{P_pred와 P_replay의 차이가<br/>보정 임계값 이상인가?}
+            Keep[현재 화면 유지<br/>또는 미세 보정]
+            Smooth[재시뮬레이션 결과 기준<br/>부드러운 Visual 보정]
+            Adopt[재시뮬레이션 결과를<br/>현재 물리 상태로 채택]
+            LocalVisual[로컬 화면 위치]
+            Input --> Prediction
+            Prediction --> PredictedState
+            SnapshotLocal --> Replay
+            Replay --> ReplayState
+            PredictedState --> Compare
+            ReplayState --> Compare
+            ReplayState --> Adopt
+            Compare -->|아니오| Keep
+            Compare -->|예| Smooth
+            Keep --> LocalVisual
+            Smooth --> LocalVisual
+        end
+
+        %% -------------------------
+        %% 게스트 / 원격 플레이어 - 오른쪽
+        %% -------------------------
+        subgraph REMOTE["게스트 / 원격 플레이어"]
+            direction TB
+            SnapshotRemote[HostTick 스냅샷]
+            Buffer[원격 스냅샷 버퍼]
+            Interpolate[과거 두 HostTick 사이 보간]
+            RemoteVisual[원격 화면 위치]
+            SnapshotRemote --> Buffer
+            Buffer --> Interpolate
+            Interpolate --> RemoteVisual
+        end
+    end
+
+    %% =========================
+    %% 영역 간 연결
+    %% =========================
+    Input --> Authority
+    Confirmed --> SnapshotLocal
+    Confirmed --> SnapshotRemote
+
+    %% =========================
+    %% 영역 색상
+    %% =========================
+    style AUTH fill:#FFF1E6,stroke:#F2994A,stroke-width:2px
+    style LOCAL fill:#EAF3FF,stroke:#4A90E2,stroke-width:2px
+    style REMOTE fill:#EAF8EE,stroke:#27AE60,stroke-width:2px
+    style CLIENTS fill:none,stroke:none
+
+    %% =========================
+    %% 중요 단계 강조
+    %% =========================
+    style Compare fill:#FFF8CC,stroke:#C9A700,stroke-width:1px
+    style Replay fill:#EEF2FF,stroke:#6366F1,stroke-width:2px
+    style ReplayState fill:#EEF2FF,stroke:#6366F1,stroke-width:2px
+    style Smooth fill:#F3ECFF,stroke:#8E5FD3,stroke-width:2px
+    style Adopt fill:#EDEDED,stroke:#666666,stroke-width:2px

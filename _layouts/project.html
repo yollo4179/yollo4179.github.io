@@ -6,10 +6,15 @@ layout: default
   <article class="project-detail">
     <header class="project-detail__hero">
       <div class="page-container">
-        <a class="breadcrumb" href="{{ '/#projects' | relative_url }}">
-          <span aria-hidden="true">←</span> 프로젝트 목록
-        </a>
-        <p class="eyebrow"><span>{{ page.category }}</span> / {{ page.project_type }}</p>
+        <nav class="breadcrumbs" aria-label="현재 위치">
+          <ol>
+            <li><a href="{{ '/projects/' | relative_url }}">프로젝트</a></li>
+            <li aria-current="page">{{ page.title }}</li>
+          </ol>
+        </nav>
+        <p class="eyebrow">
+          <span>{{ page.category }}</span>{% unless page.category contains page.project_type %} / {{ page.project_type }}{% endunless %}
+        </p>
         <h1>{{ page.title }}</h1>
         <p class="project-detail__lead">{{ page.summary }}</p>
         <ul class="project-detail__tags" aria-label="프로젝트 태그">
@@ -22,26 +27,44 @@ layout: default
       <aside class="project-summary" aria-labelledby="summary-title">
         <p class="section-index" id="summary-title">PROJECT SNAPSHOT</p>
         <dl>
-          <div>
-            <dt>상태</dt>
-            <dd><span class="status-chip">{{ page.status }}</span></dd>
-          </div>
-          <div>
-            <dt>기간</dt>
-            <dd>{{ page.period }}</dd>
-          </div>
-          <div>
-            <dt>담당 역할</dt>
-            <dd>{{ page.role }}</dd>
-          </div>
-          <div>
-            <dt>팀 구성</dt>
-            <dd>{{ page.team }}</dd>
-          </div>
-          <div>
-            <dt>기술</dt>
-            <dd>{{ page.stack }}</dd>
-          </div>
+          {% if page.status and page.status != "입력 예정" and page.status != "기록 정리 중" %}
+            <div>
+              <dt>상태</dt>
+              {% assign project_statuses = page.status | split: "·" %}
+              <dd class="status-chip-list">
+                {% for status in project_statuses %}<span class="status-chip">{{ status | strip }}</span>{% endfor %}
+              </dd>
+            </div>
+          {% endif %}
+          {% if page.period and page.period != "입력 예정" %}
+            <div>
+              <dt>기간</dt>
+              <dd>{{ page.period }}</dd>
+            </div>
+          {% endif %}
+          {% if page.role and page.role != "입력 예정" %}
+            <div>
+              <dt>담당 역할</dt>
+              {% assign project_roles = page.role | split: "," %}
+              <dd>
+                <ul class="project-summary__items">
+                  {% for role in project_roles %}<li>{{ role | strip }}</li>{% endfor %}
+                </ul>
+              </dd>
+            </div>
+          {% endif %}
+          {% if page.team and page.team != "입력 예정" %}
+            <div>
+              <dt>팀 구성</dt>
+              <dd>{{ page.team }}</dd>
+            </div>
+          {% endif %}
+          {% if page.stack and page.stack != "입력 예정" %}
+            <div>
+              <dt>기술</dt>
+              <dd>{{ page.stack }}</dd>
+            </div>
+          {% endif %}
         </dl>
       </aside>
 
@@ -51,7 +74,7 @@ layout: default
     </div>
 
     <nav class="project-pagination page-container" aria-label="프로젝트 이동">
-      <a href="{{ '/#projects' | relative_url }}">
+      <a href="{{ '/projects/' | relative_url }}">
         <span>모든 프로젝트</span>
         <strong>목록으로 돌아가기</strong>
       </a>

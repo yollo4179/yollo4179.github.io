@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="8" result="Passed" total="8" passed="8" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-09-19 13:05:33Z" end-time="2026-09-19 13:05:34Z" duration="0.3484698">
+  <test-suite type="TestSuite" id="1000" name="SSketch" fullname="SSketch" runstate="Runnable" testcasecount="678" result="Passed" start-time="2026-09-19 13:05:33Z" end-time="2026-09-19 13:05:34Z" duration="0.348470" total="8" passed="8" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1752" name="Assembly-CSharp-Editor.dll" fullname="C:/ssafy/S15P21D204/Client/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll" runstate="Runnable" testcasecount="678" result="Passed" start-time="2026-09-19 13:05:33Z" end-time="2026-09-19 13:05:34Z" duration="0.337617" total="8" passed="8" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="4368" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestFixture" id="1357" name="NetworkDebugTransportTests" fullname="NetworkDebugTransportTests" classname="NetworkDebugTransportTests" runstate="Runnable" testcasecount="6" result="Passed" start-time="2026-09-19 13:05:33Z" end-time="2026-09-19 13:05:33Z" duration="0.030715" total="6" passed="6" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1358" name="AddedRecordPreservesUdpTransportAcrossStatusUpdate" fullname="NetworkDebugTransportTests.AddedRecordPreservesUdpTransportAcrossStatusUpdate" methodname="AddedRecordPreservesUdpTransportAcrossStatusUpdate" classname="NetworkDebugTransportTests" runstate="Runnable" seed="1212935672" result="Passed" start-time="2026-09-19 13:05:33Z" end-time="2026-09-19 13:05:33Z" duration="0.012347" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1363" name="GlobalCaptureOffStillSuppressesPlayerInputBatchFailures" fullname="NetworkDebugTransportTests.GlobalCaptureOffStillSuppressesPlayerInputBatchFailures" methodname="GlobalCaptureOffStillSuppressesPlayerInputBatchFailures" classname="NetworkDebugTransportTests" runstate="Runnable" seed="1165706904" result="Passed" start-time="2026-09-19 13:05:33Z" end-time="2026-09-19 13:05:33Z" duration="0.000812" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1360" name="NormalPlayerInputBatchDetailIsSkippedBeforeFormattingByDefault" fullname="NetworkDebugTransportTests.NormalPlayerInputBatchDetailIsSkippedBeforeFormattingByDefault" methodname="NormalPlayerInputBatchDetailIsSkippedBeforeFormattingByDefault" classname="NetworkDebugTransportTests" runstate="Runnable" seed="745233807" result="Passed" start-time="2026-09-19 13:05:33Z" end-time="2026-09-19 13:05:33Z" duration="0.000769" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1361" name="PlayerInputBatchDetailOptInBypassesGeneralHighFrequencySwitch" fullname="NetworkDebugTransportTests.PlayerInputBatchDetailOptInBypassesGeneralHighFrequencySwitch" methodname="PlayerInputBatchDetailOptInBypassesGeneralHighFrequencySwitch" classname="NetworkDebugTransportTests" runstate="Runnable" seed="1755527532" result="Passed" start-time="2026-09-19 13:05:33Z" end-time="2026-09-19 13:05:33Z" duration="0.003243" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1362" name="PlayerInputBatchFailureIsRecordedWithoutDetailOptIn" fullname="NetworkDebugTransportTests.PlayerInputBatchFailureIsRecordedWithoutDetailOptIn" methodname="PlayerInputBatchFailureIsRecordedWithoutDetailOptIn" classname="NetworkDebugTransportTests" runstate="Runnable" seed="284573648" result="Passed" start-time="2026-09-19 13:05:33Z" end-time="2026-09-19 13:05:33Z" duration="0.000207" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1359" name="PlayerInputBatchNotificationIsCategorizedAsPlayerMovement" fullname="NetworkDebugTransportTests.PlayerInputBatchNotificationIsCategorizedAsPlayerMovement" methodname="PlayerInputBatchNotificationIsCategorizedAsPlayerMovement" classname="NetworkDebugTransportTests" runstate="Runnable" seed="73677202" result="Passed" start-time="2026-09-19 13:05:33Z" end-time="2026-09-19 13:05:33Z" duration="0.000105" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1666" name="UdpTransportRecoveryTests" fullname="UdpTransportRecoveryTests" classname="UdpTransportRecoveryTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-09-19 13:05:33Z" end-time="2026-09-19 13:05:34Z" duration="0.294890" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1667" name="_2001은_Update_Pump보다_먼저_전용_Pump에서_한번만_발행된다" fullname="UdpTransportRecoveryTests._2001은_Update_Pump보다_먼저_전용_Pump에서_한번만_발행된다" methodname="_2001은_Update_Pump보다_먼저_전용_Pump에서_한번만_발행된다" classname="UdpTransportRecoveryTests" runstate="Runnable" seed="1701278331" result="Passed" start-time="2026-09-19 13:05:33Z" end-time="2026-09-19 13:05:34Z" duration="0.104811" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1668" name="서버가_재시작되어도_기존_UDP_소켓으로_송수신을_재개한다" fullname="UdpTransportRecoveryTests.서버가_재시작되어도_기존_UDP_소켓으로_송수신을_재개한다" methodname="서버가_재시작되어도_기존_UDP_소켓으로_송수신을_재개한다" classname="UdpTransportRecoveryTests" runstate="Runnable" seed="1000110625" result="Passed" start-time="2026-09-19 13:05:34Z" end-time="2026-09-19 13:05:34Z" duration="0.188885" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[<b><color=#2EA3FF>MCP-FOR-UNITY</color></b>: [TestRunnerNoThrottle] Restored Interaction Mode after test run.
+Saving results to: C:/Users/SSAFY/AppData/LocalLow/TeamSSketch/SSketch\TestResults.xml
+]]></output>
+        </test-case>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

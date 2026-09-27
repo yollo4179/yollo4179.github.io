@@ -1,0 +1,1113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="174" result="Skipped:Ignored" total="174" passed="168" failed="0" inconclusive="0" skipped="6" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:38Z" duration="0.2854844">
+  <test-suite type="TestSuite" id="1000" name="SSketch" fullname="SSketch" runstate="Runnable" testcasecount="656" result="Skipped" label="Ignored" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:38Z" duration="0.285484" total="174" passed="168" failed="0" inconclusive="0" skipped="6" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <reason>
+      <message><![CDATA[One or more child tests were ignored]]></message>
+    </reason>
+    <test-suite type="Assembly" id="1730" name="Assembly-CSharp-Editor.dll" fullname="C:/ssafy/S15P21D204/Client/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll" runstate="Runnable" testcasecount="656" result="Skipped" label="Ignored" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:38Z" duration="0.273363" total="174" passed="168" failed="0" inconclusive="0" skipped="6" asserts="0">
+      <properties>
+        <property name="_PID" value="53904" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <reason>
+        <message><![CDATA[One or more child tests were ignored]]></message>
+      </reason>
+      <test-suite type="TestFixture" id="1027" name="CharacterSnapshotBufferTests" fullname="CharacterSnapshotBufferTests" classname="CharacterSnapshotBufferTests" runstate="Runnable" testcasecount="22" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.046983" total="22" passed="22" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1035" name="Clear하면_비워진다" fullname="CharacterSnapshotBufferTests.Clear하면_비워진다" methodname="Clear하면_비워진다" classname="CharacterSnapshotBufferTests" runstate="Runnable" seed="105733072" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.007573" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1033" name="snapshot이_하나뿐이면_그_값을_돌려준다" fullname="CharacterSnapshotBufferTests.snapshot이_하나뿐이면_그_값을_돌려준다" methodname="snapshot이_하나뿐이면_그_값을_돌려준다" classname="CharacterSnapshotBufferTests" runstate="Runnable" seed="564382190" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.003631" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1048" name="uint_tick_비교는_wrap_around를_견딘다" fullname="CharacterSnapshotBufferTests.uint_tick_비교는_wrap_around를_견딘다" methodname="uint_tick_비교는_wrap_around를_견딘다" classname="CharacterSnapshotBufferTests" runstate="Runnable" seed="2054084411" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.000292" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1049" name="ushort_sequence_비교는_wrap_around를_견딘다" fullname="CharacterSnapshotBufferTests.ushort_sequence_비교는_wrap_around를_견딘다" methodname="ushort_sequence_비교는_wrap_around를_견딘다" classname="CharacterSnapshotBufferTests" runstate="Runnable" seed="913660990" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.000144" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1034" name="같은_시각의_snapshot_두_개에도_보간_계수가_유한하다" fullname="CharacterSnapshotBufferTests.같은_시각의_snapshot_두_개에도_보간_계수가_유한하다" methodname="같은_시각의_snapshot_두_개에도_보간_계수가_유한하다" classname="CharacterSnapshotBufferTests" runstate="Runnable" seed="2143522838" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.000283" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1046" name="공중_낙하속도는_종단속도를_넘지_않는다" fullname="CharacterSnapshotBufferTests.공중_낙하속도는_종단속도를_넘지_않는다" methodname="공중_낙하속도는_종단속도를_넘지_않는다" classname="CharacterSnapshotBufferTests" runstate="Runnable" seed="623221659" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.000720" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1030" name="두_snapshot_사이를_보간_계수로_돌려준다" fullname="CharacterSnapshotBufferTests.두_snapshot_사이를_보간_계수로_돌려준다" methodname="두_snapshot_사이를_보간_계수로_돌려준다" classname="CharacterSnapshotBufferTests" runstate="Runnable" seed="778236613" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.001154" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1031" name="버퍼보다_과거를_요청하면_가장_오래된_값에_고정한다" fullname="CharacterSnapshotBufferTests.버퍼보다_과거를_요청하면_가장_오래된_값에_고정한다" methodname="버퍼보다_과거를_요청하면_가장_오래된_값에_고정한다" classname="CharacterSnapshotBufferTests" runstate="Runnable" seed="181913178" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.000295" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1032" name="버퍼보다_미래를_요청하면_외삽_신호를_준다" fullname="CharacterSnapshotBufferTests.버퍼보다_미래를_요청하면_외삽_신호를_준다" methodname="버퍼보다_미래를_요청하면_외삽_신호를_준다" classname="CharacterSnapshotBufferTests" runstate="Runnable" seed="218812404" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.003307" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1045" name="수평_Move가_접지를_지워도_수직속도가_3000틱_동안_누적되지_않는다" fullname="CharacterSnapshotBufferTests.수평_Move가_접지를_지워도_수직속도가_3000틱_동안_누적되지_않는다" methodname="수평_Move가_접지를_지워도_수직속도가_3000틱_동안_누적되지_않는다" classname="CharacterSnapshotBufferTests" runstate="Runnable" seed="391179829" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.000398" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1047" name="오른쪽_이동은_몸을_오른쪽으로_돌리고_전진_애니메이션이_된다" fullname="CharacterSnapshotBufferTests.오른쪽_이동은_몸을_오른쪽으로_돌리고_전진_애니메이션이_된다" methodname="오른쪽_이동은_몸을_오른쪽으로_돌리고_전진_애니메이션이_된다" classname="CharacterSnapshotBufferTests" runstate="Runnable" seed="229026764" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.000814" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1029" name="용량을_넘으면_가장_오래된_것이_밀려난다" fullname="CharacterSnapshotBufferTests.용량을_넘으면_가장_오래된_것이_밀려난다" methodname="용량을_넘으면_가장_오래된_것이_밀려난다" classname="CharacterSnapshotBufferTests" runstate="Runnable" seed="265272512" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.000601" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1038" name="원격_진단은_같은_수신_시각의_snapshot_burst를_집계한다" fullname="CharacterSnapshotBufferTests.원격_진단은_같은_수신_시각의_snapshot_burst를_집계한다" methodname="원격_진단은_같은_수신_시각의_snapshot_burst를_집계한다" classname="CharacterSnapshotBufferTests" runstate="Runnable" seed="121062451" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.002344" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1039" name="원격_진단은_보간_외삽과_이동중_화면정지를_구분한다" fullname="CharacterSnapshotBufferTests.원격_진단은_보간_외삽과_이동중_화면정지를_구분한다" methodname="원격_진단은_보간_외삽과_이동중_화면정지를_구분한다" classname="CharacterSnapshotBufferTests" runstate="Runnable" seed="452481796" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.002712" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1041" name="원격_진단은_수직_화면이동을_jump_step으로_별도_기록한다" fullname="CharacterSnapshotBufferTests.원격_진단은_수직_화면이동을_jump_step으로_별도_기록한다" methodname="원격_진단은_수직_화면이동을_jump_step으로_별도_기록한다" classname="CharacterSnapshotBufferTests" runstate="Runnable" seed="307513983" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.002037" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1040" name="원격_진단은_큰_화면이동의_최악_보간구간을_한번만_요약한다" fullname="CharacterSnapshotBufferTests.원격_진단은_큰_화면이동의_최악_보간구간을_한번만_요약한다" methodname="원격_진단은_큰_화면이동의_최악_보간구간을_한번만_요약한다" classname="CharacterSnapshotBufferTests" runstate="Runnable" seed="1317151435" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.000596" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1037" name="접지_상태의_음수_Y속도는_지형_아래로_외삽하지_않는다" fullname="CharacterSnapshotBufferTests.접지_상태의_음수_Y속도는_지형_아래로_외삽하지_않는다" methodname="접지_상태의_음수_Y속도는_지형_아래로_외삽하지_않는다" classname="CharacterSnapshotBufferTests" runstate="Runnable" seed="1669682474" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.000441" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1028" name="처음에는_비어_있다" fullname="CharacterSnapshotBufferTests.처음에는_비어_있다" methodname="처음에는_비어_있다" classname="CharacterSnapshotBufferTests" runstate="Runnable" seed="1801557318" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.000189" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1042" name="호스트_tick_보간은_snapshot_도착간격이_몰려도_일정하다" fullname="CharacterSnapshotBufferTests.호스트_tick_보간은_snapshot_도착간격이_몰려도_일정하다" methodname="호스트_tick_보간은_snapshot_도착간격이_몰려도_일정하다" classname="CharacterSnapshotBufferTests" runstate="Runnable" seed="32006904" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.000718" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1043" name="호스트_tick_보간은_uint_wrap_around를_통과한다" fullname="CharacterSnapshotBufferTests.호스트_tick_보간은_uint_wrap_around를_통과한다" methodname="호스트_tick_보간은_uint_wrap_around를_통과한다" classname="CharacterSnapshotBufferTests" runstate="Runnable" seed="13033475" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.000330" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1036" name="호스트_버퍼는_30Hz에서_80ms_과거를_보간할_상태를_보존한다" fullname="CharacterSnapshotBufferTests.호스트_버퍼는_30Hz에서_80ms_과거를_보간할_상태를_보존한다" methodname="호스트_버퍼는_30Hz에서_80ms_과거를_보간할_상태를_보존한다" classname="CharacterSnapshotBufferTests" runstate="Runnable" seed="2005408020" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.000649" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1044" name="화면_tick_시계는_정수_추정tick_사이에서도_연속으로_흐른다" fullname="CharacterSnapshotBufferTests.화면_tick_시계는_정수_추정tick_사이에서도_연속으로_흐른다" methodname="화면_tick_시계는_정수_추정tick_사이에서도_연속으로_흐른다" classname="CharacterSnapshotBufferTests" runstate="Runnable" seed="1572507186" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.000412" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1134" name="HostAuthorityProtocolTests" fullname="HostAuthorityProtocolTests" classname="HostAuthorityProtocolTests" runstate="Runnable" testcasecount="37" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.052264" total="37" passed="37" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1141" name="_2000_표준안_제공_fixture와_바이트가_같다" fullname="HostAuthorityProtocolTests._2000_표준안_제공_fixture와_바이트가_같다" methodname="_2000_표준안_제공_fixture와_바이트가_같다" classname="HostAuthorityProtocolTests" runstate="Runnable" seed="1012518673" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.013299" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1144" name="_2000은_명령이_0개거나_8개를_넘으면_거부한다" fullname="HostAuthorityProtocolTests._2000은_명령이_0개거나_8개를_넘으면_거부한다" methodname="_2000은_명령이_0개거나_8개를_넘으면_거부한다" classname="HostAuthorityProtocolTests" runstate="Runnable" seed="618603976" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.001587" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1145" name="_2000은_선언한_개수와_실제_길이가_다르면_거부한다" fullname="HostAuthorityProtocolTests._2000은_선언한_개수와_실제_길이가_다르면_거부한다" methodname="_2000은_선언한_개수와_실제_길이가_다르면_거부한다" classname="HostAuthorityProtocolTests" runstate="Runnable" seed="1737124245" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.001452" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1142" name="_2000은_왕복해도_값이_보존된다" fullname="HostAuthorityProtocolTests._2000은_왕복해도_값이_보존된다" methodname="_2000은_왕복해도_값이_보존된다" classname="HostAuthorityProtocolTests" runstate="Runnable" seed="296018460" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.003381" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1140" name="_2000은_헤더8_고정부17_명령36바이트다" fullname="HostAuthorityProtocolTests._2000은_헤더8_고정부17_명령36바이트다" methodname="_2000은_헤더8_고정부17_명령36바이트다" classname="HostAuthorityProtocolTests" runstate="Runnable" seed="268434779" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.000324" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1146" name="_2000의_모르는_버튼_비트는_버리되_끊지_않는다" fullname="HostAuthorityProtocolTests._2000의_모르는_버튼_비트는_버리되_끊지_않는다" methodname="_2000의_모르는_버튼_비트는_버리되_끊지_않는다" classname="HostAuthorityProtocolTests" runstate="Runnable" seed="83959776" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.000361" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1139" name="_2001은_서버가_확정한_actor와_입력을_보존한다" fullname="HostAuthorityProtocolTests._2001은_서버가_확정한_actor와_입력을_보존한다" methodname="_2001은_서버가_확정한_actor와_입력을_보존한다" classname="HostAuthorityProtocolTests" runstate="Runnable" seed="622597435" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.000554" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1148" name="_2002는_호스트가_만든_캐릭터와_body_상태를_보존한다" fullname="HostAuthorityProtocolTests._2002는_호스트가_만든_캐릭터와_body_상태를_보존한다" methodname="_2002는_호스트가_만든_캐릭터와_body_상태를_보존한다" classname="HostAuthorityProtocolTests" runstate="Runnable" seed="2062931142" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.002852" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1153" name="_2003은_part_경계를_벗어나면_거부한다" fullname="HostAuthorityProtocolTests._2003은_part_경계를_벗어나면_거부한다" methodname="_2003은_part_경계를_벗어나면_거부한다" classname="HostAuthorityProtocolTests" runstate="Runnable" seed="1443985301" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.000843" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1151" name="_2003은_레코드가_없어도_유효하다" fullname="HostAuthorityProtocolTests._2003은_레코드가_없어도_유효하다" methodname="_2003은_레코드가_없어도_유효하다" classname="HostAuthorityProtocolTests" runstate="Runnable" seed="1548061538" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.000406" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1152" name="_2003은_선언한_개수와_길이가_다르면_거부한다" fullname="HostAuthorityProtocolTests._2003은_선언한_개수와_길이가_다르면_거부한다" methodname="_2003은_선언한_개수와_길이가_다르면_거부한다" classname="HostAuthorityProtocolTests" runstate="Runnable" seed="1975393817" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.000479" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1150" name="_2003은_왕복해도_모터와_외력이_분리되어_보존된다" fullname="HostAuthorityProtocolTests._2003은_왕복해도_모터와_외력이_분리되어_보존된다" methodname="_2003은_왕복해도_모터와_외력이_분리되어_보존된다" classname="HostAuthorityProtocolTests" runstate="Runnable" seed="830720295" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.000729" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1154" name="_2003의_NaN_좌표는_거부한다" fullname="HostAuthorityProtocolTests._2003의_NaN_좌표는_거부한다" methodname="_2003의_NaN_좌표는_거부한다" classname="HostAuthorityProtocolTests" runstate="Runnable" seed="978831534" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.000599" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1149" name="_2003의_레코드_크기는_표준안과_같다" fullname="HostAuthorityProtocolTests._2003의_레코드_크기는_표준안과_같다" methodname="_2003의_레코드_크기는_표준안과_같다" classname="HostAuthorityProtocolTests" runstate="Runnable" seed="816200173" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.000283" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1155" name="_2003의_모르는_flag와_모드는_강등된다" fullname="HostAuthorityProtocolTests._2003의_모르는_flag와_모드는_강등된다" methodname="_2003의_모르는_flag와_모드는_강등된다" classname="HostAuthorityProtocolTests" runstate="Runnable" seed="1871140120" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.000357" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1143" name="_2707은_36바이트_prefix와_72바이트_AttackResult를_보존한다" fullname="HostAuthorityProtocolTests._2707은_36바이트_prefix와_72바이트_AttackResult를_보존한다" methodname="_2707은_36바이트_prefix와_72바이트_AttackResult를_보존한다" classname="HostAuthorityProtocolTests" runstate="Runnable" seed="620553145" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.001838" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1166" name="_2710은_변경이_없어도_유효하다" fullname="HostAuthorityProtocolTests._2710은_변경이_없어도_유효하다" methodname="_2710은_변경이_없어도_유효하다" classname="HostAuthorityProtocolTests" runstate="Runnable" seed="1010826564" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.001604" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1165" name="_2710은_불가능한_변경_개수를_읽기_전에_거부한다" fullname="HostAuthorityProtocolTests._2710은_불가능한_변경_개수를_읽기_전에_거부한다" methodname="_2710은_불가능한_변경_개수를_읽기_전에_거부한다" classname="HostAuthorityProtocolTests" runstate="Runnable" seed="2137148234" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.000418" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1162" name="_2710은_여러_종류의_변경을_한_번에_싣는다" fullname="HostAuthorityProtocolTests._2710은_여러_종류의_변경을_한_번에_싣는다" methodname="_2710은_여러_종류의_변경을_한_번에_싣는다" classname="HostAuthorityProtocolTests" runstate="Runnable" seed="249427025" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.001993" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1163" name="_2710의_모르는_변경_종류는_뒤의_변경을_막지_않는다" fullname="HostAuthorityProtocolTests._2710의_모르는_변경_종류는_뒤의_변경을_막지_않는다" methodname="_2710의_모르는_변경_종류는_뒤의_변경을_막지_않는다" classname="HostAuthorityProtocolTests" runstate="Runnable" seed="1103989804" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.000494" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1168" name="PhaseChange는_10바이트_고정_배치다" fullname="HostAuthorityProtocolTests.PhaseChange는_10바이트_고정_배치다" methodname="PhaseChange는_10바이트_고정_배치다" classname="HostAuthorityProtocolTests" runstate="Runnable" seed="1143636515" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.000362" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1157" name="권위_구성은_왕복해도_보존된다" fullname="HostAuthorityProtocolTests.권위_구성은_왕복해도_보존된다" methodname="권위_구성은_왕복해도_보존된다" classname="HostAuthorityProtocolTests" runstate="Runnable" seed="1774129366" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.000916" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1158" name="권위_구성의_Hz가_0이면_거부한다" fullname="HostAuthorityProtocolTests.권위_구성의_Hz가_0이면_거부한다" methodname="권위_구성의_Hz가_0이면_거부한다" classname="HostAuthorityProtocolTests" runstate="Runnable" seed="385716923" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.000586" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1136" name="기존_3003_3004는_런타임_registry에서_비활성이다" fullname="HostAuthorityProtocolTests.기존_3003_3004는_런타임_registry에서_비활성이다" methodname="기존_3003_3004는_런타임_registry에서_비활성이다" classname="HostAuthorityProtocolTests" runstate="Runnable" seed="1865254292" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.000309" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1164" name="길이가_어긋난_변경은_예외가_아니라_false다" fullname="HostAuthorityProtocolTests.길이가_어긋난_변경은_예외가_아니라_false다" methodname="길이가_어긋난_변경은_예외가_아니라_false다" classname="HostAuthorityProtocolTests" runstate="Runnable" seed="556784001" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.000230" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1169" name="명령과_변경은_서로_다른_번호_공간이다" fullname="HostAuthorityProtocolTests.명령과_변경은_서로_다른_번호_공간이다" methodname="명령과_변경은_서로_다른_번호_공간이다" classname="HostAuthorityProtocolTests" runstate="Runnable" seed="1958697170" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.000209" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1160" name="모르는_종료_사유는_Unknown으로_강등된다" fullname="HostAuthorityProtocolTests.모르는_종료_사유는_Unknown으로_강등된다" methodname="모르는_종료_사유는_Unknown으로_강등된다" classname="HostAuthorityProtocolTests" runstate="Runnable" seed="1590196522" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.000712" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1171" name="모르는_페이즈는_false로_물러난다" fullname="HostAuthorityProtocolTests.모르는_페이즈는_false로_물러난다" methodname="모르는_페이즈는_false로_물러난다" classname="HostAuthorityProtocolTests" runstate="Runnable" seed="1238827222" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.000404" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1161" name="변경_레코드_크기는_표준안과_같다" fullname="HostAuthorityProtocolTests.변경_레코드_크기는_표준안과_같다" methodname="변경_레코드_크기는_표준안과_같다" classname="HostAuthorityProtocolTests" runstate="Runnable" seed="448548638" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.000274" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1167" name="생성과_삭제_레코드도_왕복한다" fullname="HostAuthorityProtocolTests.생성과_삭제_레코드도_왕복한다" methodname="생성과_삭제_레코드도_왕복한다" classname="HostAuthorityProtocolTests" runstate="Runnable" seed="123658529" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.001680" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1156" name="시계_왕복_패킷은_표준안_크기와_같다" fullname="HostAuthorityProtocolTests.시계_왕복_패킷은_표준안_크기와_같다" methodname="시계_왕복_패킷은_표준안_크기와_같다" classname="HostAuthorityProtocolTests" runstate="Runnable" seed="1418454597" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.002093" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1159" name="시뮬레이션_시작과_종료는_왕복해도_보존된다" fullname="HostAuthorityProtocolTests.시뮬레이션_시작과_종료는_왕복해도_보존된다" methodname="시뮬레이션_시작과_종료는_왕복해도_보존된다" classname="HostAuthorityProtocolTests" runstate="Runnable" seed="540230475" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.001137" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1137" name="전송로가_계약대로_제한된다" fullname="HostAuthorityProtocolTests.전송로가_계약대로_제한된다" methodname="전송로가_계약대로_제한된다" classname="HostAuthorityProtocolTests" runstate="Runnable" seed="1500698880" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.000602" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1147" name="조준과_이동_인코딩은_허용_오차_안에서_되돌아온다" fullname="HostAuthorityProtocolTests.조준과_이동_인코딩은_허용_오차_안에서_되돌아온다" methodname="조준과_이동_인코딩은_허용_오차_안에서_되돌아온다" classname="HostAuthorityProtocolTests" runstate="Runnable" seed="1368757632" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.000791" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1135" name="패킷_번호는_배치_규칙과_표준안을_따른다" fullname="HostAuthorityProtocolTests.패킷_번호는_배치_규칙과_표준안을_따른다" methodname="패킷_번호는_배치_규칙과_표준안을_따른다" classname="HostAuthorityProtocolTests" runstate="Runnable" seed="5804289" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.000324" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1170" name="페이즈_레코드는_트랜잭션을_왕복해도_같다" fullname="HostAuthorityProtocolTests.페이즈_레코드는_트랜잭션을_왕복해도_같다" methodname="페이즈_레코드는_트랜잭션을_왕복해도_같다" classname="HostAuthorityProtocolTests" runstate="Runnable" seed="585848588" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.000353" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1138" name="호스트_방향_입력과_snapshot이_등록된다" fullname="HostAuthorityProtocolTests.호스트_방향_입력과_snapshot이_등록된다" methodname="호스트_방향_입력과_snapshot이_등록된다" classname="HostAuthorityProtocolTests" runstate="Runnable" seed="719513599" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.000256" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1172" name="HostAuthorityServiceTests" fullname="HostAuthorityServiceTests" classname="HostAuthorityServiceTests" runstate="Runnable" testcasecount="55" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:38Z" duration="0.071885" total="55" passed="55" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1192" name="backfill_중_Jump와_Fire_edge는_현재_목표_tick에만_한번_기록된다" fullname="HostAuthorityServiceTests.backfill_중_Jump와_Fire_edge는_현재_목표_tick에만_한번_기록된다" methodname="backfill_중_Jump와_Fire_edge는_현재_목표_tick에만_한번_기록된다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1218004211" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.010338" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1194" name="backfill은_uint_tick_wraparound에서도_연속된다" fullname="HostAuthorityServiceTests.backfill은_uint_tick_wraparound에서도_연속된다" methodname="backfill은_uint_tick_wraparound에서도_연속된다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1941636128" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.000617" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1202" name="history는_확정_tick_이후에만_지운다" fullname="HostAuthorityServiceTests.history는_확정_tick_이후에만_지운다" methodname="history는_확정_tick_이후에만_지운다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="824069518" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.001938" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1221" name="PhaseChange가_남은_초와_함께_나온다" fullname="HostAuthorityServiceTests.PhaseChange가_남은_초와_함께_나온다" methodname="PhaseChange가_남은_초와_함께_나온다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="936288752" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.002898" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1201" name="shotId는_Fire_edge에만_붙는다" fullname="HostAuthorityServiceTests.shotId는_Fire_edge에만_붙는다" methodname="shotId는_Fire_edge에만_붙는다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1230995663" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:37Z" duration="0.000556" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1214" name="Spawn이_스냅샷_서비스에_Entity를_등록한다" fullname="HostAuthorityServiceTests.Spawn이_스냅샷_서비스에_Entity를_등록한다" methodname="Spawn이_스냅샷_서비스에_Entity를_등록한다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="501396905" result="Passed" start-time="2026-09-18 15:38:37Z" end-time="2026-09-18 15:38:38Z" duration="0.004111" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1190" name="같은_tick에_늦게_들어온_점프_edge는_다음_tick에_보존된다" fullname="HostAuthorityServiceTests.같은_tick에_늦게_들어온_점프_edge는_다음_tick에_보존된다" methodname="같은_tick에_늦게_들어온_점프_edge는_다음_tick에_보존된다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="315409873" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000555" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1189" name="같은_tick의_명령은_불변이다" fullname="HostAuthorityServiceTests.같은_tick의_명령은_불변이다" methodname="같은_tick의_명령은_불변이다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="380271526" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000440" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1175" name="같은_세대를_다시_받아도_상태를_비우지_않는다" fullname="HostAuthorityServiceTests.같은_세대를_다시_받아도_상태를_비우지_않는다" methodname="같은_세대를_다시_받아도_상태를_비우지_않는다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="892584740" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000372" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1223" name="같은_페이즈가_다시_와도_발행한다" fullname="HostAuthorityServiceTests.같은_페이즈가_다시_와도_발행한다" methodname="같은_페이즈가_다시_와도_발행한다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1172434473" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000490" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1199" name="게스트_입력_tick은_최근_확정보다_12틱_이상_앞서지_않는다" fullname="HostAuthorityServiceTests.게스트_입력_tick은_최근_확정보다_12틱_이상_앞서지_않는다" methodname="게스트_입력_tick은_최근_확정보다_12틱_이상_앞서지_않는다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="993427218" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000453" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1187" name="권위_구성_전에_Ready를_보내면_예외다" fullname="HostAuthorityServiceTests.권위_구성_전에_Ready를_보내면_예외다" methodname="권위_구성_전에_Ready를_보내면_예외다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="484393657" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000473" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1173" name="권위_구성을_받기_전에는_어떤_패킷도_받지_않는다" fullname="HostAuthorityServiceTests.권위_구성을_받기_전에는_어떤_패킷도_받지_않는다" methodname="권위_구성을_받기_전에는_어떤_패킷도_받지_않는다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1274987003" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000203" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1215" name="내_발사와_남의_발사를_구분한다" fullname="HostAuthorityServiceTests.내_발사와_남의_발사를_구분한다" methodname="내_발사와_남의_발사를_구분한다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1424633961" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.001265" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1211" name="내_확정_상태는_이벤트로_한_번만_발행된다" fullname="HostAuthorityServiceTests.내_확정_상태는_이벤트로_한_번만_발행된다" methodname="내_확정_상태는_이벤트로_한_번만_발행된다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="477850845" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000729" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1183" name="다른_actor거나_역전된_호스트_시계_응답은_버린다" fullname="HostAuthorityServiceTests.다른_actor거나_역전된_호스트_시계_응답은_버린다" methodname="다른_actor거나_역전된_호스트_시계_응답은_버린다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="483459049" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.001730" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1207" name="다른_세대의_스냅샷은_통째로_버린다" fullname="HostAuthorityServiceTests.다른_세대의_스냅샷은_통째로_버린다" methodname="다른_세대의_스냅샷은_통째로_버린다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1091802920" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000785" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1220" name="다른_세대의_트랜잭션은_무시한다" fullname="HostAuthorityServiceTests.다른_세대의_트랜잭션은_무시한다" methodname="다른_세대의_트랜잭션은_무시한다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="2072019487" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000570" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1191" name="렌더가_밀려_세_tick이_비면_직전_held_입력으로_연속해서_채운다" fullname="HostAuthorityServiceTests.렌더가_밀려_세_tick이_비면_직전_held_입력으로_연속해서_채운다" methodname="렌더가_밀려_세_tick이_비면_직전_held_입력으로_연속해서_채운다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="2011154455" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000848" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1206" name="모르는_Entity를_UDP만으로_등장시키지_않는다" fullname="HostAuthorityServiceTests.모르는_Entity를_UDP만으로_등장시키지_않는다" methodname="모르는_Entity를_UDP만으로_등장시키지_않는다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1491401377" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000444" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1218" name="모르는_변경_종류가_섞여도_아는_종류는_처리한다" fullname="HostAuthorityServiceTests.모르는_변경_종류가_섞여도_아는_종류는_처리한다" methodname="모르는_변경_종류가_섞여도_아는_종류는_처리한다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="981620361" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.001829" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1227" name="모르는_페이즈가_섞여도_같은_트랜잭션의_Spawn은_산다" fullname="HostAuthorityServiceTests.모르는_페이즈가_섞여도_같은_트랜잭션의_Spawn은_산다" methodname="모르는_페이즈가_섞여도_같은_트랜잭션의_Spawn은_산다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1975023180" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000557" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1212" name="모터_속도와_외력_속도는_분리되어_들어온다" fullname="HostAuthorityServiceTests.모터_속도와_외력_속도는_분리되어_들어온다" methodname="모터_속도와_외력_속도는_분리되어_들어온다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="811366881" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000528" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1177" name="방을_나가면_시계_probe를_멈춘다" fullname="HostAuthorityServiceTests.방을_나가면_시계_probe를_멈춘다" methodname="방을_나가면_시계_probe를_멈춘다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="2090041915" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000493" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1178" name="방을_나갔다_다시_들어오면_다시_보낸다" fullname="HostAuthorityServiceTests.방을_나갔다_다시_들어오면_다시_보낸다" methodname="방을_나갔다_다시_들어오면_다시_보낸다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="678579245" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000324" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1185" name="새_월드가_오면_시계와_시뮬레이션_상태를_비운다" fullname="HostAuthorityServiceTests.새_월드가_오면_시계와_시뮬레이션_상태를_비운다" methodname="새_월드가_오면_시계와_시뮬레이션_상태를_비운다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1293045461" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000417" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1204" name="새_월드에서_history는_비우되_shotId는_잇는다" fullname="HostAuthorityServiceTests.새_월드에서_history는_비우되_shotId는_잇는다" methodname="새_월드에서_history는_비우되_shotId는_잇는다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="962206514" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000906" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1213" name="새_월드에서_모든_상태를_비운다" fullname="HostAuthorityServiceTests.새_월드에서_모든_상태를_비운다" methodname="새_월드에서_모든_상태를_비운다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="237752554" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000931" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1193" name="세_tick보다_긴_공백은_과거_입력을_대량_backfill하지_않는다" fullname="HostAuthorityServiceTests.세_tick보다_긴_공백은_과거_입력을_대량_backfill하지_않는다" methodname="세_tick보다_긴_공백은_과거_입력을_대량_backfill하지_않는다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="580366993" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000569" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1174" name="세대가_다른_패킷은_거부한다" fullname="HostAuthorityServiceTests.세대가_다른_패킷은_거부한다" methodname="세대가_다른_패킷은_거부한다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="256430307" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000279" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1219" name="순번이_건너뛰면_진단에_남기되_적용은_한다" fullname="HostAuthorityServiceTests.순번이_건너뛰면_진단에_남기되_적용은_한다" methodname="순번이_건너뛰면_진단에_남기되_적용은_한다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="2056550174" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.001301" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1179" name="시계_probe는_주기를_지킨다" fullname="HostAuthorityServiceTests.시계_probe는_주기를_지킨다" methodname="시계_probe는_주기를_지킨다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="588156582" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000575" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1176" name="시계가_없어도_시작_tick부터_추정이_흐른다" fullname="HostAuthorityServiceTests.시계가_없어도_시작_tick부터_추정이_흐른다" methodname="시계가_없어도_시작_tick부터_추정이_흐른다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="230208393" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000281" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1188" name="시뮬레이션_전에는_입력을_기록도_송신도_하지_않는다" fullname="HostAuthorityServiceTests.시뮬레이션_전에는_입력을_기록도_송신도_하지_않는다" methodname="시뮬레이션_전에는_입력을_기록도_송신도_하지_않는다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="427947019" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000286" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1180" name="시뮬레이션_종료_뒤에는_시계_probe를_보내지_않는다" fullname="HostAuthorityServiceTests.시뮬레이션_종료_뒤에는_시계_probe를_보내지_않는다" methodname="시뮬레이션_종료_뒤에는_시계_probe를_보내지_않는다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="2143825623" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000397" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1205" name="연결이_끊기면_보내지_않는다" fullname="HostAuthorityServiceTests.연결이_끊기면_보내지_않는다" methodname="연결이_끊기면_보내지_않는다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1190486201" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000272" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1209" name="오래된_hostTick의_레코드는_버린다" fullname="HostAuthorityServiceTests.오래된_hostTick의_레코드는_버린다" methodname="오래된_hostTick의_레코드는_버린다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="418763962" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000456" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1182" name="왕복_측정에서_호스트_보유_시간을_뺀다" fullname="HostAuthorityServiceTests.왕복_측정에서_호스트_보유_시간을_뺀다" methodname="왕복_측정에서_호스트_보유_시간을_뺀다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="771773415" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000301" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1216" name="이미_스냅샷에_반영된_넉백은_다시_더하지_않는다" fullname="HostAuthorityServiceTests.이미_스냅샷에_반영된_넉백은_다시_더하지_않는다" methodname="이미_스냅샷에_반영된_넉백은_다시_더하지_않는다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1056245336" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.002066" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1217" name="이미_적용한_트랜잭션은_다시_적용하지_않는다" fullname="HostAuthorityServiceTests.이미_적용한_트랜잭션은_다시_적용하지_않는다" methodname="이미_적용한_트랜잭션은_다시_적용하지_않는다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="788858260" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000544" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1186" name="이전_세대의_종료_알림은_무시한다" fullname="HostAuthorityServiceTests.이전_세대의_종료_알림은_무시한다" methodname="이전_세대의_종료_알림은_무시한다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1368747476" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000579" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1184" name="입력_목표_tick은_지연만큼_앞선다" fullname="HostAuthorityServiceTests.입력_목표_tick은_지연만큼_앞선다" methodname="입력_목표_tick은_지연만큼_앞선다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1174007321" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000462" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1222" name="지난_tick과_시한없음은_0초다" fullname="HostAuthorityServiceTests.지난_tick과_시한없음은_0초다" methodname="지난_tick과_시한없음은_0초다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="20165034" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000605" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1181" name="짝이_맞지_않는_시계_응답은_버린다" fullname="HostAuthorityServiceTests.짝이_맞지_않는_시계_응답은_버린다" methodname="짝이_맞지_않는_시계_응답은_버린다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="282484211" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000295" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1200" name="첫_스냅샷_전에도_게스트_입력은_시작_tick_앞_12틱으로_제한된다" fullname="HostAuthorityServiceTests.첫_스냅샷_전에도_게스트_입력은_시작_tick_앞_12틱으로_제한된다" methodname="첫_스냅샷_전에도_게스트_입력은_시작_tick_앞_12틱으로_제한된다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1858684909" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000331" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1208" name="최신성은_Entity별로_판단한다" fullname="HostAuthorityServiceTests.최신성은_Entity별로_판단한다" methodname="최신성은_Entity별로_판단한다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1169782876" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000517" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1224" name="최종_결과_페이즈는_IsFinal이다" fullname="HostAuthorityServiceTests.최종_결과_페이즈는_IsFinal이다" methodname="최종_결과_페이즈는_IsFinal이다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1683863750" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000448" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1225" name="평가_집계가_평균과_함께_나온다" fullname="HostAuthorityServiceTests.평가_집계가_평균과_함께_나온다" methodname="평가_집계가_평균과_함께_나온다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1149841707" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.007672" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[[Evaluation][S2C][2301][Received] loop=9 round=1 count=1
+[Evaluation][S2C][2301][Received] loop=9 round=1 artworkId=77 averageScore=7.33333349 commentCount=1
+]]></output>
+        </test-case>
+        <test-case id="1226" name="평가자가_없으면_평균은_0이다" fullname="HostAuthorityServiceTests.평가자가_없으면_평균은_0이다" methodname="평가자가_없으면_평균은_0이다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1475035800" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.001666" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[[Evaluation][S2C][2301][Received] loop=9 round=1 count=1
+[Evaluation][S2C][2301][Received] loop=9 round=1 artworkId=77 averageScore=0 commentCount=0
+]]></output>
+        </test-case>
+        <test-case id="1198" name="한_batch에_최대_8개만_싣는다" fullname="HostAuthorityServiceTests.한_batch에_최대_8개만_싣는다" methodname="한_batch에_최대_8개만_싣는다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="494105517" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000508" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1196" name="호스트_로컬_명령은_Runner_tick으로_즉시_한번만_발행된다" fullname="HostAuthorityServiceTests.호스트_로컬_명령은_Runner_tick으로_즉시_한번만_발행된다" methodname="호스트_로컬_명령은_Runner_tick으로_즉시_한번만_발행된다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1366580396" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.001270" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1195" name="호스트가_fallback으로_이미_확정한_tick은_backfill하지_않는다" fullname="HostAuthorityServiceTests.호스트가_fallback으로_이미_확정한_tick은_backfill하지_않는다" methodname="호스트가_fallback으로_이미_확정한_tick은_backfill하지_않는다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1377994702" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000675" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1203" name="확정_tick은_뒤로_가지_않는다" fullname="HostAuthorityServiceTests.확정_tick은_뒤로_가지_않는다" methodname="확정_tick은_뒤로_가지_않는다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1450612804" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000512" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1210" name="확정_상태가_입력_history를_지운다" fullname="HostAuthorityServiceTests.확정_상태가_입력_history를_지운다" methodname="확정_상태가_입력_history를_지운다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1267455243" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000567" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1197" name="확정_전_명령을_다시_싣는다" fullname="HostAuthorityServiceTests.확정_전_명령을_다시_싣는다" methodname="확정_전_명령을_다시_싣는다" classname="HostAuthorityServiceTests" runstate="Runnable" seed="1221259797" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000523" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1228" name="HostInputBufferTests" fullname="HostInputBufferTests" classname="HostInputBufferTests" runstate="Runnable" testcasecount="8" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.009556" total="8" passed="8" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1235" name="Insert_RejectsUnknownButtonsAndInvalidFireShotPair" fullname="HostInputBufferTests.Insert_RejectsUnknownButtonsAndInvalidFireShotPair" methodname="Insert_RejectsUnknownButtonsAndInvalidFireShotPair" classname="HostInputBufferTests" runstate="Runnable" seed="862069116" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.001022" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1232" name="Insert_ResolvedPastInputIsRejectedAndNeverReplayed" fullname="HostInputBufferTests.Insert_ResolvedPastInputIsRejectedAndNeverReplayed" methodname="Insert_ResolvedPastInputIsRejectedAndNeverReplayed" classname="HostInputBufferTests" runstate="Runnable" seed="1326033883" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.001656" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1230" name="Insert_SameTickSameContentIsDuplicate_DifferentContentIsConflict" fullname="HostInputBufferTests.Insert_SameTickSameContentIsDuplicate_DifferentContentIsConflict" methodname="Insert_SameTickSameContentIsDuplicate_DifferentContentIsConflict" classname="HostInputBufferTests" runstate="Runnable" seed="711004386" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.001298" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1236" name="InsertBatch_DoesNotDiscardFutureInputWhenAnotherEntryIsStale" fullname="HostInputBufferTests.InsertBatch_DoesNotDiscardFutureInputWhenAnotherEntryIsStale" methodname="InsertBatch_DoesNotDiscardFutureInputWhenAnotherEntryIsStale" classname="HostInputBufferTests" runstate="Runnable" seed="1433664801" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.001006" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1229" name="ResolveTick_AcceptsOutOfOrderInputs_AndConsumesExactTickOnce" fullname="HostInputBufferTests.ResolveTick_AcceptsOutOfOrderInputs_AndConsumesExactTickOnce" methodname="ResolveTick_AcceptsOutOfOrderInputs_AndConsumesExactTickOnce" classname="HostInputBufferTests" runstate="Runnable" seed="95822359" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000792" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1231" name="ResolveTick_MissingInputHoldsTwice_ThenBecomesNeutral_WithoutEdges" fullname="HostInputBufferTests.ResolveTick_MissingInputHoldsTwice_ThenBecomesNeutral_WithoutEdges" methodname="ResolveTick_MissingInputHoldsTwice_ThenBecomesNeutral_WithoutEdges" classname="HostInputBufferTests" runstate="Runnable" seed="1208718872" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000762" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1233" name="ResolveTick_RequiresContinuousResolvedBoundary" fullname="HostInputBufferTests.ResolveTick_RequiresContinuousResolvedBoundary" methodname="ResolveTick_RequiresContinuousResolvedBoundary" classname="HostInputBufferTests" runstate="Runnable" seed="1510185727" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000323" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1234" name="ResolveTick_WrapsFromUIntMaxToZero" fullname="HostInputBufferTests.ResolveTick_WrapsFromUIntMaxToZero" methodname="ResolveTick_WrapsFromUIntMaxToZero" classname="HostInputBufferTests" runstate="Runnable" seed="1591390149" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000258" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1237" name="HostWorldSimulationTests" fullname="HostWorldSimulationTests" classname="HostWorldSimulationTests" runstate="Runnable" testcasecount="6" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.010478" total="6" passed="6" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1239" name="Step_ManyQueuedInputsStillSimulatesActorOnlyOncePerTick" fullname="HostWorldSimulationTests.Step_ManyQueuedInputsStillSimulatesActorOnlyOncePerTick" methodname="Step_ManyQueuedInputsStillSimulatesActorOnlyOncePerTick" classname="HostWorldSimulationTests" runstate="Runnable" seed="1072519924" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.005105" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1241" name="Step_MissingInputNeverRepeatsJumpEdge" fullname="HostWorldSimulationTests.Step_MissingInputNeverRepeatsJumpEdge" methodname="Step_MissingInputNeverRepeatsJumpEdge" classname="HostWorldSimulationTests" runstate="Runnable" seed="1047670257" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000372" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1238" name="Step_SimulatesActorsByEntityId_ThenPhysics_ThenCaptures" fullname="HostWorldSimulationTests.Step_SimulatesActorsByEntityId_ThenPhysics_ThenCaptures" methodname="Step_SimulatesActorsByEntityId_ThenPhysics_ThenCaptures" classname="HostWorldSimulationTests" runstate="Runnable" seed="815562043" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.001109" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1240" name="SubmitInput_DuplicateLocalLoopbackDoesNotCauseSecondSimulation" fullname="HostWorldSimulationTests.SubmitInput_DuplicateLocalLoopbackDoesNotCauseSecondSimulation" methodname="SubmitInput_DuplicateLocalLoopbackDoesNotCauseSecondSimulation" classname="HostWorldSimulationTests" runstate="Runnable" seed="628854958" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000301" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1242" name="TickCompleted_ObservesAlreadyCapturedImmutableFrame" fullname="HostWorldSimulationTests.TickCompleted_ObservesAlreadyCapturedImmutableFrame" methodname="TickCompleted_ObservesAlreadyCapturedImmutableFrame" classname="HostWorldSimulationTests" runstate="Runnable" seed="828989965" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000566" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1243" name="UnregisterActor_RemovesDepartedEntityFromFollowingSnapshot" fullname="HostWorldSimulationTests.UnregisterActor_RemovesDepartedEntityFromFollowingSnapshot" methodname="UnregisterActor_RemovesDepartedEntityFromFollowingSnapshot" classname="HostWorldSimulationTests" runstate="Runnable" seed="1414030243" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.001079" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1447" name="PlayerMovementProtocolTests" fullname="PlayerMovementProtocolTests" classname="PlayerMovementProtocolTests" runstate="Runnable" testcasecount="18" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.014985" total="18" passed="18" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1449" name="_3003_골든벡터" fullname="PlayerMovementProtocolTests._3003_골든벡터" methodname="_3003_골든벡터" classname="PlayerMovementProtocolTests" runstate="Runnable" seed="890318889" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000836" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1450" name="_3003은_왕복해도_모든_필드가_보존된다" fullname="PlayerMovementProtocolTests._3003은_왕복해도_모든_필드가_보존된다" methodname="_3003은_왕복해도_모든_필드가_보존된다" classname="PlayerMovementProtocolTests" runstate="Runnable" seed="1429925223" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.001518" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1448" name="_3003은_헤더8_본문43_총51바이트다" fullname="PlayerMovementProtocolTests._3003은_헤더8_본문43_총51바이트다" methodname="_3003은_헤더8_본문43_총51바이트다" classname="PlayerMovementProtocolTests" runstate="Runnable" seed="1751954025" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000239" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1451" name="_3004_record는_39바이트다" fullname="PlayerMovementProtocolTests._3004_record는_39바이트다" methodname="_3004_record는_39바이트다" classname="PlayerMovementProtocolTests" runstate="Runnable" seed="1563696980" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000212" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1452" name="_3004는_6명이면_247바이트다" fullname="PlayerMovementProtocolTests._3004는_6명이면_247바이트다" methodname="_3004는_6명이면_247바이트다" classname="PlayerMovementProtocolTests" runstate="Runnable" seed="1866366195" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000922" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1454" name="_3004는_왕복해도_레코드_순서와_값이_보존된다" fullname="PlayerMovementProtocolTests._3004는_왕복해도_레코드_순서와_값이_보존된다" methodname="_3004는_왕복해도_레코드_순서와_값이_보존된다" classname="PlayerMovementProtocolTests" runstate="Runnable" seed="120591166" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.001139" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1453" name="_3004는_참가자가_없어도_유효하다" fullname="PlayerMovementProtocolTests._3004는_참가자가_없어도_유효하다" methodname="_3004는_참가자가_없어도_유효하다" classname="PlayerMovementProtocolTests" runstate="Runnable" seed="828086703" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000289" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1457" name="datagram에_들어가지_않는_record수는_인코딩하지_않는다" fullname="PlayerMovementProtocolTests.datagram에_들어가지_않는_record수는_인코딩하지_않는다" methodname="datagram에_들어가지_않는_record수는_인코딩하지_않는다" classname="PlayerMovementProtocolTests" runstate="Runnable" seed="781581319" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000394" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1462" name="계약에_없는_flag_비트는_버린다" fullname="PlayerMovementProtocolTests.계약에_없는_flag_비트는_버린다" methodname="계약에_없는_flag_비트는_버린다" classname="PlayerMovementProtocolTests" runstate="Runnable" seed="24824219" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000286" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1465" name="구형_좌표_패킷은_런타임_registry에서_비활성이다" fullname="PlayerMovementProtocolTests.구형_좌표_패킷은_런타임_registry에서_비활성이다" methodname="구형_좌표_패킷은_런타임_registry에서_비활성이다" classname="PlayerMovementProtocolTests" runstate="Runnable" seed="1894246666" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000580" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1463" name="모르는_ActionState는_None으로_강등한다" fullname="PlayerMovementProtocolTests.모르는_ActionState는_None으로_강등한다" methodname="모르는_ActionState는_None으로_강등한다" classname="PlayerMovementProtocolTests" runstate="Runnable" seed="29622516" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000271" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1464" name="본문이_남으면_거부한다" fullname="PlayerMovementProtocolTests.본문이_남으면_거부한다" methodname="본문이_남으면_거부한다" classname="PlayerMovementProtocolTests" runstate="Runnable" seed="466938830" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000363" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1456" name="선언한_record수와_실제_길이가_다르면_거부한다" fullname="PlayerMovementProtocolTests.선언한_record수와_실제_길이가_다르면_거부한다" methodname="선언한_record수와_실제_길이가_다르면_거부한다" classname="PlayerMovementProtocolTests" runstate="Runnable" seed="257569242" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000359" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1455" name="웨이팅룸_정원은_한_datagram에_들어간다" fullname="PlayerMovementProtocolTests.웨이팅룸_정원은_한_datagram에_들어간다" methodname="웨이팅룸_정원은_한_datagram에_들어간다" classname="PlayerMovementProtocolTests" runstate="Runnable" seed="989833257" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000172" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-suite type="ParameterizedMethod" id="1461" name="유한하지_않은_좌표는_거부한다" fullname="PlayerMovementProtocolTests.유한하지_않은_좌표는_거부한다" classname="PlayerMovementProtocolTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.001876" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-case id="1458" name="NaN은 거부한다" fullname="PlayerMovementProtocolTests.NaN은 거부한다" methodname="유한하지_않은_좌표는_거부한다" classname="PlayerMovementProtocolTests" runstate="Runnable" seed="224726636" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000435" asserts="0">
+            <properties>
+              <property name="retryIteration" value="0" />
+              <property name="repeatIteration" value="0" />
+            </properties>
+          </test-case>
+          <test-case id="1459" name="양의 무한대는 거부한다" fullname="PlayerMovementProtocolTests.양의 무한대는 거부한다" methodname="유한하지_않은_좌표는_거부한다" classname="PlayerMovementProtocolTests" runstate="Runnable" seed="658257514" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000154" asserts="0">
+            <properties>
+              <property name="retryIteration" value="0" />
+              <property name="repeatIteration" value="0" />
+            </properties>
+          </test-case>
+          <test-case id="1460" name="음의 무한대는 거부한다" fullname="PlayerMovementProtocolTests.음의 무한대는 거부한다" methodname="유한하지_않은_좌표는_거부한다" classname="PlayerMovementProtocolTests" runstate="Runnable" seed="197726168" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000132" asserts="0">
+            <properties>
+              <property name="retryIteration" value="0" />
+              <property name="repeatIteration" value="0" />
+            </properties>
+          </test-case>
+        </test-suite>
+        <test-case id="1466" name="이동_패킷_번호는_명세와_같다" fullname="PlayerMovementProtocolTests.이동_패킷_번호는_명세와_같다" methodname="이동_패킷_번호는_명세와_같다" classname="PlayerMovementProtocolTests" runstate="Runnable" seed="1282174350" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000193" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1467" name="PlayerMovementServiceTests" fullname="PlayerMovementServiceTests" classname="PlayerMovementServiceTests" runstate="Runnable" testcasecount="21" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.021136" total="21" passed="21" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1479" name="clientTick은_보낼_때마다_증가한다" fullname="PlayerMovementServiceTests.clientTick은_보낼_때마다_증가한다" methodname="clientTick은_보낼_때마다_증가한다" classname="PlayerMovementServiceTests" runstate="Runnable" seed="1909797649" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.008417" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1489" name="Dispose_후에는_네트워크에_반응하지_않는다" fullname="PlayerMovementServiceTests.Dispose_후에는_네트워크에_반응하지_않는다" methodname="Dispose_후에는_네트워크에_반응하지_않는다" classname="PlayerMovementServiceTests" runstate="Runnable" seed="1146761396" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000426" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1480" name="snapshot이_원격_버퍼에_반영된다" fullname="PlayerMovementServiceTests.snapshot이_원격_버퍼에_반영된다" methodname="snapshot이_원격_버퍼에_반영된다" classname="PlayerMovementServiceTests" runstate="Runnable" seed="396785818" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000821" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-suite type="ParameterizedMethod" id="1477" name="yaw는_0에서_360_사이로_접힌다" fullname="PlayerMovementServiceTests.yaw는_0에서_360_사이로_접힌다" classname="PlayerMovementServiceTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.001964" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-case id="1473" name="yaw는_0에서_360_사이로_접힌다(-90.0f,270.0f)" fullname="PlayerMovementServiceTests.yaw는_0에서_360_사이로_접힌다(-90.0f,270.0f)" methodname="yaw는_0에서_360_사이로_접힌다" classname="PlayerMovementServiceTests" runstate="Runnable" seed="431664820" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000405" asserts="0">
+            <properties>
+              <property name="retryIteration" value="0" />
+              <property name="repeatIteration" value="0" />
+            </properties>
+          </test-case>
+          <test-case id="1474" name="yaw는_0에서_360_사이로_접힌다(450.0f,90.0f)" fullname="PlayerMovementServiceTests.yaw는_0에서_360_사이로_접힌다(450.0f,90.0f)" methodname="yaw는_0에서_360_사이로_접힌다" classname="PlayerMovementServiceTests" runstate="Runnable" seed="213073345" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000117" asserts="0">
+            <properties>
+              <property name="retryIteration" value="0" />
+              <property name="repeatIteration" value="0" />
+            </properties>
+          </test-case>
+          <test-case id="1475" name="yaw는_0에서_360_사이로_접힌다(0.0f,0.0f)" fullname="PlayerMovementServiceTests.yaw는_0에서_360_사이로_접힌다(0.0f,0.0f)" methodname="yaw는_0에서_360_사이로_접힌다" classname="PlayerMovementServiceTests" runstate="Runnable" seed="442395913" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000102" asserts="0">
+            <properties>
+              <property name="retryIteration" value="0" />
+              <property name="repeatIteration" value="0" />
+            </properties>
+          </test-case>
+          <test-case id="1476" name="yaw는_0에서_360_사이로_접힌다(359.5f,359.5f)" fullname="PlayerMovementServiceTests.yaw는_0에서_360_사이로_접힌다(359.5f,359.5f)" methodname="yaw는_0에서_360_사이로_접힌다" classname="PlayerMovementServiceTests" runstate="Runnable" seed="1990852706" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000113" asserts="0">
+            <properties>
+              <property name="retryIteration" value="0" />
+              <property name="repeatIteration" value="0" />
+            </properties>
+          </test-case>
+        </test-suite>
+        <test-case id="1478" name="계약에_없는_flag는_보내지_않는다" fullname="PlayerMovementServiceTests.계약에_없는_flag는_보내지_않는다" methodname="계약에_없는_flag는_보내지_않는다" classname="PlayerMovementServiceTests" runstate="Runnable" seed="806923087" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000262" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1470" name="고정_주기로만_보낸다" fullname="PlayerMovementServiceTests.고정_주기로만_보낸다" methodname="고정_주기로만_보낸다" classname="PlayerMovementServiceTests" runstate="Runnable" seed="2051370921" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000316" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1481" name="내_상태는_원격이_아니라_보정용으로_보관한다" fullname="PlayerMovementServiceTests.내_상태는_원격이_아니라_보정용으로_보관한다" methodname="내_상태는_원격이_아니라_보정용으로_보관한다" classname="PlayerMovementServiceTests" runstate="Runnable" seed="448162582" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000343" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1484" name="모르는_EntityId는_건너뛴다" fullname="PlayerMovementServiceTests.모르는_EntityId는_건너뛴다" methodname="모르는_EntityId는_건너뛴다" classname="PlayerMovementServiceTests" runstate="Runnable" seed="1052228099" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000274" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1485" name="방_밖에서_도착한_snapshot은_무시한다" fullname="PlayerMovementServiceTests.방_밖에서_도착한_snapshot은_무시한다" methodname="방_밖에서_도착한_snapshot은_무시한다" classname="PlayerMovementServiceTests" runstate="Runnable" seed="721317718" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000177" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1468" name="방에_들어가기_전에는_보내지_않는다" fullname="PlayerMovementServiceTests.방에_들어가기_전에는_보내지_않는다" methodname="방에_들어가기_전에는_보내지_않는다" classname="PlayerMovementServiceTests" runstate="Runnable" seed="781446499" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000234" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1469" name="방에_들어가면_내_EntityId를_안다" fullname="PlayerMovementServiceTests.방에_들어가면_내_EntityId를_안다" methodname="방에_들어가면_내_EntityId를_안다" classname="PlayerMovementServiceTests" runstate="Runnable" seed="1675979389" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000233" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1488" name="방을_나가면_상태가_비워진다" fullname="PlayerMovementServiceTests.방을_나가면_상태가_비워진다" methodname="방을_나가면_상태가_비워진다" classname="PlayerMovementServiceTests" runstate="Runnable" seed="588168747" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000801" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1483" name="새로운_serverTick은_반영한다" fullname="PlayerMovementServiceTests.새로운_serverTick은_반영한다" methodname="새로운_serverTick은_반영한다" classname="PlayerMovementServiceTests" runstate="Runnable" seed="1380869249" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000293" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1472" name="연결이_없으면_보내지_않는다" fullname="PlayerMovementServiceTests.연결이_없으면_보내지_않는다" methodname="연결이_없으면_보내지_않는다" classname="PlayerMovementServiceTests" runstate="Runnable" seed="1674958117" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000235" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1471" name="오래_멈췄다_돌아와도_몰아_보내지_않는다" fullname="PlayerMovementServiceTests.오래_멈췄다_돌아와도_몰아_보내지_않는다" methodname="오래_멈췄다_돌아와도_몰아_보내지_않는다" classname="PlayerMovementServiceTests" runstate="Runnable" seed="2004242718" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000259" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1482" name="오래되거나_중복된_snapshot은_버린다" fullname="PlayerMovementServiceTests.오래되거나_중복된_snapshot은_버린다" methodname="오래되거나_중복된_snapshot은_버린다" classname="PlayerMovementServiceTests" runstate="Runnable" seed="897587627" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000301" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1486" name="원격_목록은_나를_뺀_참가자다" fullname="PlayerMovementServiceTests.원격_목록은_나를_뺀_참가자다" methodname="원격_목록은_나를_뺀_참가자다" classname="PlayerMovementServiceTests" runstate="Runnable" seed="700229894" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000213" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1487" name="입장과_퇴장이_원격_목록에_반영된다" fullname="PlayerMovementServiceTests.입장과_퇴장이_원격_목록에_반영된다" methodname="입장과_퇴장이_원격_목록에_반영된다" classname="PlayerMovementServiceTests" runstate="Runnable" seed="605457115" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.000249" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1618" name="UdpMovementIntegrationTests" fullname="UdpMovementIntegrationTests" classname="UdpMovementIntegrationTests" runstate="Ignored" testcasecount="6" result="Skipped" label="Ignored" site="SetUp" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.001960" total="6" passed="0" failed="0" inconclusive="0" skipped="6" asserts="0">
+        <properties>
+          <property name="_SKIPREASON" value="검사 대상인 3003/3004 경로가 cc92e38에서 제거됐습니다. 3101/3104 소켓 검증으로 이식하기 전까지 건너뜁니다 — 지우지 않는 이유는 클래스 주석에 있습니다." />
+        </properties>
+        <reason>
+          <message><![CDATA[검사 대상인 3003/3004 경로가 cc92e38에서 제거됐습니다. 3101/3104 소켓 검증으로 이식하기 전까지 건너뜁니다 — 지우지 않는 이유는 클래스 주석에 있습니다.]]></message>
+        </reason>
+        <test-case id="1622" name="내_상태는_서버를_돌아_보정용으로만_남는다" fullname="UdpMovementIntegrationTests.내_상태는_서버를_돌아_보정용으로만_남는다" methodname="내_상태는_서버를_돌아_보정용으로만_남는다" classname="UdpMovementIntegrationTests" runstate="Runnable" seed="1279515267" result="Skipped" label="Ignored" site="Parent" start-time="0001-01-01 00:00:00Z" end-time="0001-01-01 00:00:00Z" duration="0.000000" asserts="0">
+          <properties />
+          <reason>
+            <message><![CDATA[검사 대상인 3003/3004 경로가 cc92e38에서 제거됐습니다. 3101/3104 소켓 검증으로 이식하기 전까지 건너뜁니다 — 지우지 않는 이유는 클래스 주석에 있습니다.]]></message>
+          </reason>
+        </test-case>
+        <test-case id="1624" name="모르는_Entity가_섞여_와도_만들지_않는다" fullname="UdpMovementIntegrationTests.모르는_Entity가_섞여_와도_만들지_않는다" methodname="모르는_Entity가_섞여_와도_만들지_않는다" classname="UdpMovementIntegrationTests" runstate="Runnable" seed="399358663" result="Skipped" label="Ignored" site="Parent" start-time="0001-01-01 00:00:00Z" end-time="0001-01-01 00:00:00Z" duration="0.000000" asserts="0">
+          <properties />
+          <reason>
+            <message><![CDATA[검사 대상인 3003/3004 경로가 cc92e38에서 제거됐습니다. 3101/3104 소켓 검증으로 이식하기 전까지 건너뜁니다 — 지우지 않는 이유는 클래스 주석에 있습니다.]]></message>
+          </reason>
+        </test-case>
+        <test-case id="1619" name="보낸_상태를_서버가_명세대로_읽는다" fullname="UdpMovementIntegrationTests.보낸_상태를_서버가_명세대로_읽는다" methodname="보낸_상태를_서버가_명세대로_읽는다" classname="UdpMovementIntegrationTests" runstate="Runnable" seed="1855646521" result="Skipped" label="Ignored" site="Parent" start-time="0001-01-01 00:00:00Z" end-time="0001-01-01 00:00:00Z" duration="0.000000" asserts="0">
+          <properties />
+          <reason>
+            <message><![CDATA[검사 대상인 3003/3004 경로가 cc92e38에서 제거됐습니다. 3101/3104 소켓 검증으로 이식하기 전까지 건너뜁니다 — 지우지 않는 이유는 클래스 주석에 있습니다.]]></message>
+          </reason>
+        </test-case>
+        <test-case id="1621" name="서버_snapshot이_원격_버퍼까지_도착한다" fullname="UdpMovementIntegrationTests.서버_snapshot이_원격_버퍼까지_도착한다" methodname="서버_snapshot이_원격_버퍼까지_도착한다" classname="UdpMovementIntegrationTests" runstate="Runnable" seed="71278768" result="Skipped" label="Ignored" site="Parent" start-time="0001-01-01 00:00:00Z" end-time="0001-01-01 00:00:00Z" duration="0.000000" asserts="0">
+          <properties />
+          <reason>
+            <message><![CDATA[검사 대상인 3003/3004 경로가 cc92e38에서 제거됐습니다. 3101/3104 소켓 검증으로 이식하기 전까지 건너뜁니다 — 지우지 않는 이유는 클래스 주석에 있습니다.]]></message>
+          </reason>
+        </test-case>
+        <test-case id="1620" name="서버는_Entity별_최신_상태만_들고_있는다" fullname="UdpMovementIntegrationTests.서버는_Entity별_최신_상태만_들고_있는다" methodname="서버는_Entity별_최신_상태만_들고_있는다" classname="UdpMovementIntegrationTests" runstate="Runnable" seed="888947151" result="Skipped" label="Ignored" site="Parent" start-time="0001-01-01 00:00:00Z" end-time="0001-01-01 00:00:00Z" duration="0.000000" asserts="0">
+          <properties />
+          <reason>
+            <message><![CDATA[검사 대상인 3003/3004 경로가 cc92e38에서 제거됐습니다. 3101/3104 소켓 검증으로 이식하기 전까지 건너뜁니다 — 지우지 않는 이유는 클래스 주석에 있습니다.]]></message>
+          </reason>
+        </test-case>
+        <test-case id="1623" name="연속_snapshot이_버퍼에_쌓인다" fullname="UdpMovementIntegrationTests.연속_snapshot이_버퍼에_쌓인다" methodname="연속_snapshot이_버퍼에_쌓인다" classname="UdpMovementIntegrationTests" runstate="Runnable" seed="1548131623" result="Skipped" label="Ignored" site="Parent" start-time="0001-01-01 00:00:00Z" end-time="0001-01-01 00:00:00Z" duration="0.000000" asserts="0">
+          <properties />
+          <reason>
+            <message><![CDATA[검사 대상인 3003/3004 경로가 cc92e38에서 제거됐습니다. 3101/3104 소켓 검증으로 이식하기 전까지 건너뜁니다 — 지우지 않는 이유는 클래스 주석에 있습니다.]]></message>
+          </reason>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1643" name="UdpSnapshotPumpDiagnosticsTests" fullname="UdpSnapshotPumpDiagnosticsTests" classname="UdpSnapshotPumpDiagnosticsTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.002640" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1644" name="UDP_snapshot_진단은_소켓수신과_메인스레드대기를_분리한다" fullname="UdpSnapshotPumpDiagnosticsTests.UDP_snapshot_진단은_소켓수신과_메인스레드대기를_분리한다" methodname="UDP_snapshot_진단은_소켓수신과_메인스레드대기를_분리한다" classname="UdpSnapshotPumpDiagnosticsTests" runstate="Runnable" seed="1883596891" result="Passed" start-time="2026-09-18 15:38:38Z" end-time="2026-09-18 15:38:38Z" duration="0.001856" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[<b><color=#2EA3FF>MCP-FOR-UNITY</color></b>: [TestRunnerNoThrottle] Restored Interaction Mode after test run.
+Saving results to: C:/Users/SSAFY/AppData/LocalLow/TeamSSketch/SSketch\TestResults.xml
+]]></output>
+        </test-case>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>
