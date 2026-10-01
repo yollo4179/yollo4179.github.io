@@ -103,7 +103,7 @@ SSketch는 같은 주제로 그림을 그리고, 밤에는 다른 플레이어�
 5. **공격 결과 확정** 
 <br> 발사 입력이 들어오면 장비 상태·조준 여부·쿨다운을 검사하고 공격 결과를 결정한다.
 
-* <span class="notice-pink"> HostTick</span>: 물리 시물레이션 기준 시점(실제 게임 시간)
+* <span class="notice-pink"> HostTick</span>: 물리 시뮬레이션 기준 시점(실제 게임 시간)
 * <span class="notice-pink"> InputTick</span>: 원하는 시점의 HostTick을 예약하기 위한 목표 시점 
 * <span class="notice-pink">held fallback</span> : 입력이 없으면 직전 입력이나 <span class="notice-pink">마지막 확정 상태</span>를 계속 사용합니다.(back fill)
 * <span class="notice-pink">neutral fallback</span> : 입력이 없으면 직전 상태도 이어받지 않고 미리 정한 중립값을 새 입력처럼 사용합니다.(입력 없음)

@@ -21,7 +21,6 @@ tags:
   - TCP
   - 경쟁 상태
   - Mutex
-  - IoT
   - 게임
 nav_context: SSKETCH / 핵심 코드 / 서버 테스트
 footer_label: SSKETCH / DETAIL ARCHIVE

@@ -19,7 +19,7 @@ tags: [Refactoring, Architecture, EventDriven]
 nav_context: projects
 ---
 
-## 게임 규칙과 전송 책임을 나눈다/ 어뎁터 패턴
+## 게임 규칙과 전송 책임을 나눈다/ 어댑터 패턴
 
 게임 진행 서비스는 라운드와 페이즈를 계산하고, 그 결과를 도메인 이벤트로 만든다. <span class="notice-pink">서비스는 인터페이스 타입으로 어댑터 객체를 가진다.</span>서비스가 이벤트를 생성해 Publish하면, 어댑터의 <span class="notice-pink">std::visit가 이벤트 타입에 맞는 람다를 호출</span>하고 <span class="notice-pink">브로드캐스터에 연결(호출)</span>한다.
 
