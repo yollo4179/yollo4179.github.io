@@ -6,5 +6,8 @@ navigation:
   - index: "02"
     label: 포트폴리오
     url: /projects/
+  - index: "03"
+    label: 게임 포트폴리오
+    url: /games/
 footer:
   label: NEXT PROJECT IS ALWAYS IN PROGRESS.

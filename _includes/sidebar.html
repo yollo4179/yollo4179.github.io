@@ -8,7 +8,11 @@
   {% for navigation_item in site.data.site.navigation %}
     {% assign navigation_url = navigation_item.url | relative_url %}
     {% assign is_current = false %}
-    {% if navigation_item.url == '/' and page.url == '/' %}
+    {% if page.game_portfolio and navigation_item.url == '/games/' %}
+      {% assign is_current = true %}
+    {% elsif page.game_portfolio and navigation_item.url == '/projects/' %}
+      {% assign is_current = false %}
+    {% elsif navigation_item.url == '/' and page.url == '/' %}
       {% assign is_current = true %}
     {% elsif navigation_item.url != '/' and page.url contains navigation_item.url %}
       {% assign is_current = true %}

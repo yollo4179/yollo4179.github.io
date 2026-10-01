@@ -1,0 +1,10 @@
+{% assign video_project = include.slug | default: 'zelda-breath-of-the-wild' %}
+{% assign clip_url = '/assets/videos/projects/' | append: video_project | append: '/' | append: include.file | append: '.mp4' %}
+{% assign poster_url = '/assets/images/projects/' | append: video_project | append: '/' | append: include.file | append: '-poster.jpg' %}
+<figure class="game-media-feature">
+  <video controls playsinline preload="none" poster="{{ poster_url | relative_url }}" aria-label="{{ include.title | escape }}">
+    <source src="{{ clip_url | relative_url }}" type="video/mp4">
+    <a href="{{ clip_url | relative_url }}">{{ include.title }} 영상 열기</a>
+  </video>
+  <figcaption>{{ include.title }} · <a href="{{ clip_url | relative_url }}">MP4 직접 열기</a></figcaption>
+</figure>

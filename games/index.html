@@ -1,0 +1,39 @@
+---
+layout: default
+title: 게임 포트폴리오
+description: DirectX와 Unity로 작업한 게임 프로젝트의 구현 기록입니다.
+game_portfolio_index: true
+nav_context: GAME PORTFOLIO
+---
+
+{% assign game_projects = site.projects | where: 'game_portfolio', true | sort: 'game_order' %}
+<main id="main-content" class="game-archive game-landing">
+  <header class="game-archive__hero page-container">
+    <p class="eyebrow">GAME PORTFOLIO</p>
+    <h1>게임 포트폴리오</h1>
+    <p>DirectX와 Unity로 작업한 게임 프로젝트를 기능과 구현 방식 중심으로 정리했습니다.</p>
+  </header>
+
+  <section class="page-container game-landing__entry" aria-labelledby="game-landing-title">
+    <div>
+      <p class="section-index">PROJECTS / {{ game_projects.size }}</p>
+      <h2 id="game-landing-title">프로젝트 목록</h2>
+      <p>프로젝트별로 맡은 기능과 구현 과정을 볼 수 있습니다.</p>
+    </div>
+    <a class="button button--primary" href="{{ '/games/list/' | relative_url }}">게임 목록 보기 <span aria-hidden="true">→</span></a>
+  </section>
+
+  <section class="page-container game-landing__projects" aria-labelledby="game-landing-projects-title">
+    <h2 id="game-landing-projects-title">프로젝트 둘러보기</h2>
+    <div class="game-landing__grid">
+      {% for project in game_projects %}
+      <article class="game-landing-card">
+        <a href="{{ project.url | relative_url }}">
+          {% if project.hero_image %}<img src="{{ project.hero_image | relative_url }}" alt="" loading="lazy">{% else %}<div class="game-landing-card__placeholder" aria-hidden="true">화면 이미지 준비 중</div>{% endif %}
+          <div class="game-landing-card__copy"><p>{{ project.project_type }} · {{ project.stack }}</p><h3>{{ project.title }}</h3><p>{{ project.summary }}</p><span>소개 글 보기 ↗</span></div>
+        </a>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+</main>

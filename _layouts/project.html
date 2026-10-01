@@ -1,6 +1,12 @@
 ---
 layout: default
 ---
+{% assign archive_url = '/projects/' %}
+{% assign archive_label = '프로젝트' %}
+{% if page.game_portfolio %}
+  {% assign archive_url = '/games/list/' %}
+  {% assign archive_label = '게임 목록' %}
+{% endif %}
 
 <main id="main-content">
   <article class="project-detail">
@@ -8,7 +14,8 @@ layout: default
       <div class="page-container">
         <nav class="breadcrumbs" aria-label="현재 위치">
           <ol>
-            <li><a href="{{ '/projects/' | relative_url }}">프로젝트</a></li>
+            {% if page.game_portfolio %}<li><a href="{{ '/games/' | relative_url }}">게임 포트폴리오</a></li>{% endif %}
+            <li><a href="{{ archive_url | relative_url }}">{{ archive_label }}</a></li>
             <li aria-current="page">{{ page.title }}</li>
           </ol>
         </nav>
@@ -17,6 +24,12 @@ layout: default
         </p>
         <h1>{{ page.title }}</h1>
         <p class="project-detail__lead">{{ page.summary }}</p>
+        {% if page.cover_image %}
+          <figure class="game-project-cover">
+            <img src="{{ page.cover_image | relative_url }}" alt="{{ page.cover_alt | escape }}" loading="eager">
+            <figcaption>참고 작품 이미지</figcaption>
+          </figure>
+        {% endif %}
         <ul class="project-detail__tags" aria-label="프로젝트 태그">
           {% for tag in page.tags %}<li>#{{ tag }}</li>{% endfor %}
         </ul>
@@ -74,8 +87,8 @@ layout: default
     </div>
 
     <nav class="project-pagination page-container" aria-label="프로젝트 이동">
-      <a href="{{ '/projects/' | relative_url }}">
-        <span>모든 프로젝트</span>
+      <a href="{{ archive_url | relative_url }}">
+        <span>{{ archive_label }}</span>
         <strong>목록으로 돌아가기</strong>
       </a>
     </nav>

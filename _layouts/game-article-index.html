@@ -1,0 +1,33 @@
+---
+layout: default
+---
+{% assign game_project = site.projects | where: 'game_slug', page.project_slug | first %}
+{% assign game_articles = site.details | where: 'project_slug', page.project_slug | sort: 'game_order' %}
+<main id="main-content" class="game-project-page game-article-archive">
+  <header class="game-project-hero"><div class="page-container">
+    <nav class="breadcrumbs" aria-label="현재 위치"><ol><li><a href="{{ '/games/list/' | relative_url }}">게임 프로젝트</a></li><li><a href="{{ game_project.url | relative_url }}">{{ game_project.title }}</a></li><li aria-current="page">구현 내용 목록</li></ol></nav>
+    <p class="eyebrow">{{ game_project.title }} / IMPLEMENTATION</p>
+    <h1>구현 내용 목록</h1>
+    <p class="game-project-hero__lead">{{ content | strip_html | normalize_whitespace }}</p>
+  </div></header>
+  <section class="page-container game-project-articles" aria-labelledby="game-article-archive-title">
+    <p class="section-index">TECHNICAL ARTICLES / {{ game_articles.size }}</p>
+    <h2 id="game-article-archive-title">주제별 상세 글</h2>
+    <div class="game-tag-filter" data-game-tag-filter hidden><p>태그로 보기</p><div class="game-tag-filter__buttons" data-game-tag-buttons role="group" aria-label="기술 글 태그 필터"></div><p class="game-tag-filter__result" data-game-tag-result role="status" aria-live="polite"></p></div>
+    {% for topic in game_project.topics %}
+      {% assign topic_articles = game_articles | where: 'topic', topic.name %}
+      {% if topic_articles.size > 0 %}
+      <section id="topic-{{ topic.id }}" class="game-topic" data-game-topic aria-labelledby="topic-{{ topic.id }}-title">
+        <div class="game-topic__heading"><h3 id="topic-{{ topic.id }}-title">{{ topic.name }}</h3><p>{{ topic.description }}</p></div>
+        <div class="game-topic__cards">
+          {% for item in topic_articles %}
+          <article class="game-topic-card" data-game-article data-tags="{{ item.tags | join: '|' | escape }}"><a href="{{ item.url | relative_url }}"><span class="game-topic-card__number">{% if item.game_order < 10 %}0{% endif %}{{ item.game_order }}</span><h4>{{ item.title }}</h4><p>{{ item.summary }}</p><ul aria-label="글 태그">{% for tag in item.tags %}<li>#{{ tag }}</li>{% endfor %}</ul><span class="game-topic-card__arrow" aria-hidden="true">상세 글 읽기 ↗</span></a></article>
+          {% endfor %}
+        </div>
+      </section>
+      {% endif %}
+    {% endfor %}
+  </section>
+  <nav class="project-pagination page-container" aria-label="프로젝트 이동"><a href="{{ game_project.url | relative_url }}"><span>{{ game_project.title }}</span><strong>소개 글로 돌아가기</strong></a></nav>
+</main>
+<script src="{{ '/assets/js/game-article-filter.js' | relative_url }}" defer></script>

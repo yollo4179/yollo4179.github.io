@@ -1,0 +1,42 @@
+---
+layout: default
+---
+{% assign game_articles = site.details | where: 'project_slug', page.game_slug | sort: 'game_order' %}
+<main id="main-content" class="game-project-page">
+  <article>
+    <header class="game-project-hero">
+      <div class="page-container">
+        <nav class="breadcrumbs" aria-label="현재 위치"><ol><li><a href="{{ '/games/' | relative_url }}">게임 포트폴리오</a></li><li><a href="{{ '/games/list/' | relative_url }}">프로젝트 목록</a></li><li aria-current="page">{{ page.title }}</li></ol></nav>
+        <div class="game-project-hero__grid">
+          <div>
+            <p class="eyebrow">{{ page.project_type }} · {{ page.stack }}</p>
+            <h1>{{ page.title }}</h1>
+            <p class="game-project-hero__lead">{{ page.summary }}</p>
+            <ul class="game-project-hero__tags" aria-label="프로젝트 기술 태그">{% for tag in page.tags %}<li>#{{ tag }}</li>{% endfor %}</ul>
+            {% assign article_index_url = '/projects/' | append: page.game_slug | append: '/details/' %}<a class="button button--primary" href="{{ article_index_url | relative_url }}">구현 내용 {{ game_articles.size }}편 보기 <span aria-hidden="true">→</span></a>
+          </div>
+          {% if page.hero_image %}<figure class="game-project-hero__image"><img src="{{ page.hero_image | relative_url }}" alt="{{ page.hero_alt | escape }}" fetchpriority="high"><figcaption>{{ page.hero_caption }}</figcaption></figure>{% else %}<div class="game-project-hero__placeholder" role="img" aria-label="{{ page.hero_alt | escape }}">{{ page.hero_alt }}</div>{% endif %}
+        </div>
+      </div>
+    </header>
+    <nav class="game-project-nav page-container" aria-label="프로젝트 목차"><a href="#overview">프로젝트 소개</a><a href="#contribution">담당 구현</a><a href="#technical-articles">구현 내용</a></nav>
+    <div class="page-container game-project-body markdown-content">{{ content }}</div>
+    <section id="technical-articles" class="page-container game-project-articles" aria-labelledby="technical-articles-title">
+      <p class="section-index">IMPLEMENTATION / {{ game_articles.size }}</p>
+      <h2 id="technical-articles-title">구현 내용</h2>
+      {% for topic in page.topics %}
+        {% assign topic_articles = game_articles | where: 'topic', topic.name %}
+        {% if topic_articles.size > 0 %}
+        <section id="topic-{{ topic.id }}" class="game-topic" aria-labelledby="topic-{{ topic.id }}-title">
+          <div class="game-topic__heading"><h3 id="topic-{{ topic.id }}-title">{{ topic.name }}</h3><p>{{ topic.description }}</p></div>
+          <div class="game-topic__cards">
+            {% assign topic_url = article_index_url | append: '#topic-' | append: topic.id %}
+            <article class="game-topic-card"><a href="{{ topic_url | relative_url }}"><span class="game-topic-card__number">{{ topic_articles.size }}편</span><h4>{{ topic.name }}</h4><p>{{ topic.description }}</p><span class="game-topic-card__arrow" aria-hidden="true">목록 보기 ↗</span></a></article>
+          </div>
+        </section>
+        {% endif %}
+      {% endfor %}
+    </section>
+    <nav class="project-pagination page-container" aria-label="프로젝트 이동"><a href="{{ '/games/list/' | relative_url }}"><span>게임 포트폴리오</span><strong>프로젝트 목록으로 돌아가기</strong></a></nav>
+  </article>
+</main>

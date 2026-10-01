@@ -1,0 +1,41 @@
+---
+layout: default
+title: 게임 프로젝트 목록
+description: DirectX와 Unity로 작업한 게임 프로젝트 목록입니다.
+game_portfolio_index: true
+nav_context: GAME PORTFOLIO / LIST
+---
+
+{% assign game_projects = site.projects | where: 'game_portfolio', true | sort: 'game_order' %}
+<main id="main-content" class="game-archive">
+  <header class="game-archive__hero page-container">
+    <nav class="breadcrumbs" aria-label="현재 위치">
+      <ol>
+        <li><a href="{{ '/games/' | relative_url }}">게임 포트폴리오</a></li>
+        <li aria-current="page">프로젝트 목록</li>
+      </ol>
+    </nav>
+    <p class="eyebrow">GAME PORTFOLIO / PROJECTS</p>
+    <h1>게임 프로젝트 목록</h1>
+    <p>DirectX와 Unity로 작업한 게임 프로젝트를 기능과 구현 방식 중심으로 정리했습니다.</p>
+  </header>
+
+  <section class="page-container game-archive__section" aria-labelledby="game-archive-title">
+    <h2 id="game-archive-title">프로젝트 {{ game_projects.size }}개</h2>
+    <div class="game-archive__list">
+      {% for project in game_projects %}
+        <article class="game-archive-card">
+          <span class="game-archive-card__number" aria-hidden="true">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
+          <div>
+            {% if project.cover_image %}<img class="game-archive-card__cover" src="{{ project.cover_image | relative_url }}" alt="" loading="lazy">{% endif %}
+            <p class="game-archive-card__type">{{ project.project_type }} · {{ project.stack }}</p>
+            <h3><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h3>
+            <p>{{ project.summary }}</p>
+            <ul aria-label="프로젝트 기술 태그">{% for tag in project.tags %}<li>{{ tag }}</li>{% endfor %}</ul>
+          </div>
+          <span class="game-archive-card__arrow" aria-hidden="true">↗</span>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+</main>

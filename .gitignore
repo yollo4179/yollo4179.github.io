@@ -1,4 +1,5 @@
 _site/
+.portfolio-build/
 .jekyll-cache/
 .sass-cache/
 .jekyll-metadata

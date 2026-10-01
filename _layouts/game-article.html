@@ -1,0 +1,21 @@
+---
+layout: default
+---
+{% assign game_project = site.projects | where: 'game_slug', page.project_slug | first %}
+{% assign game_articles = site.details | where: 'project_slug', page.project_slug | sort: 'game_order' %}
+<main id="main-content" class="game-article-page">
+  <article class="project-detail">
+    <header class="project-detail__hero"><div class="page-container">
+      {% assign article_index_url = '/projects/' | append: page.project_slug | append: '/details/' %}<nav class="breadcrumbs" aria-label="현재 위치"><ol><li><a href="{{ game_project.url | relative_url }}">{{ game_project.title }}</a></li><li><a href="{{ article_index_url | relative_url }}">구현 내용 목록</a></li><li aria-current="page">{{ page.topic }}</li></ol></nav>
+      <p class="eyebrow">{{ page.topic }} / {% if page.game_order < 10 %}0{% endif %}{{ page.game_order }}</p>
+      <h1>{{ page.title }}</h1>
+      <p class="project-detail__lead">{{ page.summary }}</p>
+      <ul class="project-detail__tags" aria-label="기술 태그">{% for tag in page.tags %}<li>#{{ tag }}</li>{% endfor %}</ul>
+    </div></header>
+    <div class="page-container game-article-layout">
+      <aside class="game-article-index" aria-label="{{ game_project.title }} 기술 글 목록"><p class="section-index">{{ game_project.title }} · {{ game_articles.size }}편</p><ol>{% for item in game_articles %}<li><a href="{{ item.url | relative_url }}"{% if item.url == page.url %} aria-current="page"{% endif %}>{{ item.title }}</a></li>{% endfor %}</ol></aside>
+      <div class="markdown-content game-article-body">{{ content }}</div>
+    </div>
+    <nav class="detail-pagination page-container" aria-label="기술 글 이동"><a href="{{ article_index_url | relative_url }}"><span>{{ game_project.title }}</span><strong>구현 내용 목록으로 돌아가기</strong></a>{% for item in game_articles %}{% if item.url == page.url %}{% assign next_index = forloop.index %}{% assign next_article = game_articles[next_index] %}{% if next_article %}<a href="{{ next_article.url | relative_url }}"><span>다음 글</span><strong>{{ next_article.title }}</strong></a>{% endif %}{% endif %}{% endfor %}</nav>
+  </article>
+</main>
