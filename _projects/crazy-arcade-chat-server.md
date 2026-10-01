@@ -60,8 +60,6 @@ topics:
 
 부모 패널의 패딩·간격·열 수를 바꾸고 자식 UI를 다시 정렬한다. 저장한 계층은 JSON의 `CHILDREN` 배열을 따라 클라이언트에서 다시 만든다.
 
-<div class="detail-image-placeholder">필요한 화면: 채팅 메시지와 캐릭터 변경이 두 클라이언트에 반영된 화면</div>
-
 서버는 `SND_MESSAGE`를 처리해 `BROAD_CAST_ALL` 패킷을 보낸다. 클라이언트 수신까지의 경로는 [채팅 서버 구현 목록]({{ '/projects/crazy-arcade-chat-server/technical/iocp-chat/' | relative_url }})에서 이어진다.
 
 도구에서 한 번 만든 화면을 데이터로 다시 조립하는 과정과 채팅 메시지가 각 클라이언트 화면까지 도달하는 과정을 기술 글로 분리했다.
