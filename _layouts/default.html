@@ -16,6 +16,7 @@
     <script>document.documentElement.classList.add("js");</script>
     <link rel="stylesheet" href="{{ '/assets/css/shared.css' | relative_url }}{% if page.asset_version %}?v={{ page.asset_version }}{% endif %}">
     {% if page.game_portfolio or page.game_portfolio_index %}<link rel="stylesheet" href="{{ '/assets/css/game-portfolio.css' | relative_url }}">{% endif %}
+    {% if page.game_portfolio %}<script src="{{ '/assets/js/game-media-gallery.js' | relative_url }}" defer></script>{% endif %}
     <script src="{{ '/assets/js/navigation.js' | relative_url }}" defer></script>
     {% if page.ssketch_styles %}<link rel="stylesheet" href="{{ '/assets/css/ssketch.css' | relative_url }}">{% endif %}
     <script
