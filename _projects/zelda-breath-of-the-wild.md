@@ -68,6 +68,6 @@ topics:
 
 ![가논 벽 전환 영상의 플레이 화면]({{ '/assets/images/projects/zelda-breath-of-the-wild/ganon-wall-transition-poster.jpg' | relative_url }})
 
-라이넬과 가논의 상태 전환과 공격 오브젝트 재사용은 [보스 전투 구현 목록]({{ '/projects/zelda-breath-of-the-wild/details/#topic-combat' | relative_url }})에서 이어진다.
+라이넬과 가논의 상태 전환과 공격 오브젝트 재사용은 [보스 전투 구현 목록]({{ '/projects/zelda-breath-of-the-wild/details/combat/' | relative_url }})에서 이어진다.
 
 기술 글에서는 화면 결과에 이르기까지 어떤 버퍼를 만들고 어떤 순서로 계산했는지, 보스 상태와 공격 객체를 어떻게 연결했는지를 주제별로 정리했다.

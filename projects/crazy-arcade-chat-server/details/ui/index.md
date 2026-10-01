@@ -1,11 +1,6 @@
 ---
-layout: game-article-index
-title: 크레이지 아케이드 · UI 제작 도구
-project_slug: crazy-arcade-chat-server
-game_portfolio: true
-topic_id: ui
+layout: null
 permalink: /projects/crazy-arcade-chat-server/details/ui/
-nav_context: GAME PORTFOLIO / CHAT SERVER
 ---
-
-ImGui UI 배치 도구와 JSON 저장·로드, 런타임 화면 재구성을 다룬 글이다.
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><title>UI 제작 도구</title><meta name="robots" content="noindex"><link rel="canonical" href="{{ '/projects/crazy-arcade-chat-server/#topic-ui' | absolute_url }}"><meta http-equiv="refresh" content="0; url={{ '/projects/crazy-arcade-chat-server/#topic-ui' | relative_url }}"></head><body><a href="{{ '/projects/crazy-arcade-chat-server/#topic-ui' | relative_url }}">UI 제작 도구 보기</a></body></html>

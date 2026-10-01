@@ -1,11 +1,6 @@
 ---
-layout: game-article-index
-title: UnityChan RPG · 데이터와 표현
-project_slug: unitychan-rpg
-game_portfolio: true
-topic_id: data
+layout: null
 permalink: /projects/unitychan-rpg/details/data/
-nav_context: GAME PORTFOLIO / UNITYCHAN RPG
 ---
-
-변경 주기에 따라 데이터를 나누고 Shader Graph로 몬스터 등장·퇴장을 표현했다.
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><title>데이터와 표현</title><meta name="robots" content="noindex"><link rel="canonical" href="{{ '/projects/unitychan-rpg/#topic-data' | absolute_url }}"><meta http-equiv="refresh" content="0; url={{ '/projects/unitychan-rpg/#topic-data' | relative_url }}"></head><body><a href="{{ '/projects/unitychan-rpg/#topic-data' | relative_url }}">데이터와 표현 보기</a></body></html>

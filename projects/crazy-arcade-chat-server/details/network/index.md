@@ -1,11 +1,6 @@
 ---
-layout: game-article-index
-title: 크레이지 아케이드 · 채팅 서버
-project_slug: crazy-arcade-chat-server
-game_portfolio: true
-topic_id: network
+layout: null
 permalink: /projects/crazy-arcade-chat-server/details/network/
-nav_context: GAME PORTFOLIO / CHAT SERVER
 ---
-
-TCP 클라이언트와 IOCP 서버의 채팅 메시지 전달 흐름을 다룬 글이다.
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><title>채팅 서버</title><meta name="robots" content="noindex"><link rel="canonical" href="{{ '/projects/crazy-arcade-chat-server/technical/iocp-chat/' | absolute_url }}"><meta http-equiv="refresh" content="0; url={{ '/projects/crazy-arcade-chat-server/technical/iocp-chat/' | relative_url }}"></head><body><a href="{{ '/projects/crazy-arcade-chat-server/technical/iocp-chat/' | relative_url }}">채팅 서버 보기</a></body></html>

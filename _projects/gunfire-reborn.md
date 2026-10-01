@@ -60,10 +60,10 @@ DirectX 11로 만든 개인 FPS 프로젝트다. 플레이어가 이동하며 �
 
 ![몬스터 공격을 따라 곡선 트레일이 이어지는 전투 장면]({{ '/assets/images/projects/gunfire-reborn/trail-demo.gif' | relative_url }})
 
-트레일은 객체마다 움직임과 정점 배열이 달라 독립된 버퍼를 사용한다. 버퍼 공유로 궤적이 원점 `(0, 0, 0)`이나 다른 객체 쪽으로 튀던 문제와 좌표계 계약은 [트레일과 화면 효과 목록]({{ '/projects/gunfire-reborn/details/#topic-rendering' | relative_url }})에서 이어진다.
+트레일은 객체마다 움직임과 정점 배열이 달라 독립된 버퍼를 사용한다. 버퍼 공유로 궤적이 원점 `(0, 0, 0)`이나 다른 객체 쪽으로 튀던 문제와 좌표계 계약은 [트레일과 화면 효과 목록]({{ '/projects/gunfire-reborn/details/rendering/' | relative_url }})에서 이어진다.
 
 {% include game-local-video.html slug="gunfire-reborn" file="navmesh-editing" title="맵툴의 삼각형 내비메시 편집과 저장" %}
 
-맵툴에서 만든 셀은 클라이언트용과 편집용 `.dat` 파일로 저장한다. 파일 구조와 셀 생성 과정은 [맵 제작과 이동 목록]({{ '/projects/gunfire-reborn/details/#topic-map' | relative_url }})에서 다룬다.
+맵툴에서 만든 셀은 클라이언트용과 편집용 `.dat` 파일로 저장한다. 파일 구조와 셀 생성 과정은 [맵 제작과 이동 목록]({{ '/projects/gunfire-reborn/details/map/' | relative_url }})에서 다룬다.
 
 기술 글은 맵 제작과 런타임 이동부터 읽어도 되고, 트레일의 공유 버퍼 문제처럼 전투 화면에서 발견한 현상부터 읽어도 된다. 각 글에는 선택한 구조의 이유와 실제 구현 흐름을 함께 적었다.

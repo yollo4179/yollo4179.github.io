@@ -8,6 +8,9 @@ layout: default
 {% assign category_url = article_index_url | append: current_topic.id | append: '/' %}
 {% if current_topic.url %}{% assign category_url = current_topic.url %}{% endif %}
 {% assign game_articles = game_articles | where: 'topic', page.topic %}
+{% if game_articles.size < 3 %}
+  {% assign category_url = game_project.url | append: '#topic-' | append: current_topic.id %}
+{% endif %}
 <main id="main-content" class="game-article-page">
   <article class="project-detail">
     <header class="project-detail__hero"><div class="page-container">
@@ -21,6 +24,6 @@ layout: default
       <aside class="game-article-index" aria-label="{{ page.topic }} 기술 글 목록"><p class="section-index">{{ page.topic }} · {{ game_articles.size }}편</p><ol>{% for item in game_articles %}<li><a href="{{ item.url | relative_url }}"{% if item.url == page.url %} aria-current="page"{% endif %}>{{ item.title }}</a></li>{% endfor %}</ol></aside>
       <div class="markdown-content game-article-body">{{ content }}</div>
     </div>
-    <nav class="detail-pagination page-container" aria-label="기술 글 이동"><a href="{{ category_url | relative_url }}"><span>{{ page.topic }}</span><strong>카테고리 목록으로 돌아가기</strong></a>{% for item in game_articles %}{% if item.url == page.url %}{% assign next_index = forloop.index %}{% assign next_article = game_articles[next_index] %}{% if next_article %}<a href="{{ next_article.url | relative_url }}"><span>다음 글</span><strong>{{ next_article.title }}</strong></a>{% endif %}{% endif %}{% endfor %}</nav>
+    <nav class="detail-pagination page-container" aria-label="기술 글 이동"><a href="{{ category_url | relative_url }}"><span>{{ page.topic }}</span><strong>{{ page.topic }}으로 돌아가기</strong></a>{% for item in game_articles %}{% if item.url == page.url %}{% assign next_index = forloop.index %}{% assign next_article = game_articles[next_index] %}{% if next_article %}<a href="{{ next_article.url | relative_url }}"><span>다음 글</span><strong>{{ next_article.title }}</strong></a>{% endif %}{% endif %}{% endfor %}</nav>
   </article>
 </main>

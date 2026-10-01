@@ -35,11 +35,9 @@ hero_alt: 크레이지 아케이드 UI 배치 도구에서 저장한 화면을 �
 hero_caption: UI 도구 · 저장한 화면 다시 불러오기
 topics:
 - id: ui
-  url: /projects/crazy-arcade-chat-server/details/ui/
   name: UI 제작 도구
   description: 부모·자식 UI 배치와 그리드 정렬, JSON 직렬화와 런타임 조립을 나눠 기록했다.
 - id: network
-  url: /projects/crazy-arcade-chat-server/details/network/
   name: 채팅 서버
   description: TCP 클라이언트의 송수신과 IOCP 서버의 완료 큐·프로토콜 처리를 연결했다.
 ---
@@ -64,6 +62,6 @@ topics:
 
 <div class="detail-image-placeholder">필요한 화면: 채팅 메시지와 캐릭터 변경이 두 클라이언트에 반영된 화면</div>
 
-서버는 `SND_MESSAGE`를 처리해 `BROAD_CAST_ALL` 패킷을 보낸다. 클라이언트 수신까지의 경로는 [채팅 서버 구현 목록]({{ '/projects/crazy-arcade-chat-server/details/network/' | relative_url }})에서 이어진다.
+서버는 `SND_MESSAGE`를 처리해 `BROAD_CAST_ALL` 패킷을 보낸다. 클라이언트 수신까지의 경로는 [채팅 서버 구현 목록]({{ '/projects/crazy-arcade-chat-server/technical/iocp-chat/' | relative_url }})에서 이어진다.
 
 도구에서 한 번 만든 화면을 데이터로 다시 조립하는 과정과 채팅 메시지가 각 클라이언트 화면까지 도달하는 과정을 기술 글로 분리했다.

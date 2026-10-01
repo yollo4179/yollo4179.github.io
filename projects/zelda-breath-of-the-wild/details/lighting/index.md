@@ -1,11 +1,6 @@
 ---
-layout: game-article-index
-title: 젤다의 전설(야생의 숨결) · 화면의 밝기와 음영
-project_slug: zelda-breath-of-the-wild
-game_portfolio: true
-topic_id: lighting
+layout: null
 permalink: /projects/zelda-breath-of-the-wild/details/lighting/
-nav_context: GAME PORTFOLIO / ZELDA
 ---
-
-평균 휘도 기반 톤매핑과 깊이·노멀 버퍼를 이용한 SSAO를 기록했다.
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><title>화면의 밝기와 음영</title><meta name="robots" content="noindex"><link rel="canonical" href="{{ '/projects/zelda-breath-of-the-wild/#topic-lighting' | absolute_url }}"><meta http-equiv="refresh" content="0; url={{ '/projects/zelda-breath-of-the-wild/#topic-lighting' | relative_url }}"></head><body><a href="{{ '/projects/zelda-breath-of-the-wild/#topic-lighting' | relative_url }}">화면의 밝기와 음영 보기</a></body></html>
