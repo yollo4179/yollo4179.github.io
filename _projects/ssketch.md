@@ -22,6 +22,10 @@ tags: [게임 클라이언트, 멀티플레이, 트러블슈팅]
 nav_context: projects
 ---
 
+<h2 id="demo">EC2 시연 영상</h2>
+
+{% include game-video-embed.html id="k56UfyoS6cQ" title="SSketch · EC2 시연 영상" %}
+
 <h2 id="game">그림 한 장이 경쟁의 대상이 되기까지</h2>
 
 SSketch는 그림을 그리는 시간과 그 그림을 두고 경쟁하는 시간을 하나의 라운드로 묶은 4인 온라인 게임이다. 그림 실력에 더해, 누구의 그림을 가져오고 내 그림을 어떻게 지킬지에 따라 결과가 달라진다. Windows에서 플레이할 수 있다.

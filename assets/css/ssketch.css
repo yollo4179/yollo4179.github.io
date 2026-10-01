@@ -98,3 +98,8 @@
 .ssketch-video-load[hidden] { display:none; }
 .ssketch-video-status { position:absolute; inset:auto 1rem 3rem; z-index:2; margin:0; color:#fff; font-size:.9rem; text-align:center; text-shadow:0 1px 3px #000; }
 @media(max-width:40rem) { .ssketch-video-load { min-width:7rem; padding:.65rem 1rem; } .ssketch-video-status { inset:auto .5rem 2.5rem; font-size:.8rem; } }
+
+/* Main SSketch demonstration video. */
+.ssketch-main-content .game-video-embed { margin:1rem 0 2rem; }
+.ssketch-main-content .game-video-embed iframe { display:block; width:100%; height:auto; aspect-ratio:16/9; border:0; border-radius:.4rem; background:#101b31; }
+.ssketch-main-content .game-video-embed figcaption { margin-top:.5rem; }

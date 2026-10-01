@@ -1,0 +1,14 @@
+{% assign video_url = 'https://www.youtube.com/watch?v=' | append: include.id %}
+{% assign embed_url = 'https://www.youtube-nocookie.com/embed/' | append: include.id %}
+{% if include.start %}{% assign embed_url = embed_url | append: '?start=' | append: include.start %}{% assign video_url = video_url | append: '&t=' | append: include.start | append: 's' %}{% endif %}
+<figure class="game-video-embed">
+  <iframe
+    src="{{ embed_url }}"
+    title="{{ include.title | escape }}"
+    loading="lazy"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen
+  ></iframe>
+  <figcaption>{{ include.title }} · <a href="{{ video_url }}" target="_blank" rel="noopener noreferrer">YouTube에서 보기</a></figcaption>
+</figure>
