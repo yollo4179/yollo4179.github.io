@@ -29,7 +29,7 @@ nav_context: GAME PORTFOLIO
       {% for project in game_projects %}
       <article class="game-landing-card">
         <a href="{{ project.url | relative_url }}">
-          {% if project.hero_image %}<img src="{{ project.hero_image | relative_url }}" alt="" loading="lazy">{% else %}<div class="game-landing-card__placeholder" aria-hidden="true">화면 이미지 준비 중</div>{% endif %}
+          {% if project.hero_image %}<img src="{{ project.hero_image | relative_url }}" alt="" loading="lazy">{% endif %}
           <div class="game-landing-card__copy"><p>{{ project.project_type }} · {{ project.stack }}</p><h3>{{ project.title }}</h3><p>{{ project.summary }}</p><span>소개 글 보기 ↗</span></div>
         </a>
       </article>

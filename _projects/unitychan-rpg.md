@@ -29,7 +29,7 @@ tags:
 nav_context: GAME PORTFOLIO / UNITYCHAN RPG
 game_slug: unitychan-rpg
 hero_image: null
-hero_alt: '필요한 화면: UnityChan RPG 전투 플레이 화면'
+hero_alt: null
 hero_caption: null
 topics:
 - id: play

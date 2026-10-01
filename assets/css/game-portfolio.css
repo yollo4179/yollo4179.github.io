@@ -439,3 +439,5 @@ body.game-gallery-open { overflow: hidden; }
   .game-gallery-viewer__navigation { gap: .5rem; }
   .game-gallery-viewer__navigation p { font-size: .85rem; }
 }
+
+.game-project-hero__grid--text-only { grid-template-columns: minmax(0, 1fr); }

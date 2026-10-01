@@ -7,7 +7,7 @@ layout: default
     <header class="game-project-hero">
       <div class="page-container">
         <nav class="breadcrumbs" aria-label="현재 위치"><ol><li><a href="{{ '/games/' | relative_url }}">게임 포트폴리오</a></li><li><a href="{{ '/games/list/' | relative_url }}">프로젝트 목록</a></li><li aria-current="page">{{ page.title }}</li></ol></nav>
-        <div class="game-project-hero__grid">
+        <div class="game-project-hero__grid{% unless page.hero_image %} game-project-hero__grid--text-only{% endunless %}">
           <div>
             <p class="eyebrow">{{ page.project_type }} · {{ page.stack }}</p>
             <h1>{{ page.title }}</h1>
@@ -15,7 +15,7 @@ layout: default
             <ul class="game-project-hero__tags" aria-label="프로젝트 기술 태그">{% for tag in page.tags %}<li>#{{ tag }}</li>{% endfor %}</ul>
             {% assign article_index_url = '/projects/' | append: page.game_slug | append: '/details/' %}<a class="button button--primary" href="{{ article_index_url | relative_url }}">구현 내용 {{ game_articles.size }}편 보기 <span aria-hidden="true">→</span></a>
           </div>
-          {% if page.hero_image %}<figure class="game-project-hero__image"><img src="{{ page.hero_image | relative_url }}" alt="{{ page.hero_alt | escape }}" fetchpriority="high"><figcaption>{{ page.hero_caption }}</figcaption></figure>{% else %}<div class="game-project-hero__placeholder" role="img" aria-label="{{ page.hero_alt | escape }}">{{ page.hero_alt }}</div>{% endif %}
+          {% if page.hero_image %}<figure class="game-project-hero__image"><img src="{{ page.hero_image | relative_url }}" alt="{{ page.hero_alt | escape }}" fetchpriority="high"><figcaption>{{ page.hero_caption }}</figcaption></figure>{% endif %}
         </div>
       </div>
     </header>
