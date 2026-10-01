@@ -30,7 +30,7 @@ layout: default
         <section id="topic-{{ topic.id }}" class="game-topic" aria-labelledby="topic-{{ topic.id }}-title">
           <div class="game-topic__heading"><h3 id="topic-{{ topic.id }}-title">{{ topic.name }}</h3><p>{{ topic.description }}</p></div>
           <div class="game-topic__cards">
-            {% assign topic_url = article_index_url | append: '#topic-' | append: topic.id %}
+            {% assign topic_url = article_index_url | append: topic.id | append: '/' %}
             {% if topic.url %}{% assign topic_url = topic.url %}{% endif %}
             <article class="game-topic-card"><a href="{{ topic_url | relative_url }}"><span class="game-topic-card__number">{{ topic_articles.size }}편</span><h4>{{ topic.name }}</h4><p>{{ topic.description }}</p><span class="game-topic-card__arrow" aria-hidden="true">목록 보기 ↗</span></a></article>
           </div>
