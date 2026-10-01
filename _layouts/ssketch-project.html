@@ -1,7 +1,6 @@
 ---
 layout: default
 ---
-{% assign series = site.details | where: 'project_slug', 'ssketch' | where: 'featured', true %}
 <main id="main-content" class="ssketch-project">
   <article>
     <header class="ssketch-hero page-container">
@@ -14,7 +13,7 @@ layout: default
           <p class="ssketch-intro">{{ page.hero_intro }}</p>
           <ul class="ssketch-chips" aria-label="게임 정보"><li>4인 온라인</li><li>Windows</li><li>Unity · C++</li></ul>
           <div class="ssketch-actions">
-            <a class="ssketch-button" href="#development">개발 기록 {{ series.size }}편 읽기 <span aria-hidden="true">↓</span></a>
+            <a class="ssketch-button" href="{{ '/projects/ssketch/details/' | relative_url }}">구현 내용 목록 보기 <span aria-hidden="true">→</span></a>
             <a class="ssketch-button ssketch-button--secondary" href="https://ssketch.ddns.net/" target="_blank" rel="noopener noreferrer">게임 소개 · 다운로드 <span aria-hidden="true">↗</span></a>
           </div>
         </div>

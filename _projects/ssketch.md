@@ -3,6 +3,8 @@ layout: ssketch-project
 ssketch_styles: true
 title: SSketch
 order: 3
+game_order: 1
+game_portfolio: true
 team_project: true
 category: SSAFY - 특화 프로젝트
 project_type: 특화 프로젝트
@@ -13,6 +15,9 @@ stack: Unity · C# · C++ · IOCP · TCP · UDP · Vivox
 domains: [게임]
 technologies: [Unity, C#, C++, IOCP, TCP, UDP, Vivox]
 summary: 함께 그린 그림을 훔치고 평가하는 4인 멀티플레이 게임. Unity의 입력·물리·화면 동기화와 C++ 서버를 연결했다.
+cover_image: /assets/images/projects/ssketch/gameplay-drawing.jpg
+hero_image: /assets/images/projects/ssketch/gameplay-drawing.jpg
+hero_alt: 이젤 앞에서 그림을 그리는 SSketch 게임 화면
 hero_heading: 함께 그리고, 훔치고, 평가하는 멀티플레이 그림 게임
 hero_intro: 낮에는 화가, 밤에는 도둑이 된다. 같은 주제로 그린 그림을 집에 전시하고, 밤에는 다른 플레이어의 그림을 노린다. 아침의 평가가 끝날 때까지 그림의 주인도, 승부도 바뀔 수 있다.
 status: Windows 빌드 공개

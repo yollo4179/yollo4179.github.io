@@ -47,11 +47,11 @@ nav_context: projects
 Guest에서 점프 키를 누르면 로컬 Prediction이 바로 상승을 시작했다. 그런데 잠시 후 캐릭터가 지상으로 되돌아오는 경우가 있었다. 화면만 보면 점프 애니메이션이 취소되거나 물리 보정이 과도하게 적용된 것처럼 보였다.
 
 <div class="ssketch-video-shell">
-  <video class="ssketch-video" controls preload="none" playsinline></video>
-  <button class="ssketch-video-load" type="button" data-video-src="{{ '/assets/videos/projects/ssketch/jump-before-fix-durl.mp4' | relative_url }}">영상 재생</button>
-  <p class="ssketch-video-status" role="status" aria-live="polite"></p>
+  <video class="ssketch-video" controls preload="none" playsinline aria-label="점프 입력 개선 전 플레이 영상">
+    <source src="{{ '/assets/videos/projects/ssketch/jump-before-fix-durl.mp4' | relative_url }}" type="video/mp4">
+  </video>
 </div>
-<p class="ssketch-source">개선 전 녹화. 오른쪽 아래 화면에서 호스트가 점프를 확정하지 못해 거절하고, 예측 위치에서 곧바로 확정 위치(지상)를 받아 바닥으로 꽂히는 장면이다.</p>
+<p class="ssketch-source">개선 전 녹화. 오른쪽 아래 화면에서 호스트가 점프를 확정하지 못해 거절하고, 예측 위치에서 곧바로 확정 위치(지상)를 받아 바닥으로 꽂히는 장면이다. <a href="{{ '/assets/videos/projects/ssketch/jump-before-fix-durl.mp4' | relative_url }}">영상 파일 열기</a></p>
 
 호스트 기록을 따라가 보니, Guest가 점프를 예측한 입력 Tick을 호스트에서는 fallback으로 처리할 수 있었다. 호스트의 확정 상태에는 점프가 없고, Guest는 이후 그 상태를 받아 Reconciliation을 수행한다. 화면의 복귀는 마지막에 드러난 결과였다. 그 앞에서 점프 입력이 어디까지 전달됐는지를 먼저 확인해야 했다.
 
@@ -108,11 +108,11 @@ flowchart TD
 <span class="ssketch-key ssketch-key--cause">이 재전송 방식에는 한 가지 짚어야 할 점이 있다 — RejectedStale이 하나 나왔다고 해서 그 점프가 실제로 실패했다는 뜻은 아니다.</span> 첫 전송으로 점프가 이미 성공했더라도, Guest가 아직 LastResolvedInputTick을 못 받은 사이에는 같은 명령이 미확정 history에 남아 재전송된다. 호스트는 그 Tick을 이미 확정했으므로 이 재전송분을 RejectedStale로 거절한다. 즉 "이미 성공한 점프의 뒤늦은 사본이 거절된 경우"와 "진짜로 제때 못 들어가서 실패한 경우"가 같은 RejectedStale 안에 섞여 있을 수 있다. 실제로 수동 플레이 중에는 점프가 눈에 띄게 되돌아가는 느낌을 받지 못했는데, 이 구분과도 맞아떨어진다.
 
 <div class="ssketch-video-shell">
-  <video class="ssketch-video" controls preload="none" playsinline></video>
-  <button class="ssketch-video-load" type="button" data-video-src="{{ '/assets/videos/projects/ssketch/jump-after-fix-durl.mp4' | relative_url }}">영상 재생</button>
-  <p class="ssketch-video-status" role="status" aria-live="polite"></p>
+  <video class="ssketch-video" controls preload="none" playsinline aria-label="점프 입력 개선 후 플레이 영상">
+    <source src="{{ '/assets/videos/projects/ssketch/jump-after-fix-durl.mp4' | relative_url }}" type="video/mp4">
+  </video>
 </div>
-<p class="ssketch-source">수정 후 전체 플레이 녹화(3분 40초). 점프 입력 전송 경로를 수정한 뒤 실제 플레이를 이어서 확인한 장면이다.</p>
+<p class="ssketch-source">수정 후 전체 플레이 녹화(3분 40초). 점프 입력 전송 경로를 수정한 뒤 실제 플레이를 이어서 확인한 장면이다. <a href="{{ '/assets/videos/projects/ssketch/jump-after-fix-durl.mp4' | relative_url }}">영상 파일 열기</a></p>
 
 호스트가 fallback으로 그냥 Tick을 끝내도, "여기까지 끝났다"는 확정 신호는 앞으로 나아간다. 완료된 Tick의 판정은 확정되므로 첫 전송을 deadline 안에 넣는 것이 중요했다. 최초 즉시 송신과 [Pre-Tick Pump]({{ '/projects/ssketch/technical/input-deadline/' | relative_url }})가 각각 Guest의 대기와 Host의 반영 순서를 맡았다.
 
@@ -156,5 +156,3 @@ stale로 거절된 7건은 전부 Entity 3에서 나왔고, 모두 `queuedBefore
 이동 입력이 99% 넘게 잘 도착해도, 점프 버튼 딱 한 번이 제시간에 못 들어가면 플레이어는 바로 눈치챈다. 그래서 이번에는 "평균적으로 입력이 얼마나 잘 갔나"만 보지 않고, 사건 하나하나가 언제 명령이 됐고 어떤 판정을 받았는지 끝까지 따라갔다. 화면에서 보이는 "점프가 안 됨"을 입력이 아예 안 들어간 경우와 게임 규칙상 거절된 경우로 나눠서 볼 수 있게 된 게, 이번에 얻은 가장 큰 변화였다.
 
 다음 검증에서는 입력을 똑같이 재생하고 접지 상태도 고정해서, 같은 점프 시퀀스가 같은 조건에서 매번 어떻게 판정되는지 비교해볼 필요가 있다. 지금 로그는 최초 전송 경로와 이번에 놓친 7건을 설명해주지만, 어떤 지연 상황에서도 점프 누락이 절대 안 생긴다고 보장해주지는 않는다. 그래도 비슷한 사례가 또 나오면 같은 방식(room, world, authority, entity, inputTick)으로 계속 연결해서 추적할 수 있도록 계측 기준은 그대로 남겨뒀다.
-
-<script src="{{ '/assets/js/ssketch-video-loader.js' | relative_url }}" defer></script>
