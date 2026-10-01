@@ -5,7 +5,7 @@ team_project: true
 category: SSAFY - 공통 프로젝트
 project_type: 공통 프로젝트
 summary: 점자 보도블록 순찰 로봇의 프로필·계정 보안 관리, MQTT 통신, 원격 명령 왕복, 실시간 Mission 지도를 구현한 과정입니다.
-status: 개발 종료 · 포트폴리오 정리 중
+status: 개발 완료
 period: 2026.07.20 – 2026.08.08 (약 3주)
 role: Backend·인증/프로필 관리, MQTT 통신·Robot Command, 실시간 관제 UI
 team: 입력 예정
