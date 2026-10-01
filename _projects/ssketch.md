@@ -120,5 +120,3 @@ Unity 클라이언트 프레임워크와 C++ 네트워크 서버를 연결하고
 </ul>
 
 <p>개선 후에는 같은 EC2 접속·녹화 조건에서 이동, 정지, 방향 전환, 점프를 반복해 원위치 보정 재발 여부와 입력 응답성을 비교할 예정이다.</p>
-
-<p class="ssketch-source">게임 소개와 플레이 화면: <a href="https://ssketch.ddns.net/" target="_blank" rel="noopener noreferrer">SSketch 공식 사이트</a> · 로고와 상단 소개 일러스트: D204 SSketch 발표 자료. 측정값의 실행 환경과 해석 범위는 각 개발 기록에 기재했다.</p>
