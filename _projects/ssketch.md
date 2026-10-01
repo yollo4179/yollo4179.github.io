@@ -20,7 +20,7 @@ hero_image: /assets/images/projects/ssketch/gameplay-drawing.jpg
 hero_alt: 이젤 앞에서 그림을 그리는 SSketch 게임 화면
 hero_heading: 함께 그리고, 훔치고, 평가하는 멀티플레이 그림 게임
 hero_intro: 낮에는 화가, 밤에는 도둑이 된다. 같은 주제로 그린 그림을 집에 전시하고, 밤에는 다른 플레이어의 그림을 노린다. 아침의 평가가 끝날 때까지 그림의 주인도, 승부도 바뀔 수 있다.
-status: Windows 빌드 공개
+status: 시연 영상 공개
 roles: [Unity 클라이언트 프레임워크, 실시간 입력 및 동기화, C++ 네트워크 서버]
 stacks: [Unity, C#, C++, IOCP, TCP, UDP, Vivox]
 tags: [게임 클라이언트, 멀티플레이, 트러블슈팅]
@@ -33,7 +33,7 @@ nav_context: projects
 
 <h2 id="game">그림 한 장이 경쟁의 대상이 되기까지</h2>
 
-SSketch는 그림을 그리는 시간과 그 그림을 두고 경쟁하는 시간을 하나의 라운드로 묶은 4인 온라인 게임이다. 그림 실력에 더해, 누구의 그림을 가져오고 내 그림을 어떻게 지킬지에 따라 결과가 달라진다. Windows에서 플레이할 수 있다.
+SSketch는 그림을 그리는 시간과 그 그림을 두고 경쟁하는 시간을 하나의 라운드로 묶은 4인 온라인 게임이다. 그림 실력에 더해, 누구의 그림을 가져오고 내 그림을 어떻게 지킬지에 따라 결과가 달라진다. Windows용으로 제작했다.
 
 <div class="ssketch-game-grid">
   <article class="ssketch-game-card">
