@@ -28,9 +28,9 @@ tags:
 - UI
 nav_context: GAME PORTFOLIO / UNITYCHAN RPG
 game_slug: unitychan-rpg
-hero_image: null
-hero_alt: null
-hero_caption: null
+hero_image: /assets/images/projects/unitychan-rpg/quest-dialogue-gameplay.webp
+hero_alt: NPC 대화와 플레이어 HUD를 표시한 UnityChan RPG 화면
+hero_caption: 퀘스트와 대화가 연결되는 플레이 화면
 topics:
 - id: play
   name: 전투와 행동
@@ -45,21 +45,32 @@ topics:
 
 ## 프로젝트 소개 {#overview}
 
-Unity로 만든 개인 RPG 프로젝트다. 플레이어의 전투와 성장에 따라 몬스터 행동, 퀘스트, 인벤토리, 상점, 무기 강화, 대화가 함께 움직인다. 이 기능들이 서로 직접 얽히지 않도록 사건 전달, UI 표시 순서, 데이터 저장 방식을 나눴다.
+Unity로 만든 개인 RPG 프로젝트다. 플레이어 전투, 미노타우르스와 늑대의 이동, 퀘스트·대화, 상점·강화와 UI를 구현했다. 미노타우르스는 방향별 관심도를 사용하는 CBS로, 늑대는 후보 지점 평가와 예약을 사용하는 EQS 형태로 이동을 구성한다.
 
-몬스터는 Behavior Tree로 행동 단계를 고르고 Context Based Steering으로 장애물을 피하는 이동 방향을 계산한다. 대화는 CSV 노드와 선택지 연결을 따라 진행한다. 플레이 중 바뀌는 값은 JSON으로, 정의 데이터는 CSV와 ScriptableObject로 구분했다.
+대사는 CSV의 노드와 연결 표로 관리한다. 아이템 정의와 플레이 진행 정보는 JSON으로 읽고 저장하며 스킬·퀘스트·강화 이펙트는 ScriptableObject 에셋을 실행 코드에 연결한다.
 
 ## 담당 구현 {#contribution}
 
-- **전투와 행동:** 캐릭터 상태, 몬스터 추적, 연속 공격과 스킬·소비 아이템 사용.
-- **UI:** 팝업 스택, 드래그 앤 드롭, 인벤토리·퀵 슬롯·상점·무기 강화.
-- **시스템:** 이벤트 매니저, 퀘스트, CSV 대화 노드, JSON 저장, ScriptableObject 정의 데이터.
-- **표현:** Shader Graph의 등장·사망 디졸브와 발광 경계.
+- **UI:** 팝업 스택과 z-order, 클릭 포커스, 상대 좌표 드래그, 아이콘 교환과 퀵 슬롯 등록.
+- **게임 시스템:** 퀘스트 목표 평가, 다이얼로그 연결, 상점 거래와 장비 강화.
+- **몬스터:** 미노타우르스 CBS, 늑대 EQS, NavMesh 기반 스폰 셀과 박스 Gizmo.
+- **데이터와 표현:** CSV 파싱, JSON 직렬화, SO 정의와 이벤트 실행, Shader Graph 디졸브.
 
-## 구현 장면
+## 플레이 영상
 
-![UnityChan RPG 몬스터의 등장과 퇴장에 쓰인 Shader Graph 구성]({{ '/assets/images/projects/unitychan-rpg/monster-dissolve-shader.png' | relative_url }})
+{% include game-video-embed.html id="GEVGb2bt7bU" title="Quest And Dialogue · UnityChan RPG 퀘스트와 대화" %}
 
-`SplitValue`와 `GlowOffset`을 기준으로 같은 노이즈 텍스처에서 알파 영역과 발광 경계를 따로 만든다.
+## 기능별 구현 글
 
-각 기술 글은 기능이 필요한 이유, 상태가 이동하는 경로, 실제 구현에서 맡는 객체의 책임 순서로 적었다.
+- [드래그 앤 드롭과 퀵 슬롯 교환]({{ '/projects/unitychan-rpg/technical/popup-drag-drop/' | relative_url }})
+- [UI 관리와 팝업 z-order]({{ '/projects/unitychan-rpg/technical/ui-management/' | relative_url }})
+- [미노타우르스의 Context Based Steering]({{ '/projects/unitychan-rpg/technical/events-monster-ai/' | relative_url }})
+- [늑대의 EQS 후보 평가와 위치 예약]({{ '/projects/unitychan-rpg/technical/wolf-eqs/' | relative_url }})
+- [CSV 관리와 대화 노드 연결]({{ '/projects/unitychan-rpg/technical/csv-management/' | relative_url }})
+- [퀘스트·다이얼로그와 지역 방문 이벤트]({{ '/projects/unitychan-rpg/technical/dialogue-quests/' | relative_url }})
+- [상점 목록과 아이템 구매·판매]({{ '/projects/unitychan-rpg/technical/shop-upgrade-combat/' | relative_url }})
+- [무기 강화 수치와 속성 이펙트]({{ '/projects/unitychan-rpg/technical/weapon-reinforce/' | relative_url }})
+- [ScriptableObject로 스킬·퀘스트·이펙트 관리]({{ '/projects/unitychan-rpg/technical/scriptable-object-management/' | relative_url }})
+- [JSON 정의 데이터와 플레이 진행 저장]({{ '/projects/unitychan-rpg/technical/data-lifecycle/' | relative_url }})
+- [스포너 셀 배치와 박스 Gizmo]({{ '/projects/unitychan-rpg/technical/spawner-debug/' | relative_url }})
+- [Shader Graph 디졸브와 C# 제어]({{ '/projects/unitychan-rpg/technical/monster-dissolve/' | relative_url }})

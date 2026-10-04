@@ -441,3 +441,19 @@ body.game-gallery-open { overflow: hidden; }
 }
 
 .game-project-hero__grid--text-only { grid-template-columns: minmax(0, 1fr); }
+
+
+/* UnityChan RPG implementation articles contain long C# identifiers and paths. */
+.game-article-page[data-project="unitychan-rpg"] .game-article-body,
+.game-article-page[data-project="unitychan-rpg"] .game-article-index {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.game-article-page[data-project="unitychan-rpg"] .game-article-body :not(pre) > code {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.game-article-page[data-project="unitychan-rpg"] .game-article-body pre code {
+  white-space: pre;
+  overflow-wrap: normal;
+}

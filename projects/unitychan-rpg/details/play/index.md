@@ -1,6 +1,11 @@
 ---
-layout: null
+layout: game-article-index
+title: UnityChan RPG · 전투와 행동
+project_slug: unitychan-rpg
+game_portfolio: true
+topic_id: play
 permalink: /projects/unitychan-rpg/details/play/
+nav_context: GAME PORTFOLIO / UNITYCHAN RPG
 ---
-<!doctype html>
-<html lang="ko"><head><meta charset="utf-8"><title>전투와 행동</title><meta name="robots" content="noindex"><link rel="canonical" href="{{ '/projects/unitychan-rpg/technical/events-monster-ai/' | absolute_url }}"><meta http-equiv="refresh" content="0; url={{ '/projects/unitychan-rpg/technical/events-monster-ai/' | relative_url }}"></head><body><a href="{{ '/projects/unitychan-rpg/technical/events-monster-ai/' | relative_url }}">전투와 행동 보기</a></body></html>
+
+미노타우르스의 CBS, 늑대의 EQS, NavMesh 스폰 셀과 Gizmo 구현을 설명한다.

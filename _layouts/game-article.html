@@ -11,7 +11,7 @@ layout: default
 {% if game_articles.size < 3 %}
   {% assign category_url = game_project.url | append: '#topic-' | append: current_topic.id %}
 {% endif %}
-<main id="main-content" class="game-article-page">
+<main id="main-content" class="game-article-page" data-project="{{ page.project_slug }}">
   <article class="project-detail">
     <header class="project-detail__hero"><div class="page-container">
       {% assign article_index_url = '/projects/' | append: page.project_slug | append: '/details/' %}<nav class="breadcrumbs" aria-label="현재 위치"><ol><li><a href="{{ game_project.url | relative_url }}">{{ game_project.title }}</a></li><li><a href="{{ article_index_url | relative_url }}">구현 내용 목록</a></li><li><a href="{{ category_url | relative_url }}">{{ page.topic }}</a></li><li aria-current="page">{{ page.title }}</li></ol></nav>

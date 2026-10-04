@@ -1,27 +1,111 @@
 ---
 layout: game-article
-title: 팝업 스택과 슬롯 드래그 앤 드롭
+title: 드래그 앤 드롭과 퀵 슬롯 교환
 project_slug: unitychan-rpg
 game_portfolio: true
-game_order: 2
+game_order: 1
 topic: UI와 상호작용
-summary: 열린 팝업의 Z 순서를 스택으로 정리하고 아이콘을 유효한 슬롯에 놓았을 때만 상태를 바꾼다.
+summary: 드래그 좌표 변환, 아이콘 복사, 슬롯 교환과 SkillSO 핸들 등록 과정을 구현했다.
 tags:
 - UI
-- 인벤토리
 - 드래그 앤 드롭
+- 퀵 슬롯
 permalink: /projects/unitychan-rpg/technical/popup-drag-drop/
 nav_context: GAME PORTFOLIO / UNITYCHAN RPG
 ---
 
-## 문제와 구현
+## 아이콘 이동과 슬롯 배치
 
-인벤토리와 상점을 동시에 열고 인벤토리를 다시 누르면 이미 열린 창이 맨 앞으로 와야 한다. 열림 여부와 렌더 순서는 다른 정보다. 사전은 같은 팝업의 중복 생성을 막고, 스택은 가장 위에 표시할 창을 정한다.
+`UI_Draggable_Move`는 포인터 이동을 처리하고, `UI_Droppable`은 놓인 아이콘을 슬롯에 배치한다. 인벤토리·스킬북의 원본 위치는 `OriginTransform`, 직전에 배치된 슬롯은 `PreviousTransform`으로 보관한다. `IsPrevOriginal`은 원본에서 가져온 아이콘인지 슬롯 사이에서 옮기는 아이콘인지 구분한다.
 
-UI 매니저는 열린 팝업을 스택에 넣고, 사전으로 팝업이 이미 열렸는지도 확인한다. 새 팝업은 맨 위에 넣는다. 이미 열린 팝업을 클릭하면 임시 스택에 위쪽 항목을 옮겨 목표 팝업을 찾은 뒤, Z 순서를 다시 정하며 원래 스택을 복원하고 목표를 맨 위에 올린다. 닫기 동작은 목표를 맨 위로 올린 다음 제거한다.
+{% include game-video-embed.html id="efsC1hOnR6E" title="Drag and Drop Swap · 퀵 슬롯 사이의 아이콘 교환" %}
 
-장비 창과 퀵 슬롯은 `IDroppable`을 구현하고, 스킬·아이템 아이콘은 드래그 시작과 종료 이벤트를 처리한다. 아이콘을 잡으면 드래그 전용 캔버스로 옮겨 마우스를 따라가게 한다. 놓은 대상이 유효한 슬롯이면 `OnDrop()`이 실행되어 대상 슬롯에 아이콘을 만들고 원본은 돌아간다. 대상이 맞지 않거나 장비를 해제할 때는 아이콘에 연결한 정리 동작을 호출해 슬롯 상태를 되돌리거나 생성한 아이콘을 풀에 반환한다.
+## 디렉터리와 실행 흐름
 
-## 드롭 성공과 취소를 구분한 이유
+```text
+Assets/04.Scripts/
+├─ UI/Common/DrafAndDrop/UI_Draggable_Move.cs
+├─ UI/Common/DrafAndDrop/UI_Droppable.cs
+└─ UI/Skills/QuickSlot/UI_QuickSlot.cs
+```
 
-스킬 북과 인벤토리에는 원본 아이콘이 남고, 실제 슬롯에는 드래그 가능한 아이콘을 둘 수 있다. 드롭에 성공하면 대상 `IDroppable`이 새 아이콘과 슬롯 상태를 만든다. 드롭에 실패하거나 장비를 해제하면 아이콘의 `DropEvent`에 연결한 정리 동작이 실행된다. 정리 동작은 생성된 아이콘을 풀로 돌려보내거나 슬롯의 이전 상태를 복원한다. 화면에서 아이콘을 지우는 것만으로는 장비·스킬 연결이 남을 수 있어 표시와 데이터 정리를 함께 처리한다.
+```text
+포인터 누름 → 드래그 Canvas로 이동 → 슬롯 OnDrop
+  → 아이콘 데이터 복사·교환 → 슬롯 키 갱신
+```
+
+## 드래그 Canvas에서 좌표 계산
+
+드래그를 시작하면 오브젝트의 부모를 `Draggable_Canvas`로 바꾸고 마지막 자식으로 배치한다. `CanvasGroup.alpha`를 0.6으로 낮추고 `blocksRaycasts`를 끈다. 이동 중인 아이콘 아래의 슬롯이 드롭 이벤트를 받을 수 있도록 하는 설정이다.
+
+화면 좌표는 `ScreenPointToLocalPointInRectangle`로 드래그 Canvas의 로컬 좌표로 변환한다. Overlay Canvas에는 카메라로 `null`을 전달한다. 아이콘의 오프셋은 0이고, 팝업을 움직일 때는 눌렀던 지점과 팝업 위치의 차이를 더한다.
+
+`Assets/04.Scripts/UI/Common/DrafAndDrop/UI_Draggable_Move.cs` 발췌
+
+```csharp
+public void OnDrag(PointerEventData eventData)
+{
+    if (_dragPlane != null && RectTransformUtility.ScreenPointToLocalPointInRectangle(
+        _dragPlane, eventData.position, _dragCamera, out Vector2 pointerPoint))
+    {
+        rect.localPosition = (Vector3)pointerPoint + _pointerOffset;
+    }
+}
+```
+
+## 원본 복사와 슬롯 교환
+
+`OnDrop`은 `ItemIcon_Prefab`을 대상으로 동작한다. 풀에서 아이콘을 빌린 다음 일반 아이템은 `UpdateItemData`, 스킬은 `UpdateSkillSOData`로 데이터를 넘긴다. 원본 아이콘은 원래 부모로 돌려놓고, 새 아이콘에 드래그 상태를 복사한다.
+
+`Assets/04.Scripts/UI/Common/DrafAndDrop/UI_Droppable.cs` 발췌
+
+```csharp
+ItemDataStorage copyTargetIDS = eventData.pointerDrag.GetComponentInChildren<ItemDataStorage>();
+eITEMTYPE type = copyTargetIDS.GetItemType();
+switch(type)
+{
+    case eITEMTYPE.SKILL:
+        itemGO.GetComponentInChildren<ItemDataStorage>().UpdateSkillSOData(copyTargetIDS.GetSkillSO());
+        break;
+    default:
+        itemGO.GetComponentInChildren<ItemDataStorage>().UpdateItemData(copyTargetIDS);
+        break;
+}
+```
+
+목적지 슬롯에 아이콘이 있으면 `IsPrevOriginal`로 처리 경로를 나눈다. 원본에서 새로 등록하는 경우 기존 슬롯 아이콘을 풀에 돌려준다. 다른 슬롯에서 옮기는 경우 목적지의 기존 아이콘을 `PreviousTransform`으로 보내 두 슬롯의 내용을 교환한다.
+
+배치가 끝나면 `FixDropItem`으로 아이콘 크기와 위치를 맞춘다. 이어서 `EmptySlotKey`와 `SetSlotKey`를 호출해 화면 배치와 입력 키 등록을 함께 갱신한다. 슬롯 밖에 놓으면 `OnEndDrag`가 복귀와 `DropEvent` 정리를 처리한다.
+
+## 스킬북에서 퀵 슬롯으로 등록
+
+{% include game-video-embed.html id="jSHGNqbV-VE" title="Skill2QuickSlot · 스킬북에서 퀵 슬롯으로 등록" %}
+
+퀵 슬롯은 `SkillSO.handle`과 슬롯 번호를 연결한다. 스킬 아이콘에 저장한 SO 참조에서 핸들을 읽고 `UI_DisplayQuickSlots.AddKey`에 전달한다. 일반 아이템은 `ItemInfo`를 키로 전달한다.
+
+`Assets/04.Scripts/UI/Skills/QuickSlot/UI_QuickSlot.cs` 발췌
+
+```csharp
+public override void SetSlotKey(ItemDataStorage ids)
+{
+    switch(ids.GetItemType())
+    {
+        case eITEMTYPE.SKILL:
+            GetComponentInParent<UI_DisplayQuickSlots>()?.AddKey(ids.GetSkillSO().handle, _slotNO);
+            break;
+        default:
+            GetComponentInChildren<UI_DisplayQuickSlots>()?.AddKey(ids.ItemInfo, _slotNO);
+            break;
+    }
+}
+```
+
+<figure class="game-media-feature">
+  <a href="{{ '/assets/images/projects/unitychan-rpg/quickslot-swap.webp' | relative_url }}"><img src="{{ '/assets/images/projects/unitychan-rpg/quickslot-swap.webp' | relative_url }}" alt="퀵 슬롯에 등록한 아이콘의 위치를 교환하는 장면" width="1920" height="1080" loading="lazy"></a>
+  <figcaption>퀵 슬롯에 등록한 아이콘의 위치를 교환하는 장면</figcaption>
+</figure>
+
+<figure class="game-media-feature">
+  <a href="{{ '/assets/images/projects/unitychan-rpg/skill-quickslot.webp' | relative_url }}"><img src="{{ '/assets/images/projects/unitychan-rpg/skill-quickslot.webp' | relative_url }}" alt="스킬북과 퀵 슬롯을 함께 표시한 등록 화면" width="1920" height="1080" loading="lazy"></a>
+  <figcaption>스킬북과 퀵 슬롯을 함께 표시한 등록 화면</figcaption>
+</figure>

@@ -1,11 +1,11 @@
 ---
 layout: game-article
-title: 노이즈 임계값으로 몬스터 등장·퇴장 표현하기
+title: Shader Graph 디졸브와 C# 제어
 project_slug: unitychan-rpg
 game_portfolio: true
-game_order: 6
+game_order: 12
 topic: 데이터와 표현
-summary: SplitValue와 GlowOffset으로 모델의 표시 영역과 발광 경계를 나눠 만든다.
+summary: 노이즈 임계값과 발광 경계를 구성하고 C#에서 SplitValue를 보간해 등장과 퇴장을 표현했다.
 tags:
 - Shader Graph
 - 디졸브
@@ -14,19 +14,70 @@ permalink: /projects/unitychan-rpg/technical/monster-dissolve/
 nav_context: GAME PORTFOLIO / UNITYCHAN RPG
 ---
 
-## 문제와 구현
+## 노이즈로 표시 영역 구성
 
-몬스터가 나타나고 사라지는 순간을 활성 상태만 바꿔 처리하면 모델이 한 프레임에 통째로 전환된다. 같은 노이즈 텍스처에서 모델의 표시 영역과 그 경계를 따로 계산해 등장과 사망의 진행 상태를 보이도록 했다.
-
-Shader Graph에서는 몬스터의 등장과 사망에 페이즈·디졸브 효과를 적용했다. 같은 노이즈 텍스처를 두 기준값으로 샘플링한다. 하나는 시간에 따라 변하는 `SplitValue`를 기준으로 모델의 표시 영역을 결정하고, 다른 하나는 `SplitValue`에서 `GlowOffset`을 뺀 값을 기준으로 발광 경계를 만든다. `SplitValue`를 바꾸면 모델이 드러나거나 사라지고, 두 기준 사이의 영역에는 발광 효과가 남는다.
+Shader Graph에서 노이즈와 `SplitValue`를 비교해 모델의 표시 영역을 만든다. `SplitValue - GlowOffset`을 두 번째 기준으로 사용하고 두 임계값 사이의 영역에 발광 색을 적용한다. `SplitValue`는 드러나는 범위, `GlowOffset`은 발광 경계의 폭을 조절한다.
 
 <figure class="game-media-feature">
-  <img src="{{ '/assets/images/projects/unitychan-rpg/monster-dissolve-shader.png' | relative_url }}" alt="몬스터 등장과 사망 때 적용한 페이즈·디졸브 Shader Graph 구성" loading="lazy">
-  <figcaption>Shader Graph에서 노이즈 임계값으로 알파 영역과 발광 경계를 나눈 구성</figcaption>
+  <a href="{{ '/assets/images/projects/unitychan-rpg/monster-dissolve-shader.png' | relative_url }}"><img src="{{ '/assets/images/projects/unitychan-rpg/monster-dissolve-shader.png' | relative_url }}" alt="노이즈와 SplitValue·GlowOffset을 연결한 몬스터 디졸브 Shader Graph" loading="lazy"></a>
+  <figcaption>표시 영역과 발광 경계를 구성한 Shader Graph</figcaption>
 </figure>
 
-## 두 임계값의 역할
+## 디렉터리와 실행 흐름
 
-Shader Graph는 노이즈 값이 `SplitValue`를 넘는 영역을 알파 표시 영역으로 사용한다. 두 번째 기준은 `SplitValue - GlowOffset`이다. 두 기준 사이에 들어온 픽셀을 발광 영역으로 사용하면 사라지는 경계를 따라 빛이 남는다. `SplitValue`를 시간에 따라 바꾸면 표시 영역이 점차 넓어지거나 줄어들고, `GlowOffset`은 경계 띠의 폭을 정한다.
+```text
+Assets/04.Scripts/
+└─ Shaders/ShaderEffects.cs
+```
 
-몬스터가 리스폰할 때는 드러나는 방향으로, 사망할 때는 사라지는 방향으로 값을 갱신한다. 두 효과가 같은 그래프를 쓰더라도 시작값과 진행 방향이 달라야 한다.
+```text
+노이즈·SplitValue → 표시 영역
+노이즈·SplitValue·GlowOffset → 발광 경계
+DoFade → iTween → TweenOnUpdate → 머티리얼의 SplitValue
+```
+
+## 렌더러별 머티리얼 전환
+
+`ShaderEffects`는 자식 Renderer 목록과 원본·페이즈·디졸브 Material 배열을 가진다. `SetNowMarerial`은 `eShaderEffect`에 따라 각 렌더러에 사용할 머티리얼을 지정한다. 파티클처럼 Poolable에 속한 렌더러는 해당 전환에서 건너뛴다.
+
+## C#에서 임계값 보간
+
+`DoFade`는 시작값, 종료값, 시간과 페이드 모드를 받는다. iTween의 `ValueTo`에 이 값을 넘기고 `easeInCubic` 보간을 사용한다. 갱신 콜백은 `TweenOnUpdate`, 완료 콜백은 `TweenOnComplete`로 연결한다.
+
+`Assets/04.Scripts/Shaders/ShaderEffects.cs` 발췌
+
+```csharp
+public  void DoFade(float from, float to , float time, eFadeMode fadeMode=eFadeMode.FADE_OUT)
+{
+    foreach (var renderer in _renderers)
+    {
+        string name = renderer.material.shader.name;
+        bool bo = renderer.material.HasProperty(_splitValueHash);
+        _fadeMode = fadeMode;
+        _isFadeEffectDone = false;
+        iTween.ValueTo(gameObject, iTween.Hash(
+            "from", from, "to", to, "time", time, "onupdatetarget", gameObject,
+            "onupdate", "TweenOnUpdate", "oncomplete", "TweenOnComplete",
+            "easetype", iTween.EaseType.easeInCubic
+            ));
+    }
+}
+```
+
+매 갱신에서 모든 대상 렌더러의 `_SplitValue`를 같은 값으로 설정한다. 이 값이 Shader Graph의 임계값에 전달되면서 표시 영역이 시간에 따라 변한다.
+
+`Assets/04.Scripts/Shaders/ShaderEffects.cs` 발췌
+
+```csharp
+public void TweenOnUpdate(float value)
+{
+    foreach (var renderer in _renderers)
+    {
+        renderer.material.SetFloat("_SplitValue", value);
+    }
+}
+```
+
+## 연출 완료 처리
+
+`TweenOnComplete`는 `_isFadeEffectDone`을 켠다. 페이즈 효과의 완료 값은 -0.5로 설정하고 `FADE_IN`이면 원본 머티리얼 배열을 다시 적용한다. 시작·종료 값과 모드에 따라 같은 컴포넌트로 등장과 퇴장 연출을 실행한다.

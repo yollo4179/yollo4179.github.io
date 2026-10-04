@@ -1,6 +1,11 @@
 ---
-layout: null
+layout: game-article-index
+title: UnityChan RPG · 데이터와 표현
+project_slug: unitychan-rpg
+game_portfolio: true
+topic_id: data
 permalink: /projects/unitychan-rpg/details/data/
+nav_context: GAME PORTFOLIO / UNITYCHAN RPG
 ---
-<!doctype html>
-<html lang="ko"><head><meta charset="utf-8"><title>데이터와 표현</title><meta name="robots" content="noindex"><link rel="canonical" href="{{ '/projects/unitychan-rpg/#topic-data' | absolute_url }}"><meta http-equiv="refresh" content="0; url={{ '/projects/unitychan-rpg/#topic-data' | relative_url }}"></head><body><a href="{{ '/projects/unitychan-rpg/#topic-data' | relative_url }}">데이터와 표현 보기</a></body></html>
+
+CSV 파싱, ScriptableObject 정의, JSON 저장과 디졸브 구현을 설명한다.
