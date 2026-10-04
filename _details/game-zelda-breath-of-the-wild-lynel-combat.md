@@ -11,6 +11,18 @@ permalink: /projects/zelda-breath-of-the-wild/technical/lynel-combat/
 nav_context: GAME PORTFOLIO / ZELDA
 ---
 
+## 구현 구조
+
+```text
+Client/Private/Boss_Lynel_FSM.cpp
+Client/Private/Boss_Lynel.cpp
+Client/Private/Lynel_Fire.cpp
+```
+
+패턴 순환 → 애니메이션 이벤트 → 소켓·물리 이동·공격 활성화 → 충돌과 착지 판정 → 2페이즈 후속 공격.
+
+
+
 {% include game-local-video.html file="lynel-intro" title="라이넬 등장 컷신" %}
 
 ## 기본 공격 시간과 순차 스킬 패턴
@@ -35,6 +47,46 @@ nav_context: GAME PORTFOLIO / ZELDA
 칼의 공격 활성화는 아래로 쏜 Ray가 지면과 충돌하는 시점에 연결했다. 점프를 시작한 시점과 실제로 내려찍는 시점은 다르므로, 지면 검출 결과로 착지 공격을 활성화한다.
 
 {% include game-local-video.html file="lynel-jump" title="PhysX로 점프한 뒤 지면 Ray 판정으로 내려찍기 공격을 활성화하는 라이넬" %}
+
+
+`Client/Private/Boss_Lynel_FSM.cpp` 발췌
+
+```cpp
+void CBossLynelFSM::OnJump_Stay()
+{
+    if (true == m_bJumpState[LYNEL_JUMP_IMPULSE])
+    {
+        m_bJumpState[LYNEL_JUMP_IMPULSE] = false;
+            _float Length = {};
+            _float4x4 PlayyerFloat4x4 =(m_pTarget)->Get_FinalWorldMatrix();
+            _vector vTargetPos = { PlayyerFloat4x4._41,0.f,PlayyerFloat4x4._43,1.f };
+            _float4x4 vMyFloat4x4 = m_pOwner->Get_FinalWorldMatrix();
+            _vector vMyPos = { vMyFloat4x4._41,0.f,vMyFloat4x4._43,1.f };
+            Length = XMVectorGetX(XMVector3Length(vTargetPos - vMyPos));
+            m_pMovement->Move_Forward(Length*0.7f);
+            m_pRigid_Owner->Add_Force(_float3(0.f,2000.f, 0.f), PxForceMode::eIMPULSE);
+            m_bJumpState[LYNEL_JUMP_START] = false;
+    }
+        _float4x4 Myfloat4x4 = m_pOwner->Get_FinalWorldMatrix();
+        _float3 MyPos = { Myfloat4x4._41 ,Myfloat4x4._42  -.5f, Myfloat4x4._43 };
+        RaycastHit Out = {};
+        m_pGameInstance->Raycast(MyPos, _float3(0.f, -1.f, 0.f), Out, 1.5f , 1<<FLD_COLL |1 << GROUND_COLL);
+        if (nullptr != Out.pObj)
+        {
+            m_pAnimController_Owner->Set_Trigger(TEXT("tAttack"));
+        }
+    if (true == m_bJumpState[LYNEL_JUMP_START] ||true == m_bJumpState[LYNEL_JUMP_LAND])
+    {
+        m_pMovement->Stop_XZ();
+    }
+    if (m_bJumpState[LYNEL_JUMP_CMPL])
+    {
+        m_Lynel_PreCond = m_Lynel_Cond;
+        m_Lynel_Cond.iAct = LYNEL_AC_WAIT;
+        ChangeState(m_Lynel_Cond.iAct);
+    }
+}
+```
 
 ## 기어 달리기: 이벤트로 무기 소켓 바꾸기
 
@@ -81,11 +133,26 @@ nav_context: GAME PORTFOLIO / ZELDA
 
 {% include game-local-video.html file="lynel-stun" title="머리 화살 피격에 따른 기절과 콜라이더 비활성화" %}
 
+
+`Client/Private/Boss_Lynel_FSM.cpp` 발췌
+
+```cpp
+void CBossLynelFSM::OnStun_Begin()
+{
+    if (true == m_IsSwordDrawn)
+        Event_DrawSword();
+    ACTIVE_OBJ(m_pOwner->Find_Child(TEXT("Body"))->Find_Child(TEXT("Head")), false);
+    m_pAnimController_Owner->Set_Integer(TEXT("iAct"), LYNEL_AC_STUN);
+    m_pAnimController_Owner->Set_Trigger(TEXT("tNxtAnim"));
+    m_pGameInstance->Start_SFX(TEXT("Lynel_Vo_Down_01"), false);
+}
+```
+
 ## 2페이즈 점프: 칼의 월드 행렬로 후속 구체 배치
 
 2페이즈에서는 점프 내려찍기를 마친 뒤 불꽃 구체가 생긴다. 구체에 칼의 월드 행렬을 전달하고, 구체 자체의 트랜스폼을 조절해 최종 위치를 정한다. 공격 기준 위치는 칼이 제공하고 구체의 개별 배치는 구체 트랜스폼이 담당한다.
 
-점프의 착지 판정, 칼의 공격 활성화, 후속 구체 배치가 순서대로 이어진다. 이때 전달하는 행렬이 이미 월드 변환을 포함하는지 구분해야 후속 공격의 위치에 보스 변환이 중복 적용되지 않는다.
+점프의 착지 판정, 칼의 공격 활성화, 후속 구체 배치가 순서대로 이어진다.
 
 {% include game-local-video.html file="lynel-phase-two-jump" title="점프 내려찍기 후 칼의 위치를 기준으로 생성되는 불꽃 구체" %}
 
@@ -102,9 +169,3 @@ nav_context: GAME PORTFOLIO / ZELDA
 검기 객체에는 공격에 맞는 회전 각도를 전달한다. 검기는 라이넬 Look을 축으로 그 각도만큼 회전한 뒤 이동한다. 보스의 전방 방향을 유지하면서 베기 각도에 맞춰 검기의 자세를 바꾸는 처리다.
 
 {% include game-local-video.html file="lynel-sword-aura" title="라이넬 Look을 축으로 회전한 뒤 이동하는 검기" %}
-
-## 패턴의 실행 시점을 연결한 방식
-
-라이넬은 FSM으로 패턴 순서를 관리하고, 애니메이션 이벤트로 소켓 변경·발사·연출 시점을 연결했다. PhysX는 점프와 순간 이동의 힘·속도를 처리하고, Ray와 콜라이더는 착지 공격과 기절 조건을 판정한다. 2페이즈는 이 흐름 위에서 기존 공격의 종료 지점에 후속 공격을 연결한다.
-
-공격 객체를 재사용할 때는 발사 전 조준 상태, 경과 시간, 콜라이더 활성 상태가 다음 사용에 남지 않도록 관리해야 한다. 보스 내부 풀의 순환 인덱스와 각 공격의 종료 조건도 같은 수명 흐름 안에서 다룬다.

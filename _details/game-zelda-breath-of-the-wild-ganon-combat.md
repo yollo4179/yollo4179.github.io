@@ -11,6 +11,18 @@ permalink: /projects/zelda-breath-of-the-wild/technical/ganon-combat/
 nav_context: GAME PORTFOLIO / ZELDA
 ---
 
+## 구현 구조
+
+```text
+Client/Private/Ganon_FSM.cpp
+Client/Private/Ganon.cpp
+Client/Private/Ganon_Tornado.cpp
+```
+
+거리·공격 횟수·체력 검사 → 패턴 선택 → 지상·벽·천장 자세 전환 → 공격 풀 활성화.
+
+
+
 {% include game-local-video.html file="ganon-intro" title="가논 등장 컷신" %}
 
 ## 거리, 공격 횟수, 체력으로 전투 흐름 나누기
@@ -34,7 +46,7 @@ nav_context: GAME PORTFOLIO / ZELDA
 
 ### 원거리에서는 외적으로 플레이어의 좌우 판별
 
-플레이어가 가논 기준 오른쪽에 있으면 종베기를, 왼쪽에 있으면 레이저를 사용한다. 두 위치 사이의 거리만으로는 어느 쪽에 플레이어가 있는지 구분할 수 없어 방향 벡터의 외적을 이용했다. 외적의 부호는 벡터를 넣는 순서와 기준 축에 따라 달라지므로, 좌우 판정에 사용하는 순서를 공격 선택에서 일관되게 유지해야 한다.
+플레이어가 가논 기준 오른쪽에 있으면 종베기를, 왼쪽에 있으면 레이저를 사용한다. 두 위치 사이의 거리만으로는 어느 쪽에 플레이어가 있는지 구분할 수 없어 방향 벡터의 외적을 이용했다.
 
 
 
@@ -74,6 +86,24 @@ _vector RightNew = XMVector3Normalize(XMVector3Cross(UpLerp, LookLerp));
 
 `Ready_LerpRU_Ceiling()`은 몸체의 Look을 축으로 -90도 회전 행렬을 만들고, 기존 Right·Up을 그 행렬로 변환해 목표 벡터를 구한다. `Ready_LerpRL_Ceiling()`은 몸체의 Up을 축으로 -90도 회전해 목표 Right·Look을 구한다. 전환에 필요한 축 조합에 따라 보간 함수를 나눴다.
 
+
+`Client/Private/Ganon_FSM.cpp` 발췌
+
+```cpp
+void CGanonFSM::Ready_LerpRU_Ceiling(_float fLerpSpeed)
+{
+    if (true == m_IsLerping) return;
+    m_fAccLerpingTime = 0.f;
+    m_fLerpSpeed = fLerpSpeed;
+    _matrix MatRot = XMMatrixRotationAxis(XMLoadFloat3((_float3*)m_pBodyTransFloat4x4->m[2]), XMConvertToRadians(-90.f ));
+    m_vSrcRight = XMLoadFloat3((_float3*)m_pBodyTransFloat4x4->m[0]);
+    m_vDstRight = XMVector3Normalize(XMVector3TransformNormal(m_vSrcRight, MatRot));
+    m_vSrcNormal = XMLoadFloat3((_float3*)m_pBodyTransFloat4x4->m[1]);
+    m_vDstNormal = XMVector3Normalize(XMVector3TransformNormal(m_vSrcNormal, MatRot));
+    m_IsLerping = true;
+}
+```
+
 | 함수 | 보간하는 두 축 | 외적으로 구하는 축 |
 | --- | --- | --- |
 | `Lerp_Rotation_UL()` | Up, Look | Right = Up × Look |
@@ -104,12 +134,6 @@ FSM은 전환 과정에서 `m_IsCeiling`과 `Ganon_OnCeiling`을 갱신한다. �
 
 토네이도는 가논의 Look 방향으로 전진하면서 좌우 이동을 함께 수행한다. 좌우 방향은 sin 값의 부호로 바꾼다. `CGanon_Tornado`의 이동 계산에서는 초기 방향과 sin 값을 곱한 부호에 따라 방향을 선택하므로, 시작 방향을 달리한 토네이도도 같은 이동 계산을 사용할 수 있다.
 
-sin 값은 좌우 전환 시점을 결정한다. 이를 sin 크기에 비례한 위치 보간과 혼동하지 않아야 한다. 전진 성분에 부호로 선택한 횡이동 성분을 더해 공격이 좌우로 움직이며 다가오게 했다.
+sin 값은 좌우 전환 시점을 결정한다. 전진 성분에 부호로 선택한 횡이동 성분을 더해 공격이 좌우로 움직이며 다가오게 했다.
 
 {% include game-local-video.html file="ganon-tornado" title="전진하면서 sin 부호에 따라 좌우로 움직이는 토네이도" %}
-
-## 구현에서 함께 관리한 조건
-
-가논의 전투는 거리·공격 횟수로 패턴을 고르고, 체력에 따라 이동 공간을 바꾸는 구조다. 벽과 천장 전환에서는 몸체의 기저 벡터, PhysX 중력, FSM의 자세 상태가 같은 전환을 가리켜야 한다. 공격 위치는 소켓과 몸체 행렬에 연결하고, 공격 실행 상태는 내부 풀을 통해 관리했다.
-
-행렬 보간의 RU·RL 경로는 두 축을 보간한 값을 그대로 기록하고 외적으로 계산한 축만 정규화한다. 따라서 이 경로의 축 길이가 보간 중 항상 1로 유지되는 것은 아니다. 자세 전환의 축과 길이를 엄밀하게 유지하려면 보간 후 기저의 정규화·직교성까지 함께 다뤄야 한다.

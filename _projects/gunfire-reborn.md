@@ -48,7 +48,7 @@ topics:
 
 DirectX 11로 만든 개인 FPS 프로젝트다. 플레이어가 이동하며 원거리·근거리 몬스터와 보스를 상대하는 전투를 구성했다. 전투 화면을 만드는 렌더링 효과뿐 아니라 맵툴, 내비게이션 메시, 애니메이션 전환, UI, 리소스 로딩까지 한 흐름으로 구현했다.
 
-이 프로젝트에서 가장 오래 붙잡은 문제는 움직이는 데이터를 누가 소유하느냐였다. 트레일은 객체마다 다른 정점 배열이 필요했고, 내비게이션 메시는 맵툴에서 만든 셀을 게임 클라이언트가 같은 형식으로 읽어야 했다. 애니메이션은 입력이 들어온 순간의 자세를 다음 동작의 시작점으로 넘겨야 했다.
+맵툴은 셀과 배치 데이터를 바이너리로 저장한다. 런타임은 저장한 셀로 이동을 판정하고, 객체별 동적 버퍼로 트레일과 파티클을 갱신한다. 애니메이션·UI·로딩은 각각의 매니저와 데이터 구조로 연결했다.
 
 ## 담당 구현 {#contribution}
 
@@ -60,10 +60,17 @@ DirectX 11로 만든 개인 FPS 프로젝트다. 플레이어가 이동하며 �
 
 ![몬스터 공격을 따라 곡선 트레일이 이어지는 전투 장면]({{ '/assets/images/projects/gunfire-reborn/trail-demo.gif' | relative_url }})
 
-트레일은 객체마다 움직임과 정점 배열이 달라 독립된 버퍼를 사용한다. 버퍼 공유로 궤적이 원점 `(0, 0, 0)`이나 다른 객체 쪽으로 튀던 문제와 좌표계 계약은 [트레일과 화면 효과 목록]({{ '/projects/gunfire-reborn/details/rendering/' | relative_url }})에서 이어진다.
+트레일의 동적 버퍼, 파티클 인스턴싱, 외곽선·글로우·디졸브·물 효과는 [트레일과 화면 효과 목록]({{ '/projects/gunfire-reborn/details/rendering/' | relative_url }})에서 기능별로 다룬다.
 
 {% include game-local-video.html slug="gunfire-reborn" file="navmesh-editing" title="맵툴의 삼각형 내비메시 편집과 저장" %}
 
 맵툴에서 만든 셀은 클라이언트용과 편집용 `.dat` 파일로 저장한다. 파일 구조와 셀 생성 과정은 [맵 제작과 이동 목록]({{ '/projects/gunfire-reborn/details/map/' | relative_url }})에서 다룬다.
 
-기술 글은 맵 제작과 런타임 이동부터 읽어도 되고, 트레일의 공유 버퍼 문제처럼 전투 화면에서 발견한 현상부터 읽어도 된다. 각 글에는 선택한 구조의 이유와 실제 구현 흐름을 함께 적었다.
+## 코드로 읽는 구현 흐름
+
+맵 제작과 이동 3편, 트레일과 화면 효과 6편, 애니메이션과 리소스 4편으로 구성했다. 각 글은 소스 파일의 역할, 데이터 흐름, 실제 C++·HLSL 발췌와 실행 자료를 연결한다.
+
+- [애니메이션 전환]({{ '/projects/gunfire-reborn/technical/animation-transition/' | relative_url }}): 뼈별 SRT 보간.
+- [UI 관리]({{ '/projects/gunfire-reborn/technical/ui-model-data/' | relative_url }}): 태그 등록, 팝업 깊이와 이벤트.
+- [모델 바이너리]({{ '/projects/gunfire-reborn/technical/model-binary/' | relative_url }}): 메시·재질·뼈·애니메이션 직렬화.
+- [비동기 로딩]({{ '/projects/gunfire-reborn/technical/async-loading/' | relative_url }}): 작업 함수와 스레드 연결.

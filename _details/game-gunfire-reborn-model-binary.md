@@ -3,13 +3,24 @@ layout: game-article
 title: FBX 모델과 애니메이션을 실행용 바이너리로 변환하기
 project_slug: gunfire-reborn
 game_portfolio: true
-game_order: 9
+game_order: 12
 topic: 애니메이션과 리소스
 summary: Assimp가 읽은 정적·애니메이션 모델의 메시, 재질, 뼈와 키 데이터를 정해진 순서로 쓰고 런타임 로더가 다시 조립한다.
 tags: [모델, 바이너리, 애니메이션]
 permalink: /projects/gunfire-reborn/technical/model-binary/
 nav_context: GAME PORTFOLIO / GUNFIRE REBORN
 ---
+
+## 구현 구조
+
+```text
+Engine/Private/Model.cpp
+Engine/Private/AI_Info.cpp
+```
+
+Assimp 모델 읽기 → 메시·재질·뼈·키프레임 기록 → 같은 순서로 바이너리 읽기 → 런타임 모델 조립.
+
+
 
 ## 모델에서 실행에 필요한 데이터를 꺼내기
 
@@ -128,9 +139,3 @@ for (int k = 0; k < iNumPositionsKeys; ++k)
 ```
 
 값만 저장하면 어느 시점의 자세인지 알 수 없다. 시간값과 `TickPerSecond`를 함께 보관해야 런타임에서 재생 시점에 해당하는 키를 선택하고 보간할 수 있다. 읽어 들인 채널과 키는 [애니메이션 전환]({{ '/projects/gunfire-reborn/technical/animation-transition/' | relative_url }})에도 사용한다.
-
-## 결과와 형식의 경계
-
-변환 코드는 Assimp가 구성한 모델에서 실행에 필요한 데이터를 추출하고, 런타임 로더는 정해진 필드를 읽어 모델 구조를 조립한다. 정적 모델은 메시와 재질을, 애니메이션 모델은 여기에 뼈·노드 계층·채널 키를 더해 저장했다.
-
-파일 형식은 C++ 자료형의 크기와 기록 순서에 의존한다. 이름과 텍스처 경로도 길이와 실제 데이터가 일치해야 한다. 형식을 바꾸려면 쓰기·읽기 함수를 함께 수정하고 기존 파일을 다시 생성해야 한다. 버전 식별과 읽은 바이트 수 검사는 형식 변경과 손상된 파일을 구분하기 위한 확장 과제다.

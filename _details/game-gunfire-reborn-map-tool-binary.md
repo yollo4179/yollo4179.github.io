@@ -1,6 +1,6 @@
 ---
 layout: game-article
-title: 맵툴에서 만든 내비메시를 바이너리로 넘기기
+title: 맵툴의 삼각형 편집과 내비메시 바이너리 저장
 project_slug: gunfire-reborn
 game_portfolio: true
 game_order: 1
@@ -14,26 +14,86 @@ permalink: /projects/gunfire-reborn/technical/map-tool-binary/
 nav_context: GAME PORTFOLIO / GUNFIRE REBORN
 ---
 
-## 문제
+## 구현 구조
 
-플레이어와 몬스터가 이동할 수 있는 면을 게임 코드에 직접 박아 넣으면 지형을 고칠 때마다 셀 좌표도 다시 수정해야 했다. 맵툴에서 지형을 보며 삼각형을 만들고, 같은 데이터를 클라이언트가 읽도록 경로를 정했다.
+```text
+MapTool/Private/Level_GamePlay.cpp
+Engine/Private/Navigation.cpp
+Engine/Private/Cell.cpp
+```
 
-## 삼각형 셀 제작
+지형 선택 → 정점 스냅 → 삼각형 방향 정리 → 셀·스테이지 저장 → 런타임 셀 생성과 이웃 연결.
 
-`CLevel_GamePlay::Creating_Vertex()`는 마우스 광선과 지형 삼각형의 교점을 구해 선택한 정점을 채운다. `IMGUI_NaviMesh()`에서 세 점이 채워지면 `Adjusting_Triangle()`이 외적의 Y 부호로 정점 순서를 검사하고 B·C를 교환해 방향을 맞춘다. 가까운 정점은 `Mapping_Points()`가 기존 점으로 치환한다. 이 함수의 비교 기준은 세 축의 거리 제곱 합 `<= 1.f`다. 이 보정은 이웃 셀의 공유 변이 미세한 좌표 차이 때문에 끊기는 상황을 줄이기 위한 것이다.
 
-도구는 새 삼각형을 내비게이션에 추가하고, 같은 삼각형과 스테이지 번호를 저장용 배열에 함께 넣는다. 정점을 다시 수정하거나 마지막 셀을 제거하는 조작도 도구에 있다. 가상 지형에 셀을 생성하는 모드도 별도로 둬 평면이 아닌 위치에서 셀을 배치할 수 있게 했다.
+## 정점을 스냅하고 삼각형 방향 맞추기
+
+맵툴은 선택한 점이 기존 점의 범위 안에 들어오면 같은 좌표를 사용한다. 삼각형의 AB와 BC를 외적하고 Y 성분의 부호로 B·C 순서를 정리한다. 셀의 변 방향이 정해져야 런타임에서도 같은 기준으로 안쪽과 바깥쪽을 판정할 수 있다.
+
+`MapTool/Private/Level_GamePlay.cpp` 발췌
+
+```cpp
+void CLevel_GamePlay::Adjusting_Triangle(TRIANGLE_VERTICES& Triangle)
+{
+    _vector vectorAB = XMLoadFloat3(&(Triangle.vPointB)) - XMLoadFloat3(&(Triangle.vPointA));
+    _vector vectorBC = XMLoadFloat3(&(Triangle.vPointC)) - XMLoadFloat3(&(Triangle.vPointB));
+    _vector vecCross = XMVector3Cross(vectorAB, vectorBC);
+    if (XMVectorGetY(vecCross) < 0)
+    {
+        _float3 vTempPoint;
+        vTempPoint = Triangle.vPointB;
+        Triangle.vPointB = Triangle.vPointC;
+        Triangle.vPointC = vTempPoint;
+    }
+}
+```
+
+## 편집 데이터와 실행 데이터 저장
+
+클라이언트용 내비메시 파일에는 셀 수, 세 정점, 스테이지 번호를 기록한다. 맵툴용 파일은 편집할 때 다시 사용할 점 목록도 함께 기록한다. 런타임은 삼각형을 `CCell`로 만들고 공통 변을 찾아 이웃 인덱스를 연결한다.
+
+| 구분 | 저장 정보 | 사용처 |
+| --- | --- | --- |
+| 클라이언트 | 셀 수·삼각형 좌표·스테이지 | 셀 생성과 이동 판정 |
+| 맵툴 | 셀 데이터·편집 점 목록 | 삼각형 편집 재개 |
+
+`Engine/Private/Navigation.cpp` 발췌
+
+```cpp
+HRESULT CNavigation::Initialize_Prototype(const _tchar* pNavigationDataFile)
+{
+    _ulong          dwByte = {};
+    HANDLE          hFile = CreateFile(pNavigationDataFile, GENERIC_READ, 0, nullptr, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0);
+    if (0 == hFile)
+        return E_FAIL;
+    int iNum = { 0 };
+    ReadFile(hFile, &iNum, sizeof(_int), &dwByte, nullptr);
+    while (true)
+    {
+        _float3     vPoints[3] = {};
+        int iStage = { 0 };
+        ReadFile(hFile, vPoints, sizeof(_float3) * 3, &dwByte, nullptr);
+        ReadFile(hFile, &iStage, sizeof(_int), &dwByte, nullptr);
+        if (0 == dwByte)
+            break;
+        CCell* pCell = CCell::Create(m_pDevice, m_pContext, vPoints, m_Cells.size(),iStage);
+        if (nullptr == pCell)
+            return E_FAIL;
+        m_Cells.push_back(pCell);
+    }
+    CloseHandle(hFile);
+    if (FAILED(SetUp_Neighbors()))
+        return E_FAIL;
+#ifdef _DEBUG
+    m_pShader =CShader::Create(m_pDevice , m_pContext, TEXT("../../EngineSDK/hlsl/Shader_Cell.hlsl"), VTXPOS::Elements, VTXPOS::iNumElements);
+    if (nullptr == m_pShader)
+        return E_FAIL;
+#endif
+    return S_OK;
+}
+```
+
+## 편집 장면과 저장 자료
 
 {% include game-local-video.html slug="gunfire-reborn" file="navmesh-editing" title="맵툴에서 내비메시 삼각형을 만들고 클라이언트용·맵툴용 저장 메뉴를 사용하는 장면" %}
 
-## 바이너리 파일의 두 용도
-
-클라이언트용 `Client_NaviMesh_Stage01.dat`에는 셀 개수, 각 셀의 `TRIANGLE_VERTICES`, 해당 셀의 스테이지 번호를 `WriteFile`로 순서대로 기록한다. 맵툴용 `NaviMesh_Stage01.dat`에는 이 데이터 뒤에 스냅 기준점의 개수와 `_float3` 배열까지 더 저장한다. 맵툴은 기준점을 다시 읽어 편집을 이어가고, 클라이언트는 이동 판정에 필요한 셀 데이터만 읽는다.
-
-`CNavigation::Initialize_Prototype()`는 클라이언트용 파일에서 세 정점과 스테이지 번호를 읽어 `CCell`을 생성한다. 모든 셀을 만든 뒤 `SetUp_Neighbors()`가 공유 변을 비교한다. 이 데이터는 구조체 크기를 기준으로 읽고 쓰는 `.dat` 바이너리다.
-
 {% include game-media-gallery.html slug="gunfire-reborn" summary="맵툴의 삼각형 셀 생성과 바이너리 저장 코드 이미지 5장" items="navigation-mesh-implementation-01.png|삼각형 셀 정점과 방향 정의;navigation-mesh-implementation-02.png|마우스 광선과 지형의 교점 계산;navigation-mesh-implementation-03.png|정점 순서 조정;navigation-mesh-implementation-04.png|인접 정점 위치 보정;navigation-mesh-implementation-05.png|클라이언트용 내비메시 바이너리 저장" %}
-
-## 결과와 한계
-
-맵 제작 데이터와 런타임 이동 데이터를 같은 삼각형 형식으로 연결했다. 바이너리는 구조체 크기와 필드 순서가 읽는 쪽과 쓰는 쪽에서 일치해야 한다. 파일 버전 정보나 길이 검증이 없는 형식이므로 형식 변경 시 두 프로그램의 읽기·쓰기 코드를 함께 수정해야 한다.

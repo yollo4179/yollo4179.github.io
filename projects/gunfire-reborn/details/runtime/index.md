@@ -8,4 +8,4 @@ permalink: /projects/gunfire-reborn/details/runtime/
 nav_context: GAME PORTFOLIO / GUNFIRE REBORN
 ---
 
-애니메이션 전환, UI 관리, 모델 바이너리 로딩을 전투 흐름에 맞춰 구성했다.
+뼈별 애니메이션 보간, UI의 팝업 깊이·이벤트, 모델 바이너리와 비동기 리소스 로딩을 연결한다.

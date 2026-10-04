@@ -14,19 +14,64 @@ permalink: /projects/gunfire-reborn/technical/particle-instancing/
 nav_context: GAME PORTFOLIO / GUNFIRE REBORN
 ---
 
-## 문제와 구현
+## 구현 구조
 
-폭발과 총격 이펙트에는 위치와 수명이 다른 파티클이 여러 개 생긴다. 각 파티클에 별도 정점 버퍼와 그리기 요청을 주면 개수가 늘 때 CPU가 제출하는 작업도 늘어난다. 공통 렌더링 경로에 인스턴스별 상태를 싣는 구조를 선택했다.
+```text
+Engine/Private/VIBuffer_Particle_Instance.cpp
+Client/Bin/ShaderFiles/Shader_VtxPointInstance.hlsl
+```
 
-파티클마다 객체와 드로우 콜을 따로 만들면 수가 늘수록 CPU의 그리기 요청도 늘어난다. 인스턴스 버퍼는 파티클별 위치와 제어값을 구조체 배열로 보관한다. 매 프레임 `Map`·`Unmap`으로 제어값을 갱신하고, 기하 셰이더는 각 인스턴스에서 쿼드를 생성해 월드·뷰·투영 변환을 적용한다. 중력처럼 시간에 따라 바뀌는 값도 인스턴스별로 갱신한다. 여러 파티클을 하나의 그리기 경로에서 처리하기 위한 구조다.
+개별 인스턴스 위치·수명 갱신 → 기본 정점과 인스턴스 버퍼 바인딩 → 인스턴스 드로우 → 셰이더에서 파티클 전개.
+
+
+## 정점 버퍼와 인스턴스 버퍼 분리
+
+기본 점을 담은 버퍼와 파티클마다 달라지는 행렬·수명 정보를 담은 버퍼를 입력 조립기에 함께 바인딩한다. 인스턴스 수를 드로우 호출에 전달해 같은 기본 형상을 반복해서 그린다.
+
+`Engine/Private/VIBuffer_Particle_Instance.cpp` 발췌
+
+```cpp
+HRESULT CVIBuffer_Particle_Instance::Render()
+{
+    m_pContext->DrawIndexedInstanced(m_iNumIndexPerInstance, m_iNumInstances, 0, 0, 0);
+    return S_OK;
+}
+```
+
+## 파티클 수명에 따라 위치 갱신
+
+낙하형 파티클은 개별 속도로 Y 위치를 낮추고 경과 시간을 누적한다. 수명이 끝난 인스턴스는 반복 설정에 따라 초기 위치와 시간을 다시 사용한다. 갱신한 값은 인스턴스 버퍼에 기록한다.
+
+`Engine/Private/VIBuffer_Particle_Instance.cpp` 발췌
+
+```cpp
+void CVIBuffer_Particle_Instance::Drop(_float fTimeDelta)
+{
+    D3D11_MAPPED_SUBRESOURCE SubResource{};
+    m_pContext->Map(m_pVBInstance, 0, D3D11_MAP_WRITE_NO_OVERWRITE, 0, &SubResource);
+    VTXINSTANCE* pVertices = static_cast<VTXINSTANCE*>(SubResource.pData);
+    for (size_t i = 0; i < m_iNumInstances; ++i)
+    {
+        pVertices[i].vTranslation.y -= m_pSpeeds[i] * fTimeDelta;
+        pVertices[i].vLifeTime.y += fTimeDelta;
+        if (pVertices[i].vLifeTime.y >= pVertices[i].vLifeTime.x)
+        {
+            if (true == m_isLoop) {
+                pVertices[i].vTranslation = m_pInstanceVertices[i].vTranslation;
+                pVertices[i].vLifeTime.y = 0.f;
+            }
+        }
+    }
+    m_pContext->Unmap(m_pVBInstance, 0);
+}
+```
+
+## 셰이더에서 화면에 표시
+
+포인트 인스턴스 셰이더는 입력된 위치와 축을 이용해 파티클 면을 만든다. 빌보드 경로와 비빌보드 경로를 구분하고, 픽셀 셰이더는 텍스처와 수명을 사용해 최종 표시를 결정한다.
+
+## 파티클 실행과 버퍼 자료
 
 {% include game-media-gallery.html slug="gunfire-reborn" summary="파티클 인스턴싱 코드 이미지 4장" items="particle-instancing-01.png|인스턴스 제어 정보를 월드 공간으로 옮기는 코드;particle-instancing-02.png|정점을 클립 공간으로 보내는 코드;particle-instancing-03.png|기하 셰이더에서 파티클 쿼드 생성;particle-instancing-04.png|파티클에 중력을 적용하는 코드" %}
-
-## 인스턴스 데이터의 흐름
-
-CPU는 각 파티클의 위치와 시간에 따라 바뀌는 제어값을 배열에 담고 동적 인스턴스 버퍼를 갱신한다. 버텍스 단계는 인스턴스별 데이터를 받아 월드 공간의 기준점을 만들고, 기하 셰이더는 그 점에서 화면에 그릴 쿼드를 펼친다. 중력에 따라 달라진 값은 다음 프레임의 인스턴스 데이터에 반영한다.
-
-이 구조에서는 여러 파티클의 상태를 한 인스턴스 버퍼로 전달하고 그리기 경로를 묶는다. 프레임 시간은 파티클 수와 셰이더 비용에도 영향을 받으므로 그리기 요청을 묶은 것만으로 성능 변화를 단정할 수 없다.
-
 
 {% include game-local-video.html slug="gunfire-reborn" file="particle-instancing" title="보스 공격 구체가 사라지며 파티클로 흩어지는 장면" %}
