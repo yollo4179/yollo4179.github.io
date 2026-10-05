@@ -4,10 +4,10 @@
 
 | 프로젝트 | 페이지 | 파일 크기 | PDF |
 | --- | ---: | ---: | --- |
-| 건파이어 리본 | 44 | 4.03 MB | [gunfire-reborn-portfolio.pdf](gunfire-reborn-portfolio.pdf) |
+| 건파이어 리본 | 44 | 3.80 MB | [gunfire-reborn-portfolio.pdf](gunfire-reborn-portfolio.pdf) |
 | UnityChan RPG | 50 | 9.93 MB | [unitychan-rpg-portfolio.pdf](unitychan-rpg-portfolio.pdf) |
-| 젤다의 전설 — 야생의 숨결 | 35 | 4.20 MB | [zelda-breath-of-the-wild-portfolio.pdf](zelda-breath-of-the-wild-portfolio.pdf) |
-| 크레이지 아케이드 채팅 서버 | 16 | 2.09 MB | [crazy-arcade-chat-server-portfolio.pdf](crazy-arcade-chat-server-portfolio.pdf) |
+| 젤다의 전설 — 야생의 숨결 | 35 | 4.11 MB | [zelda-breath-of-the-wild-portfolio.pdf](zelda-breath-of-the-wild-portfolio.pdf) |
+| 크레이지 아케이드 채팅 서버 | 16 | 2.03 MB | [crazy-arcade-chat-server-portfolio.pdf](crazy-arcade-chat-server-portfolio.pdf) |
 | SSketch | 73 | 1.63 MB | [ssketch-portfolio.pdf](ssketch-portfolio.pdf) |
 
 본문과 코드는 검색·복사할 수 있으며, 목차·원문·영상 링크를 클릭해 이동할 수 있습니다. 영상은 외부 링크로 연결됩니다.

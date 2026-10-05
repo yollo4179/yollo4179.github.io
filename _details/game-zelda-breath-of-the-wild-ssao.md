@@ -61,7 +61,7 @@ float3x3 TBN = float3x3(tangent, bitangent, vNormal_InViewSpace);
 float occlusion = 0.f;
 for (int i = 0; i < gNumSamples; ++i)
 {
-    float3 sample = mul(TBN, gSampleKernel[i].xyz);
+    float3 sample = mul(gSampleKernel[i].xyz, TBN);
     sample = vPosition.xyz + sample * gRadius*0.8f;
     vector offset = vector(sample, 1.f);
     offset = mul(offset, gProjection);
@@ -75,6 +75,13 @@ for (int i = 0; i < gNumSamples; ++i)
 float ao = 1.f - (occlusion / gNumSamples);
 OutputReturnSSAO[DTid.xy] = ao;
 ```
+
+## TBN으로 접선 공간 커널을 뷰 공간으로 변환
+
+셰이더는 `tangent`, `bitangent`, 뷰 공간 노멀을 TBN의 각 행으로 구성한다.
+`mul(gSampleKernel[i].xyz, TBN)`은 커널의 X·Y·Z 성분을 각 기저에 곱해 더하므로,
+접선 공간의 반구 샘플을 뷰 공간 방향으로 변환한다. 셰이더는 이 방향에 반경을
+곱한 뒤 `vPosition.xyz`를 더해 깊이 비교에 사용할 샘플 위치를 만든다.
 
 ## 깊이 차이를 반영한 양방향 블러
 
@@ -116,6 +123,6 @@ if (0.5f < Vertical_Horize.x)
   <figure><img src="{{ '/assets/images/projects/zelda-breath-of-the-wild/ssao-result-02.png' | relative_url }}" alt="풀밭 장면의 SSAO 적용 전후와 차폐 마스크 비교" loading="lazy"><figcaption>풀밭 장면의 SSAO 적용 비교</figcaption></figure>
 </div>
 
-{% include game-media-gallery.html slug="zelda-breath-of-the-wild" summary="SSAO 샘플 생성·깊이 비교 코드 이미지 5장" items="ssao-implementation-01.png|노멀 주변 반구 샘플 생성 코드;ssao-implementation-02.png|샘플 분산용 노이즈 텍스처 생성 코드;ssao-implementation-03.png|픽셀의 뷰 공간 위치 복원 코드;ssao-implementation-04.png|샘플과 지형의 깊이를 비교하는 코드;ssao-implementation-05.png|SSAO 반구 샘플의 좌표 변환 설명" %}
+{% include game-media-gallery.html slug="zelda-breath-of-the-wild" summary="SSAO 샘플 생성·좌표 변환 자료 4장" items="ssao-implementation-01.png|노멀 주변 반구 샘플 생성 코드;ssao-implementation-02.png|샘플 분산용 노이즈 텍스처 생성 코드;ssao-implementation-03.png|픽셀의 뷰 공간 위치 복원 코드;ssao-implementation-05.png|SSAO 반구 샘플의 좌표 변환 설명" %}
 
 {% include game-video-embed.html id="qfSZauMDXyE" title="SSAO 적용 영상" %}

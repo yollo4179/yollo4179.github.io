@@ -58,6 +58,10 @@ void CLevel_GamePlay::Adjusting_Triangle(TRIANGLE_VERTICES& Triangle)
 
 `Engine/Private/Navigation.cpp` 발췌
 
+파일 열기 실패 처리는 보완이 필요하다. 아래 원본의 `0 == hFile`은 `CreateFile`의
+실패 반환값을 검사하지 못한다. 실패 분기는 `hFile == INVALID_HANDLE_VALUE`로
+수정해야 하며, 다음 발췌에는 원본 구현을 그대로 표시했다.
+
 ```cpp
 HRESULT CNavigation::Initialize_Prototype(const _tchar* pNavigationDataFile)
 {

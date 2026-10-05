@@ -214,3 +214,18 @@ flowchart LR
 - 사용자가 `D:/왕국의 눈물final2-Comp`를 최종본으로 지정했다. 젤다 SSAO 원고와 PDF의 기준은 이 폴더의 `Client/Bin/ShaderFiles/CShader_Deffered_SSAO.hlsl`이다.
 - 위 보류 메모의 SSAO 오류는 `C:/ssafy/147_Team_HDR_Compaarision` 버전에 해당한다. 최종본은 샘플 위치를 `mul(offset, gProjection)`으로 투영하며 `sample.z - gBias - 0.2f`를 깊이 비교 기준으로 사용한다. 게임 원본 코드는 변경하지 않았다.
 - 깊이·노멀 복원과 커널 발췌를 최종 소스로 교체했다. 기존 구현 이미지 01~04도 최종 코드와 대조했다. PDF는 35쪽을 유지하며 검색 가능한 코드와 링크 74개, SSAO 절의 페이지 잘림을 확인했다. 게임 실행 검증은 수행하지 않았다.
+
+### 2026-10-05 추가 리뷰 반영
+
+- 배포 URL을 직접 요청해 홈 소개·GitHub 링크 존재와 길봄 목록의 `/ 59`, `8 PASS / 1 ERROR` 제거를 확인했다. 해당 지적은 수정 전 버전과 구분한다. SSketch 개요 기간은 6주로 이미 반영돼 있으며 팀 인원과 공개 연락처는 미확인이다.
+- 최종 젤다 발췌는 앞선 턴에서 D:/왕국의 눈물final2-Comp 원본과 대조해 보존했다. 이번 환경에는 D: 드라이브가 없어 재열람하지 못했다. 보존 발췌의 TBN 행 기저 구성과 mul(TBN, kernel)은 접선 공간 → 뷰 공간 방향이 맞지 않는다. HLSL mul 및 행렬 생성자 규약에 따라 수정 방향을 블로그·PDF에 명시했다. 게임 원본 수정과 실행 검증은 수행하지 않았다.
+- 길봄 RobotEventIngestionService.ingest는 기존 event_id를 먼저 조회하지만 미수신 이벤트에는 MqttReplayProtectionService.claim의 non_increasing_sequence 검사가 적용된다. Telemetry도 같은 claim을 사용한다. 로봇 client.py는 재접속 시 Outbox를 먼저 발행하는 보완이 있으므로 항상 유실된다고 단정하지 않는다. 더 큰 seq가 먼저 처리된 조건에서 처음 도착한 낮은 seq 이벤트가 거부되는 한계를 원고에 명시했다. 새 로컬 실행 결과를 배포 성과로 넣지 않았다.
+- 건파이어 합성 코드의 노멀 임계값은 0.2이며 >= 비교다. 웹/PDF의 오래된 0.05 코드 이미지 참조를 실제 소스 발췌로 대체했다. 원본 이미지는 보존했다. Navigation.cpp의 CreateFile 실패 검사와 크아 LoadObject 실패 처리는 원본을 유지하고 문서에서 한계·수정 방향을 구분했다. ofstream::failbit/badbit는 ios_base 공통 플래그이므로 기능 오류로 단정하지 않는다.
+- 젤다 개요·PDF 담당 범위를 상세 글이 뒷받침하는 항목으로 좁혔다. 하위 게임 목록의 meta description은 해당 페이지 본문에서 파생한다.
+- PDF 4종의 페이지 수(젤다 35, 건파이어 44, 크아 16, SSketch 73)를 유지하며 검색 가능한 수정 문구와 링크를 확인했다. 편집된 페이지의 하단 넘침을 검사했다. SSketch PDF에도 기획 3주·구현 3주를 반영했다.
+
+### 2026-10-05 사용자 TBN 원본 수정 반영
+
+- D:/왕국의 눈물final2-Comp가 다시 접근 가능한 상태에서 CS_SSAO 90행의 `mul(gSampleKernel[i].xyz, TBN)` 수정 사실을 확인했다. 앞선 TBN 미수정 메모는 이 확인으로 대체한다.
+- 블로그와 PDF 발췌·설명을 수정된 소스에 맞췄다. 이전 곱셈을 보여 주는 ssao-implementation-04.png는 공개 원고와 PDF에서 제외하고 원본 파일은 보존했다. TBN을 미수정 과제로 설명하던 문구를 구현 설명으로 바꿨다.
+- HLSL 발췌 4개가 원본과 일치함을 확인했다(주석·공백 제외). PDF는 35쪽, 링크 72개이며 SSAO 페이지 넘침과 수정 코드 검색을 확인했다. range check는 원본 차폐 루프에 추가되지 않았으며, 풀 외곽 음영 개선을 실행 성과로 쓰지 않았다.

@@ -49,7 +49,14 @@ float DetectNormalEdges(float2 uv, float2 PixelSize)
 
 ## 깊이 경계와 함께 외곽선 결정
 
-깊이 검출은 텍스처의 Y 성분에 1000을 곱해 비교한다. 최종 합성은 깊이 경계 0.8과 노멀 경계 0.2를 모두 넘는 픽셀에 외곽선을 적용한다. 이 패스의 샘플 간격은 1280×720을 기준으로 설정돼 있다.
+깊이 검출은 텍스처의 Y 성분에 1000을 곱해 비교한다. 최종 합성은 깊이 경계가 0.8 이상이고 노멀 경계가 0.2 이상인 픽셀에 외곽선을 적용한다. 이 패스의 샘플 간격은 1280×720을 기준으로 설정돼 있다.
+
+`Engine/Bin/ShaderFiles/Shader_Deferred.hlsl` 합성 조건 발췌
+
+```hlsl
+if (0.8f <= DetectDepthEdges(In.vTexcoord, float2((1.f / 1280.f), (1.f / 720.f))) && 0.2f <= DetectNormalEdges(In.vTexcoord, float2((1.f / 1280.f), (1.f / 720.f))))
+    Out.vFinal = float4(0.f, 0.f, 0.f, 1.f);
+```
 
 `Engine/Bin/ShaderFiles/Shader_Deferred.hlsl` 발췌
 
@@ -74,4 +81,4 @@ float DetectDepthEdges(float2 uv, float2 PixelSize)
 
 {% include game-local-video.html slug="gunfire-reborn" file="cartoon-rendering" title="지형과 캐릭터의 카툰 외곽선" %}
 
-{% include game-media-gallery.html slug="gunfire-reborn" summary="외곽선 결과와 구현 자료" items="toon-rendering-result.png|카툰 렌더링 결과 화면;outline-implementation-01.png|노멀 차이 계산;outline-implementation-02.png|깊이 차이 계산;outline-implementation-03.png|외곽선 검출 조건" %}
+{% include game-media-gallery.html slug="gunfire-reborn" summary="외곽선 결과와 구현 자료" items="toon-rendering-result.png|카툰 렌더링 결과 화면;outline-implementation-01.png|노멀 차이 계산;outline-implementation-02.png|깊이 차이 계산" %}

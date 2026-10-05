@@ -27,6 +27,16 @@ nav_context: GAME PORTFOLIO / CHAT SERVER
 
 {% include game-media-gallery.html slug="crazy-arcade-chat-server" summary="UI 생성·정렬·JSON 저장 코드 이미지 12장" items="ui-creation-01.png|도구 객체의 기본 배치 속성;ui-creation-02.png|프로토타입에서 도구 객체를 복제하는 코드;ui-creation-03.png|ImGui에서 복제한 객체를 등록하는 코드;ui-layout-01.png|부모와 자식 UI의 변환 행렬;ui-layout-02.png|자식 UI를 부모에 추가하는 코드;ui-layout-03.png|그리드 정렬의 위치 계산 코드;ui-layout-04.png|그리드 정렬의 자식 UI 적용 코드;ui-serialization-01.png|UI 트리의 JSON 저장 형식;ui-serialization-02.png|저장 버튼에서 직렬화 함수를 호출하는 코드;ui-serialization-03.png|자식 UI를 재귀적으로 저장하는 코드;ui-serialization-04.png|UI 데이터 파일을 선택해 불러오는 코드;ui-serialization-05.png|JSON 자식 노드를 재귀적으로 읽는 코드" %}
 
+## 불러오기 실패 처리의 한계
+
+`CLevelMapTool::LoadObject()`는 읽기 실패에도 `저장 에러 발생`을 표시한다.
+로드 실패 메시지로 고치고, 예외 처리 뒤에는 객체 생성으로 진행하지 않도록
+종료해야 한다. 원본은 오류를 표시한 뒤에도 `ObjectBuilder()`를 호출한다.
+
+`ifstream`에 사용한 `std::ofstream::failbit`와 `badbit`는 공통 기반인
+`std::ios_base`의 상태 플래그이므로 값 자체가 잘못된 것은 아니다.
+`std::ios_base::failbit | std::ios_base::badbit`로 표기하면 입출력 구분의 혼동을 줄일 수 있다.
+
 ## 저장 형식과 복원 순서
 
 `CGameObject`의 저장 경로는 `SRT_MATRIX`, 객체·텍스처·셰이더·버퍼 태그, `ATLASINFO`, `CHILDREN`을 노드에 기록한다. 맵툴의 `ObjectBuilder()`는 태그를 먼저 읽어 컴포넌트를 구성하고 월드 행렬을 적용한 뒤 `CHILDREN`을 순회한다. 클라이언트의 `ObjectBuilderSystem`도 같은 키를 사용해 화면용 객체를 다시 만든다. 저장 형식의 키가 도구와 게임 사이의 계약이다.
