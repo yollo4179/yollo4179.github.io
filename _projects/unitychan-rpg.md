@@ -4,6 +4,7 @@ title: UnityChan RPG
 order: 7
 game_order: 3
 game_portfolio: true
+game_tracks: [client]
 team_project: false
 category: 게임 개발
 project_type: 개인 프로젝트

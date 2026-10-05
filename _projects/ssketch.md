@@ -5,6 +5,7 @@ title: SSketch
 order: 3
 game_order: 1
 game_portfolio: true
+game_tracks: [client, server]
 team_project: true
 category: SSAFY - 특화 프로젝트
 project_type: 특화 프로젝트

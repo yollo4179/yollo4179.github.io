@@ -4,6 +4,7 @@ title: 건파이어 리본
 order: 8
 game_order: 5
 game_portfolio: true
+game_tracks: [client]
 team_project: false
 category: 게임 개발
 project_type: 개인 프로젝트

@@ -229,3 +229,10 @@ flowchart LR
 - D:/왕국의 눈물final2-Comp가 다시 접근 가능한 상태에서 CS_SSAO 90행의 `mul(gSampleKernel[i].xyz, TBN)` 수정 사실을 확인했다. 앞선 TBN 미수정 메모는 이 확인으로 대체한다.
 - 블로그와 PDF 발췌·설명을 수정된 소스에 맞췄다. 이전 곱셈을 보여 주는 ssao-implementation-04.png는 공개 원고와 PDF에서 제외하고 원본 파일은 보존했다. TBN을 미수정 과제로 설명하던 문구를 구현 설명으로 바꿨다.
 - HLSL 발췌 4개가 원본과 일치함을 확인했다(주석·공백 제외). PDF는 35쪽, 링크 72개이며 SSAO 페이지 넘침과 수정 코드 검색을 확인했다. range check는 원본 차폐 루프에 추가되지 않았으며, 풀 외곽 음영 개선을 실행 성과로 쓰지 않았다.
+
+### 2026-10-05 게임 분류와 연락처
+
+- 홈은 게임 개발·전체 프로젝트 두 진입 링크로 정리하고 이메일 qkd123tkd@gmail.com 및 GitHub https://github.com/yollo4179를 사용자 제공 정보로 표시했다.
+- 게임 목록의 game_tracks로 클라이언트 4개(SSketch·UnityChan·젤다·건파이어), 서버 2개(SSketch·크아)를 분류한다. SSketch는 같은 정본 URL을 양쪽에서 연결한다. 전체 프로젝트에는 공개 개인·팀 프로젝트 6개를 포함한다.
+- 건파이어 기준 소스는 사용자가 지정한 D:/건파이어_리본_Final -비동기_멀쓰2/Framework다. Shader_Deferred.hlsl 320·521행의 깊이 0.8/노멀 0.2 조건을 확인했으며, 공개 블로그·PDF 발췌와 일치한다. Navigation.cpp 35행의 0 == hFile은 이 기준 소스에도 남아 있다.
+- 홈·게임 진입·게임 목록·전체 목록을 360px/1440px에서 확인했다. 분류별 개수, 개인 프로젝트 포함, 연락처, 가로 넘침과 JavaScript 오류를 점검했다.

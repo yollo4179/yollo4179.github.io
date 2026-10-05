@@ -13,6 +13,11 @@
   padding-block: clamp(4rem, 12vw, 8rem) 3rem;
 }
 
+.game-track-nav { display:flex; flex-wrap:wrap; gap:1rem; }
+.game-track-nav .button { color:inherit; }
+.game-landing__projects { scroll-margin-top:calc(var(--header-height) + 1rem); }
+.game-landing__projects > h2 small { font-size:.6em; font-weight:400; }
+
 .game-archive__hero .eyebrow,
 .game-archive-card__number {
   color: #8cb8ff;

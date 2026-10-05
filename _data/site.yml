@@ -4,10 +4,10 @@ navigation:
     label: 홈
     url: /
   - index: "02"
-    label: 포트폴리오
+    label: 전체 프로젝트
     url: /projects/
   - index: "03"
-    label: 게임 포트폴리오
+    label: 게임 개발
     url: /games/
 footer:
   label: NEXT PROJECT IS ALWAYS IN PROGRESS.

@@ -4,6 +4,7 @@ title: 젤다의 전설(야생의 숨결)
 order: 5
 game_order: 4
 game_portfolio: true
+game_tracks: [client]
 team_project: true
 category: 게임 개발
 project_type: 6인 협업 프로젝트

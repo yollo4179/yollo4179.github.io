@@ -1,0 +1,4 @@
+- id: client
+  name: 클라이언트 프로젝트
+- id: server
+  name: 서버 프로젝트

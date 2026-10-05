@@ -1,0 +1,20 @@
+{% assign game_projects = site.projects | where: 'game_portfolio', true | sort: 'game_order' %}
+<nav class="page-container game-track-nav" aria-label="게임 개발 분야">
+  {% for track in site.data.game_tracks %}<a class="button" href="#{{ track.id }}">{{ track.name }}</a>{% endfor %}
+</nav>
+{% for track in site.data.game_tracks %}
+  {% assign track_projects = game_projects | where_exp: 'project', 'project.game_tracks contains track.id' %}
+  <section id="{{ track.id }}" class="page-container game-landing__projects" aria-labelledby="{{ track.id }}-title">
+    <h2 id="{{ track.id }}-title">{{ track.name }} <small>· {{ track_projects.size }}개</small></h2>
+    <div class="game-landing__grid">
+      {% for project in track_projects %}
+      <article class="game-landing-card">
+        <a href="{{ project.url | relative_url }}">
+          {% if project.hero_image %}<img src="{{ project.hero_image | relative_url }}" alt="" loading="lazy">{% endif %}
+          <div class="game-landing-card__copy"><p>{{ project.project_type }} · {{ project.stack }}</p><h3>{{ project.title }}</h3><p>{{ project.summary }}</p><span>소개 글 보기 ↗</span></div>
+        </a>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+{% endfor %}
