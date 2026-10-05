@@ -103,6 +103,26 @@ public float Execute(EQSPoint point, EQSQuerier querier, EQSContext context)
 }
 ```
 
+## 후보 점수의 Gizmo 표시
+
+`EQSQuery.OnDrawGizmos()`는 평가 결과를 보관한 `scoredPoints`를 순회하며 후보 위치에 반지름 0.1의 와이어 구를 그린다. 점수가 0 이하이면 파란색으로 표시하고, 양수이면 `1 - score`를 빨간 채널에, `score`를 초록 채널에 적용한다. 후보 지점의 배치와 평가 점수를 Scene 뷰에서 함께 확인하는 구조다.
+
+<figure class="game-media-feature">
+  <a href="{{ '/assets/images/projects/unitychan-rpg/wolf-eqs-debug.webp' | relative_url }}"><img src="{{ '/assets/images/projects/unitychan-rpg/wolf-eqs-debug.webp' | relative_url }}" alt="Unity Scene 뷰에서 플레이어 주변의 EQS 후보 지점을 와이어 구로 표시하고 여러 늑대의 배치를 확인하는 디버그 화면" width="2879" height="1530" loading="lazy"></a>
+  <figcaption>플레이어 주변의 EQS 후보 지점과 늑대 배치를 표시한 디버그 화면</figcaption>
+</figure>
+
+`Assets/04.Scripts/CommonScrips/EQSSystem/EQSQuery.cs` 발췌
+
+```csharp
+float score = point.score;
+if (0f >=score)
+    Gizmos.color = new Color(0f, 0f, 1f);
+else
+    Gizmos.color = new Color(Mathf.Clamp01(1 - score), Mathf.Clamp01(score), 0);
+Gizmos.DrawWireSphere(point.point.pos, 0.1f);
+```
+
 ## 예약에서 점유로 전환
 
 `QueryNewPoint`는 타깃, 전체 늑대 목록, 후보 지점으로 `EQSContext`를 구성한다. 선택한 지점의 NavMesh 구역이 몬스터의 구역과 같은지 확인하고 기존 점유·예약을 갱신한다. 새 지점은 `_goalPoint`로 저장하며 `MoveToGoal`이 `NavMeshAgent.SetDestination`에 전달한다.

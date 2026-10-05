@@ -10,8 +10,17 @@ layout: default
           <p class="ssketch-eyebrow">SSAFY 15기 · 특화 프로젝트 · D204</p>
           <img class="ssketch-logo" src="{{ '/assets/images/projects/ssketch/logo-day.png' | relative_url }}" alt="SSketch — Draw Together, Play Together" width="1400" height="481">
           <h1>{{ page.hero_heading }}</h1>
+          <ul class="ssketch-highlights" aria-label="핵심 구현">
+            <li>4인 멀티플레이</li>
+            <li><a href="#evidence">입력 소비율 95%+</a></li>
+            <li>Unity + C++ IOCP</li>
+          </ul>
+          <p class="ssketch-highlight-note">입력 소비율 95.43~96.91% · 동일 PC의 Host 1개·Guest 3개 수동 비교</p>
           <p class="ssketch-intro">{{ page.hero_intro }}</p>
           <ul class="ssketch-chips" aria-label="게임 정보"><li>4인 온라인</li><li>Windows</li><li>Unity · C++</li></ul>
+          <dl class="ssketch-project-facts"><div><dt>개발 기간</dt><dd>{{ page.period }}</dd></div>{% unless page.team == '입력 예정' %}<div><dt>팀 구성</dt><dd>{{ page.team }}</dd></div>{% endunless %}</dl>
+          {% assign technical_details = site.details | where: 'project_slug', 'ssketch' | where: 'featured', true %}
+          <p>플레이 영상 1 + 기술 상세 {{ technical_details.size }}</p>
           <div class="ssketch-actions">
             <a class="ssketch-button" href="{{ '/projects/ssketch/details/' | relative_url }}">구현 내용 목록 보기 <span aria-hidden="true">→</span></a>
             <a class="ssketch-button ssketch-button--secondary" href="#demo">EC2 시연 영상 보기 <span aria-hidden="true">↓</span></a>

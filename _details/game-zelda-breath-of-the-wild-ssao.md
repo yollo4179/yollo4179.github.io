@@ -25,50 +25,55 @@ Client/Bin/ShaderFiles/CShader_Deffered_SSAO.hlsl
 
 ## 깊이와 노멀을 뷰 공간으로 복원
 
-노멀은 0~1 텍스처 값에서 -1~1로 복원하고 뷰 행렬로 변환한다. 위치는 화면 UV에서 NDC 좌표를 구한 뒤 깊이 값과 역투영 행렬로 복원한다.
+셰이더는 깊이·노멀 텍스처를 픽셀 좌표로 읽고, 노멀을 -1~1 범위로 복원해 뷰 공간으로 변환한다. 위치는 화면 UV와 깊이 값에서 역투영한다. 화면 크기는 1920×1080, 깊이 복원에 사용하는 Far 값은 1000으로 고정돼 있다.
 
 `Client/Bin/ShaderFiles/CShader_Deffered_SSAO.hlsl` 발췌
 
 ```hlsl
-float4 vDepth = InputDepthTexture.SampleLevel(gSampler, vDepthCoord, 0);
-float4 vNormal = InputNormalTexture.SampleLevel(gSampler, vNormalCoord, 0);
-vNormal = vNormal * 2.f - 1.f;
-vNormal.w = 0.f;
-vNormal = mul(vNormal, g_View);
-vNormal = normalize(vNormal);
+uint2 TexSize = { 1920, 1080 };
+float2 TexCoord = float2(DTid.xy) / float2(TexSize);
+vector vDepth = InputDepthTexture.Load(int3(DTid.xy, 0));
+float2 NoiseScale = { 1920 / 4.F, 1080 / 4.F };
+vector vNormal = InputNormalTexture.Load(int3(DTid.xy, 0));
+vNormal.xyz = normalize(vNormal.xyz * 2.f - 1.f);
+float3x3 matView3x3 = (float3x3) gView;
+float3 vNormal_InViewSpace = normalize(mul(vNormal.xyz, matView3x3));
 vector vPosition = (vector) 0;
-vPosition.x = vDepthCoord.x * 2.f - 1.f;
-vPosition.y = vDepthCoord.y * -2.f + 1.f;
+vPosition.x = TexCoord.x * 2.f - 1.f;
+vPosition.y = TexCoord.y * -2.f + 1.f;
 vPosition.z = vDepth.x;
 vPosition.w = 1.f;
-vPosition *= (vDepth.y * 1000.f);
+vPosition *= vDepth.y * 1000;
 vPosition = mul(vPosition, gInvProjection);
 ```
 
 ## 커널과 깊이 비교
 
-셰이더는 `gSampleKernel`과 TBN 행렬로 `SamplePos`를 계산한다. 이어지는 화면 UV 계산은 `vPosition`을 투영한 값을 사용한다. 깊이의 차이가 0.0003보다 크면 반경에 따른 `rangeCheck`를 누적하고, 최종 값은 `1 - Occlusion / gNumSamples`로 기록한다. 커널 위치 계산과 실제 깊이 조회 좌표는 다음 발췌에 각각 나타난다.
+셰이더는 노이즈 벡터와 뷰 공간 노멀로 TBN 행렬을 구성하고, 커널에 반경과 0.8을 곱해 샘플 위치를 계산한다. 샘플 위치를 투영한 UV에서 깊이를 읽고, 해당 깊이가 `sample.z - gBias - 0.2f`보다 작으면 차폐 횟수를 늘린다. 최종 값은 `1 - occlusion / gNumSamples`로 출력한다.
 
 `Client/Bin/ShaderFiles/CShader_Deffered_SSAO.hlsl` 발췌
 
 ```hlsl
+float3 RandomVec = normalize(SSAONoiseTexture.SampleLevel(gSampler, NoiseScale * TexCoord, 0)).xyz;
+float3 tangent = normalize(RandomVec - vNormal_InViewSpace * dot(RandomVec, vNormal_InViewSpace));
+float3 bitangent = cross(vNormal_InViewSpace, tangent);
+float3x3 TBN = float3x3(tangent, bitangent, vNormal_InViewSpace);
+float occlusion = 0.f;
 for (int i = 0; i < gNumSamples; ++i)
 {
-    float3 RandomVec = gSampleKernel[63 - i];
-    RandomVec.y = 0.f;
-    float3 SamplePos = vPosition.xyz + gRadius* mul(gSampleKernel[i].xyz, ComputeTBN(vNormal.xyz, RandomVec));
-    float4 offset = float4(float3(SamplePos), 1.0f);
-    offset = mul(vPosition, gProjection);
+    float3 sample = mul(TBN, gSampleKernel[i].xyz);
+    sample = vPosition.xyz + sample * gRadius*0.8f;
+    vector offset = vector(sample, 1.f);
+    offset = mul(offset, gProjection);
     offset.x /= offset.w;
     offset.y /= offset.w;
     offset.x = offset.x * 0.5f + 0.5f;
     offset.y = offset.y * -0.5f + 0.5f;
-    float4 SampleDepthDesc = InputDepthTexture.SampleLevel(gSampler, offset.xy, 0);
-    float sampleDepth = SampleDepthDesc.y * 1000.f;
-    float depthDifference = sampleDepth - (vPosition.z);
-    float rangeCheck = smoothstep(0.f, 1.f, gRadius / abs(vPosition.z - sampleDepth));
-    Occlusion += (depthDifference > 0.0003f) ? rangeCheck : 0.0f;
+    float OccluderPosZ = InputDepthTexture.SampleLevel(gSampler, offset.xy, 0).y * 1000.f;
+    occlusion += (OccluderPosZ < sample.z - gBias-0.2f  ? 1.f : 0.f);
 }
+float ao = 1.f - (occlusion / gNumSamples);
+OutputReturnSSAO[DTid.xy] = ao;
 ```
 
 ## 깊이 차이를 반영한 양방향 블러

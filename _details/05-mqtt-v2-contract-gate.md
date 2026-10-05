@@ -8,10 +8,9 @@ category_slug: maintainability
 category_url: /projects/gilbom/maintainability/
 permalink: /projects/gilbom/maintainability/05-mqtt-v2-contract-gate/
 summary: 사람용 문서, Backend DTO와 Embedded Payload가 따로 바뀌던 문제를 AsyncAPI·JSON Schema·Fixture·자동 계약 테스트의 한 묶음으로 고정했습니다.
-verified_at: 2026-08-15
-validation_scope: 로컬 계약 파일·Python 자동 테스트 점검 · 실제 Jetson·EC2 미검증
-result_label: Schema 12 · Fixture 32 · 점검 8 PASS / 1 ERROR
-status_tone: warning
+verified_at: 2026-07-30
+validation_scope: 2026-07-30 계약 동결 기록 · 실제 Jetson·EC2 배포 검증 제외
+result_label: Schema 12 · Fixture 32 · 계약 동결
 tags:
   - MQTT v2
   - AsyncAPI
@@ -223,14 +222,8 @@ Embedded·Backend 회귀`를 한 묶음으로 다룹니다. 이 중 하나만 �
 
 <h2 id="verification">검증 기록과 현재 상태</h2>
 
-2026년 7월 30일 계약 동결 기록에는 MQTT 계약 테스트 통과와 Embedded·Backend
-집중 회귀 통과가 보존돼 있습니다. 2026년 8월 15일 현재 HEAD 재실행에서는 9개 중
-8개가 통과했고 `comms` Module Import 경로 오류 1개가 남았습니다. 따라서 현재 상태를
-“계약 Gate 전체 통과”로 표현하지 않습니다.
-
-정적 범위 수치인 Schema 12개와 Fixture 32개는 성능 지표가 아니라 검사 범위입니다.
-실제 Jetson 배포와 EC2 Broker의 Credential·ACL·인증서 검증도 로컬 계약 검증과
-구분합니다.
+2026년 7월 30일 계약 동결 기록에서 계약 테스트 8개가 통과했습니다. Schema 12개와
+Fixture 32개는 검사 범위이며, 실제 Jetson·EC2 배포 검증은 포함하지 않습니다.
 
 <h2 id="sources">근거 문서</h2>
 

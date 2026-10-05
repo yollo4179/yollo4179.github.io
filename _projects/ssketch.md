@@ -8,7 +8,7 @@ game_portfolio: true
 team_project: true
 category: SSAFY - 특화 프로젝트
 project_type: 특화 프로젝트
-period: 입력 예정
+period: 공통 프로젝트 이후 6주 (기획 3주 · 구현 3주)
 team: 입력 예정
 role: Unity 클라이언트 프레임워크, 실시간 입력 및 동기화, C++ IOCP 서버, Vivox 음성 채팅
 stack: Unity · C# · C++ · IOCP · TCP · UDP · Vivox
@@ -61,6 +61,18 @@ Unity 클라이언트 프레임워크와 C++ 네트워크 서버를 연결하고
 </div>
 
 <h2 id="development">프레임워크 설계와 멀티플레이 개발 기록</h2>
+
+<h3>크아 채팅 서버에서 SSketch로</h3>
+
+크레이지 아케이드 채팅 서버에서는 IOCP로 수신 완료를 처리하고 `send()`로 메시지를 전달했다. SSketch에서는 TCP 바이트 스트림의 분할·병합 수신과 비동기 송신 완료까지 처리 범위를 넓혔다.
+
+| 구분 | 크아 채팅 서버 | SSketch |
+| --- | --- | --- |
+| 수신 경계 | 패킷 누적 버퍼와 길이 검사를 보강할 필요가 있는 구조 | `RecvBuffer`에 누적하고 헤더·본문 길이를 검사한 뒤 완성된 패킷만 처리 |
+| 송신 | `send()` 호출 | 송신 큐와 `WSASend`, 완료 시점까지 버퍼 수명 유지 |
+| 부분 송신 | 별도 완료 처리 없음 | `ProcessSend()`가 `_sendOffset`을 갱신하고 남은 바이트를 재등록 |
+
+구체적인 송수신 흐름은 [SSketch TCP·UDP 통신]({{ '/projects/ssketch/technical/iocp-tcp-udp/' | relative_url }})에서, 초기 구현은 [크아 IOCP 채팅 서버]({{ '/projects/crazy-arcade-chat-server/technical/iocp-chat/' | relative_url }})에서 다룬다.
 
 클라이언트의 공통 서비스·자산·UI·캐릭터 구조를 설계하고, 입력과 물리 상태를 호스트의 시간축에 연결했다. 프레임워크 설계는 객체의 책임과 수명을 중심으로, 동기화와 트러블슈팅은 입력·물리·렌더링의 흐름을 중심으로 정리했다.
 

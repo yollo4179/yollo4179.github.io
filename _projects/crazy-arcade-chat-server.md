@@ -2,7 +2,7 @@
 layout: game-project
 title: 크레이지 아케이드 채팅 서버
 order: 6
-game_order: 2
+game_order: 6
 game_portfolio: true
 team_project: false
 category: 게임 개발
@@ -49,6 +49,8 @@ topics:
 채팅은 클라이언트의 TCP 송수신 스레드와 IOCP 서버를 연결했다. 사용자가 메시지나 캐릭터 정보를 보내면 서버의 워커 스레드가 완료 큐에서 수신 작업을 받아 프로토콜 코드에 따라 처리하고, 연결된 클라이언트에 전달한다.
 
 ## 담당 구현 {#contribution}
+
+이 프로젝트에서 시작한 수신 완료 처리 경험은 [SSketch의 TCP·UDP 통신 구조]({{ '/projects/ssketch/technical/iocp-tcp-udp/' | relative_url }})로 이어졌다. SSketch에서는 수신 누적 버퍼와 패킷 길이 검사, 비동기 송신 큐와 부분 송신 처리를 구현했다.
 
 - **UI 제작:** ImGui 객체 선택·복제, 부모·자식 계층, 크기·위치·텍스처·Z 순서 편집, 그리드 정렬.
 - **화면 데이터:** UI 트리의 JSON 저장과 로드, `ObjectBuilderSystem`을 통한 클라이언트 화면 재구성.

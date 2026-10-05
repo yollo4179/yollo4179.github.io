@@ -132,6 +132,17 @@ flowchart LR
 
 이 문서는 `_config.yml`에서 공개 빌드 대상에서 제외됩니다. 블로그 정리 과정에서 생긴 권고와 운영 메모는 공개 글에 섞지 않고 여기에 남깁니다.
 
+### 길봄 메인 소개 자료
+
+- 사용자 확인 신원·역할: 조민호, 웹 A·B·C 중 B 담당. TLS 설정·CA 인증서 처리, 패킷 정의, SSE 이벤트 핸들러, Robot·Telemetry DB와 Trajectory 조회 구현을 담당했다. 안건석은 로봇과 임베디드 측 MQTT 담당이다. 사용자와 안건석을 동일 인물로 연결하지 않는다.
+- 역할 근거: `C:\ssafy\I15D101T\web\docs\팀원B\README.md`, `작업내용\README.md`, `팀원B-remaining-7days.md`의 책임 경계, `V2\나의 팀원 B의 스키마.md`. B 범위는 로봇 등록·Credential, MQTT 계약·보안·수신, Robot Current·History, Telemetry 통계·시계열, SSE, Command·Patrol·Mission API와 관제 화면이다. 결함 업무 처리·이미지 저장·보고서 생성·AWS 배포·공통 로그인과 세션을 B의 개인 기여로 확장하지 않는다. 기존 마이페이지 프로필·비밀번호 변경 연동과 공통 인증 구현은 구분한다.
+- Trajectory는 저장된 GPS Telemetry를 조회하는 기능으로 설명한다. 별도 `mission_trajectory` 테이블을 구현한 것처럼 쓰지 않는다. SSE는 DB 커밋 후 변경을 알리고 React가 REST 정본을 재조회하는 구조다.
+- 원본: `C:\ssafy\I15D101T\docs\15기_공통PJT_발표자료_D101.pptx` (D101 최종 발표 자료).
+- 서비스 소개는 점자블록 결함 모니터링, 로봇·순찰구역 관리, LLM 보고서 작성으로 구성했다. 개인 기여는 기존 담당 범위에 한정한다.
+- 배경색 `#F6F6FE`, 남색 `#2E3D86`, 경계색 `#B6BDDF`, 노란 강조색 `#FEEFC5`는 PPT의 실제 색상 값이다. PPT 표지의 로고와 네트워크 이미지를 사용한다. 유료 발표용 글꼴은 복제하지 않고 기존 사이트 글꼴을 사용한다.
+- `assets/images/projects/gilbom/presentation-*.png`는 PPT 내장 이미지다. 로고·네트워크는 1번 슬라이드, 결함 모니터링은 25번, 순찰구역은 29번, 보고서는 32번 슬라이드에서 가져왔다.
+- 기존 메인의 편집 과정 로컬 테스트 안내는 공개 소개에서 제외했다. 로컬 TLS Mosquitto·Mock Robot·Fake Naver SDK·Chromium 테스트와 HEAD 단위 테스트는 실제 Jetson·EC2 배포 근거로 사용하지 않는다.
+
 - 에이전트의 작업 완료 요약, 수정 파일 목록, 명령·로그와 임시 메모는 블로그 본문에 작성하지 않고 채팅에서만 보고합니다.
 - 제목, 부제, 요약, 푸터 카피와 슬로건은 확인된 프로젝트 자료를 사용하며, 근거가 없는 선택 문구는 임의로 만들지 않고 생략합니다.
 - 공개 글에는 프로젝트 독자가 이해해야 할 개발 과정과 검증 근거만 남깁니다. 로컬 Mock과 실제 환경, 과거 결과와 현재 HEAD의 차이는 과장 방지를 위한 근거이므로 생략하지 않습니다.
@@ -186,3 +197,20 @@ flowchart LR
 - 원고 편집 중 코드에서 발견한 동기화·수명 관리 검토 사항은 공개 성과에 포함하지 않는다: 완료 플래그의 동기화, busy polling, CAsyncLoader::Loading의 return 뒤 LeaveCriticalSection, 스레드 핸들 해제 API. 게임 소스는 수정하지 않았다.
 
 - 모델 바이너리 글은 CModel의 변환 함수와 AI_Info의 읽기 함수, 뼈 계층 재귀 기록과 키 값·시간 저장을 코드로 설명한다. 별도 변환 UI가 있다는 표현을 사용하지 않는다.
+
+### 2026-10-05 지원 전 최소 수정 및 보류
+
+- 사용자 요청으로 직군별 핵심 PDF 신설, Android/Travel-Mate 추가, UnityChan 확장과 게임 원본 수정은 오늘 범위에서 보류했다.
+- SSketch 기간은 사용자 확인에 따라 공통 프로젝트 이후 6주(기획 3주·구현 3주)로 표시했다. 팀 인원·공개 연락처·Android 공개 링크는 미확인이다.
+- SSketch의 95%+는 동일 PC Host 1개·Guest 3개 수동 비교의 입력 소비율 95.43~96.91%다. 실제 배포의 보편적 성능 보장으로 확대하지 않는다.
+- 길봄의 기존 8 PASS / 1 ERROR는 2026-08-15 편집 중 재실행의 comms import 오류 기록이었다. 공개 원고에서는 제외하고 2026-07-30 TROUBLESHOOTING/9_MqttV2ContractFreeze.md의 Ran 8 tests / OK와 배포 검증 제외 범위를 표시했다.
+- 코드 대조: 건파이어 Framework/Engine/Bin/ShaderFiles/Shader_Deferred.hlsl:320,521은 깊이 0.8·노멀 0.2를 사용한다. 이미지의 0.05와 불일치 정리는 보류했다.
+- 코드 대조: 젤다 Client/Bin/ShaderFiles/CShader_Deffered_SSAO.hlsl의 CS_SSAO에도 offset = mul(vPosition, gProjection)이 남아 있다. 올바른 이미지로 교체해 수정된 소스처럼 소개하지 않는다. 건파이어 Engine/Private/Navigation.cpp:35의 0 == hFile도 원본에 남아 있다. 두 게임 코드와 관련 문서의 수정은 보류했다.
+- UnityChan PDF의 10MB 포털용 용량 절감과 직군별 10~15쪽 핵심본은 보류했다.
+- 편집 검증: Jekyll 빌드, 홈·SSketch·길봄 목록 내부 링크, 360px/1440px 가로 넘침·JavaScript 오류, 메뉴 열기/Escape 닫기 통과. SSketch PDF 73쪽·링크 51개 및 텍스트 검색 확인. 이 검증은 블로그 편집 확인이며 프로젝트 실행 성과가 아니다.
+
+### 2026-10-05 젤다 SSAO 최종 소스 확정
+
+- 사용자가 `D:/왕국의 눈물final2-Comp`를 최종본으로 지정했다. 젤다 SSAO 원고와 PDF의 기준은 이 폴더의 `Client/Bin/ShaderFiles/CShader_Deffered_SSAO.hlsl`이다.
+- 위 보류 메모의 SSAO 오류는 `C:/ssafy/147_Team_HDR_Compaarision` 버전에 해당한다. 최종본은 샘플 위치를 `mul(offset, gProjection)`으로 투영하며 `sample.z - gBias - 0.2f`를 깊이 비교 기준으로 사용한다. 게임 원본 코드는 변경하지 않았다.
+- 깊이·노멀 복원과 커널 발췌를 최종 소스로 교체했다. 기존 구현 이미지 01~04도 최종 코드와 대조했다. PDF는 35쪽을 유지하며 검색 가능한 코드와 링크 74개, SSAO 절의 페이지 잘림을 확인했다. 게임 실행 검증은 수행하지 않았다.

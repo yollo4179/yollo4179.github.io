@@ -1,0 +1,28 @@
+---
+layout: default
+---
+<main id="main-content" class="gilbom-project">
+  <article>
+    <header class="gilbom-hero page-container">
+      <nav class="breadcrumbs" aria-label="현재 위치"><ol><li><a href="{{ '/projects/' | relative_url }}">프로젝트</a></li><li aria-current="page">{{ page.title }}</li></ol></nav>
+      <div class="gilbom-hero__grid">
+        <div>
+          <p class="gilbom-eyebrow">{{ page.category }} · D101</p>
+          <h1>{{ page.title }}</h1>
+          <p class="gilbom-hero__heading">{{ page.hero_heading }}</p>
+          <p class="gilbom-hero__intro">{{ page.hero_intro }}</p>
+          <ul class="gilbom-chips" aria-label="프로젝트 정보"><li>AIoT</li><li>점자블록 순찰 로봇</li><li>웹 관제</li></ul>
+          <a class="gilbom-button" href="#overview">서비스 소개 <span aria-hidden="true">↓</span></a>
+          <a class="gilbom-button gilbom-button--secondary" href="#details">개발 기록 <span aria-hidden="true">↓</span></a>
+        </div>
+        <div class="gilbom-hero__art">
+          <img class="gilbom-hero__network" src="{{ '/assets/images/projects/gilbom/presentation-network.png' | relative_url }}" width="647" height="566" alt="">
+          <img class="gilbom-logo" src="{{ '/assets/images/projects/gilbom/presentation-logo.png' | relative_url }}" width="494" height="523" alt="길봄 로고: 도시의 길과 보행자를 감싸는 노란색 원" fetchpriority="high">
+        </div>
+      </div>
+    </header>
+    <nav class="gilbom-section-nav page-container" aria-label="길봄 프로젝트 목차"><a href="#overview">서비스 소개</a><a href="#features">핵심 기능</a><a href="#role">담당 역할</a><a href="#details">개발 기록</a></nav>
+    <div class="page-container gilbom-content">{{ content }}</div>
+    <nav class="project-pagination page-container" aria-label="프로젝트 이동"><a href="{{ '/projects/' | relative_url }}"><span>모든 프로젝트</span><strong>목록으로 돌아가기</strong></a></nav>
+  </article>
+</main>
