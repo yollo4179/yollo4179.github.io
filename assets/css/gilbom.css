@@ -1,0 +1,72 @@
+.gilbom-theme {
+  --color-background: #f6f6fe;
+  --color-surface-raised: #ededf8;
+  --color-text: #23294a;
+  --color-text-muted: #586080;
+  --color-accent: #2e3d86;
+  --color-accent-border: #b6bddf;
+  --color-accent-subtle: #ededf8;
+  --color-line: #d9dced;
+  --color-line-strong: #b6bddf;
+  --color-header: rgba(246, 246, 254, .96);
+  --gilbom-navy: #2e3d86;
+  --gilbom-pale: #f6f6fe;
+  --gilbom-yellow: #feefc5;
+  --gilbom-ink: #23294a;
+  --gilbom-muted: #586080;
+  --gilbom-line: #b6bddf;
+  background-image: none;
+}
+.gilbom-theme::before { content: none; }
+.gilbom-project { --gilbom-padding: 1.25rem; }
+.gilbom-hero {
+  position: relative;
+  margin-top: 1.5rem;
+  padding: 1.5rem var(--gilbom-padding) 2.5rem;
+  border: .5rem solid var(--gilbom-pale);
+  outline: 1px solid var(--gilbom-line);
+  color: #fff;
+  background: var(--gilbom-navy);
+}
+.gilbom-hero .breadcrumbs { color: #e0e3f2; }
+.gilbom-hero__grid { display: grid; gap: 2rem; align-items: center; margin-top: 2rem; }
+.gilbom-hero__grid > div { min-width: 0; }
+.gilbom-eyebrow { color: #e0e3f2; font-size: .85rem; letter-spacing: .08em; }
+.gilbom-hero h1 { margin: .5rem 0 1rem; font-size: clamp(4rem, 10vw, 7.5rem); line-height: 1.15; letter-spacing: -.06em; }
+.gilbom-hero__heading { max-width: 25em; color: var(--gilbom-yellow); font-size: clamp(1.25rem, 2.7vw, 1.85rem); font-weight: 700; line-height: 1.6; word-break: keep-all; overflow-wrap: anywhere; }
+.gilbom-hero__intro { max-width: 36rem; color: #e0e3f2; line-height: 1.9; }
+.gilbom-chips { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1.5rem 0; }
+.gilbom-chips li { padding: .35rem .75rem; border: 1px solid var(--gilbom-line); border-radius: 2rem; font-size: .85rem; }
+.gilbom-button { display: inline-flex; align-items: center; gap: 1rem; min-height: 3rem; margin: .3rem .4rem .3rem 0; padding: .65rem 1rem; border: 1px solid var(--gilbom-yellow); border-radius: .35rem; background: var(--gilbom-yellow); color: var(--gilbom-ink); font-weight: 700; }
+.gilbom-button--secondary { background: transparent; color: var(--gilbom-yellow); }
+.gilbom-button:hover { background: #fff; color: var(--gilbom-ink); }
+.gilbom-hero__art { position: relative; display: grid; place-items: center; isolation: isolate; }
+.gilbom-logo { width: min(70%, 21rem); height: auto; }
+.gilbom-hero__network { position: absolute; z-index: -1; width: 100%; height: 100%; object-fit: contain; opacity: .18; }
+.gilbom-section-nav { display: flex; flex-wrap: wrap; gap: .25rem 1.5rem; padding: 1rem var(--gilbom-padding); border-bottom: 1px solid var(--gilbom-line); }
+.gilbom-section-nav a { display: inline-flex; align-items: center; min-height: 2.75rem; color: var(--gilbom-navy); font-weight: 700; }
+.gilbom-section-nav a:hover { text-decoration: underline; text-underline-offset: .3em; }
+.gilbom-content { padding: 1rem var(--gilbom-padding) 3rem; line-height: 1.9; overflow-wrap: anywhere; }
+.gilbom-content > p { max-width: 62rem; }
+.gilbom-content h2 { margin: 3rem 0 1rem; color: var(--gilbom-navy); font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.5; letter-spacing: -.035em; word-break: keep-all; }
+.gilbom-content h3 { margin: 0 0 .75rem; line-height: 1.6; color: var(--gilbom-navy); font-size: 1.1rem; }
+.gilbom-snapshot { display: grid; gap: 1.25rem; padding: 1.5rem; margin: 2rem 0; border-block: 1px solid var(--gilbom-line); }
+.gilbom-snapshot dt { color: var(--gilbom-muted); font-size: .85rem; }
+.gilbom-snapshot dd { margin: .4rem 0 0; font-weight: 600; }
+.gilbom-feature-grid, .gilbom-role-grid { display: grid; gap: 1.25rem; margin: 1.5rem 0; }
+.gilbom-feature-card { min-width: 0; overflow: hidden; background: #fff; border: 1px solid var(--gilbom-line); border-radius: .5rem; }
+.gilbom-feature-card figure { margin: 0; }
+.gilbom-feature-card figure a { display: block; background: #fff; }
+.gilbom-feature-card img { width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: contain; }
+.gilbom-feature-card figcaption { padding: .5rem 1.1rem; color: var(--gilbom-muted); font-size: .78rem; border-bottom: 1px solid var(--color-line); }
+.gilbom-feature-card > div { padding: 1.25rem; }
+.gilbom-feature-card p, .gilbom-role-grid p { margin: 0; }
+.gilbom-role-grid section { padding: 1.5rem; background: #ededf8; border-top: 3px solid var(--gilbom-navy); border-radius: .35rem; min-width: 0; }
+.gilbom-content .detail-category-nav, .gilbom-content .detail-category-section { margin-inline: 0; }
+.gilbom-content .detail-category-section h3 { margin: 0; }
+.gilbom-content .detail-card h3 { margin: 1rem 0; }
+.gilbom-source { margin-top: 2rem; color: var(--gilbom-muted); font-size: .85rem; }
+.gilbom-project a:focus-visible { outline: 3px solid var(--gilbom-navy); outline-offset: 4px; }
+.gilbom-hero a:focus-visible { outline-color: var(--gilbom-yellow); }
+@media (min-width: 40rem) { .gilbom-project { --gilbom-padding: 2rem; } .gilbom-snapshot { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (min-width: 48rem) { .gilbom-hero__grid { grid-template-columns: 1.2fr 1fr; } .gilbom-hero { padding-block: 2rem 3.5rem; } .gilbom-feature-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } .gilbom-role-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
