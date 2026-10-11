@@ -48,9 +48,9 @@ footer_label: GILBOM / DETAIL ARCHIVE
 
 <h2 id="features">탐지부터 관리와 보고서까지</h2>
 
-<div class="gilbom-feature-grid">
+<div class="gilbom-feature-grid" data-media-gallery>
   <article class="gilbom-feature-card">
-    <figure><a href="{{ '/assets/images/projects/gilbom/presentation-defect-monitoring.png' | relative_url }}"><img src="{{ '/assets/images/projects/gilbom/presentation-defect-monitoring.png' | relative_url }}" width="2878" height="1558" loading="lazy" alt="파손과 미설치 점자블록의 위치를 지도 마커와 군집으로 표시한 길봄 결함 모니터링 화면"></a><figcaption>발표 자료 · 실시간 결함 상태 모니터링</figcaption></figure>
+    <figure><a href="{{ '/assets/images/projects/gilbom/patrol-trajectory-detection.gif' | relative_url }}"><picture><source media="(prefers-reduced-motion: reduce)" srcset="{{ '/assets/images/projects/gilbom/presentation-defect-monitoring.png' | relative_url }}"><img src="{{ '/assets/images/projects/gilbom/patrol-trajectory-detection.gif' | relative_url }}" width="1920" height="1080" loading="lazy" alt="로봇의 이동 궤적을 그리며 쓰레기 발견 위치를 표시하는 길봄 순찰 관제 화면"></picture></a><figcaption>순찰 궤적과 쓰레기 탐지</figcaption></figure>
     <div><h3>01. 점자블록 결함 모니터링</h3><p>로봇이 탐지한 점자블록의 결함 위치를 지도에서 확인한다. 관리자는 결함 유형과 위치를 검색하고 필터링해 관리할 대상을 찾는다.</p></div>
   </article>
   <article class="gilbom-feature-card">

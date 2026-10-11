@@ -1,7 +1,7 @@
 (() => {
   "use strict";
 
-  const galleries = [...document.querySelectorAll(".game-media-gallery")];
+  const galleries = [...document.querySelectorAll(".game-media-gallery, [data-media-gallery]")];
   if (!galleries.length || typeof HTMLDialogElement === "undefined") return;
 
   const dialog = document.createElement("dialog");
