@@ -12,7 +12,7 @@ summary: DirectX 11 개인 FPS에서 맵툴·내비메시 바이너리 저장, �
 cover_image: /assets/images/projects/gunfire-reborn/project-cover.jpg
 cover_alt: 건파이어 리본 원작 표지 이미지
 status: 구현 기록
-period: 입력 예정
+period: 2024.10.01 ~ 2025.01.04
 role: 렌더링 효과, 내비게이션 메시, 애니메이션, UI, 게임플레이 로직
 team: 개인 프로젝트
 stack: C++, DirectX 11, HLSL, ImGui, JSON, FMOD

@@ -12,7 +12,7 @@ summary: 6인 DirectX 프로젝트에서 톤매핑·SSAO·캐스케이드 그림
 cover_image: /assets/images/projects/zelda-breath-of-the-wild/project-cover.jpg
 cover_alt: 젤다의 전설 야생의 숨결 원작 표지 이미지
 status: 구현 기록
-period: 입력 예정
+period: 2025.01.10 ~ 2025.03.27
 role: 톤매핑·SSAO·캐스케이드 그림자, 라이넬·가논 보스 전투
 team: 6인 협업
 stack: C++, DirectX, HLSL, ImGui, JSON

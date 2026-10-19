@@ -12,6 +12,9 @@ layout: default
             <p class="eyebrow">{{ page.project_type }} · {{ page.stack }}</p>
             <h1>{{ page.title }}</h1>
             <p class="game-project-hero__lead">{{ page.summary }}</p>
+            {% if page.period and page.period != '입력 예정' %}
+            <p class="game-project-hero__period">개발 기간 · {{ page.period | escape }}</p>
+            {% endif %}
             <ul class="game-project-hero__tags" aria-label="프로젝트 기술 태그">{% for tag in page.tags %}<li>#{{ tag }}</li>{% endfor %}</ul>
             {% assign article_index_url = '/projects/' | append: page.game_slug | append: '/details/' %}<a class="button button--primary" href="{{ article_index_url | relative_url }}">구현 내용 {{ game_articles.size }}편 보기 <span aria-hidden="true">→</span></a>
           </div>
