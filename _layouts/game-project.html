@@ -18,6 +18,7 @@ layout: default
             {% endif %}
             <ul class="game-project-hero__tags" aria-label="프로젝트 기술 태그">{% for tag in page.tags %}<li>#{{ tag }}</li>{% endfor %}</ul>
             {% assign article_index_url = '/projects/' | append: page.game_slug | append: '/details/' %}<a class="button button--primary" href="{{ article_index_url | relative_url }}">구현 내용 {{ game_articles.size }}편 보기 <span aria-hidden="true">→</span></a>
+            {% if page.source_url %}<a class="button game-source-link" href="{{ page.source_url | escape }}">GitHub 소스 코드 <span aria-hidden="true">↗</span></a>{% endif %}
           </div>
           {% if page.hero_image %}<figure class="game-project-hero__image"><img src="{{ page.hero_image | relative_url }}" alt="{{ page.hero_alt | escape }}" fetchpriority="high"><figcaption>{{ page.hero_caption }}</figcaption></figure>{% endif %}
         </div>

@@ -22,6 +22,7 @@ layout: default
           {% assign technical_details = site.details | where: 'project_slug', 'ssketch' | where: 'featured', true %}
           <p>플레이 영상 1 + 기술 상세 {{ technical_details.size }}</p>
           <div class="ssketch-actions">
+            {% if page.source_url %}<a class="ssketch-button ssketch-button--secondary" href="{{ page.source_url | escape }}">GitHub 소스 코드 <span aria-hidden="true">↗</span></a>{% endif %}
             <a class="ssketch-button" href="{{ '/projects/ssketch/details/' | relative_url }}">구현 내용 목록 보기 <span aria-hidden="true">→</span></a>
             <a class="ssketch-button ssketch-button--secondary" href="#demo">EC2 시연 영상 보기 <span aria-hidden="true">↓</span></a>
           </div>

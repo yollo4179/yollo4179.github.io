@@ -5,6 +5,7 @@ order: 7
 game_order: 3
 game_portfolio: true
 game_tracks: [client]
+source_url: https://github.com/yollo4179/UnityChanRPG
 team_project: false
 category: 게임 개발
 project_type: 개인 프로젝트
@@ -29,9 +30,9 @@ tags:
 - UI
 nav_context: GAME PORTFOLIO / UNITYCHAN RPG
 game_slug: unitychan-rpg
-hero_image: /assets/images/projects/unitychan-rpg/quest-dialogue-gameplay.webp
-hero_alt: NPC 대화와 플레이어 HUD를 표시한 UnityChan RPG 화면
-hero_caption: 퀘스트와 대화가 연결되는 플레이 화면
+hero_image: /assets/images/projects/unitychan-rpg/wolf-eqs-gameplay.webp
+hero_alt: 플레이어 주변의 서로 다른 위치에서 전투하는 늑대들
+hero_caption: EQS 후보 평가와 예약으로 목적지를 선택하는 늑대 전투
 topics:
 - id: play
   name: 전투와 행동
@@ -59,14 +60,28 @@ Unity로 만든 개인 RPG 프로젝트다. 플레이어 전투, 미노타우르
 
 ## 플레이 영상
 
+### 늑대의 후보 평가와 위치 예약
+
+{% include game-video-embed.html id="609vL5vsOM8" title="늑대 EQS · 후보 평가와 위치 예약" %}
+
+[EQS 후보 생성·점수 평가·예약과 점유 구현]({{ '/projects/unitychan-rpg/technical/wolf-eqs/' | relative_url }})
+
+### 미노타우르스의 전투 이동
+
+{% include game-video-embed.html id="Cx4fI0WBYAw" title="미노타우르스 CBS · 접근과 전투 이동" %}
+
+[CBS 관심도·장애물 안전도와 횡이동 구현]({{ '/projects/unitychan-rpg/technical/events-monster-ai/' | relative_url }})
+
+### 퀘스트와 대화
+
 {% include game-video-embed.html id="GEVGb2bt7bU" title="Quest And Dialogue · UnityChan RPG 퀘스트와 대화" %}
 
 ## 기능별 구현 글
 
+- [늑대의 EQS 후보 평가와 위치 예약]({{ '/projects/unitychan-rpg/technical/wolf-eqs/' | relative_url }})
+- [미노타우르스의 Context Based Steering]({{ '/projects/unitychan-rpg/technical/events-monster-ai/' | relative_url }})
 - [드래그 앤 드롭과 퀵 슬롯 교환]({{ '/projects/unitychan-rpg/technical/popup-drag-drop/' | relative_url }})
 - [UI 관리와 팝업 z-order]({{ '/projects/unitychan-rpg/technical/ui-management/' | relative_url }})
-- [미노타우르스의 Context Based Steering]({{ '/projects/unitychan-rpg/technical/events-monster-ai/' | relative_url }})
-- [늑대의 EQS 후보 평가와 위치 예약]({{ '/projects/unitychan-rpg/technical/wolf-eqs/' | relative_url }})
 - [CSV 관리와 대화 노드 연결]({{ '/projects/unitychan-rpg/technical/csv-management/' | relative_url }})
 - [퀘스트·다이얼로그와 지역 방문 이벤트]({{ '/projects/unitychan-rpg/technical/dialogue-quests/' | relative_url }})
 - [상점 목록과 아이템 구매·판매]({{ '/projects/unitychan-rpg/technical/shop-upgrade-combat/' | relative_url }})

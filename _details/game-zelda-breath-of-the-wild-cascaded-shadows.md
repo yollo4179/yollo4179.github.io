@@ -158,6 +158,22 @@ if (FAILED(m_pGameInstance->Add_RenderTarget(TEXT("Target_Shadow_CSM_3"), m_iSha
 
 렌더러의 <span class="notice-yellow">Shadow_CSM_Ready_DSV()</span>도 위 배열로 깊이·스텐실 뷰를 생성한다. <span class="notice-yellow">Render_Shadow_CSM_1()</span>·<span class="notice-yellow">2()</span>·<span class="notice-yellow">3()</span>은 각 인덱스의 크기로 <span class="notice-yellow">SetUp_Viewport()</span>를 호출한 뒤 해당 구간의 그림자를 그린다. 가까운 구간에는 더 많은 텍셀을 배정하고 먼 구간의 텍스처 크기는 줄이는 구성이다.
 
+## 그림자가 반복된 원인과 Wrap에서 Clamp로의 변경
+
+CSM 구현 중 같은 물체의 그림자가 예상하지 못한 여러 위치에 반복되어 나타났다. 그림자 합성 단계에서 광원 좌표를 그림자 맵 UV로 변환한 뒤 깊이를 읽는데, 범위를 벗어난 UV에도 <span class="notice-yellow">Wrap</span> 주소 지정이 적용되고 있었다.
+
+Wrap은 범위 밖 좌표를 텍스처 내부의 반복된 위치로 매핑한다. 타일링 텍스처에서는 필요한 동작이지만, 그림자 맵에서는 해당 광원 영역과 다른 위치의 깊이를 읽게 된다. 셰이더가 그 깊이를 현재 픽셀의 광원 깊이와 비교하면서 엉뚱한 위치에도 그림자가 반복됐다.
+
+그림자 맵을 읽는 샘플러의 주소 지정 방식을 <span class="notice-yellow">Clamp</span>로 바꿨다. 범위 밖 UV가 반대쪽으로 반복 매핑되지 않고 가장자리 값에 제한되도록 해, 다른 영역의 깊이를 반복해서 비교하던 문제를 해결했다.
+
+| 항목 | 변경 전 | 변경 후 |
+| --- | --- | --- |
+| 주소 지정 | Wrap | Clamp |
+| 범위 밖 UV 처리 | 텍스처 내부의 반복 위치에서 샘플링 | 가장자리에서 샘플링 |
+| 반복 그림자 | 다른 위치의 깊이와 비교되어 발생 | 반복 매핑을 제거해 해결 |
+
+Clamp는 그림자 맵 바깥을 자동으로 비차폐 영역으로 판정하는 설정은 아니다. 가장자리 깊이는 여전히 샘플링되므로, 광원이 담는 범위 밖의 처리와 캐스케이드 선택은 별도의 문제다. 이 변경은 UV 반복으로 생긴 그림자를 해결한 범위에 해당한다.
+
 ## CSM 적용 결과와 영상
 
 시연 화면에는 렌더 타깃 디버그 표시와 라이넬·링크의 그림자가 함께 나타난다.

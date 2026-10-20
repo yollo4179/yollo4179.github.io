@@ -355,6 +355,8 @@
 .game-project-hero h1 { max-width:16ch; margin:1rem 0; color:#fff; font-size:clamp(2.6rem,8vw,5.6rem); line-height:1.1; letter-spacing:-.06em; word-break:keep-all; overflow-wrap:anywhere; }
 .game-project-hero__lead { max-width:38rem; color:var(--game-muted); font-size:clamp(1rem,2vw,1.2rem); line-height:1.9; word-break:keep-all; }
 .game-project-hero .button--primary:hover { background:#b7d4ff; color:#081320; }
+.game-project-hero .game-source-link { margin-block:.75rem; border:1px solid currentColor; color:inherit; }
+.game-project-hero .game-source-link:hover { background:rgba(255,255,255,.08); }
 .game-project-hero__tags { display:flex; flex-wrap:wrap; gap:.5rem; padding:0; margin:1.5rem 0; list-style:none; }
 .game-project-hero__tags li { padding:.35rem .7rem; border:1px solid #48617e; border-radius:999px; font-size:.8rem; }
 .game-project-hero__image { margin:0; }

@@ -25,6 +25,20 @@ nav_context: GAME PORTFOLIO / GUNFIRE REBORN
 
 ## 트레일마다 동적 정점 버퍼 생성
 
+### 공유 버퍼에서 서로 다른 궤적이 섞인 문제
+
+여러 객체에 트레일을 적용했을 때 궤적이 원점으로 튀거나 다른 객체 쪽으로 이동했다. 같은 형상을 사용하는 객체가 정점 버퍼를 공유하던 구조를, 객체마다 매 프레임 정점이 바뀌는 트레일에도 적용한 것이 원인이었다. 한 객체가 자신의 궤적을 쓰면 같은 버퍼를 참조하는 다른 객체의 렌더링에도 그 정점이 사용될 수 있었다.
+
+트레일은 공통 형상을 읽기만 하는 모델과 달리 각 객체의 이동 이력을 기록한다. 따라서 프로토타입에서 복제한 뒤 <span class="notice-yellow">Initialize()</span>에서 인스턴스별 동적 정점 버퍼를 생성하고, CPU의 <span class="notice-yellow">m_TrailVertices</span>도 객체별 궤적을 보관하도록 분리했다.
+
+| 구분 | 공유 구조 | 객체별 소유 구조 |
+| --- | --- | --- |
+| GPU 정점 버퍼 | 여러 객체가 같은 가변 버퍼 참조 | 복제 인스턴스마다 동적 버퍼 생성 |
+| 궤적 갱신 | 다른 객체의 정점 갱신이 렌더링에 영향 | 자기 정점 목록을 자기 버퍼에 기록 |
+| 결과 | 원점 또는 다른 객체 위치에 궤적 표시 | 각 객체의 이동 이력에 따라 독립적으로 표시 |
+
+### 복제 인스턴스에서 버퍼 생성
+
 <span class="notice-yellow">Clone()</span>은 복제본의 <span class="notice-yellow">Initialize()</span>를 호출한다. 초기화에서는 <span class="notice-yellow">TRAIL_DESC</span>의 최대 정점 수로 버퍼 크기를 정하고 CPU 쓰기가 가능한 동적 정점 버퍼를 만든다. 각 트레일의 <span class="notice-yellow">m_TrailVertices</span>가 해당 객체의 궤적을 보관한다.
 
 ```cpp
