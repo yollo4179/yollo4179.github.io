@@ -11,7 +11,7 @@
       name="description"
       content="{{ meta_description | default: site.description | strip_html | normalize_whitespace | escape }}"
     >
-    <meta name="color-scheme" content="light">
+    <meta name="color-scheme" content="{% if page.charcoal_theme %}dark{% else %}light{% endif %}">
     <meta name="theme-color" content="{{ page.theme_color | default: '#f7f6f2' }}">
     <link rel="icon" href="{{ '/assets/images/common/favicon.svg' | relative_url }}" type="image/svg+xml">
     <title>
@@ -24,6 +24,7 @@
     <script src="{{ '/assets/js/navigation.js' | relative_url }}" defer></script>
     {% if page.ssketch_styles %}<link rel="stylesheet" href="{{ '/assets/css/ssketch.css' | relative_url }}">{% endif %}
     {% if page.gilbom_styles %}<link rel="stylesheet" href="{{ '/assets/css/gilbom.css' | relative_url }}">{% endif %}
+    {% if page.charcoal_theme %}<link rel="stylesheet" href="{{ '/assets/css/charcoal.css' | relative_url }}?v={{ site.time | date: '%s' }}">{% endif %}
     <script
       src="{{ '/assets/js/mermaid-loader.js' | relative_url }}"
       data-mermaid-src="{{ '/assets/vendor/mermaid/mermaid.min.js' | relative_url }}"
@@ -41,7 +42,7 @@
       <script src="{{ '/assets/js/project-filter.js' | relative_url }}{% if page.asset_version %}?v={{ page.asset_version }}{% endif %}" defer></script>
     {% endif %}
   </head>
-  <body{% if page.gilbom_styles %} class="gilbom-theme"{% endif %}>
+  <body{% if page.charcoal_theme %} class="charcoal-theme"{% elsif page.gilbom_styles %} class="gilbom-theme"{% endif %}>
     <a class="skip-link" href="#main-content">본문으로 바로가기</a>
     {% include header.html %}
     {{ content }}

@@ -3,48 +3,38 @@ layout: default
 title: Portfolio
 description: 조민호의 프로젝트와 문제 해결 기록을 소개하는 포트폴리오입니다.
 nav_context: WELCOME
+charcoal_theme: true
+theme_color: '#141516'
+footer_label: Minho Jo / Portfolio
 ---
 
 <main id="main-content">
   <section class="hero" aria-labelledby="hero-title">
     <div class="page-container hero__layout">
       <div class="hero__content">
-        <p class="eyebrow"><span>Minho Jo</span> / JustDeveloper</p>
-        <h1 id="hero-title">
-          문제를 발견하고,
-          <span>해결하며</span>
-          성장합니다.
-        </h1>
+        <p class="eyebrow">DEVELOPER / PORTFOLIO</p>
+        <h1 id="hero-title">조민호<span class="home-name">Minho Jo</span></h1>
         <p class="hero__description">
-          게임 클라이언트·C++ 네트워크 서버와 로봇 관제 백엔드를 구현한 조민호입니다.
+          유지보수부터 기술구현 최적화까지 불편한 것은 못참는 개발자 조민호입니다.
         </p>
-        <div class="hero__actions">
-          <a class="button button--primary" href="{{ '/projects/' | relative_url }}">
-            전체 프로젝트
-            <span aria-hidden="true">→</span>
-          </a>
-          <a class="button button--primary" href="{{ '/games/' | relative_url }}">
-            게임 개발
-            <span aria-hidden="true">→</span>
-          </a>
-        </div>
-        <div class="hero__actions" aria-label="연락처와 GitHub">
-          <a class="button" href="mailto:qkd123tkd@gmail.com">qkd123tkd@gmail.com</a>
-          <a class="button" href="https://github.com/yollo4179">GitHub <span aria-hidden="true">↗</span></a>
+        <div class="home-contact" aria-label="연락처와 GitHub">
+          <a href="mailto:qkd123tkd@gmail.com">qkd123tkd@gmail.com</a>
+          <a href="https://github.com/yollo4179">GitHub <span aria-hidden="true">↗</span></a>
         </div>
       </div>
 
-      <div class="hero-visual" aria-hidden="true">
-        <div class="hero-visual__orbit hero-visual__orbit--outer"></div>
-        <div class="hero-visual__orbit hero-visual__orbit--inner"></div>
-        <div class="hero-visual__core">
-          <span>BUILD</span>
-          <strong>{{ site.projects.size | default: 0 }}</strong>
-          <span>LEARN</span>
-        </div>
-        <span class="hero-visual__label hero-visual__label--top">PROBLEM → SOLUTION</span>
-        <span class="hero-visual__label hero-visual__label--bottom">KEEP MOVING / KEEP LOGGING</span>
-      </div>
+      <nav class="home-project-links" aria-label="프로젝트 보기">
+        <a href="{{ '/projects/' | relative_url }}">
+          <span class="home-project-links__number" aria-hidden="true">01</span>
+          <span>전체 프로젝트</span>
+          <span class="home-project-links__arrow" aria-hidden="true">↗</span>
+        </a>
+        <a href="{{ '/games/' | relative_url }}">
+          <span class="home-project-links__number" aria-hidden="true">02</span>
+          <span>게임 개발</span>
+          <span class="home-project-links__arrow" aria-hidden="true">↗</span>
+        </a>
+      </nav>
     </div>
   </section>
 </main>
