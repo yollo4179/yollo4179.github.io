@@ -3,6 +3,7 @@ layout: game-article
 title: 미노타우르스의 Context Based Steering
 project_slug: unitychan-rpg
 game_portfolio: true
+article_toc: true
 game_order: 3
 topic: 전투와 행동
 summary: 목표 거리로 이동 상태를 정하고 방향별 관심도와 장애물 감쇠를 합산해 이동 벡터를 계산했다.
@@ -14,19 +15,15 @@ permalink: /projects/unitychan-rpg/technical/events-monster-ai/
 nav_context: GAME PORTFOLIO / UNITYCHAN RPG
 ---
 
+## 전투 이동의 목적과 방향 평가 원리
+
+미노타우르스가 플레이어와의 거리를 조절하면서 주변 장애물을 고려해 이동하도록 한다. Context Based Steering은 여러 후보 방향에 목적에 맞는 점수를 주고, 장애물이 있는 방향의 점수를 낮춰 이동 벡터를 구한다. 이 구현은 XZ 평면에서 방향을 계산하며, 전진·후퇴의 벡터 합산과 플레이어 주변의 횡이동을 구분한다.
+
 ## 전투 중 방향 계산
 
-미노타우르스의 전투 이동은 `MonsterBattleScript.UpdateBattle`에서 갱신한다. 플레이어까지의 벡터를 XZ 평면으로 투영하고 거리와 방향을 계산한다. `CalculateInterests`가 이동 방향을 반환하면 `UpdateMovement`가 이동과 회전을 적용하고, `ChooseAnimation`이 이동 상태에 맞는 Animator 값을 정한다.
+미노타우르스의 전투 이동은 <span class="notice-yellow">MonsterBattleScript.UpdateBattle</span>에서 갱신한다. 플레이어까지의 벡터를 XZ 평면으로 투영하고 거리와 방향을 계산한다. <span class="notice-yellow">CalculateInterests</span>가 이동 방향을 반환하면 <span class="notice-yellow">UpdateMovement</span>가 이동과 회전을 적용하고, <span class="notice-yellow">ChooseAnimation</span>이 이동 상태에 맞는 Animator 값을 정한다.
 
-{% include game-video-embed.html id="Cx4fI0WBYAw" title="Cow CBS · 미노타우르스의 접근과 전투 이동" %}
-
-## 디렉터리와 실행 흐름
-
-```text
-Assets/04.Scripts/
-├─ Monsters/Minotaur/MonsterBattleScript.cs
-└─ Monsters/MonsterWolf/TreeNodes/MonsterBattleAction.cs
-```
+## 구현 순서와 역할
 
 ```text
 목표 거리 → 전진·후퇴·횡이동 선택 → 방향별 관심도
@@ -35,9 +32,9 @@ Assets/04.Scripts/
 
 ## 거리로 전진·후퇴·횡이동 선택
 
-`_rangeOffset`보다 가까우면 `MoveB`, 그 값에서 2만큼 더 먼 범위까지는 `Strafe`, 바깥은 `MoveF`를 선택한다. 한 번 선택한 상태를 모든 방향 샘플에 적용한다.
+<span class="notice-yellow">_rangeOffset</span>보다 가까우면 <span class="notice-yellow">MoveB</span>, 그 값에서 2만큼 더 먼 범위까지는 <span class="notice-yellow">Strafe</span>, 바깥은 <span class="notice-yellow">MoveF</span>를 선택한다. 한 번 선택한 상태를 모든 방향 샘플에 적용한다.
 
-기본 방향 수는 16이다. 각 방향은 `transform.forward`를 Y축으로 회전해 만든다. 목표 방향과 샘플 방향의 내적을 `d`라고 하면 전진 관심도는 `0.5 × (1 + d)`, 후퇴 관심도는 `0.5 × (1 - d)`, 횡이동 관심도는 `2 × (1 - |d|)`로 계산한다.
+기본 방향 수는 16이다. 각 방향은 <span class="notice-yellow">transform.forward</span>를 Y축으로 회전해 만든다. 목표 방향과 샘플 방향의 내적을 <span class="notice-yellow">d</span>라고 하면 전진 관심도는 <span class="notice-yellow">0.5 × (1 + d)</span>, 후퇴 관심도는 <span class="notice-yellow">0.5 × (1 - d)</span>, 횡이동 관심도는 <span class="notice-yellow">2 × (1 - |d|)</span>로 계산한다.
 
 ```csharp
 _nowState = lengthToTargetOnXZ < _rangeOffset ? eNowState.MoveB
@@ -56,7 +53,7 @@ for (int i = 0; i < _numRays; i++)
 
 ## 장애물 감쇠와 벡터 합산
 
-각 방향으로 Raycast를 쏘고 `Enemies`, `Obstacles` 레이어를 검사한다. 충돌 지점까지의 거리에서 캡슐 반지름을 뺀 비율을 안전도에 사용한다. 관심도에 안전도를 곱한 뒤 방향 벡터에 가중치를 주어 합산한다.
+각 방향으로 Raycast를 쏘고 <span class="notice-yellow">Enemies</span>, <span class="notice-yellow">Obstacles</span> 레이어를 검사한다. 충돌 지점까지의 거리에서 캡슐 반지름을 뺀 비율을 안전도에 사용한다. 관심도에 안전도를 곱한 뒤 방향 벡터에 가중치를 주어 합산한다.
 
 ```csharp
 Ray ray = new Ray(transform.position + _offset, axis);
@@ -76,11 +73,11 @@ Ray ray = new Ray(transform.position + _offset, axis);
 }
 ```
 
-전진과 후퇴는 합산 벡터를 정규화해 사용한다. `Strafe` 상태에서는 `Strafe(toTarget)`가 목표 방향을 ±90도 회전한 좌우 방향 중 하나를 반환한다. 이 경로는 전진·후퇴의 합산 결과와 구분된다. 속도는 횡이동 때 기본 속도의 0.3배, 후퇴 때 0.5배로 조정한다.
+전진과 후퇴는 합산 벡터를 정규화해 사용한다. <span class="notice-yellow">Strafe</span> 상태에서는 <span class="notice-yellow">Strafe(toTarget)</span>가 목표 방향을 ±90도 회전한 좌우 방향 중 하나를 반환한다. 이 경로는 전진·후퇴의 합산 결과와 구분된다. 속도는 횡이동 때 기본 속도의 0.3배, 후퇴 때 0.5배로 조정한다.
 
 ## 이동 방향과 바라보는 방향
 
-`UpdateBattle`은 플레이어를 향하는 `_nowLookDir`를 `Vector3.RotateTowards`로 갱신한다. `UpdateMovement`는 이동 벡터를 위치에 더하고 바라보는 방향에는 `Quaternion.Slerp`를 적용한다. 횡이동하면서도 회전 목표는 플레이어 방향으로 유지한다.
+<span class="notice-yellow">UpdateBattle</span>은 플레이어를 향하는 <span class="notice-yellow">_nowLookDir</span>를 <span class="notice-yellow">Vector3.RotateTowards</span>로 갱신한다. <span class="notice-yellow">UpdateMovement</span>는 이동 벡터를 위치에 더하고 바라보는 방향에는 <span class="notice-yellow">Quaternion.Slerp</span>를 적용한다. 횡이동하면서도 회전 목표는 플레이어 방향으로 유지한다.
 
 ```csharp
 public virtual void UpdateMovement(Vector3 direction, Vector3 lookDir)
@@ -97,7 +94,17 @@ public virtual void UpdateMovement(Vector3 direction, Vector3 lookDir)
 }
 ```
 
-<figure class="game-media-feature">
+## 미노타우르스 전투 이동 결과
+
+미노타우르스는 플레이어와의 거리에 따라 접근·후퇴·횡이동을 선택한다. 이동 방향과 시선 방향을 따로 계산해 플레이어를 바라보며 이동한다.
+
+<div class="game-media-gallery" data-media-gallery>
+<div class="game-media-gallery__grid">
+<figure>
   <a href="{{ '/assets/images/projects/unitychan-rpg/minotaur-cbs-gameplay.webp' | relative_url }}"><img src="{{ '/assets/images/projects/unitychan-rpg/minotaur-cbs-gameplay.webp' | relative_url }}" alt="미노타우르스의 플레이어 주변 전투 장면" width="1920" height="1080" loading="lazy"></a>
   <figcaption>미노타우르스의 플레이어 주변 전투 장면</figcaption>
 </figure>
+</div>
+</div>
+
+{% include game-video-embed.html id="Cx4fI0WBYAw" title="Cow CBS · 미노타우르스의 접근과 전투 이동" %}

@@ -13,12 +13,6 @@ nav_context: GAME PORTFOLIO / ZELDA
 
 ## 구현 구조
 
-```text
-Client/Private/Boss_Lynel_FSM.cpp
-Client/Private/Boss_Lynel.cpp
-Client/Private/Lynel_Fire.cpp
-```
-
 패턴 순환 → 애니메이션 이벤트 → 소켓·물리 이동·공격 활성화 → 충돌과 착지 판정 → 2페이즈 후속 공격.
 
 
@@ -29,7 +23,7 @@ Client/Private/Lynel_Fire.cpp
 
 라이넬은 스킬 패턴을 순서대로 사용하고, 일정량의 스킬을 사용한 뒤에는 기본 공격만 하는 시간을 갖는다. 같은 공격을 계속 반복하지 않도록 스킬 순서와 기본 공격 구간을 나눴다. 체력이 절반 이하가 되면 2페이즈로 전환해 기존 공격에 후속 공격을 연결한다.
 
-`CBossLynelFSM`은 상태별 진입·유지·종료를 처리한다. 공격 객체는 라이넬 내부에 종류별로 준비하고 재사용한다. 이 글은 각 패턴이 어떤 위치·방향·충돌 조건을 사용하는지 다룬다. 풀의 등록과 활성화는 [보스 내부 도메인 풀링]({{ '/projects/zelda-breath-of-the-wild/technical/boss-fsm-pooling/' | relative_url }})으로 이어진다.
+<span class="notice-yellow">CBossLynelFSM</span>은 상태별 진입·유지·종료를 처리한다. 공격 객체는 라이넬 내부에 종류별로 준비하고 재사용한다. 이 글은 각 패턴이 어떤 위치·방향·충돌 조건을 사용하는지 다룬다. 풀의 등록과 활성화는 [보스 내부 도메인 풀링]({{ '/projects/zelda-breath-of-the-wild/technical/boss-fsm-pooling/' | relative_url }})으로 이어진다.
 
 
 ## 돌진: 칼을 휘두를 위치로 접근하기
@@ -92,13 +86,30 @@ void CBossLynelFSM::OnJump_Stay()
 
 추적 방향은 플레이어 위치를 외적으로 판별해 정한다. 이동 중 목표가 좌우로 바뀌면 라이넬도 그 방향을 따라 회전하며 접근한다.
 
+돌진 시작 애니메이션의 이벤트에 <span class="notice-yellow">Event_DrawSword_End()</span>를 연결한다. 이 함수가 칼의 소켓을 <span class="notice-yellow">Pod_A</span>로 바꾼다. 종료 애니메이션에서는 <span class="notice-yellow">Event_DrawSword()</span>가 <span class="notice-yellow">Weapon_R</span> 소켓으로 되돌린다.
+
+```cpp
+HornEvent = bind(&CBossLynelFSM::Event_DrawSword_End, this);
+m_pAnimController_Owner->Add_AnimationFunction("Layer_Lynel", "Armature|Attack_Horn_Sword_Start", HornEvent, 2);
+```
+
+```cpp
+void CBossLynelFSM::Event_DrawSword_End()
+{
+    const _float4x4* matWeapon = m_pOwner->Find_Child(TEXT("Body"))->GetComponent<CNewModel>()->Get_BoneMatrix("Pod_A");
+    static_cast<CWeaponLynel*>(m_pOwner->Find_Child(TEXT("Sword")))->Set_SoketMatrix(matWeapon);
+    m_IsSwordDrawn = true;
+    m_pGameInstance->Start_SFX(TEXT("Lynel_ArmRotate_00"), false);
+}
+```
+
 {% include game-local-video.html file="lynel-horn-charge" title="무기 장착 소켓을 바꾸고 플레이어를 추적하는 돌진" %}
 
 ## 화염 투사체: 머리 위치에서 준비하고 이벤트로 발사
 
 화염 투사체의 출발점은 라이넬 머리 위치다. 투사체의 Look은 그 위치에서 플레이어를 향하도록 설정한다. 이후 애니메이션 이벤트 콜이 발생하면 투사체가 이동한다.
 
-투사체를 준비하는 순간과 발사하는 순간을 나눠, 머리 앞에서 공격을 준비하는 동작과 실제 발사 시점을 연결했다. 공격 객체 등록 시에는 몸체의 최종 월드 행렬과 `Head` 소켓 행렬을 전달한다.
+투사체를 준비하는 순간과 발사하는 순간을 나눠, 머리 앞에서 공격을 준비하는 동작과 실제 발사 시점을 연결했다. 공격 객체 등록 시에는 몸체의 최종 월드 행렬과 <span class="notice-yellow">Head</span> 소켓 행렬을 전달한다.
 
 {% include game-local-video.html file="lynel-fireball" title="라이넬 머리에서 플레이어를 조준한 뒤 이벤트에 맞춰 발사하는 화염" %}
 
@@ -107,6 +118,28 @@ void CBossLynelFSM::OnJump_Stay()
 라이넬에서 플레이어를 향하는 방향과 라이넬의 Look을 외적한다. 이 구현의 판정 기준에서는 값이 양수면 시계 방향, 음수면 반시계 방향으로 회전한다. 플레이어가 어느 쪽에 있는지에 따라 회전 방향을 선택하는 계산이다.
 
 외적은 두 벡터의 순서를 바꾸면 부호가 반대로 바뀐다. 따라서 이 부호 규칙은 벡터 순서와 좌표계가 함께 정해진 판정으로 사용한다.
+
+<span class="notice-yellow">Func_GetAngleDir_ByPlayerPos()</span>는 Look과 목표 방향의 Y 성분을 제거해 수평 방향만 비교한다. 외적의 Y 성분이 음수면 -1, 그 외에는 1을 반환해 회전 방향을 구분한다.
+
+```cpp
+_vector vLook{};
+vLook = XMLoadFloat4x4(m_pBodyLook).r[2];
+vLook = XMVectorSetY(vLook, 0.f);
+vLook = XMVector3Normalize(vLook);
+
+_vector vPos{};
+vPos = XMLoadFloat4x4(m_pMyPos_Float4x4).r[3];
+_vector vPoint = m_pTarget->Get_Transform()->Get_State(CTransform::STATE_POSITION);
+
+m_vTargetPlayerDir = vPoint - vPos;
+m_vTargetPlayerDir = XMVectorSetY(m_vTargetPlayerDir, 0.f);
+m_vTargetPlayerDir = XMVector3Normalize(m_vTargetPlayerDir);
+
+if (0.f > XMVectorGetY(XMVector3Cross(vLook, m_vTargetPlayerDir)))
+    return -1.f;
+else
+    return 1.f;
+```
 
 {% include game-local-video.html file="lynel-turn" title="플레이어 방향과 Look의 외적으로 회전 방향을 정하는 라이넬" %}
 
@@ -144,6 +177,28 @@ void CBossLynelFSM::OnStun_Begin()
 }
 ```
 
+기절 유지 함수는 누적 시간이 기준에 도달하면 다음 애니메이션 전환을 요청한다. 기절 완료 플래그가 켜지면 대기 상태로 전환하며, 종료 함수에서 머리 객체를 다시 활성화하고 누적 시간을 초기화한다.
+
+```cpp
+if (true == m_StunState[LYNEL_STUN_LOOP_ACC] && m_fAccStunTime < m_fStunTime)
+{
+    m_fAccStunTime += m_fTimeDelta;
+}
+else if (true == m_StunState[LYNEL_STUN_LOOP_ACC] && m_fAccStunTime >= m_fStunTime)
+{
+    m_StunState[LYNEL_STUN_LOOP_ACC] = false;
+    m_pAnimController_Owner->Set_Trigger(TEXT("tStunNext"));
+}
+
+if (true == m_StunState[LYNEL_STUN_CMPL])
+{
+    m_Lynel_PreCond = m_Lynel_Cond;
+    m_Lynel_Cond.iAct = LYNEL_AC_WAIT;
+    ChangeState(m_Lynel_Cond.iAct);
+    return;
+}
+```
+
 ## 2페이즈 점프: 칼의 월드 행렬로 후속 구체 배치
 
 2페이즈에서는 점프 내려찍기를 마친 뒤 불꽃 구체가 생긴다. 구체에 칼의 월드 행렬을 전달하고, 구체 자체의 트랜스폼을 조절해 최종 위치를 정한다. 공격 기준 위치는 칼이 제공하고 구체의 개별 배치는 구체 트랜스폼이 담당한다.
@@ -154,9 +209,27 @@ void CBossLynelFSM::OnStun_Begin()
 
 ## 2페이즈 화염: 충돌 위치에 불기둥 활성화
 
-화염 투사체가 땅에 닿으면 그 투사체의 월드 위치를 기준으로 불기둥을 활성화한다. `CLynel_Fire::CheckRays()`는 지면 충돌과 `Sign_Lynel_2Phase`를 확인한다. 이어서 투사체 트랜스폼의 위치를 `InitialPos`에 담고 부모 라이넬의 `Active_Skill()`에 전달한다.
+화염 투사체가 땅에 닿으면 그 투사체의 월드 위치를 기준으로 불기둥을 활성화한다. <span class="notice-yellow">CLynel_Fire::CheckRays()</span>는 지면 충돌과 <span class="notice-yellow">Sign_Lynel_2Phase</span>를 확인한다. 이어서 투사체 트랜스폼의 위치를 <span class="notice-yellow">InitialPos</span>에 담고 부모 라이넬의 <span class="notice-yellow">Active_Skill()</span>에 전달한다.
 
-라이넬은 내부 풀에서 `Pooling_FireArea`와 `Pooling_FirePhillar`를 활성화한다. 투사체는 월드 위치와 필요한 크기를 descriptor로 전달하고, 후속 공격은 이 정보로 배치된다. 화염 투사체는 후속 공격을 연결한 뒤 비활성화된다.
+라이넬은 내부 풀에서 <span class="notice-yellow">Pooling_FireArea</span>와 <span class="notice-yellow">Pooling_FirePhillar</span>를 활성화한다. 투사체는 월드 위치와 필요한 크기를 descriptor로 전달하고, 후속 공격은 이 정보로 배치된다. 화염 투사체는 후속 공격을 연결한 뒤 비활성화된다.
+
+지면 충돌 후 2페이즈 분기에서는 투사체의 현재 위치를 두 공격에 각각 전달한다. 장판에는 투사체 콜라이더의 크기를, 불기둥에는 별도의 초기 크기를 지정한다.
+
+```cpp
+if (true == static_cast<CBossLynel*>(m_pParent)->IsSignActive(TEXT("Sign_Lynel_2Phase"))) {
+    CLynel_FireArea::FIREAREAINFO_DESC tAreaDesc = {};
+    tAreaDesc.InitiailSize = m_pColliderCom->Get_Size();
+    tAreaDesc.InitialPos = {};
+    XMStoreFloat3((&tAreaDesc.InitialPos), m_pTransformCom->Get_State(CTransform::STATE_POSITION));
+    static_cast<CBossLynel*>(m_pParent)->Active_Skill(TEXT("Pooling_FireArea"), LYNEL_NUM_FIREAREAS, &tAreaDesc);
+
+    CLynel_FirePhillar::FIREPHILLLAR_INFO_DESC tPhillarDesc = {};
+    tPhillarDesc.InitiailSize = {3.f,0.1f,3.f};
+    tPhillarDesc.InitialPos = {};
+    XMStoreFloat3((&tPhillarDesc.InitialPos), m_pTransformCom->Get_State(CTransform::STATE_POSITION));
+    static_cast<CBossLynel*>(m_pParent)->Active_Skill(TEXT("Pooling_FirePhillar"), LYYNEL_NUM_FIREPHILLARS, &tPhillarDesc);
+}
+```
 
 {% include game-local-video.html file="lynel-phase-two-fireball" title="화염 투사체의 지면 충돌 위치에서 이어지는 불기둥" %}
 

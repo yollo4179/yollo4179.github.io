@@ -3,6 +3,7 @@ layout: game-article
 title: 늑대의 EQS 후보 평가와 위치 예약
 project_slug: unitychan-rpg
 game_portfolio: true
+article_toc: true
 game_order: 4
 topic: 전투와 행동
 summary: 플레이어 주변 후보 지점을 평가하고 예약·점유 상태를 갱신하며 늑대의 이동 목적지를 정했다.
@@ -14,13 +15,15 @@ permalink: /projects/unitychan-rpg/technical/wolf-eqs/
 nav_context: GAME PORTFOLIO / UNITYCHAN RPG
 ---
 
+## 다수 몬스터의 위치 선택과 후보 평가
+
+여러 늑대가 플레이어 주변에서 같은 지점으로 모이지 않도록 각 늑대의 이동 목적지를 선택한다. EQS 방식은 플레이어 주변에 후보 지점을 만들고 여러 조건의 점수를 합산해 목적지를 고른다. 다른 늑대가 예약하거나 점유한 지점은 평가에서 제외해 이동 중의 목적지 중복도 줄인다.
+
 ## 플레이어 주변 후보 지점
 
-늑대는 EQS 형태의 후보 평가 시스템으로 이동할 위치를 선택한다. `EQSManager`가 링별 후보 지점과 전체 목록을 관리하고, `EQSQuery`가 테스트 점수를 계산한다. `EQSQuerierBehaviour_Battle`은 선택한 지점의 예약과 실제 이동을 처리한다.
+늑대는 EQS 형태의 후보 평가 시스템으로 이동할 위치를 선택한다. <span class="notice-yellow">EQSManager</span>가 링별 후보 지점과 전체 목록을 관리하고, <span class="notice-yellow">EQSQuery</span>가 테스트 점수를 계산한다. <span class="notice-yellow">EQSQuerierBehaviour_Battle</span>은 선택한 지점의 예약과 실제 이동을 처리한다.
 
-{% include game-video-embed.html id="609vL5vsOM8" title="Wolf EQS 모방 · 여러 늑대의 위치 선택과 전투" %}
-
-`EQSPoint`에는 위치, 링 번호, 링 안의 인덱스, 예약자와 점유자를 저장한다. 이동 중 예약과 도착 후 점유를 별도 필드로 표현한다.
+<span class="notice-yellow">EQSPoint</span>에는 위치, 링 번호, 링 안의 인덱스, 예약자와 점유자를 저장한다. 이동 중 예약과 도착 후 점유를 별도 필드로 표현한다.
 
 ```csharp
 public class EQSPoint
@@ -44,14 +47,7 @@ public class EQSPoint
 }
 ```
 
-## 디렉터리와 실행 흐름
-
-```text
-Assets/04.Scripts/
-├─ Managers/SlotManager/EQSManager.cs
-├─ CommonScrips/EQSSystem/EQSQuery.cs
-└─ CommonScrips/EQSSystem/EQSBehavior/EQSQuerierBehaviour_Battle.cs
-```
+## 구현 순서와 역할
 
 ```text
 플레이어 주변 후보 → 테스트 점수 합산 → 후보 선택
@@ -60,9 +56,9 @@ Assets/04.Scripts/
 
 ## 테스트 조합으로 점수 계산
 
-각 테스트는 `IEQSTest.Execute(point, querier, context)`로 후보를 평가한다. 이상적 거리, 시야, 점유, 간격, 방향 성향 등을 SO로 정의하고 `EQSQuery`의 테스트 목록에 연결한다. 테스트 원본은 `ScriptableObject.Instantiate`로 복사해 쿼리에 보관한다.
+각 테스트는 <span class="notice-yellow">IEQSTest.Execute(point, querier, context)</span>로 후보를 평가한다. 이상적 거리, 시야, 점유, 간격, 방향 성향 등을 SO로 정의하고 <span class="notice-yellow">EQSQuery</span>의 테스트 목록에 연결한다. 테스트 원본은 <span class="notice-yellow">ScriptableObject.Instantiate</span>로 복사해 쿼리에 보관한다.
 
-가중합 정책은 각 점수에 `Weight / totalWeight`를 곱해 합산한다. 쿼리는 가중 곱과 최솟값 정책도 제공한다. 평가 결과는 내림차순으로 정렬하고 `_topResultCount`개 중 무작위로 하나를 고른다. 기본 후보 수가 1이면 가장 높은 점수의 지점을 고른다.
+가중합 정책은 각 점수에 <span class="notice-yellow">Weight / totalWeight</span>를 곱해 합산한다. 쿼리는 가중 곱과 최솟값 정책도 제공한다. 평가 결과는 내림차순으로 정렬하고 <span class="notice-yellow">_topResultCount</span>개 중 무작위로 하나를 고른다. 기본 후보 수가 1이면 가장 높은 점수의 지점을 고른다.
 
 ```csharp
 case SCORING_POLICY.eWeightedSum:
@@ -99,7 +95,7 @@ public float Execute(EQSPoint point, EQSQuerier querier, EQSContext context)
 
 ## 후보 점수의 Gizmo 표시
 
-`EQSQuery.OnDrawGizmos()`는 평가 결과를 보관한 `scoredPoints`를 순회하며 후보 위치에 반지름 0.1의 와이어 구를 그린다. 점수가 0 이하이면 파란색으로 표시하고, 양수이면 `1 - score`를 빨간 채널에, `score`를 초록 채널에 적용한다. 후보 지점의 배치와 평가 점수를 Scene 뷰에서 함께 확인하는 구조다.
+<span class="notice-yellow">EQSQuery.OnDrawGizmos()</span>는 평가 결과를 보관한 <span class="notice-yellow">scoredPoints</span>를 순회하며 후보 위치에 반지름 0.1의 와이어 구를 그린다. 점수가 0 이하이면 파란색으로 표시하고, 양수이면 <span class="notice-yellow">1 - score</span>를 빨간 채널에, <span class="notice-yellow">score</span>를 초록 채널에 적용한다. 후보 지점의 배치와 평가 점수를 Scene 뷰에서 함께 확인하는 구조다.
 
 <figure class="game-media-feature">
   <a href="{{ '/assets/images/projects/unitychan-rpg/wolf-eqs-debug.webp' | relative_url }}"><img src="{{ '/assets/images/projects/unitychan-rpg/wolf-eqs-debug.webp' | relative_url }}" alt="Unity Scene 뷰에서 플레이어 주변의 EQS 후보 지점을 와이어 구로 표시하고 여러 늑대의 배치를 확인하는 디버그 화면" width="2879" height="1530" loading="lazy"></a>
@@ -117,7 +113,7 @@ Gizmos.DrawWireSphere(point.point.pos, 0.1f);
 
 ## 예약에서 점유로 전환
 
-`QueryNewPoint`는 타깃, 전체 늑대 목록, 후보 지점으로 `EQSContext`를 구성한다. 선택한 지점의 NavMesh 구역이 몬스터의 구역과 같은지 확인하고 기존 점유·예약을 갱신한다. 새 지점은 `_goalPoint`로 저장하며 `MoveToGoal`이 `NavMeshAgent.SetDestination`에 전달한다.
+<span class="notice-yellow">QueryNewPoint</span>는 타깃, 전체 늑대 목록, 후보 지점으로 <span class="notice-yellow">EQSContext</span>를 구성한다. 선택한 지점의 NavMesh 구역이 몬스터의 구역과 같은지 확인하고 기존 점유·예약을 갱신한다. 새 지점은 <span class="notice-yellow">_goalPoint</span>로 저장하며 <span class="notice-yellow">MoveToGoal</span>이 <span class="notice-yellow">NavMeshAgent.SetDestination</span>에 전달한다.
 
 ```csharp
 private void ReservePoint(EQSPoint point)
@@ -132,7 +128,7 @@ private void ReservePoint(EQSPoint point)
 }
 ```
 
-목표 지점까지의 거리가 `_stoppingDistance`보다 작아지면 `OccupyPoint`가 점유자를 등록한다. 이때 예약자와 `_goalPoint`를 비우고 `OccupingPoint`에 도착 지점을 보관한다. 전투 이동 클래스에는 방향별 관심도·위험도 계산과 벽 주변 이동 처리도 함께 들어 있다.
+목표 지점까지의 거리가 <span class="notice-yellow">_stoppingDistance</span>보다 작아지면 <span class="notice-yellow">OccupyPoint</span>가 점유자를 등록한다. 이때 예약자와 <span class="notice-yellow">_goalPoint</span>를 비우고 <span class="notice-yellow">OccupingPoint</span>에 도착 지점을 보관한다. 전투 이동 클래스에는 방향별 관심도·위험도 계산과 벽 주변 이동 처리도 함께 들어 있다.
 
 ```csharp
 private void OccupyPoint(EQSPoint point)
@@ -151,7 +147,17 @@ private void OccupyPoint(EQSPoint point)
 }
 ```
 
-<figure class="game-media-feature">
+## 늑대의 위치 선택 결과
+
+늑대들은 플레이어 주변의 후보 지점을 평가하고 각 목적지를 예약한다. 도착하면 예약을 점유로 바꿔 다른 늑대의 위치 선택에 반영한다.
+
+<div class="game-media-gallery" data-media-gallery>
+<div class="game-media-gallery__grid">
+<figure>
   <a href="{{ '/assets/images/projects/unitychan-rpg/wolf-eqs-gameplay.webp' | relative_url }}"><img src="{{ '/assets/images/projects/unitychan-rpg/wolf-eqs-gameplay.webp' | relative_url }}" alt="플레이어 주변에서 서로 다른 위치를 차지하는 늑대들" width="1920" height="1080" loading="lazy"></a>
   <figcaption>플레이어 주변에서 서로 다른 위치를 차지하는 늑대들</figcaption>
 </figure>
+</div>
+</div>
+
+{% include game-video-embed.html id="609vL5vsOM8" title="Wolf EQS 모방 · 여러 늑대의 위치 선택과 전투" %}

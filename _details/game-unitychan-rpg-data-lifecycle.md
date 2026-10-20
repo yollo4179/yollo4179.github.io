@@ -3,6 +3,7 @@ layout: game-article
 title: JSON 정의 데이터와 플레이 진행 저장
 project_slug: unitychan-rpg
 game_portfolio: true
+article_toc: true
 game_order: 10
 topic: 데이터와 표현
 summary: Resources의 JSON 정의와 persistentDataPath의 진행 정보를 구분하고 ID로 연결했다.
@@ -14,9 +15,13 @@ permalink: /projects/unitychan-rpg/technical/data-lifecycle/
 nav_context: GAME PORTFOLIO / UNITYCHAN RPG
 ---
 
+## 정의 데이터와 진행 저장을 나누는 이유
+
+게임이 공통으로 사용하는 아이템·몬스터 수치와 플레이어마다 달라지는 진행 정보를 분리한다. 공통 정의는 Resources에서 읽고, 변경되는 진행 정보는 쓰기가 가능한 persistentDataPath에 저장한다. 저장 파일에는 퀘스트와 목표의 코드를 보관하고, 불러올 때 해당 정의와 진행 상태를 다시 연결한다.
+
 ## JSON 파일의 두 용도
 
-아이템·몬스터·레벨처럼 공통으로 읽는 정의 데이터는 `Resources/Data/Json`에 둔다. 플레이 중 바뀌는 인벤토리와 플레이어 정보, 퀘스트 진행은 `Application.persistentDataPath`의 JSON으로 저장한다. 상점 판매 목록인 `ShopInfo.json`도 이 경로에서 읽는다.
+아이템·몬스터·레벨처럼 공통으로 읽는 정의 데이터는 <span class="notice-yellow">Resources/Data/Json</span>에 둔다. 플레이 중 바뀌는 인벤토리와 플레이어 정보, 퀘스트 진행은 <span class="notice-yellow">Application.persistentDataPath</span>의 JSON으로 저장한다. 상점 판매 목록인 <span class="notice-yellow">ShopInfo.json</span>도 이 경로에서 읽는다.
 
 | 데이터 | 저장 형태 | 사용하는 내용 |
 | --- | --- | --- |
@@ -36,14 +41,7 @@ nav_context: GAME PORTFOLIO / UNITYCHAN RPG
   <figcaption>JSON으로 관리하는 몬스터 정의 데이터</figcaption>
 </figure>
 
-## 디렉터리와 실행 흐름
-
-```text
-Assets/04.Scripts/
-├─ Managers/DataManager.cs
-├─ Managers/QuestManager.cs
-└─ Managers/Shop/ShopManager.cs
-```
+## 구현 순서와 역할
 
 ```text
 Resources JSON → 역직렬화 → ID Dictionary → 데이터 조회
@@ -53,7 +51,7 @@ Resources JSON → 역직렬화 → ID Dictionary → 데이터 조회
 
 ## 아이템 ID로 조회하는 Dictionary
 
-`DataManager.LoadItemData`는 소비 아이템 JSON을 읽어 `ItemData[]`로 역직렬화한다. 이 배열을 `ItemID`를 키로 한 Dictionary로 만들고, 재료와 장비 데이터를 같은 Dictionary에 추가한다.
+<span class="notice-yellow">DataManager.LoadItemData</span>는 소비 아이템 JSON을 읽어 <span class="notice-yellow">ItemData[]</span>로 역직렬화한다. 이 배열을 <span class="notice-yellow">ItemID</span>를 키로 한 Dictionary로 만들고, 재료와 장비 데이터를 같은 Dictionary에 추가한다.
 
 ```csharp
 TextAsset asset = Resources.Load<TextAsset>("Data/Json/ConsumableItemData");
@@ -63,7 +61,7 @@ ItemData[] arrItemData = JsonConvert.DeserializeObject<ItemData[]>(json);
 this.m_ItemData =arrItemData.ToDictionary(x => x.ItemID);
 ```
 
-상점과 인벤토리는 `GetItemData(ItemID)`로 이 Dictionary를 조회한다. 소유 수량과 강화 수치 등 개별 상태는 아이템 정의와 연결된 소유 정보에서 관리한다.
+상점과 인벤토리는 <span class="notice-yellow">GetItemData(ItemID)</span>로 이 Dictionary를 조회한다. 소유 수량과 강화 수치 등 개별 상태는 아이템 정의와 연결된 소유 정보에서 관리한다.
 
 <figure class="game-media-feature">
   <a href="{{ '/assets/images/projects/unitychan-rpg/json-player-level.webp' | relative_url }}"><img src="{{ '/assets/images/projects/unitychan-rpg/json-player-level.webp' | relative_url }}" alt="플레이어 레벨별 성장 정보를 보관한 JSON" width="1458" height="1400" loading="lazy"></a>
@@ -72,7 +70,7 @@ this.m_ItemData =arrItemData.ToDictionary(x => x.ItemID);
 
 ## 퀘스트와 하위 목표 저장
 
-`SaveQuests`는 퀘스트 런타임 객체의 DTO들을 목록으로 모아 직렬화한다. `SaveTasks`는 퀘스트별 목표 Dictionary를 순회하면서 하위 목표 DTO를 한 목록으로 저장한다.
+<span class="notice-yellow">SaveQuests</span>는 퀘스트 런타임 객체의 DTO들을 목록으로 모아 직렬화한다. <span class="notice-yellow">SaveTasks</span>는 퀘스트별 목표 Dictionary를 순회하면서 하위 목표 DTO를 한 목록으로 저장한다.
 
 ```csharp
 public void SaveQuests()
@@ -87,4 +85,8 @@ public void SaveQuests()
 }
 ```
 
-로드할 때는 먼저 카탈로그에서 퀘스트 정의를 등록한다. `LoadQuests`가 저장한 퀘스트 상태를 읽고 `LoadAndJoinTasks`가 `QuestCODE`와 `SubTaskCODE`로 목표 진행을 연결한다. `ReconcileTaskStates`는 완료 목표와 활성 목표를 정리하고 진행 중인 목표의 이벤트 구독을 구성한다.
+로드할 때는 먼저 카탈로그에서 퀘스트 정의를 등록한다. <span class="notice-yellow">LoadQuests</span>가 저장한 퀘스트 상태를 읽고 <span class="notice-yellow">LoadAndJoinTasks</span>가 <span class="notice-yellow">QuestCODE</span>와 <span class="notice-yellow">SubTaskCODE</span>로 목표 진행을 연결한다. <span class="notice-yellow">ReconcileTaskStates</span>는 완료 목표와 활성 목표를 정리하고 진행 중인 목표의 이벤트 구독을 구성한다.
+
+## 저장과 복원 구조의 결과
+
+아이템 ID로 공통 정의를 조회하고, 퀘스트·하위 목표 코드를 기준으로 저장된 진행 상태를 연결한다. 복원 과정은 상태를 읽는 데서 끝나지 않고 진행 중인 목표의 이벤트 구독까지 구성한다.
