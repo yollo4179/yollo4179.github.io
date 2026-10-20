@@ -1,5 +1,6 @@
 ---
 layout: game-project
+source_url: https://github.com/yollo4179/GunFireRebornPersonal
 title: 건파이어 리본
 order: 8
 game_order: 5

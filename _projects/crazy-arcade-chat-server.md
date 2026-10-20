@@ -1,5 +1,6 @@
 ---
 layout: game-project
+source_url: https://github.com/yollo4179/CrazyArcade
 title: 크레이지 아케이드 채팅 서버
 order: 6
 game_order: 6
