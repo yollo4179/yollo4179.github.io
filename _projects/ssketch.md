@@ -11,7 +11,7 @@ team_project: true
 category: SSAFY - 특화 프로젝트
 project_type: 특화 프로젝트
 period: 2026.08.09 ~ 2026.09.19
-team: 입력 예정
+team: 6인 협업
 role: Unity 클라이언트 프레임워크, 실시간 입력 및 동기화, C++ IOCP 서버, Vivox 음성 채팅
 stack: Unity · C# · C++ · IOCP · TCP · UDP · Vivox
 domains: [게임]
