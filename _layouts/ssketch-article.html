@@ -15,6 +15,7 @@ layout: default
     </div></header>
     <div class="page-container ssketch-article__layout">
       <aside class="ssketch-reading" aria-label="시리즈 읽기 순서">
+        {% include detail-back-link.html url='/projects/ssketch/details/' %}
         <p class="section-index">전체 구조부터 읽기</p>
         <ol>{% for item in learning %}<li><a href="{{ item.url | relative_url }}"{% if item.url == page.url %} aria-current="page"{% endif %}>{{ item.short_title }}</a></li>{% endfor %}</ol>
         {% if page.validation_scope %}<p class="ssketch-reading__note">{{ page.validation_scope }}</p>{% endif %}

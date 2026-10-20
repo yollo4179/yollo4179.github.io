@@ -3,6 +3,7 @@ layout: game-article
 title: 객체별 동적 버퍼와 Catmull–Rom 트레일
 project_slug: gunfire-reborn
 game_portfolio: true
+article_toc: true
 game_order: 4
 topic: 트레일과 화면 효과
 summary: 복제 인스턴스마다 동적 정점 버퍼를 만들고, 끝점 쌍을 Catmull–Rom으로 보간해 무기의 궤적을 그린다.
@@ -14,19 +15,17 @@ permalink: /projects/gunfire-reborn/technical/trail-ownership/
 nav_context: GAME PORTFOLIO / GUNFIRE REBORN
 ---
 
-## 구현 구조
+## 무기 궤적의 목적과 곡선 보간
 
-```text
-Engine/Private/VIBuffer_Trail.cpp
-Client/Private/Trail_Monster02.cpp
-```
+무기가 지나간 자리를 띠 형태로 남겨 공격의 방향과 범위를 표현한다. 시간에 따라 수집한 위·아래 끝점 쌍을 이어 띠를 만들고, Catmull–Rom 보간으로 제어점 사이에 중간 정점을 추가한다. 각 트레일은 서로 다른 궤적을 갱신하므로 복제 객체마다 CPU 정점 목록과 동적 GPU 버퍼를 관리한다.
+
+## 구현 순서와 역할
 
 복제 인스턴스의 버퍼 생성 → 끝점 두 개 변환 → 제어점 보관 → Catmull–Rom 보간 → UV·GPU 버퍼 갱신.
 
-
 ## 트레일마다 동적 정점 버퍼 생성
 
-`Clone()`은 복제본의 `Initialize()`를 호출한다. 초기화에서는 `TRAIL_DESC`의 최대 정점 수로 버퍼 크기를 정하고 CPU 쓰기가 가능한 동적 정점 버퍼를 만든다. 각 트레일의 `m_TrailVertices`가 해당 객체의 궤적을 보관한다.
+<span class="notice-yellow">Clone()</span>은 복제본의 <span class="notice-yellow">Initialize()</span>를 호출한다. 초기화에서는 <span class="notice-yellow">TRAIL_DESC</span>의 최대 정점 수로 버퍼 크기를 정하고 CPU 쓰기가 가능한 동적 정점 버퍼를 만든다. 각 트레일의 <span class="notice-yellow">m_TrailVertices</span>가 해당 객체의 궤적을 보관한다.
 
 ```cpp
 ZeroMemory(&m_BufferDesc, sizeof m_BufferDesc);
@@ -46,7 +45,7 @@ if (FAILED(__super::Create_Buffer(&(this->m_pVB))))
 
 ## 두 줄의 정점을 곡선으로 연결
 
-`Add_Points_CatMullRom()`은 위·아래 끝점을 각각 보간한다. 네 제어점 사이에 중간 정점 쌍을 넣고, 쌓인 정점 수에 맞춰 UV와 삼각형 인덱스 수를 갱신한다. 정점 한도를 넘으면 앞부분을 정리하고 새 궤적을 이어 쓴다.
+<span class="notice-yellow">Add_Points_CatMullRom()</span>은 위·아래 끝점을 각각 보간한다. 네 제어점 사이에 중간 정점 쌍을 넣고, 쌓인 정점 수에 맞춰 UV와 삼각형 인덱스 수를 갱신한다. 정점 한도를 넘으면 앞부분을 정리하고 새 궤적을 이어 쓴다.
 
 ```cpp
 for (_uint i = 0; i < m_iCatmullRomCnt; ++i)
@@ -74,15 +73,19 @@ for (_uint i = 0; i < m_iCatmullRomCnt; ++i)
 }
 ```
 
+{% include game-media-gallery.html slug="gunfire-reborn" summary="트레일 제어점과 곡선 보간" items="trail-implementation-01.png|트레일 제어점과 보간 대상 설정;trail-implementation-02.png|보간에 필요한 정점 수 확인;trail-implementation-03.png|최대 정점 수와 오래된 정점 처리;trail-implementation-04.png|Catmull–Rom 중간 정점 삽입" %}
+
 ## 정점의 좌표와 렌더 행렬 연결
 
-입력 행렬로 변환한 끝점을 정점 버퍼에 기록한다. `CTrail_Monster02::Bind_ShaderResources()`의 기본 렌더 경로는 단위 월드 행렬을 바인딩해 정점에 기록된 위치를 사용한다. 위치 갱신은 `Map()`과 `Unmap()`으로 GPU 버퍼에 전달한다.
+입력 행렬로 변환한 끝점을 정점 버퍼에 기록한다. <span class="notice-yellow">CTrail_Monster02::Bind_ShaderResources()</span>의 기본 렌더 경로는 단위 월드 행렬을 바인딩해 정점에 기록된 위치를 사용한다. 위치 갱신은 <span class="notice-yellow">Map()</span>과 <span class="notice-yellow">Unmap()</span>으로 GPU 버퍼에 전달한다.
 
-## 트레일 실행과 보간 자료
+{% include game-media-gallery.html slug="gunfire-reborn" summary="UV와 정점 버퍼 갱신" items="trail-implementation-05.png|UV와 버텍스 버퍼 갱신" %}
+
+## 무기 트레일 적용 결과
+
+무기 소켓의 이동을 따라 끝점 쌍을 누적하고 중간 정점을 보간해 궤적을 이어 그린다. 정점 한도에 도달하면 오래된 구간을 정리하면서 새 궤적을 기록한다.
 
 <figure class="game-media-feature">
   <img src="{{ '/assets/images/projects/gunfire-reborn/trail-demo.gif' | relative_url }}" alt="무기 이동에 따라 곡선 트레일이 생성되는 게임 장면" loading="lazy">
   <figcaption>무기 소켓의 이동을 따라 트레일 정점이 이어지는 장면</figcaption>
 </figure>
-
-{% include game-media-gallery.html slug="gunfire-reborn" summary="트레일 버퍼 구성과 보간 코드 이미지 5장" items="trail-implementation-01.png|트레일 제어점과 보간 대상 설정;trail-implementation-02.png|보간에 필요한 정점 수 확인;trail-implementation-03.png|최대 정점 수와 오래된 정점 처리;trail-implementation-04.png|Catmull–Rom 중간 정점 삽입;trail-implementation-05.png|UV와 버텍스 버퍼 갱신" %}

@@ -5,6 +5,7 @@ layout: default
 {% assign game_articles = site.details | where: 'project_slug', page.project_slug | sort: 'game_order' %}
 {% assign archive_topics = game_project.topics %}
 {% assign archive_heading = '구현 내용 목록' %}
+{% assign archive_return_url = game_project.url %}
 {% if page.topic_id %}
   {% assign archive_topics = game_project.topics | where: 'id', page.topic_id %}
   {% assign selected_topic = archive_topics | first %}
@@ -13,6 +14,7 @@ layout: default
 {% endif %}
 <main id="main-content" class="game-project-page game-article-archive">
   <header class="game-project-hero"><div class="page-container">
+    {% include detail-back-link.html url=archive_return_url label='이전으로 돌아가기' %}
     <nav class="breadcrumbs" aria-label="현재 위치"><ol><li><a href="{{ '/games/list/' | relative_url }}">게임 프로젝트</a></li><li><a href="{{ game_project.url | relative_url }}">{{ game_project.title }}</a></li>{% if page.topic_id %}{% assign all_articles_url = '/projects/' | append: page.project_slug | append: '/details/' %}<li><a href="{{ all_articles_url | relative_url }}">구현 내용 목록</a></li>{% endif %}<li aria-current="page">{{ archive_heading }}</li></ol></nav>
     <p class="eyebrow">{{ game_project.title }} / IMPLEMENTATION</p>
     <h1>{{ archive_heading }}</h1>

@@ -6,6 +6,7 @@ layout: default
   <article>
     <header class="game-project-hero">
       <div class="page-container">
+        {% include detail-back-link.html url='/games/list/' label='이전으로 돌아가기' %}
         <nav class="breadcrumbs" aria-label="현재 위치"><ol><li><a href="{{ '/games/' | relative_url }}">게임 포트폴리오</a></li><li><a href="{{ '/games/list/' | relative_url }}">프로젝트 목록</a></li><li aria-current="page">{{ page.title }}</li></ol></nav>
         <div class="game-project-hero__grid{% unless page.hero_image %} game-project-hero__grid--text-only{% endunless %}">
           <div>

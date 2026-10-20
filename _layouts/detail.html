@@ -1,6 +1,7 @@
 ---
 layout: default
 ---
+{% assign detail_return_url = page.category_url | default: '/projects/gilbom/details/' %}
 
 <main id="main-content">
   <article class="project-detail detail-page">
@@ -25,6 +26,7 @@ layout: default
 
     <div class="page-container project-detail__layout">
       <aside class="project-summary" aria-labelledby="detail-summary-title">
+        {% include detail-back-link.html url=detail_return_url %}
         <p class="section-index" id="detail-summary-title">DETAIL SNAPSHOT</p>
         <dl>
           <div>

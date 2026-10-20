@@ -3,6 +3,7 @@ layout: game-article
 title: 맵툴의 삼각형 편집과 내비메시 바이너리 저장
 project_slug: gunfire-reborn
 game_portfolio: true
+article_toc: true
 game_order: 1
 topic: 맵 제작과 이동
 summary: 지형을 찍어 만든 삼각형 셀을 두 종류의 .dat 파일로 저장하고, 클라이언트가 셀과 스테이지 번호를 읽도록 구성했다.
@@ -14,16 +15,13 @@ permalink: /projects/gunfire-reborn/technical/map-tool-binary/
 nav_context: GAME PORTFOLIO / GUNFIRE REBORN
 ---
 
-## 구현 구조
+## 내비메시의 목적과 삼각형 셀 연결
 
-```text
-MapTool/Private/Level_GamePlay.cpp
-Engine/Private/Navigation.cpp
-Engine/Private/Cell.cpp
-```
+캐릭터가 이동할 수 있는 영역을 삼각형 셀로 표현하고, 맵툴에서 편집한 영역을 게임에서도 사용한다. 셀은 세 정점으로 내부와 외부를 판정하며, 공유하는 변으로 이웃 셀을 연결한다. 따라서 인접 삼각형의 정점을 같은 위치로 맞추고 정점 순서를 통일해야 셀 사이 이동을 일관되게 검사할 수 있다.
+
+## 구현 순서와 역할
 
 지형 선택 → 정점 스냅 → 삼각형 방향 정리 → 셀·스테이지 저장 → 런타임 셀 생성과 이웃 연결.
-
 
 ## 정점을 스냅하고 삼각형 방향 맞추기
 
@@ -45,17 +43,19 @@ void CLevel_GamePlay::Adjusting_Triangle(TRIANGLE_VERTICES& Triangle)
 }
 ```
 
+{% include game-media-gallery.html slug="gunfire-reborn" summary="삼각형 선택과 정점 보정" items="navigation-mesh-implementation-01.png|삼각형 셀 정점과 방향 정의;navigation-mesh-implementation-02.png|마우스 광선과 지형의 교점 계산;navigation-mesh-implementation-03.png|정점 순서 조정;navigation-mesh-implementation-04.png|인접 정점 위치 보정" %}
+
 ## 편집 데이터와 실행 데이터 저장
 
-클라이언트용 내비메시 파일에는 셀 수, 세 정점, 스테이지 번호를 기록한다. 맵툴용 파일은 편집할 때 다시 사용할 점 목록도 함께 기록한다. 런타임은 삼각형을 `CCell`로 만들고 공통 변을 찾아 이웃 인덱스를 연결한다.
+클라이언트용 내비메시 파일에는 셀 수, 세 정점, 스테이지 번호를 기록한다. 맵툴용 파일은 편집할 때 다시 사용할 점 목록도 함께 기록한다. 런타임은 삼각형을 <span class="notice-yellow">CCell</span>로 만들고 공통 변을 찾아 이웃 인덱스를 연결한다.
 
 | 구분 | 저장 정보 | 사용처 |
 | --- | --- | --- |
 | 클라이언트 | 셀 수·삼각형 좌표·스테이지 | 셀 생성과 이동 판정 |
 | 맵툴 | 셀 데이터·편집 점 목록 | 삼각형 편집 재개 |
 
-파일 열기 실패 처리는 보완이 필요하다. 아래 원본의 `0 == hFile`은 `CreateFile`의
-실패 반환값을 검사하지 못한다. 실패 분기는 `hFile == INVALID_HANDLE_VALUE`로
+파일 열기 실패 처리는 보완이 필요하다. 아래 원본의 <span class="notice-yellow">0 == hFile</span>은 <span class="notice-yellow">CreateFile</span>의
+실패 반환값을 검사하지 못한다. 실패 분기는 <span class="notice-yellow">hFile == INVALID_HANDLE_VALUE</span>로
 수정해야 한다.
 
 ```cpp
@@ -92,8 +92,10 @@ HRESULT CNavigation::Initialize_Prototype(const _tchar* pNavigationDataFile)
 }
 ```
 
-## 편집 장면과 저장 자료
+{% include game-media-gallery.html slug="gunfire-reborn" summary="클라이언트용 내비메시 저장" items="navigation-mesh-implementation-05.png|클라이언트용 내비메시 바이너리 저장" %}
+
+## 내비메시 편집과 저장 결과
+
+맵툴에서 지형 위에 삼각형을 만들고 내비메시를 저장한다. 편집을 다시 시작할 때는 점 목록을 포함한 맵툴용 파일을 사용하고, 게임은 클라이언트용 파일에서 셀과 스테이지 정보를 읽는다.
 
 {% include game-local-video.html slug="gunfire-reborn" file="navmesh-editing" title="맵툴에서 내비메시 삼각형을 만들고 클라이언트용·맵툴용 저장 메뉴를 사용하는 장면" %}
-
-{% include game-media-gallery.html slug="gunfire-reborn" summary="맵툴의 삼각형 셀 생성과 바이너리 저장 코드 이미지 5장" items="navigation-mesh-implementation-01.png|삼각형 셀 정점과 방향 정의;navigation-mesh-implementation-02.png|마우스 광선과 지형의 교점 계산;navigation-mesh-implementation-03.png|정점 순서 조정;navigation-mesh-implementation-04.png|인접 정점 위치 보정;navigation-mesh-implementation-05.png|클라이언트용 내비메시 바이너리 저장" %}

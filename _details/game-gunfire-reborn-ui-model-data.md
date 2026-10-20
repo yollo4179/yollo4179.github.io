@@ -3,6 +3,7 @@ layout: game-article
 title: UI 태그 등록과 팝업 Z 순서·이벤트 관리
 project_slug: gunfire-reborn
 game_portfolio: true
+article_toc: true
 game_order: 11
 topic: 애니메이션과 리소스
 summary: UI 매니저가 활성 상태와 팝업 깊이를 관리하고, UI 객체가 입력 상태에 연결된 콜백을 실행한다.
@@ -14,15 +15,13 @@ permalink: /projects/gunfire-reborn/technical/ui-model-data/
 nav_context: GAME PORTFOLIO / GUNFIRE REBORN
 ---
 
-## 구현 구조
+## UI 관리의 목적과 표시 순서·입력 분리
 
-```text
-Engine/Private/UI_Manager.cpp
-Engine/Private/UIObject.cpp
-```
+여러 UI를 태그로 찾아 열고 닫으며 팝업의 앞뒤 순서를 관리한다. UI 매니저는 활성 상태와 정렬 깊이를 담당하고, UI 객체는 마우스 위치로 입력 상태를 판정해 등록된 콜백을 실행한다. 표시 순서를 관리하는 코드와 버튼별 동작을 분리해 같은 입력 처리 구조에 서로 다른 이벤트를 연결한다.
+
+## 구현 순서와 역할
 
 태그로 UI 등록 → 활성화와 팝업 깊이 갱신 → 깊이 순서 정리 → UI 상태별 이벤트 실행.
-
 
 ## 팝업 활성화와 Z 순서
 
@@ -47,7 +46,7 @@ HRESULT CUI_Manager::Set_Active_A_UI(const _wstring UI_Tag)
 
 ## 팝업 깊이를 연속된 값으로 정리
 
-`Update_UIs()`는 깊이가 작은 UI부터 꺼내는 우선순위 큐를 만든다. 팝업의 상대 순서를 유지하면서 최소 팝업 깊이부터 번호를 다시 부여하고 최대 깊이를 갱신한다.
+<span class="notice-yellow">Update_UIs()</span>는 깊이가 작은 UI부터 꺼내는 우선순위 큐를 만든다. 팝업의 상대 순서를 유지하면서 최소 팝업 깊이부터 번호를 다시 부여하고 최대 깊이를 갱신한다.
 
 ```cpp
 void CUI_Manager::Update_UIs()
@@ -78,7 +77,7 @@ void CUI_Manager::Update_UIs()
 
 ## 입력 상태와 콜백 연결
 
-`CUIObject`는 마우스 좌표와 UI 사각형의 포함 여부를 검사한다. `Update_Event()`는 UI 상태에 해당하는 함수가 등록돼 있으면 호출한다. 버튼의 이벤트 동작을 상태별 함수 배열에 연결하는 구조다.
+<span class="notice-yellow">CUIObject</span>는 마우스 좌표와 UI 사각형의 포함 여부를 검사한다. <span class="notice-yellow">Update_Event()</span>는 UI 상태에 해당하는 함수가 등록돼 있으면 호출한다. 버튼의 이벤트 동작을 상태별 함수 배열에 연결하는 구조다.
 
 ```cpp
 void CUIObject::Update_Event()
@@ -95,5 +94,9 @@ void CUIObject::Update_Event()
     }
 }
 ```
+
+## UI 상호작용 결과
+
+NPC 상호작용으로 UI를 열고 닫으며, 활성화한 팝업에는 새로운 정렬 깊이를 부여한다. UI 객체는 자신의 입력 상태에 등록된 콜백을 실행한다.
 
 {% include game-local-video.html slug="gunfire-reborn" file="ui-interaction" title="NPC 상호작용과 무기 UI 열기·닫기" %}

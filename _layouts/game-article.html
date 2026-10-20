@@ -24,6 +24,7 @@ layout: default
         {% if page.article_toc %}
           {% assign article_sections = content | split: '<h2 id="' %}
           <nav class="detail-navigation" aria-label="Detail 내비게이션">
+            {% include detail-back-link.html url=category_url %}
             <p class="section-index">DETAIL</p>
             <ol>
               {% for section in article_sections offset:1 %}
@@ -34,7 +35,7 @@ layout: default
             </ol>
           </nav>
         {% else %}
-          <aside class="game-article-index" aria-label="{{ page.topic }} 기술 글 목록"><p class="section-index">{{ page.topic }} · {{ game_articles.size }}편</p><ol>{% for item in game_articles %}<li><a href="{{ item.url | relative_url }}"{% if item.url == page.url %} aria-current="page"{% endif %}>{{ item.title }}</a></li>{% endfor %}</ol></aside>
+          <aside class="game-article-index" aria-label="{{ page.topic }} 기술 글 목록">{% include detail-back-link.html url=category_url %}<p class="section-index">{{ page.topic }} · {{ game_articles.size }}편</p><ol>{% for item in game_articles %}<li><a href="{{ item.url | relative_url }}"{% if item.url == page.url %} aria-current="page"{% endif %}>{{ item.title }}</a></li>{% endfor %}</ol></aside>
         {% endif %}
       <div class="markdown-content game-article-body">{{ content }}</div>
     </div>

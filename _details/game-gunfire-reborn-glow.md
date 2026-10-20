@@ -3,6 +3,7 @@ layout: game-article
 title: 다운샘플링과 분리 블러로 글로우 합성하기
 project_slug: gunfire-reborn
 game_portfolio: true
+article_toc: true
 game_order: 7
 topic: 트레일과 화면 효과
 summary: 발광 텍스처를 축소하고 가로·세로로 블러 처리한 뒤 원본 화면에 가산 합성한다.
@@ -14,15 +15,13 @@ permalink: /projects/gunfire-reborn/technical/glow/
 nav_context: GAME PORTFOLIO / GUNFIRE REBORN
 ---
 
-## 구현 구조
+## 글로우의 목적과 발광 영역 확산
 
-```text
-Engine/Bin/ShaderFiles/Shader_Deferred.hlsl
-Engine/Private/Renderer.cpp
-```
+밝은 물체 주변으로 빛이 번지는 모습을 만들기 위해 발광 텍스처를 흐리게 만든 뒤 원본 화면에 더한다. 다운샘플링은 블러를 계산할 픽셀 수를 줄이고, 가로·세로 분리 블러는 각 축의 이웃 샘플을 차례로 누적한다. 축소 화면에서 퍼진 발광 색을 확대해 합성하면 원래 물체의 경계 밖에도 빛이 나타난다.
+
+## 구현 순서와 역할
 
 발광 대상 렌더링 → 다운샘플링 → 가로·세로 블러 → 업샘플링 → 원본 화면에 더하기.
-
 
 ## 축을 나눠 블러 계산
 
@@ -44,6 +43,8 @@ PS_OUT PS_MAIN_DOWNSAMPLING_BLURX(PS_IN In)
     return Out;
 }
 ```
+
+{% include game-media-gallery.html slug="gunfire-reborn" summary="다운샘플링과 분리 블러" items="glow-implementation-01.png|다운샘플링;glow-implementation-02.png|가로·세로 블러" %}
 
 ## 확대 결과를 화면에 합성
 
@@ -69,4 +70,10 @@ PS_OUT PS_MAIN_GLOW_DEFFERED_UPSMAPLING(PS_IN In)
 }
 ```
 
-{% include game-media-gallery.html slug="gunfire-reborn" summary="글로우 합성 단계" items="glow-result.png|글로우 결과 화면;glow-implementation-01.png|다운샘플링;glow-implementation-02.png|가로·세로 블러;glow-implementation-03.png|업샘플링" %}
+{% include game-media-gallery.html slug="gunfire-reborn" summary="발광 텍스처 업샘플링" items="glow-implementation-03.png|업샘플링" %}
+
+## 글로우 합성 결과
+
+축소·블러·확대를 거친 발광 색에 강도를 적용하고 원본 화면에 가산한다. 원본의 형태를 유지하면서 발광 영역 주변에 번짐을 더한다.
+
+{% include game-media-gallery.html slug="gunfire-reborn" summary="글로우 적용 화면" items="glow-result.png|글로우 결과 화면" %}
