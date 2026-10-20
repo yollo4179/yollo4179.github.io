@@ -29,8 +29,6 @@ Engine/Private/Transform.cpp
 
 `isMove()`는 월드 위치를 내비메시 로컬 공간으로 변환한다. 현재 셀 밖이면 변에 연결된 이웃을 따라가고, 위치를 포함한 셀을 찾았을 때 현재 인덱스를 갱신한다. 이웃 인덱스가 -1이면 이동을 허용하지 않는다.
 
-`Engine/Private/Navigation.cpp` 발췌
-
 ```cpp
 _bool CNavigation::isMove(_fvector vWorldPos)
 {
@@ -62,8 +60,6 @@ _bool CNavigation::isMove(_fvector vWorldPos)
 ## 경계 방향으로 슬라이딩하기
 
 `Get_Elements_For_Sliding()`은 현재 위치를 기준으로 변의 시작점과 방향을 반환한다. 트랜스폼은 변에 대한 투영점과 셀 중심 방향을 구한 뒤 이동 벡터의 경계 성분을 계산한다. 마지막에는 새 위치에 `isMove()`를 다시 적용한다.
-
-`Engine/Private/Transform.cpp` 발췌
 
 ```cpp
 pair<_vector , _vector> SlidingPairs = pNavigation->Get_Elements_For_Sliding_FromCurCell(vPosition);

@@ -33,8 +33,6 @@ Engine/Private/Model.cpp
 
 트랙 위치와 전환 길이로 보간 비율을 구한다. 크기와 이동은 `XMVectorLerp()`, 쿼터니언 회전은 `XMQuaternionSlerp()`로 계산한다. 결과를 하나의 아핀 행렬로 조립해 뼈에 전달한다.
 
-`Engine/Private/Animation.cpp` 발췌
-
 ```cpp
 _bool CAnimation::Update_TransformMatrix_ForMotionChange(const vector<class CBone*>& Bones, _uint iBoneIndex,KEYFRAME Start, KEYFRAME Last)
 {

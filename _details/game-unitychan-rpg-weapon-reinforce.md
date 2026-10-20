@@ -42,8 +42,6 @@ Assets/04.Scripts/
 
 강화 버튼은 연출 코루틴이 실행 중이거나 최대 강화 횟수에 도달한 경우 반환한다. 비용은 `instance.Level × 60`이며 증가량의 기준은 장비 레벨에 1~3의 정수 난수를 곱해 정한다.
 
-`Assets/04.Scripts/UI/Reinforce/UI_ReinforceDirector.cs` 발췌
-
 ```csharp
 int reinforceIntensity = instance.Level;
 int randomVar = UnityEngine.Random.Range(1, 4);
@@ -51,8 +49,6 @@ reinforceIntensity *= randomVar;
 ```
 
 장비 부위별로 `ReinforceResult`의 능력치를 채운다. 무기는 기준 증가량을 공격력·치명타 확률·치명타 피해에 더하고, 방어력에는 2배, 최대 체력과 마나에는 5배를 사용한다.
-
-`Assets/04.Scripts/UI/Reinforce/UI_ReinforceDirector.cs` 발췌
 
 ```csharp
 case eEQUIPMENTTYPE.WEAPON:
@@ -66,8 +62,6 @@ case eEQUIPMENTTYPE.WEAPON:
 ```
 
 0~8의 정수 난수가 6 이하일 때 계산한 추가 능력치를 장비 인스턴스에 반영한다. 그 외에는 빈 결과를 사용한다. `CurrentReinforce`는 시도 후 증가하며, `Event_Reinforce`를 발행하고 결과 표시기를 갱신한다.
-
-`Assets/04.Scripts/UI/Reinforce/UI_ReinforceDirector.cs` 발췌
 
 ```csharp
 if(UnityEngine.Random.Range(0,9)<=6)
@@ -98,8 +92,6 @@ _resultDisplayer.SetResult(result);
 
 `ActivateEffect`는 목록을 앞에서부터 순회하면서 장비 강화 단계 이하인 마지막 항목을 선택한다. 이 순회는 단계가 오름차순인 목록을 사용한다. 선택한 프리팹을 풀에서 가져오고 장비 인스턴스 ID로 핸들을 보관한다.
 
-`Assets/04.Scripts/Managers/WeaponEffectManager/WeaponEffectManager.cs` 발췌
-
 ```csharp
 public void ActivateEffect(ELEMENT element,int level,string instanceID ,MeshRenderer mr ,Transform parent)
 {
@@ -124,8 +116,6 @@ public void ActivateEffect(ELEMENT element,int level,string instanceID ,MeshRend
 </figure>
 
 `SetWeaponMesh`는 파티클 Shape을 `MeshRenderer`로 설정하고 무기의 렌더러를 연결한다. 무기 메시를 파티클 발생 영역으로 사용하며, 비활성화할 때는 메시 참조를 비우고 이펙트를 풀에 반환한다.
-
-`Assets/04.Scripts/Managers/WeaponEffectManager/WeaponEffectManager.cs` 발췌
 
 ```csharp
 public void SetWeaponMesh(Poolable handle ,MeshRenderer meshRenderer)

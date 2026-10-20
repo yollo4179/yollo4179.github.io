@@ -99,8 +99,7 @@ flowchart LR
 
 ### 인증서 조립 책임을 인터페이스 뒤로 숨겼습니다
 
-아래 코드는 현재 구현에서 import와 예외 변환 부분만 덜어낸 핵심 발췌입니다. 연결
-설정은 각 인증 방식에 필요한 파일을 알지 않고 `SSLContext`만 전달받습니다.
+연결 설정은 각 인증 방식에 필요한 파일을 알지 않고 `SSLContext`만 전달받습니다.
 
 ```java
 /* MqttSecurityStrategy.java · MqttSecurityStrategy */

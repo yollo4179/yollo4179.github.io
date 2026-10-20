@@ -20,8 +20,6 @@ nav_context: GAME PORTFOLIO / UNITYCHAN RPG
 
 `ShowPopupUI`는 풀에서 팝업을 가져와 열린 목록과 스택에 추가한다. 팝업의 Canvas에 `_zOrder`를 할당한 뒤 값을 증가시킨다. 순서 기준은 enum으로 구분한다.
 
-`Assets/04.Scripts/Managers/UIManager/UIManager.cs` 발췌
-
 ```csharp
 public enum UI_SortOrder
 {
@@ -50,8 +48,6 @@ Assets/04.Scripts/
 
 `UpdateInputFocus`는 한 프레임의 왼쪽 클릭을 한 번 판정한다. `EventSystem.RaycastAll` 결과 중 첫 `GraphicRaycaster` 결과에서 부모 `UI_Popup`을 찾는다. 팝업을 클릭하면 `BringPopupToFront`를 호출한다. 드래그 컴포넌트의 `OnPointerDown`도 같은 메서드를 사용한다.
 
-`Assets/04.Scripts/UI/Common/DrafAndDrop/UI_Draggable_Move.cs` 발췌
-
 ```csharp
 public void OnPointerDown(PointerEventData eventData)
 {
@@ -61,8 +57,6 @@ public void OnPointerDown(PointerEventData eventData)
 ```
 
 `BringPopupToFront`는 선택한 팝업을 제외하고 기존 팝업을 아래부터 다시 쌓는다. `sortingOrder`를 `PopUpUIBase`부터 순서대로 할당한 다음 선택한 팝업에 가장 큰 값을 지정한다. 마지막으로 스택의 맨 위와 형제 순서의 마지막에 배치한다.
-
-`Assets/04.Scripts/Managers/UIManager/UIManager.cs` 발췌
 
 ```csharp
 public void BringPopupToFront(UI_Popup popup)
@@ -89,8 +83,6 @@ public void BringPopupToFront(UI_Popup popup)
 ## 마우스와 팝업 사이의 상대 위치 유지
 
 팝업은 드래그 시작 지점과 RectTransform 위치의 차이를 `_pointerOffset`에 저장한다. 드래그 중에는 변환한 포인터 위치에 이 차이를 더한다. 따라서 제목 표시줄의 어느 지점을 잡았는지에 따라 팝업과 마우스의 상대 위치가 유지된다.
-
-`Assets/04.Scripts/UI/Common/DrafAndDrop/UI_Draggable_Move.cs` 발췌
 
 ```csharp
 public void OnBeginDrag(PointerEventData eventData)
@@ -119,8 +111,6 @@ public void OnBeginDrag(PointerEventData eventData)
 ## UI 포커스와 게임 입력
 
 `_activeDrags`는 진행 중인 드래그를 집합으로 보관한다. `BlocksGameplayInput`, `BlocksAttackInput`, `BlocksCameraInput`은 모달 팝업, 포커스, 드래그, 텍스트 입력 여부를 조합한다. UI에서 시작한 왼쪽 클릭은 버튼을 놓을 때까지 소비하도록 기록한다.
-
-`Assets/04.Scripts/Managers/UIManager/UIManager.cs` 발췌
 
 ```csharp
 public bool BlocksAttackInput

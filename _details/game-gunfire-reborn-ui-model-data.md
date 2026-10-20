@@ -28,8 +28,6 @@ Engine/Private/UIObject.cpp
 
 UI 매니저는 태그로 객체를 찾고 활성화한다. 팝업은 현재 최대 깊이에 1을 더한 값을 받아 다른 팝업보다 앞쪽 순서로 이동한다. 고정 UI는 등록 시 깊이 10을 사용한다.
 
-`Engine/Private/UI_Manager.cpp` 발췌
-
 ```cpp
 HRESULT CUI_Manager::Set_Active_A_UI(const _wstring UI_Tag)
 {
@@ -50,8 +48,6 @@ HRESULT CUI_Manager::Set_Active_A_UI(const _wstring UI_Tag)
 ## 팝업 깊이를 연속된 값으로 정리
 
 `Update_UIs()`는 깊이가 작은 UI부터 꺼내는 우선순위 큐를 만든다. 팝업의 상대 순서를 유지하면서 최소 팝업 깊이부터 번호를 다시 부여하고 최대 깊이를 갱신한다.
-
-`Engine/Private/UI_Manager.cpp` 발췌
 
 ```cpp
 void CUI_Manager::Update_UIs()
@@ -83,8 +79,6 @@ void CUI_Manager::Update_UIs()
 ## 입력 상태와 콜백 연결
 
 `CUIObject`는 마우스 좌표와 UI 사각형의 포함 여부를 검사한다. `Update_Event()`는 UI 상태에 해당하는 함수가 등록돼 있으면 호출한다. 버튼의 이벤트 동작을 상태별 함수 배열에 연결하는 구조다.
-
-`Engine/Private/UIObject.cpp` 발췌
 
 ```cpp
 void CUIObject::Update_Event()

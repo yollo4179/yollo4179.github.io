@@ -24,8 +24,6 @@ MapTool/Private/Level_GamePlay.cpp
 
 맵툴은 몬스터 종류별로 배치 목록을 관리한다. 클라이언트용 저장은 종류 수와 종류별 개수를 먼저 기록하고, 각 객체의 크기·회전각·위치·내비메시 인덱스를 순서대로 쓴다. 실행 시 배치에 필요한 값이 하나의 레코드가 된다.
 
-`MapTool/Private/Level_GamePlay.cpp` 발췌
-
 ```cpp
 if (ImGui::Button("Save Monsters For Client Data"))
 {

@@ -49,8 +49,6 @@ Client/Private/Lynel_Fire.cpp
 {% include game-local-video.html file="lynel-jump" title="PhysX로 점프한 뒤 지면 Ray 판정으로 내려찍기 공격을 활성화하는 라이넬" %}
 
 
-`Client/Private/Boss_Lynel_FSM.cpp` 발췌
-
 ```cpp
 void CBossLynelFSM::OnJump_Stay()
 {
@@ -133,8 +131,6 @@ void CBossLynelFSM::OnJump_Stay()
 
 {% include game-local-video.html file="lynel-stun" title="머리 화살 피격에 따른 기절과 콜라이더 비활성화" %}
 
-
-`Client/Private/Boss_Lynel_FSM.cpp` 발췌
 
 ```cpp
 void CBossLynelFSM::OnStun_Begin()

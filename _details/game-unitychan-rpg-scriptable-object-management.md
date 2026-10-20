@@ -40,8 +40,6 @@ SO 클래스의 직렬화 필드 → Inspector에서 에셋 설정
 
 스킬 실행 코드와 UI는 SO의 프로퍼티로 수치와 아이콘을 읽는다. `handle`은 퀵 슬롯에 연결하는 정수 식별자다.
 
-`Assets/Resources/Data/ScriptableObjects/SkillData/SkillSO.cs` 발췌
-
 ```csharp
 [System.Serializable, CreateAssetMenu(fileName = "SkillSO", menuName = "Scriptable Objects/SkillSO")]
 public class SkillSO : ScriptableObject
@@ -87,8 +85,6 @@ public class SkillSO : ScriptableObject
 
 `SkillSO`는 아이콘, 이름, 설명, 쿨타임, 마나 비용, 사거리, 피해량, 스킬 종류와 핸들을 보관한다. 애니메이션 설정은 `EventSequence → EventClipInfo → AnimEventDesc`로 구성한다. 각 클립에 애니메이션 전체 경로와 타격 부위를 지정하고 이벤트 목록을 연결한다.
 
-`Assets/Resources/Data/ScriptableObjects/SkillData/SkillSO.cs` 발췌
-
 ```csharp
 [System.Serializable]public struct EventClipInfo
 {
@@ -102,8 +98,6 @@ public class SkillSO : ScriptableObject
     [SerializeField] public List<EventClipInfo> eventClips;
 }
 ```
-
-`Assets/Resources/Data/ScriptableObjects/SkillData/SkillSO.cs` 발췌
 
 ```csharp
 [System.Serializable]public struct AnimEventDesc
@@ -140,8 +134,6 @@ public class SkillSO : ScriptableObject
 
 `PlayerMeleeSkillState`는 SO의 `animFullPath`를 Animator 해시로 변환한다. 해당 애니메이션에 진입하면 `normalizedTime`과 이벤트의 시작·종료 시간을 비교한다. 이전 프레임의 활성 여부와 달라진 이벤트만 `FireEvents`로 ON 또는 OFF를 전달한다.
 
-`Assets/04.Scripts/PlayerScrips/PlayerState/PlayerMeleeSkillState.cs` 발췌
-
 ```csharp
 for (int i = 0; i<events.Count; ++i)
 {
@@ -167,8 +159,6 @@ for (int i = 0; i<events.Count; ++i)
 ## QuestData와 QuestCatalog
 
 퀘스트 정의 클래스에는 목표 목록, 보상, 선행 조건과 자동 수락 설정을 함께 둔다.
-
-`Assets/04.Scripts/Quest/ScriptableObject/QuestData.cs` 발췌
 
 ```csharp
 [CreateAssetMenu(fileName = "QuestData", menuName = "Scriptable Objects/QuestData")]
@@ -212,8 +202,6 @@ public class QuestData : ScriptableObject
 
 `QuestData`는 퀘스트 제목·목표·보상·수락 조건을 정의한다. 목표 목록의 원소인 `SubTask`에는 식별 코드, 대상 ID, 요구량, 대화 키와 목표 타입이 들어간다.
 
-`Assets/04.Scripts/Quest/ScriptableObject/QuestData.cs` 발췌
-
 ```csharp
 [System.Serializable] public class SubTask
 {
@@ -234,8 +222,6 @@ public class QuestData : ScriptableObject
 
 `QuestCatalog`는 여러 `QuestData` 에셋을 목록으로 묶는다. `QuestManager.Init`는 `Resources.LoadAll<QuestCatalog>`로 카탈로그를 읽고 `SelectMany`와 `Distinct`로 퀘스트를 모은 뒤 `QuestCODE`를 키로 등록한다. 진행량과 완료 상태는 런타임 DTO에 저장한다.
 
-`Assets/04.Scripts/Quest/QuestCatalog/QuestCatalog.cs` 발췌
-
 ```csharp
 [CreateAssetMenu(fileName = "QuestCatalog", menuName = "Scriptable Objects/QuestCatalog")]
 public class QuestCatalog:ScriptableObject
@@ -253,8 +239,6 @@ public class QuestCatalog:ScriptableObject
 
 `ReinforceEffect`는 `BASE`, `FIRE`, `ICE` 속성 중 하나와 단계별 프리팹 목록을 갖는다. Inspector에서 프리팹과 적용 레벨을 지정하면 `WeaponEffectManager`가 속성과 강화 단계로 사용할 이펙트를 선택한다.
 
-`Assets/04.Scripts/Effects/ReinforceEffect/ReinforceEffect.cs` 발췌
-
 ```csharp
 [CreateAssetMenu(fileName = "ReinforceEffect", menuName = "Scriptable Objects/ReinforceEffect")]
 public class ReinforceEffect : ScriptableObject
@@ -263,8 +247,6 @@ public class ReinforceEffect : ScriptableObject
     [SerializeField] public ELEMENT Element;
 }
 ```
-
-`Assets/04.Scripts/Effects/ReinforceEffect/ReinforceEffect.cs` 발췌
 
 ```csharp
 [System.Serializable] public class ReinforceInfo

@@ -55,8 +55,6 @@ Resources JSON → 역직렬화 → ID Dictionary → 데이터 조회
 
 `DataManager.LoadItemData`는 소비 아이템 JSON을 읽어 `ItemData[]`로 역직렬화한다. 이 배열을 `ItemID`를 키로 한 Dictionary로 만들고, 재료와 장비 데이터를 같은 Dictionary에 추가한다.
 
-`Assets/04.Scripts/Managers/DataManager.cs` 발췌
-
 ```csharp
 TextAsset asset = Resources.Load<TextAsset>("Data/Json/ConsumableItemData");
 var json = asset.text;
@@ -75,8 +73,6 @@ this.m_ItemData =arrItemData.ToDictionary(x => x.ItemID);
 ## 퀘스트와 하위 목표 저장
 
 `SaveQuests`는 퀘스트 런타임 객체의 DTO들을 목록으로 모아 직렬화한다. `SaveTasks`는 퀘스트별 목표 Dictionary를 순회하면서 하위 목표 DTO를 한 목록으로 저장한다.
-
-`Assets/04.Scripts/Managers/QuestManager.cs` 발췌
 
 ```csharp
 public void SaveQuests()

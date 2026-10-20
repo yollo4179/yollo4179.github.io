@@ -44,8 +44,6 @@ DoFade → iTween → TweenOnUpdate → 머티리얼의 SplitValue
 
 `DoFade`는 시작값, 종료값, 시간과 페이드 모드를 받는다. iTween의 `ValueTo`에 이 값을 넘기고 `easeInCubic` 보간을 사용한다. 갱신 콜백은 `TweenOnUpdate`, 완료 콜백은 `TweenOnComplete`로 연결한다.
 
-`Assets/04.Scripts/Shaders/ShaderEffects.cs` 발췌
-
 ```csharp
 public  void DoFade(float from, float to , float time, eFadeMode fadeMode=eFadeMode.FADE_OUT)
 {
@@ -65,8 +63,6 @@ public  void DoFade(float from, float to , float time, eFadeMode fadeMode=eFadeM
 ```
 
 매 갱신에서 모든 대상 렌더러의 `_SplitValue`를 같은 값으로 설정한다. 이 값이 Shader Graph의 임계값에 전달되면서 표시 영역이 시간에 따라 변한다.
-
-`Assets/04.Scripts/Shaders/ShaderEffects.cs` 발췌
 
 ```csharp
 public void TweenOnUpdate(float value)

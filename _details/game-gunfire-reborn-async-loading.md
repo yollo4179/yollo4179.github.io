@@ -29,8 +29,6 @@ Client/Public/AsyncLoader.h
 
 `CLoader`는 모델·텍스처·게임 오브젝트 등록을 람다로 묶어 여러 로더에 전달한다. `Begin_Thread()`는 전달받은 `std::function<HRESULT()>`를 저장하고 `_beginthreadex()`로 실행 진입점을 시작한다.
 
-`Client/Private/AsyncLoader.cpp` 발췌
-
 ```cpp
 HRESULT CAsyncLoader::Begin_Thread(std::function<HRESULT()> pEntryPoint)
 {
@@ -46,8 +44,6 @@ HRESULT CAsyncLoader::Begin_Thread(std::function<HRESULT()> pEntryPoint)
 ## 스레드 진입점에서 로딩 실행
 
 진입점은 전달받은 로더의 `Loading()`을 호출한다. 로딩 함수가 리소스 등록 작업을 수행하고, 상위 로더는 각 작업의 `isFinished()`를 검사해 전체 완료 상태를 설정한다. 작업 함수의 반환값과 작업 종료 표시는 각각 `HRESULT`와 완료 플래그로 표현한다.
-
-`Client/Private/AsyncLoader.cpp` 발췌
 
 ```cpp
 _uint APIENTRY ALoadingMain(void* pArg)

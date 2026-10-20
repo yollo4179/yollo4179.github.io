@@ -13,7 +13,7 @@ cover_image: /assets/images/projects/zelda-breath-of-the-wild/project-cover.jpg
 cover_alt: 젤다의 전설 야생의 숨결 원작 표지 이미지
 status: 구현 기록
 period: 2025.01.10 ~ 2025.03.27
-role: 톤매핑·SSAO·캐스케이드 그림자, 라이넬·가논 보스 전투
+role: 톤매핑·SSAO·캐스케이드 그림자, ImGui HDR 설정 도구, 라이넬·가논 보스 전투
 team: 6인 협업
 stack: C++, DirectX, HLSL, ImGui, JSON
 domains:
@@ -39,7 +39,7 @@ topics:
   description: 평균 휘도 기반 톤매핑과 깊이·노멀 버퍼를 이용한 SSAO를 기록했다.
 - id: shadow
   name: 그림자
-  description: 카메라 거리별로 프러스텀을 나누고 구간별 그림자 맵을 구성했다.
+  description: 카메라 거리별로 프러스텀을 나누고 Near·Middle·Far 그림자 맵을 8192²·2048²·1024²로 구성했다.
 - id: combat
   name: 보스 전투
   description: 내부 도메인 풀링, 가논의 벽·천장 회전, 라이넬의 소켓 전환과 기절·후속 공격을 다뤘다.
@@ -51,9 +51,12 @@ topics:
 
 전투 영역에서는 라이넬과 가논의 상태 흐름, 공격 오브젝트와 풀링을 구현했다.
 
+ImGui HDR 설정 도구에서는 MiddleGrey와 White 값을 조정하고 JSON으로 저장했다. 장면을 불러올 때 HDR 매니저가 해당 설정을 복원한다. 조정·저장·복원 코드는 [톤매핑 글]({{ '/projects/zelda-breath-of-the-wild/technical/tone-mapping/#hdr-tool' | relative_url }})에서 다룬다.
+
 ## 담당 구현 {#contribution}
 
 - **렌더링:** 컴퓨트 셰이더의 평균 휘도 축소, Yxy 기반 톤매핑, SSAO 샘플·깊이 비교, 캐스케이드 그림자.
+- **HDR 설정 도구:** ImGui 슬라이더와 HDR 켜기·끄기, `LumWhite`·`MiddleGrey`의 JSON 저장·복원.
 - **보스 전투:** 라이넬·가논의 상태 전환과 공격 구성, 공격 오브젝트의 내부 도메인 풀링, 가논의 벽·천장 행렬 회전, 라이넬의 소켓 전환·기절·2페이즈 후속 공격.
 
 ## 구현 장면

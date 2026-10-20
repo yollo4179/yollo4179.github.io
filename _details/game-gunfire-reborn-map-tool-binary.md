@@ -29,8 +29,6 @@ Engine/Private/Cell.cpp
 
 맵툴은 선택한 점이 기존 점의 범위 안에 들어오면 같은 좌표를 사용한다. 삼각형의 AB와 BC를 외적하고 Y 성분의 부호로 B·C 순서를 정리한다. 셀의 변 방향이 정해져야 런타임에서도 같은 기준으로 안쪽과 바깥쪽을 판정할 수 있다.
 
-`MapTool/Private/Level_GamePlay.cpp` 발췌
-
 ```cpp
 void CLevel_GamePlay::Adjusting_Triangle(TRIANGLE_VERTICES& Triangle)
 {
@@ -56,11 +54,9 @@ void CLevel_GamePlay::Adjusting_Triangle(TRIANGLE_VERTICES& Triangle)
 | 클라이언트 | 셀 수·삼각형 좌표·스테이지 | 셀 생성과 이동 판정 |
 | 맵툴 | 셀 데이터·편집 점 목록 | 삼각형 편집 재개 |
 
-`Engine/Private/Navigation.cpp` 발췌
-
 파일 열기 실패 처리는 보완이 필요하다. 아래 원본의 `0 == hFile`은 `CreateFile`의
 실패 반환값을 검사하지 못한다. 실패 분기는 `hFile == INVALID_HANDLE_VALUE`로
-수정해야 하며, 다음 발췌에는 원본 구현을 그대로 표시했다.
+수정해야 한다.
 
 ```cpp
 HRESULT CNavigation::Initialize_Prototype(const _tchar* pNavigationDataFile)

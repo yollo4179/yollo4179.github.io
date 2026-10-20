@@ -27,8 +27,6 @@ Engine/Bin/ShaderFiles/Shader_Deferred.hlsl
 
 노멀 텍스처의 값을 -1~1 범위로 복원한다. 네 방향의 이웃 노멀과 현재 노멀 사이의 차이를 누적하고 보정 계수를 곱해 경계 강도를 만든다.
 
-`Engine/Bin/ShaderFiles/Shader_Deferred.hlsl` 발췌
-
 ```hlsl
 float DetectNormalEdges(float2 uv, float2 PixelSize)
 {
@@ -51,14 +49,10 @@ float DetectNormalEdges(float2 uv, float2 PixelSize)
 
 깊이 검출은 텍스처의 Y 성분에 1000을 곱해 비교한다. 최종 합성은 깊이 경계가 0.8 이상이고 노멀 경계가 0.2 이상인 픽셀에 외곽선을 적용한다. 이 패스의 샘플 간격은 1280×720을 기준으로 설정돼 있다.
 
-`Engine/Bin/ShaderFiles/Shader_Deferred.hlsl` 합성 조건 발췌
-
 ```hlsl
 if (0.8f <= DetectDepthEdges(In.vTexcoord, float2((1.f / 1280.f), (1.f / 720.f))) && 0.2f <= DetectNormalEdges(In.vTexcoord, float2((1.f / 1280.f), (1.f / 720.f))))
     Out.vFinal = float4(0.f, 0.f, 0.f, 1.f);
 ```
-
-`Engine/Bin/ShaderFiles/Shader_Deferred.hlsl` 발췌
 
 ```hlsl
 float DetectDepthEdges(float2 uv, float2 PixelSize)

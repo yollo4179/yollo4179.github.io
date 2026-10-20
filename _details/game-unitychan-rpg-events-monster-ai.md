@@ -39,8 +39,6 @@ Assets/04.Scripts/
 
 기본 방향 수는 16이다. 각 방향은 `transform.forward`를 Y축으로 회전해 만든다. 목표 방향과 샘플 방향의 내적을 `d`라고 하면 전진 관심도는 `0.5 × (1 + d)`, 후퇴 관심도는 `0.5 × (1 - d)`, 횡이동 관심도는 `2 × (1 - |d|)`로 계산한다.
 
-`Assets/04.Scripts/Monsters/Minotaur/MonsterBattleScript.cs` 발췌
-
 ```csharp
 _nowState = lengthToTargetOnXZ < _rangeOffset ? eNowState.MoveB
     : lengthToTargetOnXZ <= _rangeOffset + 2f ? eNowState.Strafe
@@ -59,8 +57,6 @@ for (int i = 0; i < _numRays; i++)
 ## 장애물 감쇠와 벡터 합산
 
 각 방향으로 Raycast를 쏘고 `Enemies`, `Obstacles` 레이어를 검사한다. 충돌 지점까지의 거리에서 캡슐 반지름을 뺀 비율을 안전도에 사용한다. 관심도에 안전도를 곱한 뒤 방향 벡터에 가중치를 주어 합산한다.
-
-`Assets/04.Scripts/Monsters/Minotaur/MonsterBattleScript.cs` 발췌
 
 ```csharp
 Ray ray = new Ray(transform.position + _offset, axis);
@@ -85,8 +81,6 @@ Ray ray = new Ray(transform.position + _offset, axis);
 ## 이동 방향과 바라보는 방향
 
 `UpdateBattle`은 플레이어를 향하는 `_nowLookDir`를 `Vector3.RotateTowards`로 갱신한다. `UpdateMovement`는 이동 벡터를 위치에 더하고 바라보는 방향에는 `Quaternion.Slerp`를 적용한다. 횡이동하면서도 회전 목표는 플레이어 방향으로 유지한다.
-
-`Assets/04.Scripts/Monsters/Minotaur/MonsterBattleScript.cs` 발췌
 
 ```csharp
 public virtual void UpdateMovement(Vector3 direction, Vector3 lookDir)

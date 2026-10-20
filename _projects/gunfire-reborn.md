@@ -69,7 +69,7 @@ DirectX 11로 만든 개인 FPS 프로젝트다. 플레이어가 이동하며 �
 
 ## 코드로 읽는 구현 흐름
 
-맵 제작과 이동 3편, 트레일과 화면 효과 6편, 애니메이션과 리소스 4편으로 구성했다. 각 글은 소스 파일의 역할, 데이터 흐름, 실제 C++·HLSL 발췌와 실행 자료를 연결한다.
+맵 제작과 이동 3편, 트레일과 화면 효과 6편, 애니메이션과 리소스 4편으로 구성했다. 각 글은 소스 파일의 역할, 데이터 흐름, C++·HLSL 코드와 실행 자료를 연결한다.
 
 - [애니메이션 전환]({{ '/projects/gunfire-reborn/technical/animation-transition/' | relative_url }}): 뼈별 SRT 보간.
 - [UI 관리]({{ '/projects/gunfire-reborn/technical/ui-model-data/' | relative_url }}): 태그 등록, 팝업 깊이와 이벤트.

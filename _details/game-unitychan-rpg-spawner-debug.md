@@ -45,8 +45,6 @@ NavMesh Volume → 셀 후보 → 지면 Raycast → NavMesh 샘플 검사
 
 `EnemySpawner.SpawnMonsterCells`는 Volume의 X·Z 크기를 셀 크기로 나눠 행과 열을 계산한다. 표면의 회전과 좌상단 기준 위치를 `SpawnTile.TestValidityAndSet`에 넘긴다. 셀은 인덱스를 행·열 좌표로 바꾸어 중심 위치를 계산한다.
 
-`Assets/04.Scripts/Monsters/Enemies/SpawnTile.cs` 발췌
-
 ```csharp
 int row = (int)volumeSize.x / (int)_cellWidth;
 int col = (int)volumeSize.y /(int)_cellDepth;
@@ -75,8 +73,6 @@ transform.position= _cellPosition;
 ## 셀 상태를 네모 박스로 표시
 
 `OnDrawGizmos`는 `Gizmos.matrix`를 셀의 `localToWorldMatrix`로 바꾸어 회전과 위치를 반영한다. 확정된 셀은 초록색, 나머지는 보라색으로 표시한다. 반투명 큐브와 WireCube를 그린 뒤 이전 행렬을 복원한다.
-
-`Assets/04.Scripts/Monsters/Enemies/SpawnTile.cs` 발췌
 
 ```csharp
 Gizmos.color = new Color(1f, 0f, 1f, 0.5f);

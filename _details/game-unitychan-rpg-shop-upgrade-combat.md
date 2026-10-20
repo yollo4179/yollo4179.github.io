@@ -44,8 +44,6 @@ ShopInfo → 아이템 ID 조회 → 상품 셀 → 상품 선택
 
 `ShopDirector`는 선택한 셀의 `ItemID`와 `ItemInfo`를 `ConfirmTrade`에 전달한다. 구매는 `POLICY_BUY`, 수량을 입력하는 판매는 `POLICY_SELL`로 처리한다. 아이템 선택 시에는 상세 팝업을 열어 정의 데이터를 표시한다.
 
-`Assets/04.Scripts/UI/Shop/ShopDirector.cs` 발췌
-
 ```csharp
 _btnBuy.onClick.AddListener(() =>
 {
@@ -57,8 +55,6 @@ _btnBuy.onClick.AddListener(() =>
 ```
 
 `ConfirmTrade`는 입력 문자열을 정수로 변환한다. 구매 수량이 양수이고 보유 금액이 `수량 × 가격` 이상이면 `_allowTobuy`를 설정한다. 거래 버튼은 이 플래그를 확인한 뒤 인벤토리에 아이템을 추가하고 금액을 차감한다.
-
-`Assets/04.Scripts/UI/ConfirmMassage/ConfirmTrade.cs` 발췌
 
 ```csharp
 case eTRADEPOLICY.POLICY_BUY:

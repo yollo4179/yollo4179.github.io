@@ -28,8 +28,6 @@ Engine/Private/Renderer.cpp
 
 축소한 발광 텍스처에 가로·세로 패스를 적용한다. 가로 패스는 X 좌표를 이동하며 13개 샘플에 가중치를 곱한다. 세로 패스는 같은 구성을 Y 방향으로 적용한다.
 
-`Engine/Bin/ShaderFiles/Shader_Deferred.hlsl` 발췌
-
 ```hlsl
 PS_OUT PS_MAIN_DOWNSAMPLING_BLURX(PS_IN In)
 {
@@ -50,8 +48,6 @@ PS_OUT PS_MAIN_DOWNSAMPLING_BLURX(PS_IN In)
 ## 확대 결과를 화면에 합성
 
 업샘플링한 발광 색에 강도 텍스처의 값을 반영하고 원본 화면 색에 더한다. 이 합성 경로가 밝은 부분 주변으로 퍼지는 글로우를 만든다.
-
-`Engine/Bin/ShaderFiles/Shader_Deferred.hlsl` 발췌
 
 ```hlsl
 PS_OUT PS_MAIN_GLOW_DEFFERED_UPSMAPLING(PS_IN In)

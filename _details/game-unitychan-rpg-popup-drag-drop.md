@@ -40,8 +40,6 @@ Assets/04.Scripts/
 
 화면 좌표는 `ScreenPointToLocalPointInRectangle`로 드래그 Canvas의 로컬 좌표로 변환한다. Overlay Canvas에는 카메라로 `null`을 전달한다. 아이콘의 오프셋은 0이고, 팝업을 움직일 때는 눌렀던 지점과 팝업 위치의 차이를 더한다.
 
-`Assets/04.Scripts/UI/Common/DrafAndDrop/UI_Draggable_Move.cs` 발췌
-
 ```csharp
 public void OnDrag(PointerEventData eventData)
 {
@@ -56,8 +54,6 @@ public void OnDrag(PointerEventData eventData)
 ## 원본 복사와 슬롯 교환
 
 `OnDrop`은 `ItemIcon_Prefab`을 대상으로 동작한다. 풀에서 아이콘을 빌린 다음 일반 아이템은 `UpdateItemData`, 스킬은 `UpdateSkillSOData`로 데이터를 넘긴다. 원본 아이콘은 원래 부모로 돌려놓고, 새 아이콘에 드래그 상태를 복사한다.
-
-`Assets/04.Scripts/UI/Common/DrafAndDrop/UI_Droppable.cs` 발췌
 
 ```csharp
 ItemDataStorage copyTargetIDS = eventData.pointerDrag.GetComponentInChildren<ItemDataStorage>();
@@ -82,8 +78,6 @@ switch(type)
 {% include game-video-embed.html id="jSHGNqbV-VE" title="Skill2QuickSlot · 스킬북에서 퀵 슬롯으로 등록" %}
 
 퀵 슬롯은 `SkillSO.handle`과 슬롯 번호를 연결한다. 스킬 아이콘에 저장한 SO 참조에서 핸들을 읽고 `UI_DisplayQuickSlots.AddKey`에 전달한다. 일반 아이템은 `ItemInfo`를 키로 전달한다.
-
-`Assets/04.Scripts/UI/Skills/QuickSlot/UI_QuickSlot.cs` 발췌
 
 ```csharp
 public override void SetSlotKey(ItemDataStorage ids)

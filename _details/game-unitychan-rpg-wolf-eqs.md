@@ -22,8 +22,6 @@ nav_context: GAME PORTFOLIO / UNITYCHAN RPG
 
 `EQSPoint`에는 위치, 링 번호, 링 안의 인덱스, 예약자와 점유자를 저장한다. 이동 중 예약과 도착 후 점유를 별도 필드로 표현한다.
 
-`Assets/04.Scripts/Managers/SlotManager/EQSManager.cs` 발췌
-
 ```csharp
 public class EQSPoint
 {
@@ -66,8 +64,6 @@ Assets/04.Scripts/
 
 가중합 정책은 각 점수에 `Weight / totalWeight`를 곱해 합산한다. 쿼리는 가중 곱과 최솟값 정책도 제공한다. 평가 결과는 내림차순으로 정렬하고 `_topResultCount`개 중 무작위로 하나를 고른다. 기본 후보 수가 1이면 가장 높은 점수의 지점을 고른다.
 
-`Assets/04.Scripts/CommonScrips/EQSSystem/EQSQuery.cs` 발췌
-
 ```csharp
 case SCORING_POLICY.eWeightedSum:
 {
@@ -83,8 +79,6 @@ case SCORING_POLICY.eWeightedSum:
 ```
 
 점유 테스트는 자신의 점유 지점에 1을 반환하고 다른 늑대가 점유하거나 예약한 지점에는 음의 무한대를 반환한다. 비어 있는 지점에는 늑대와의 거리와 점수 곡선을 적용한다.
-
-`Assets/04.Scripts/CommonScrips/EQSSystem/EQSTests/OccupancyTest/EQSOccupancyTestSO.cs` 발췌
 
 ```csharp
 public float Execute(EQSPoint point, EQSQuerier querier, EQSContext context)
@@ -112,8 +106,6 @@ public float Execute(EQSPoint point, EQSQuerier querier, EQSContext context)
   <figcaption>플레이어 주변의 EQS 후보 지점과 늑대 배치를 표시한 디버그 화면</figcaption>
 </figure>
 
-`Assets/04.Scripts/CommonScrips/EQSSystem/EQSQuery.cs` 발췌
-
 ```csharp
 float score = point.score;
 if (0f >=score)
@@ -126,8 +118,6 @@ Gizmos.DrawWireSphere(point.point.pos, 0.1f);
 ## 예약에서 점유로 전환
 
 `QueryNewPoint`는 타깃, 전체 늑대 목록, 후보 지점으로 `EQSContext`를 구성한다. 선택한 지점의 NavMesh 구역이 몬스터의 구역과 같은지 확인하고 기존 점유·예약을 갱신한다. 새 지점은 `_goalPoint`로 저장하며 `MoveToGoal`이 `NavMeshAgent.SetDestination`에 전달한다.
-
-`Assets/04.Scripts/CommonScrips/EQSSystem/EQSBehavior/EQSQuerierBehaviour_Battle.cs` 발췌
 
 ```csharp
 private void ReservePoint(EQSPoint point)
@@ -143,8 +133,6 @@ private void ReservePoint(EQSPoint point)
 ```
 
 목표 지점까지의 거리가 `_stoppingDistance`보다 작아지면 `OccupyPoint`가 점유자를 등록한다. 이때 예약자와 `_goalPoint`를 비우고 `OccupingPoint`에 도착 지점을 보관한다. 전투 이동 클래스에는 방향별 관심도·위험도 계산과 벽 주변 이동 처리도 함께 들어 있다.
-
-`Assets/04.Scripts/CommonScrips/EQSSystem/EQSBehavior/EQSQuerierBehaviour_Battle.cs` 발췌
 
 ```csharp
 private void OccupyPoint(EQSPoint point)

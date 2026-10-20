@@ -28,8 +28,6 @@ Client/Bin/ShaderFiles/Shader_VtxPointInstance.hlsl
 
 기본 점을 담은 버퍼와 파티클마다 달라지는 행렬·수명 정보를 담은 버퍼를 입력 조립기에 함께 바인딩한다. 인스턴스 수를 드로우 호출에 전달해 같은 기본 형상을 반복해서 그린다.
 
-`Engine/Private/VIBuffer_Particle_Instance.cpp` 발췌
-
 ```cpp
 HRESULT CVIBuffer_Particle_Instance::Render()
 {
@@ -41,8 +39,6 @@ HRESULT CVIBuffer_Particle_Instance::Render()
 ## 파티클 수명에 따라 위치 갱신
 
 낙하형 파티클은 개별 속도로 Y 위치를 낮추고 경과 시간을 누적한다. 수명이 끝난 인스턴스는 반복 설정에 따라 초기 위치와 시간을 다시 사용한다. 갱신한 값은 인스턴스 버퍼에 기록한다.
-
-`Engine/Private/VIBuffer_Particle_Instance.cpp` 발췌
 
 ```cpp
 void CVIBuffer_Particle_Instance::Drop(_float fTimeDelta)

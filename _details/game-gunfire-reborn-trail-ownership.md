@@ -28,8 +28,6 @@ Client/Private/Trail_Monster02.cpp
 
 `Clone()`은 복제본의 `Initialize()`를 호출한다. 초기화에서는 `TRAIL_DESC`의 최대 정점 수로 버퍼 크기를 정하고 CPU 쓰기가 가능한 동적 정점 버퍼를 만든다. 각 트레일의 `m_TrailVertices`가 해당 객체의 궤적을 보관한다.
 
-`Engine/Private/VIBuffer_Trail.cpp` 발췌
-
 ```cpp
 ZeroMemory(&m_BufferDesc, sizeof m_BufferDesc);
 m_BufferDesc.ByteWidth = m_iVertexStride * m_iNumVertices;
@@ -49,8 +47,6 @@ if (FAILED(__super::Create_Buffer(&(this->m_pVB))))
 ## 두 줄의 정점을 곡선으로 연결
 
 `Add_Points_CatMullRom()`은 위·아래 끝점을 각각 보간한다. 네 제어점 사이에 중간 정점 쌍을 넣고, 쌓인 정점 수에 맞춰 UV와 삼각형 인덱스 수를 갱신한다. 정점 한도를 넘으면 앞부분을 정리하고 새 궤적을 이어 쓴다.
-
-`Engine/Private/VIBuffer_Trail.cpp` 발췌
 
 ```cpp
 for (_uint i = 0; i < m_iCatmullRomCnt; ++i)

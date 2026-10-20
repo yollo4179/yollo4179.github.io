@@ -47,8 +47,6 @@ DialogueNodes → 대사·연출 목록
 
 `CSVDialogueParser`는 두 파일을 `Resources.Load<TextAsset>`로 읽는다. 줄바꿈을 LF로 통일하고 빈 행을 제외한다. 첫 행은 헤더이므로 인덱스 1부터 해석한다. 행의 열은 쉼표로 나눈다.
 
-`Assets/04.Scripts/UI/Dialogue/Utility/DialogueParser.cs` 발췌
-
 ```csharp
 TextAsset EdgeAsset = Resources.Load<TextAsset>("Data/CSV/" + _EdgeFileName);
 TextAsset NodeAsset = Resources.Load<TextAsset>("Data/CSV/" + _NodeFileName);
@@ -64,8 +62,6 @@ var EdgeRows = Lines.Split('\n', StringSplitOptions.RemoveEmptyEntries);
 
 Edges는 `대화 이벤트 이름 → 출발 NodeID → 도착 NodeID와 EdgeData 목록`의 중첩 Dictionary로 구성한다. `EdgeData`에는 버튼 문구와 응답 타입을 보관한다. EventName이 비어 있는 다음 행들은 이전 이벤트 이름을 사용한다.
 
-`Assets/04.Scripts/UI/Dialogue/Utility/DialogueParser.cs` 발췌
-
 ```csharp
 int ToNodeID = int.Parse(EdgeRowElements[(int)DIALOGUE_EDGE.TO_NODEID].Trim());
     int FromNodeID = int.Parse(EdgeRowElements[(int)DIALOGUE_EDGE.FROM_NODEID].Trim());
@@ -80,8 +76,6 @@ int ToNodeID = int.Parse(EdgeRowElements[(int)DIALOGUE_EDGE.TO_NODEID].Trim());
 ## 연속 대사와 선택지 구성
 
 Nodes에서 NodeID가 있는 행을 만나면 새 `Dialogue`를 만들고 `NodeIDToIndex`에 등록한다. 다음 NodeID가 나올 때까지 대사, 애니메이션, 효과 수치를 같은 객체의 목록에 넣는다. 대사 안의 작은따옴표는 쉼표로, `&`는 줄바꿈으로 바꾼다.
-
-`Assets/04.Scripts/UI/Dialogue/Utility/DialogueParser.cs` 발췌
 
 ```csharp
 NowDialogue.Scripts.Add(NodeElements[(int)DIALOGUE_NODE.SCRIPT].ToString().Replace("'", ",").Replace("&","\n"));

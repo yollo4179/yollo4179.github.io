@@ -31,8 +31,6 @@ Client/Bin/ShaderFiles/Shader_VtxAnimMesh.hlsl
 
 노이즈 값이 임계값보다 작으면 `discard`로 픽셀을 제거한다. 임계값 주변에서는 `smoothstep`으로 경계 색을 계산해 사라지는 면의 가장자리를 표시한다.
 
-`Client/Bin/ShaderFiles/Shader_VtxAnimMesh.hlsl` 발췌
-
 ```hlsl
 PS_OUT PS_MAIN_DESOLVE(PS_IN In)
 {

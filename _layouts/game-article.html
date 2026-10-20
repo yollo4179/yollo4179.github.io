@@ -21,9 +21,29 @@ layout: default
       <ul class="project-detail__tags" aria-label="기술 태그">{% for tag in page.tags %}<li>#{{ tag }}</li>{% endfor %}</ul>
     </div></header>
     <div class="page-container game-article-layout">
-      <aside class="game-article-index" aria-label="{{ page.topic }} 기술 글 목록"><p class="section-index">{{ page.topic }} · {{ game_articles.size }}편</p><ol>{% for item in game_articles %}<li><a href="{{ item.url | relative_url }}"{% if item.url == page.url %} aria-current="page"{% endif %}>{{ item.title }}</a></li>{% endfor %}</ol></aside>
+        {% if page.article_toc %}
+          {% assign article_sections = content | split: '<h2 id="' %}
+          <nav class="detail-navigation" aria-label="Detail 내비게이션">
+            <p class="section-index">DETAIL</p>
+            <ol>
+              {% for section in article_sections offset:1 %}
+                {% assign section_id = section | split: '"' | first %}
+                {% assign section_title = section | split: '</h2>' | first | split: '>' | slice: 1, 100 | join: '>' | strip_html %}
+                <li><a href="#{{ section_id | escape }}">{{ section_title | escape }}</a></li>
+              {% endfor %}
+            </ol>
+          </nav>
+        {% else %}
+          <aside class="game-article-index" aria-label="{{ page.topic }} 기술 글 목록"><p class="section-index">{{ page.topic }} · {{ game_articles.size }}편</p><ol>{% for item in game_articles %}<li><a href="{{ item.url | relative_url }}"{% if item.url == page.url %} aria-current="page"{% endif %}>{{ item.title }}</a></li>{% endfor %}</ol></aside>
+        {% endif %}
       <div class="markdown-content game-article-body">{{ content }}</div>
     </div>
+    {% if page.article_toc %}
+      <nav class="page-container detail-related-navigation" aria-label="{{ page.topic }} 기술 글 목록">
+        <p class="section-index">{{ page.topic }} · {{ game_articles.size }}편</p>
+        <ul>{% for item in game_articles %}<li><a href="{{ item.url | relative_url }}"{% if item.url == page.url %} aria-current="page"{% endif %}>{{ item.title }}</a></li>{% endfor %}</ul>
+      </nav>
+    {% endif %}
     <nav class="detail-pagination page-container" aria-label="기술 글 이동"><a href="{{ category_url | relative_url }}"><span>{{ page.topic }}</span><strong>{{ page.topic }}으로 돌아가기</strong></a>{% for item in game_articles %}{% if item.url == page.url %}{% assign next_index = forloop.index %}{% assign next_article = game_articles[next_index] %}{% if next_article %}<a href="{{ next_article.url | relative_url }}"><span>다음 글</span><strong>{{ next_article.title }}</strong></a>{% endif %}{% endif %}{% endfor %}</nav>
   </article>
 </main>

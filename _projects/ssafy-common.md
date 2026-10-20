@@ -48,7 +48,7 @@ footer_title: 과정을 남기는 기록.
 >
 > 선택한 기술과 구조, 대안을 비교한 기준, 구현 과정에서 해결한 핵심 이슈를 기록합니다.
 
-{% include evidence.html image="/assets/images/projects/ssafy-common/solution-placeholder.svg" alt="시스템 구조와 구현 과정을 넣을 자리 표시 이미지" title="선택의 이유가 보이는 구현 자료" description="최종 화면만 보여주지 말고 문제를 어떤 구조와 순서로 해결했는지 연결해서 설명합니다." items="클라이언트·서버·데이터 흐름이 보이는 아키텍처 그림|검토한 대안과 최종 선택 기준을 비교한 표|핵심 기능의 구현 전후 화면 또는 오류 해결 과정" note="긴 코드 캡처보다 핵심 부분만 발췌하고, 전체 코드는 저장소 링크로 연결하는 편이 좋습니다." %}
+{% include evidence.html image="/assets/images/projects/ssafy-common/solution-placeholder.svg" alt="시스템 구조와 구현 과정을 넣을 자리 표시 이미지" title="선택의 이유가 보이는 구현 자료" description="최종 화면만 보여주지 말고 문제를 어떤 구조와 순서로 해결했는지 연결해서 설명합니다." items="클라이언트·서버·데이터 흐름이 보이는 아키텍처 그림|검토한 대안과 최종 선택 기준을 비교한 표|핵심 기능의 구현 전후 화면 또는 오류 해결 과정" %}
 
 ## 결과와 회고
 

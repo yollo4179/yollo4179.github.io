@@ -87,8 +87,6 @@ _vector RightNew = XMVector3Normalize(XMVector3Cross(UpLerp, LookLerp));
 `Ready_LerpRU_Ceiling()`은 몸체의 Look을 축으로 -90도 회전 행렬을 만들고, 기존 Right·Up을 그 행렬로 변환해 목표 벡터를 구한다. `Ready_LerpRL_Ceiling()`은 몸체의 Up을 축으로 -90도 회전해 목표 Right·Look을 구한다. 전환에 필요한 축 조합에 따라 보간 함수를 나눴다.
 
 
-`Client/Private/Ganon_FSM.cpp` 발췌
-
 ```cpp
 void CGanonFSM::Ready_LerpRU_Ceiling(_float fLerpSpeed)
 {

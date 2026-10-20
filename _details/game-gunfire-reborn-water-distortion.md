@@ -31,8 +31,6 @@ Client/Bin/ShaderFiles/Shader_VtxWater.hlsl
 
 화면 텍스처는 굴절 방향과 노이즈 오프셋을 더한 UV로 읽는다. 물의 디퓨즈 색과 화면 색을 0.5 비율로 섞고 디스토션 출력에 기록한다.
 
-`Client/Bin/ShaderFiles/Shader_VtxWater.hlsl` 발췌
-
 ```hlsl
 PS_WAVE_OUT PS_MAIN_WAVE(PS_WAVE_IN In)
 {

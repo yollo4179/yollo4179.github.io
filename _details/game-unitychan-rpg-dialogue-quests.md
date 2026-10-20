@@ -41,8 +41,6 @@ Assets/04.Scripts/
 
 대화 목표의 `Task_TalkToNPC`는 NPC ID, 퀘스트 코드, 목표 코드, 목표 타입과 수락 상태를 검사한다. 조건이 맞으면 진행량을 증가시킨다. 목표가 끝나면 구독을 해제하고 다음 목표를 활성화한다.
 
-`Assets/04.Scripts/Quest/TaskStorage/TaskEvaluator.cs` 발췌
-
 ```csharp
 public void justCheckNowAndCheckNext()
 {
@@ -60,8 +58,6 @@ public void justCheckNowAndCheckNext()
 ## 완료 처리와 보상 지급
 
 `CheckAndCallCompleteEvent`는 모든 하위 목표의 완료 상태를 확인한다. 퀘스트를 완료 상태로 바꾸고 `QuestData.GiveReward`를 호출한 다음 `Event_QuestCompleted`를 발행한다. `GiveReward`는 아이템을 인벤토리에 추가하고 골드와 경험치를 플레이어에 전달한다.
-
-`Assets/04.Scripts/Quest/TaskStorage/TaskEvaluator.cs` 발췌
 
 ```csharp
 public void CheckAndCallCompleteEvent()
@@ -95,8 +91,6 @@ public void CheckAndCallCompleteEvent()
 ## 진행 상태별 퀘스트 목록
 
 퀘스트 UI의 목록은 `GetReadyQuests`, `GetOnQuests`, `GetCompletedQuests`로 나눈다. 각 메서드는 런타임 객체의 상태를 기준으로 준비·진행·완료 목록을 반환한다.
-
-`Assets/04.Scripts/Managers/QuestManager.cs` 발췌
 
 ```csharp
 public List<QuestRuntimeProcess> GetReadyQuests()

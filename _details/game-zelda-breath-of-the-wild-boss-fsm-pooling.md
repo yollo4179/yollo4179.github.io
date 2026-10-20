@@ -42,8 +42,6 @@ Client/Private/Ganon_FSM.cpp
 화염 등록 시에는 라이넬 몸체의 최종 월드 행렬, 머리 소켓 행렬, `m_SkillSigns`의 주소를 전달한다. 공격 객체가 필요한 보스의 자세와 전투 신호를 보스 내부에서 연결하는 구조다. 공격 객체를 미리 구성해 두므로 공격 시점에는 프로토타입 복제와 자식 등록을 반복하지 않는다.
 
 
-`Client/Private/Boss_Lynel.cpp` 발췌
-
 ```cpp
 HRESULT CBossLynel::Register_Skill_Fire()
 {
@@ -103,8 +101,6 @@ void CBossLynel::Active_Skill(_wstring SkillTag, int NumMaxSkills, void* pArg)
 ## 가논의 공격 종료 확인
 
 가논은 종류별 배열의 활성 상태를 순회한다. 해당 종류의 객체가 모두 비활성이면 FSM이 다음 단계로 넘어갈 때 사용하는 조건을 만족한다.
-
-`Client/Private/Ganon.cpp` 발췌
 
 ```cpp
 _bool CGanon::AreSkillsAllInActive(_wstring SkillTag)
