@@ -79,8 +79,8 @@ $$
 
 <div class="tone-curve-comparison" data-media-gallery>
   <figure>
-    <a href="{{ '/assets/images/projects/zelda-breath-of-the-wild/tone-mapping-white-point-curve.png' | relative_url }}" aria-label="그래프 1: 화이트 포인트 2.2 확대">
-      <img src="{{ '/assets/images/projects/zelda-breath-of-the-wild/tone-mapping-white-point-curve.png' | relative_url }}" alt="화이트 포인트 2.2에서 초록색 톤 커브의 기울기가 입력 증가에 따라 작아지고, 입력 2.2에서 출력 1을 지나는 그래프" loading="lazy">
+    <a href="{{ '/assets/images/projects/zelda-breath-of-the-wild/tone-mapping-white-point-two-point-two-green.png' | relative_url }}" aria-label="그래프 1: 화이트 포인트 2.2 확대">
+      <img src="{{ '/assets/images/projects/zelda-breath-of-the-wild/tone-mapping-white-point-two-point-two-green.png' | relative_url }}" alt="화이트 포인트 2.2에서 초록색 톤 커브의 기울기가 입력 증가에 따라 작아지고, 입력 2.2에서 출력 1을 지나는 그래프" loading="lazy">
     </a>
     <figcaption>그래프 1 · wp = 2.2: 입력이 커질수록 기울기가 작아진다. 초록색 곡선은 (2.2, 1)을 지난다.</figcaption>
   </figure>
