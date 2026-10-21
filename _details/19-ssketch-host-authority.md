@@ -45,30 +45,15 @@ SSketch는 같은 주제로 그림을 그리고, 밤에는 다른 플레이어�
 6주라는 기간 안에 서버에서 모든 클라이언트의 물리 판정을 대신 해 주는 서버 구조를 만들기에는 시간이 부족하다고 판단했다. 물리를 전용 서버에 새로 구현하려면 Unity 물리와 같은 이동·중력·경사·충돌 규칙을 서버에서 재현하고, 그림과 전투 오브젝트를 포함한 월드 상태를 관리하고, 클라이언트 예측과 서버 상태 사이의 재조정 체계까지 따로 만들어야 했다. 그래서 게임에 참여하는 <span class="notice-yellow">방장이 호스트 역할을 맡아 물리 시뮬레이션</span>을 직접 수행하도록 구성했다.
 
 
-```
-                          ┌──────────────────────┐
-                          │     Relay Server     │
-                          │                      │
-                          │ Input / Snapshot 중계│
-                          └──────▲────────▲──────┘
-                                 │        │
-                       Snapshot  │        │ Input
-                                 │        │
-                    ┌────────────┘        └────────────┐
-                    │                                  │
-             ┌──────┴───────┐                   ┌──────┴───────┐
-             │  Host Client │                   │ Guest Client │
-             │              │                   │              │
-             │ Host Input   │─────────────────▶│ Input 생성    │
-             │ Guest Input  │◀─────────────────│               │
-             │      ↓       │   Server가 중계    │              │ 
-             │ Unity Physics│                   │              │
-             │      ↓       │                   │              │
-             │ 상태 확정    │                    │              │
-             │      ↓       │                   │              │
-             │ Snapshot 생성│                    │ Snapshot 수신│
-             └──────────────┘                   └──────────────┘
-
+```mermaid
+flowchart TB
+    Guest[Guest Client<br/>Input 생성] -->|Guest Input| Relay[Relay Server<br/>Input / Snapshot 중계]
+    Relay -->|Guest Input| HostInput[Host Client<br/>Host Input + Guest Input]
+    HostInput --> Physics[Unity Physics]
+    Physics --> State[상태 확정]
+    State --> Snapshot[Snapshot 생성]
+    Snapshot --> Relay
+    Relay -->|Snapshot| Receive[Guest Client<br/>Snapshot 수신]
 ```
 
 
@@ -172,7 +157,7 @@ flowchart TD
 
 Host Authority는 Unity 물리를 한 곳에서 실행하는 장점이 있지만, 호스트가 멈추면 권위 진행도 영향을 받는다. Guest가 자신의 움직임을 예측하고 있어도 확정 결과가 늦어지는 문제까지 없앨 수는 없다.
 
-호스트 이탈도 고려해야 한다. 지금은 진행 중 호스트 이탈을 게임 종료 경로로 처리한다. (호스트의 연결이 끊겼다는  Sysytem UI를 띄운다.)
+호스트 이탈도 고려해야 한다. 지금은 진행 중 호스트 이탈을 게임 종료 경로로 처리한다. (호스트의 연결이 끊겼다는 System UI를 띄운다.)
 
 호스트가 신뢰 경계 안에 들어오는 비용도 남는다. 중앙 서버가 Session과 권한을 확인하더라도, 호스트가 만든 물리 결과의 정당성을 독립적으로 증명하려면 별도의 검증이나 권위 실행이 필요하다.
 

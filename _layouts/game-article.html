@@ -45,6 +45,6 @@ layout: default
         <ul>{% for item in game_articles %}<li><a href="{{ item.url | relative_url }}"{% if item.url == page.url %} aria-current="page"{% endif %}>{{ item.title }}</a></li>{% endfor %}</ul>
       </nav>
     {% endif %}
-    <nav class="detail-pagination page-container" aria-label="기술 글 이동"><a href="{{ category_url | relative_url }}"><span>{{ page.topic }}</span><strong>{{ page.topic }}으로 돌아가기</strong></a>{% for item in game_articles %}{% if item.url == page.url %}{% assign next_index = forloop.index %}{% assign next_article = game_articles[next_index] %}{% if next_article %}<a href="{{ next_article.url | relative_url }}"><span>다음 글</span><strong>{{ next_article.title }}</strong></a>{% endif %}{% endif %}{% endfor %}</nav>
+    <nav class="detail-pagination page-container" aria-label="기술 글 이동"><a href="{{ category_url | relative_url }}"><span>{{ page.topic }}</span><strong>목록으로 돌아가기</strong></a>{% for item in game_articles %}{% if item.url == page.url %}{% assign next_index = forloop.index %}{% assign next_article = game_articles[next_index] %}{% if next_article %}<a href="{{ next_article.url | relative_url }}"><span>다음 글</span><strong>{{ next_article.title }}</strong></a>{% endif %}{% endif %}{% endfor %}</nav>
   </article>
 </main>
