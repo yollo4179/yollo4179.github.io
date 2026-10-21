@@ -79,20 +79,20 @@ $$
 
 <div class="tone-curve-comparison" data-media-gallery>
   <figure>
-    <a href="{{ '/assets/images/projects/zelda-breath-of-the-wild/tone-mapping-white-point-two-point-two-green.png' | relative_url }}" aria-label="그래프 1: 화이트 포인트 2.2 확대">
-      <img src="{{ '/assets/images/projects/zelda-breath-of-the-wild/tone-mapping-white-point-two-point-two-green.png' | relative_url }}" alt="화이트 포인트 2.2에서 초록색 톤 커브의 기울기가 입력 증가에 따라 작아지고, 입력 2.2에서 출력 1을 지나는 그래프" loading="lazy">
+    <a href="{{ '/assets/images/projects/zelda-breath-of-the-wild/tone-mapping-uniform-two-point-two.png' | relative_url }}" aria-label="그래프 1: 화이트 포인트 2.2 확대">
+      <img src="{{ '/assets/images/projects/zelda-breath-of-the-wild/tone-mapping-uniform-two-point-two.png' | relative_url }}" alt="화이트 포인트 2.2에서 초록색 톤 커브의 기울기가 입력 증가에 따라 작아지고, 입력 2.2에서 출력 1을 지나는 그래프" loading="lazy">
     </a>
     <figcaption>그래프 1 · wp = 2.2: 입력이 커질수록 기울기가 작아진다. 초록색 곡선은 (2.2, 1)을 지난다.</figcaption>
   </figure>
   <figure>
-    <a href="{{ '/assets/images/projects/zelda-breath-of-the-wild/tone-mapping-white-point-one.png' | relative_url }}" aria-label="그래프 2: 화이트 포인트 1 확대">
-      <img src="{{ '/assets/images/projects/zelda-breath-of-the-wild/tone-mapping-white-point-one.png' | relative_url }}" alt="화이트 포인트 1에서 초록색 톤 커브가 입력과 출력이 같은 직선이며 입력 1에서 출력 1을 지나는 그래프" loading="lazy">
+    <a href="{{ '/assets/images/projects/zelda-breath-of-the-wild/tone-mapping-uniform-one.png' | relative_url }}" aria-label="그래프 2: 화이트 포인트 1 확대">
+      <img src="{{ '/assets/images/projects/zelda-breath-of-the-wild/tone-mapping-uniform-one.png' | relative_url }}" alt="화이트 포인트 1에서 초록색 톤 커브가 입력과 출력이 같은 직선이며 입력 1에서 출력 1을 지나는 그래프" loading="lazy">
     </a>
     <figcaption>그래프 2 · wp = 1: 출력이 입력 s와 같은 직선이다. 초록색 직선은 (1, 1)을 지난다.</figcaption>
   </figure>
   <figure>
-    <a href="{{ '/assets/images/projects/zelda-breath-of-the-wild/tone-mapping-white-point-half.png' | relative_url }}" aria-label="그래프 3: 화이트 포인트 0.5 확대">
-      <img src="{{ '/assets/images/projects/zelda-breath-of-the-wild/tone-mapping-white-point-half.png' | relative_url }}" alt="화이트 포인트 0.5에서 초록색 톤 커브의 기울기가 양수 입력 증가에 따라 커지고, 입력 0.5에서 출력 1을 지나는 그래프" loading="lazy">
+    <a href="{{ '/assets/images/projects/zelda-breath-of-the-wild/tone-mapping-uniform-half.png' | relative_url }}" aria-label="그래프 3: 화이트 포인트 0.5 확대">
+      <img src="{{ '/assets/images/projects/zelda-breath-of-the-wild/tone-mapping-uniform-half.png' | relative_url }}" alt="화이트 포인트 0.5에서 초록색 톤 커브의 기울기가 양수 입력 증가에 따라 커지고, 입력 0.5에서 출력 1을 지나는 그래프" loading="lazy">
     </a>
     <figcaption>그래프 3 · wp = 0.5: 입력이 커질수록 기울기가 커진다. 초록색 곡선은 (0.5, 1)을 지난다.</figcaption>
   </figure>
