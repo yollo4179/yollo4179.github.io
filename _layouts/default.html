@@ -3,6 +3,13 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2YZ5GQ7SZ9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-2YZ5GQ7SZ9');
+    </script>
     {% assign meta_description = page.description | default: page.summary %}
     {% if meta_description == nil and page.layout == 'game-article-index' %}
       {% assign meta_description = page.content %}
