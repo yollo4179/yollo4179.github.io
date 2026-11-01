@@ -1,0 +1,45 @@
+---
+layout: default
+---
+<main id="main-content" class="travelmate-project">
+  <article>
+    <header class="travelmate-hero">
+      <div class="page-container">
+        <nav class="breadcrumbs" aria-label="현재 위치">
+          <ol><li><a href="{{ '/projects/' | relative_url }}">프로젝트</a></li><li aria-current="page">{{ page.title }}</li></ol>
+        </nav>
+        <div class="travelmate-hero__intro">
+          <div>
+            <p class="travelmate-eyebrow">AI TRAVEL COMPANION · RIRI</p>
+            <h1>{{ page.title }}</h1>
+            <p class="travelmate-hero__heading">{{ page.hero_heading }}</p>
+            <p class="travelmate-hero__description">{{ page.hero_intro }}</p>
+          </div>
+          <a class="travelmate-hero__action" href="#overview">프로젝트 둘러보기 <span aria-hidden="true">↘</span></a>
+        </div>
+        <figure class="travelmate-hero__image">
+          <img src="{{ page.hero_image | relative_url }}" alt="{{ page.hero_alt | escape }}" width="1672" height="941" fetchpriority="high">
+          <figcaption>TravelMate · 리리와 함께 떠나는 여행</figcaption>
+        </figure>
+        <div class="travelmate-hero__meta">
+          <span>{{ page.status }}</span>
+          <span>{{ page.stack }}</span>
+        </div>
+      </div>
+    </header>
+
+    <nav class="travelmate-section-nav page-container" aria-label="TravelMate 프로젝트 목차">
+      <a href="#overview">서비스 소개</a>
+      <a href="#experience">핵심 경험</a>
+      <a href="#technology">기술 구성</a>
+      <a href="#progress">진행 상황</a>
+      <a href="#development">개발 기록</a>
+    </nav>
+
+    <div class="page-container travelmate-content">{{ content }}</div>
+
+    <nav class="project-pagination page-container" aria-label="프로젝트 이동">
+      <a href="{{ '/projects/' | relative_url }}"><span>모든 프로젝트</span><strong>목록으로 돌아가기</strong></a>
+    </nav>
+  </article>
+</main>

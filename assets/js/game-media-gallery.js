@@ -46,6 +46,7 @@
   let opener = null;
   const render = () => {
     const item = items[current];
+    stage.scrollTop = 0;
     photo.src = item.url;
     photo.alt = item.caption;
     caption.textContent = item.caption;
@@ -58,19 +59,26 @@
     render();
   };
 
+  // Figures spread across article sections share one viewer when they name the same group.
+  const groupLinks = (gallery) => {
+    const group = gallery.dataset.mediaGallery;
+    const members = group ? galleries.filter((entry) => entry.dataset.mediaGallery === group) : [gallery];
+    return members.flatMap((member) => [...member.querySelectorAll("figure > a")]);
+  };
+
   galleries.forEach((gallery) => {
-    const links = [...gallery.querySelectorAll("figure > a")];
-    links.forEach((link, index) => {
+    [...gallery.querySelectorAll("figure > a")].forEach((link) => {
       link.setAttribute("aria-haspopup", "dialog");
       link.addEventListener("click", (event) => {
         if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
         event.preventDefault();
+        const links = groupLinks(gallery);
         items = links.map((entry) => ({
           url: entry.href,
           caption: entry.closest("figure").querySelector("figcaption")?.textContent.trim()
             || entry.querySelector("img")?.alt || "이미지",
         }));
-        current = index;
+        current = links.indexOf(link);
         opener = link;
         render();
         dialog.showModal();

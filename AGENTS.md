@@ -392,3 +392,12 @@ PDF에는 다음 항목을 모두 포함합니다.
 - 같은 주제의 상세 글이 3개 이상일 때만 별도 카테고리 목록으로 묶는다. 1~2개면 프로젝트 메인에 각 상세 글로 바로 가는 카드를 표시한다.
 - 젤다의 보스 전투에는 라이넬·가논과 공통 보스 공격 구조를 배치한다. 그림자·SSAO·톤매핑은 보스 전투에 포함하지 않는다.
 - 메인 카드뿐 아니라 본문 링크, 상세 글 사이드바, 다음 글, 돌아가기의 카테고리도 함께 검증한다.
+
+## TravelMate 상세 글
+
+- 상세 글은 `projects/travelmate/{category}/{slug}/index.md`에 두고 `travelmate-article` 레이아웃을 사용한다. 새 글을 추가하거나 번호를 바꾸면 `_projects/travelmate.md`의 개발 기록 카드, `nav_context`, `article_kicker`, 글 사이 링크 문구를 함께 고친다.
+- 세로로 긴 실행 화면은 본문에 원본 크기로 넣지 않는다. `<figure class="travelmate-shot" data-media-gallery="{그룹명}">` 안에 원본 링크 `<a>`와 `<img>`, 수치를 적은 `<figcaption>`을 둔다. 같은 글에서 여러 절에 흩어진 그림은 같은 그룹명을 써서 뷰어의 화살표로 이어 보게 한다.
+- 긴 코드 발췌는 `<details class="sql-evidence">`와 `<div class="sql-evidence__content" markdown="1">`로 접는다. 안쪽 Markdown은 들여쓰지 않는다. 들여쓰면 kramdown이 코드 블록으로 해석한다.
+- `assets/css/travelmate.css`나 `assets/js/game-media-gallery.js`를 바꾸면 모든 TravelMate 페이지의 `asset_version`을 같은 값으로 올린다.
+- 성능 수치는 측정 구간을 밝힌다. 검색 API 전체 응답 시간과 리랭커 같은 구성 요소 시간을 하나의 개선 수치로 합치지 않는다. 고정 입력 실험과 실서비스 요청 측정도 구분해 쓴다.
+- 평가 데이터의 라벨은 LLM 초안, AI 원문 대조로 고친 내용, 사용자가 직접 검수한 내용을 구분해 쓴다. 저장소 기록으로 확인되지 않는 사람 검수 수치는 사용자 진술임을 내부 메모에 남긴다.

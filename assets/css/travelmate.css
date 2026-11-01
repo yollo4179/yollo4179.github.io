@@ -1,0 +1,93 @@
+.travelmate-theme {
+  --color-background: #f8fcff;
+  --color-text: #17335e;
+  --color-text-muted: #526b86;
+  --color-accent: #805400;
+  --color-accent-border: #c89c23;
+  --color-accent-subtle: #fff3c4;
+  --color-line: #c8dced;
+  --color-header: rgba(248, 252, 255, .94);
+}
+
+.travelmate-theme::before { content: none; }
+
+.travelmate-project {
+  --travelmate-ink: #17335e;
+  --travelmate-muted: #526b86;
+  --travelmate-yellow: #f5ca48;
+  --travelmate-yellow-ink: var(--color-accent);
+  --travelmate-line: #c8dced;
+  color: var(--travelmate-ink);
+  background: linear-gradient(180deg, #eaf7ff 0, #f8fcff 44rem, #fff 100%);
+}
+
+.travelmate-hero { padding: 1.5rem 0 2rem; }
+.travelmate-hero .breadcrumbs { color: var(--travelmate-muted); }
+.travelmate-hero__intro { display: grid; gap: 1.5rem; align-items: end; padding: 2rem 0; }
+.travelmate-eyebrow { margin: 0; color: var(--travelmate-yellow-ink); font-size: .78rem; font-weight: 800; letter-spacing: .15em; }
+.travelmate-hero h1 { margin: .55rem 0 .2rem; font-size: clamp(3.3rem, 10vw, 7rem); line-height: 1; letter-spacing: -.075em; }
+.travelmate-hero__heading { margin: .5rem 0; font-size: clamp(1.35rem, 3.2vw, 2.4rem); font-weight: 750; line-height: 1.4; letter-spacing: -.04em; word-break: keep-all; }
+.travelmate-hero__description { max-width: 48rem; margin: .75rem 0 0; color: var(--travelmate-muted); line-height: 1.8; word-break: keep-all; }
+.travelmate-hero__action { display: inline-flex; align-items: center; justify-content: space-between; gap: 1.5rem; width: fit-content; min-height: 3.25rem; padding: .7rem 1rem; border-radius: 999px; background: var(--travelmate-yellow); color: var(--travelmate-ink); font-weight: 700; white-space: nowrap; }
+.travelmate-hero__action:hover { background: #e6b52d; color: var(--travelmate-ink); }
+.travelmate-hero__image { overflow: hidden; margin: 0; border: 1px solid var(--travelmate-line); border-radius: 1.25rem; background: #c6e9ff; box-shadow: 0 1.25rem 3rem rgba(23, 75, 125, .12); }
+.travelmate-hero__image img { display: block; width: 100%; height: auto; aspect-ratio: 2090 / 941; object-fit: cover; object-position: center top; }
+.travelmate-hero__image figcaption { padding: .55rem 1rem; background: #fff; color: var(--travelmate-muted); font-size: .8rem; }
+.travelmate-article .markdown-content :not(pre) > code { overflow-wrap: anywhere; }
+.travelmate-hero__meta { display: flex; flex-wrap: wrap; gap: .6rem 1.5rem; padding-top: 1rem; color: var(--travelmate-muted); font-size: .84rem; line-height: 1.6; }
+.travelmate-hero__meta span { overflow-wrap: anywhere; }
+.travelmate-section-nav { display: flex; gap: .25rem 1.5rem; overflow-x: auto; padding-top: .5rem; padding-bottom: .5rem; border-top: 1px solid var(--travelmate-line); border-bottom: 1px solid var(--travelmate-line); }
+.travelmate-section-nav a { display: inline-flex; align-items: center; flex: 0 0 auto; min-height: 2.75rem; color: var(--travelmate-ink); font-size: .9rem; font-weight: 700; }
+.travelmate-section-nav a:hover { color: var(--travelmate-yellow-ink); text-decoration: underline; text-underline-offset: .3em; }
+.travelmate-content { padding-top: 1rem; padding-bottom: 3rem; line-height: 1.85; }
+.travelmate-content > p { max-width: 66rem; color: var(--travelmate-muted); }
+.travelmate-content h2 { margin: 3rem 0 1rem; color: var(--travelmate-ink); font-size: clamp(1.5rem, 3vw, 2rem); letter-spacing: -.035em; line-height: 1.4; word-break: keep-all; }
+.travelmate-content h2::before { content: ''; display: block; width: 2.2rem; height: .24rem; margin-bottom: .8rem; border-radius: 1rem; background: var(--travelmate-yellow); }
+.travelmate-feature-grid { display: grid; gap: 1rem; margin: 1.5rem 0; }
+.travelmate-feature-grid section { min-width: 0; padding: 1.5rem; border: 1px solid var(--travelmate-line); border-top: 3px solid var(--travelmate-yellow); border-radius: 1rem; background: #fff; }
+.travelmate-feature-grid span { color: var(--travelmate-yellow-ink); font-size: .75rem; font-weight: 800; letter-spacing: .12em; }
+.travelmate-feature-grid h3 { margin: .65rem 0 .5rem; font-size: 1.12rem; line-height: 1.5; }
+.travelmate-feature-grid p { margin: 0; color: var(--travelmate-muted); }
+.travelmate-article-grid { display: grid; max-width: 70rem; gap: 1rem; margin: 1.5rem 0; }
+.travelmate-article-grid article { padding: 1.5rem; border: 1px solid var(--travelmate-line); border-top: 3px solid var(--travelmate-yellow); border-radius: 1rem; background: #fff; }
+.travelmate-article-grid span { color: var(--travelmate-yellow-ink); font-size: .75rem; font-weight: 800; letter-spacing: .1em; }
+.travelmate-article-grid h3 { margin: .75rem 0; font-size: 1.2rem; line-height: 1.5; }
+.travelmate-article-grid p { margin: 0 0 1rem; color: var(--travelmate-muted); }
+.travelmate-article-grid__link { font-weight: 700; }
+.travelmate-content table { display: block; max-width: 100%; overflow-x: auto; border-collapse: collapse; background: #fff; }
+.travelmate-content th, .travelmate-content td { min-width: 9rem; padding: .8rem 1rem; border: 1px solid var(--travelmate-line); text-align: left; vertical-align: top; }
+.travelmate-content th { background: var(--color-yellow-light); color: var(--travelmate-ink); }
+.travelmate-project a:focus-visible { outline: 3px solid var(--travelmate-yellow-ink); outline-offset: 4px; }
+.travelmate-hero__action:focus-visible { outline-color: var(--travelmate-ink); }
+
+/* Tall LangSmith captures stay compact in the article; the viewer shows them at full width. */
+.travelmate-shot { max-width: 30rem; margin: 1.25rem 0 2rem 3.25rem; overflow: hidden; border: 1px solid #c8dced; border-radius: .9rem; background: #fff; }
+.travelmate-shot > a { display: block; border-bottom: 1px solid #c8dced; background: #f3f8fc; cursor: zoom-in; }
+.travelmate-shot img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; object-position: center bottom; }
+.travelmate-shot figcaption { padding: .75rem 1rem; color: #526b86; font-size: .86rem; line-height: 1.6; word-break: keep-all; }
+.travelmate-shot figcaption strong { color: #17335e; }
+.travelmate-shot > a:focus-visible { outline: 3px solid #805400; outline-offset: -3px; }
+
+body.game-gallery-open { overflow: hidden; }
+.travelmate-theme .game-gallery-viewer { width: min(96vw, 56rem); max-width: 96vw; height: min(94dvh, 72rem); max-height: 94dvh; margin: auto; padding: 0; overflow: hidden; border: 1px solid #c8dced; border-radius: .9rem; background: #f8fcff; color: #17335e; }
+.travelmate-theme .game-gallery-viewer[open] { display: grid; grid-template-rows: auto minmax(0, 1fr) auto; }
+.travelmate-theme .game-gallery-viewer::backdrop { background: rgba(14, 33, 58, .72); }
+.travelmate-theme .game-gallery-viewer__header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .65rem 1rem; border-bottom: 1px solid #c8dced; font-weight: 700; }
+.travelmate-theme .game-gallery-viewer button { min-width: 2.75rem; min-height: 2.75rem; padding: .4rem .8rem; border: 1px solid #c89c23; border-radius: 999px; background: #f5ca48; color: #17335e; font: inherit; font-weight: 700; cursor: pointer; }
+.travelmate-theme .game-gallery-viewer button:hover { background: #e6b52d; }
+.travelmate-theme .game-gallery-viewer button:focus-visible { outline: 3px solid #17335e; outline-offset: 2px; }
+.travelmate-theme .game-gallery-viewer button:disabled { opacity: .4; cursor: default; }
+.travelmate-theme .game-gallery-viewer__stage { min-height: 0; overflow: auto; padding: .75rem; background: #fff; }
+.travelmate-theme .game-gallery-viewer__stage img { display: block; width: auto; max-width: 100%; height: auto; margin: 0 auto; }
+.travelmate-theme .game-gallery-viewer__navigation { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: .75rem; padding: .75rem 1rem; border-top: 1px solid #c8dced; }
+.travelmate-theme .game-gallery-viewer__navigation p { margin: 0; max-height: 20dvh; overflow-y: auto; font-size: .92rem; line-height: 1.5; text-align: center; word-break: keep-all; }
+
+@media (min-width: 48rem) {
+  .travelmate-hero__intro { grid-template-columns: minmax(0, 1fr) auto; }
+  .travelmate-feature-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .travelmate-article-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 39.99rem) {
+  .travelmate-shot { margin-left: 0; }
+}

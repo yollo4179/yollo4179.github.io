@@ -27,13 +27,14 @@
     <script>document.documentElement.classList.add("js");</script>
     <link rel="stylesheet" href="{{ '/assets/css/shared.css' | relative_url }}?v={{ site.time | date: '%s' }}{% if page.asset_version %}-{{ page.asset_version }}{% endif %}">
     {% if page.game_portfolio or page.game_portfolio_index or page.gilbom_styles %}<link rel="stylesheet" href="{{ '/assets/css/game-portfolio.css' | relative_url }}?v={{ site.time | date: '%s' }}">{% endif %}
-    {% if page.game_portfolio or page.gilbom_styles %}<script src="{{ '/assets/js/game-media-gallery.js' | relative_url }}" defer></script>{% endif %}
+    {% if page.game_portfolio or page.gilbom_styles or page.travelmate_styles %}<script src="{{ '/assets/js/game-media-gallery.js' | relative_url }}{% if page.asset_version %}?v={{ page.asset_version }}{% endif %}" defer></script>{% endif %}
     <script src="{{ '/assets/js/navigation.js' | relative_url }}" defer></script>
     {% if page.ssketch_styles %}<link rel="stylesheet" href="{{ '/assets/css/ssketch.css' | relative_url }}">{% endif %}
     {% if page.gilbom_styles %}<link rel="stylesheet" href="{{ '/assets/css/gilbom.css' | relative_url }}">{% endif %}
+    {% if page.travelmate_styles %}<link rel="stylesheet" href="{{ '/assets/css/travelmate.css' | relative_url }}?v={{ page.asset_version | default: '1' }}">{% endif %}
     {% if page.charcoal_theme %}<link rel="stylesheet" href="{{ '/assets/css/charcoal.css' | relative_url }}?v={{ site.time | date: '%s' }}">{% endif %}
     <script
-      src="{{ '/assets/js/mermaid-loader.js' | relative_url }}"
+      src="{{ '/assets/js/mermaid-loader.js' | relative_url }}{% if page.asset_version %}?v={{ page.asset_version }}{% endif %}"
       data-mermaid-src="{{ '/assets/vendor/mermaid/mermaid.min.js' | relative_url }}"
       defer
     ></script>
@@ -49,7 +50,7 @@
       <script src="{{ '/assets/js/project-filter.js' | relative_url }}{% if page.asset_version %}?v={{ page.asset_version }}{% endif %}" defer></script>
     {% endif %}
   </head>
-  <body{% if page.charcoal_theme %} class="charcoal-theme"{% elsif page.gilbom_styles %} class="gilbom-theme"{% endif %}>
+  <body{% if page.charcoal_theme %} class="charcoal-theme"{% elsif page.gilbom_styles %} class="gilbom-theme"{% elsif page.travelmate_styles %} class="travelmate-theme"{% endif %}>
     <a class="skip-link" href="#main-content">본문으로 바로가기</a>
     {% include header.html %}
     {{ content }}

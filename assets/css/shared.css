@@ -1716,6 +1716,10 @@ ul {
   background: var(--color-panel-translucent);
 }
 
+.project-detail__layout > .project-toc {
+  margin: 0;
+}
+
 .project-toc > p {
   margin-bottom: 1rem;
   color: var(--color-accent);

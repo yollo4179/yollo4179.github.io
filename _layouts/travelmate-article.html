@@ -1,0 +1,42 @@
+---
+layout: default
+---
+<main id="main-content">
+  <article class="project-detail detail-page travelmate-article">
+    <header class="project-detail__hero">
+      <div class="page-container">
+        <nav class="breadcrumbs" aria-label="현재 위치">
+          <ol>
+            <li><a href="{{ '/projects/' | relative_url }}">프로젝트</a></li>
+            <li><a href="{{ '/projects/travelmate/' | relative_url }}">TravelMate</a></li>
+            <li aria-current="page">{{ page.title }}</li>
+          </ol>
+        </nav>
+        <p class="eyebrow"><span>TRAVELMATE</span> / {{ page.article_kicker }}</p>
+        <h1>{{ page.title }}</h1>
+        <p class="project-detail__lead">{{ page.summary }}</p>
+      </div>
+    </header>
+
+    <div class="page-container project-detail__layout">
+      <aside class="project-summary project-toc" aria-label="이 글에서 다루는 내용">
+        <p>이 글에서 다루는 내용</p>
+        <ol>
+          {% for toc_item in page.toc_items %}
+          <li><a href="#{{ toc_item.id }}">{{ toc_item.title }}</a></li>
+          {% endfor %}
+        </ol>
+      </aside>
+
+      <div class="markdown-content">
+        {{ content }}
+      </div>
+    </div>
+
+    <nav class="project-pagination page-container" aria-label="프로젝트 이동">
+      <a href="{{ '/projects/travelmate/' | relative_url }}">
+        <span>TravelMate</span><strong>프로젝트 소개로 돌아가기</strong>
+      </a>
+    </nav>
+  </article>
+</main>

@@ -25,6 +25,8 @@
       return;
     }
 
+    var isTravelMate = document.body.classList.contains("travelmate-theme");
+
     window.mermaid.initialize({
       startOnLoad: false,
       securityLevel: "strict",
@@ -32,12 +34,12 @@
       theme: "base",
       themeVariables: {
         background: "#ffffff",
-        primaryColor: "#eef4ff",
+        primaryColor: isTravelMate ? "#fff3c4" : "#eef4ff",
         primaryTextColor: "#172033",
-        primaryBorderColor: "#175cd3",
-        secondaryColor: "#e8f6f5",
-        tertiaryColor: "#f7f6f2",
-        lineColor: "#5d6778",
+        primaryBorderColor: isTravelMate ? "#805400" : "#175cd3",
+        secondaryColor: isTravelMate ? "#fff9e7" : "#e8f6f5",
+        tertiaryColor: isTravelMate ? "#fffdf7" : "#f7f6f2",
+        lineColor: isTravelMate ? "#805400" : "#5d6778",
         textColor: "#172033",
         fontFamily: "Pretendard, Inter, sans-serif"
       }

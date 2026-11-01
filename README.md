@@ -236,3 +236,59 @@ flowchart LR
 - 게임 목록의 game_tracks로 클라이언트 4개(SSketch·UnityChan·젤다·건파이어), 서버 2개(SSketch·크아)를 분류한다. SSketch는 같은 정본 URL을 양쪽에서 연결한다. 전체 프로젝트에는 공개 개인·팀 프로젝트 6개를 포함한다.
 - 건파이어 기준 소스는 사용자가 지정한 D:/건파이어_리본_Final -비동기_멀쓰2/Framework다. Shader_Deferred.hlsl 320·521행의 깊이 0.8/노멀 0.2 조건을 확인했으며, 공개 블로그·PDF 발췌와 일치한다. Navigation.cpp 35행의 0 == hFile은 이 기준 소스에도 남아 있다.
 - 홈·게임 진입·게임 목록·전체 목록을 360px/1440px에서 확인했다. 분류별 개수, 개인 프로젝트 포함, 연락처, 가로 넘침과 JavaScript 오류를 점검했다.
+
+### 2026-10-27 TravelMate 평가·리랭킹 글 정리
+
+현재 TravelMate 상세 글 구성은 다음과 같다. 글 번호는 읽는 순서(설계 → 평가 데이터 → 성능 개선)를 따른다.
+
+```text
+/projects/travelmate/                                         프로젝트 소개, 개발 기록 카드 3개
+├─ architecture/ai-spring-responsibilities/   ARCHITECTURE 01   AI 서버와 Spring 서버의 역할 분리
+├─ evaluation/ragas-golden-dataset/           EVALUATION 02     RAGAS 평가와 골든 데이터셋 구축
+└─ evaluation/reranking-performance/          EVALUATION 03     리랭킹 성능 개선
+```
+
+- 리랭킹 글 제목 `리랭킹 성능 개선`은 사용자가 이 글을 부른 표현을 따랐다. 슬러그 `reranking-performance`는 유지했다.
+- 품질 표(Top-1·Hit@5·Recall@5·NDCG@10·MRR@10)는 RAGAS 글에만 둔다. 리랭킹 글과 프로젝트 소개는 한 줄 요약과 링크만 둔다.
+- 리랭킹 글의 헤드라인은 리랭커 연산 시간(LangSmith `reranking.model_inference`, 7.347초 → 0.524초)이다. 검색 API 전체 시간(8.398초 → 1.607초)과 합쳐 "8초 → 0.5초"처럼 쓰지 않는다. 사용자는 전송 구간을 상황에 따라 Kafka 또는 gRPC로 고를 수 있어 리랭커 시간을 판단 기준으로 삼았다.
+- 실험에서 바꾼 정밀도는 FP16 autocast다. 모델 가중치는 FP32로 유지했으므로 양자화로 쓰지 않는다. `배치 8`의 8은 배치 크기이며 FP8 설정은 없다.
+- 리랭킹 대상 모델은 `BAAI/bge-reranker-v2-m3`다. 사용자가 "임베딩 모델 파라미터"라고 부른 실험이지만 임베딩 모델(`BAAI/bge-m3`)은 바꾸지 않았다.
+
+수치 출처:
+
+| 공개 글 수치 | 원본 |
+| --- | --- |
+| 여섯 설정 지연·순위 일치·점수 차이·반복 측정 | Travelmate `Evaluation/runs/search/v1.4.0/batch-fp16-20261026/summary.json`, `report.md` |
+| 배치별 패딩 토큰 표(7,028·9,102·11,536·15,987) | 같은 폴더 `screening_results.jsonl`의 `input_signature`를 편집 중 집계한 평균 |
+| 개선 전 span(8.394초, 리랭커 7.347초) | `20261025T164734Z-dec8a733/langsmith_timing_summary.json` |
+| 개선 후 span·Kafka 비용 표(1.008초, 0.046초) | `20261025T182044Z-cfe35448/langsmith_timing_summary.json` |
+| 검색 API 평균·p95 | 위 두 폴더의 `collection_summary.json` |
+| `서울 카페` FP16 3.08배 | Travelmate `Docker/RERANKING_DIAGNOSTICS.md` |
+| 골든 데이터셋 CSV·JSONL 예시, 정정 이력 | `Evaluation/datasets/v1.3.0/review_notes_filled_v1.3.0.csv`, `golden.jsonl`, `CHANGELOG.md`, `v1.2.0/CHANGELOG.md` |
+| RAGAS ID 지표 예시(0.05·1.0) | `Evaluation/datasets/v1.3.0/ragas_results.jsonl` (1문항) |
+
+LangSmith 캡처 4장:
+
+| 파일 | 원본 캡처 | 판정 |
+| --- | --- | --- |
+| `langsmith-fp16-batch8.png` | 스크린샷 2026-10-27 003319 | 승인 |
+| `langsmith-batch-summary.png` | 스크린샷 2026-10-27 003339 | 조건부 승인. 하단 FP32·배치 8 반복 블록이 잘려 캡션은 보이는 FP16·배치 8 값만 쓴다. |
+| `langsmith-fp16-batch16.png` | 스크린샷 2026-10-27 003118 | 조건부 승인. 다른 캡처와 달리 Trace 패널이 포함됐다. 썸네일은 하단 지연 영역을 보여 준다. |
+| `langsmith-fp16-batch32.png` | 스크린샷 2026-10-27 003254 | 승인 |
+
+네 장 모두 2026-10-26 실행을 2026-10-27에 캡처했다. 계정·키·조직 ID는 보이지 않는다.
+
+보류 중인 권고:
+
+1. FP32·배치 32 기준값을 다시 측정한다. 고정 입력 실험의 p50 14.792초가 실서비스 진단 모드 p50 4.546초, 단일 질의 `서울 카페` 중앙값 1.902초와 맞지 않는다. Docker 검색 서버가 같은 6GB GPU에 모델을 올린 상태에서 실험해 VRAM이 부족했을 가능성이 있으나 확인되지 않았다. 재측정 전까지 리랭킹 글의 "약 25배"와 "어텐션 계산량은 입력 길이의 제곱" 해석 문장은 부풀려졌을 수 있다. 요약과 프로젝트 소개는 실서비스 수치만 사용한다.
+2. 골든 데이터셋의 사람 검수 기록을 남긴다. 사용자는 퓨샷 LLM 초안을 검수하며 약 10건의 점수를 고쳤다고 했으나, 저장소의 `review_notes_metadata.json`은 사람이 바꾼 필드를 `review_notes`로만 기록하고 초안 점수와 최종 점수가 253행 모두 같다. 1점 하향 9건과 판정 추가 17건은 v1.1~v1.3 AI 원문 대조에서 나왔다. 사용자가 원본을 정리하면 데이터셋 CHANGELOG에 바뀐 행을 기록하고 RAGAS 글의 "약 10건"을 정확한 건수와 사례로 바꾼다.
+3. Travelmate 저장소에서 `embedding-server/app/reranking/strategies/predict.py`의 `batch_size` 전달 수정이 커밋되지 않았고, `Evaluation/tracks/search/batch_experiment.py` 등은 추적되지 않는다. 리랭킹 글이 이 코드를 인용하므로 커밋 후 게시한다.
+4. FP32 설정 소단원에는 이미지가 없다. 필요하면 LangSmith의 `travelmate.reranking.cross_encoder_predict_batch_32`, `_16`, `_8` 실행을 기존 캡처와 같은 구도(상세 패널만, Output의 latency 펼침, 주소창·계정 영역 제외)로 받아 `langsmith-fp32-batch32.png`, `langsmith-fp32-batch16.png`, `langsmith-fp32-batch8.png`로 넣는다.
+5. 아키텍처 글의 gRPC 문장은 구현되지 않은 선택지다. 조건문으로만 썼으며, 확장 과제 절로 분리할지는 사용자가 정한다.
+6. 프로젝트 소개의 기간·역할·팀은 아직 `입력 예정`이다.
+7. Travelmate `docs/blog/`의 `2026-10-27-langsmith-reranker-optimization.md`와 `myblog-reranking-performance.before-update.md`는 예전 초안이다. `myblog-reranking-performance.md`는 공개 글과 같은 내용으로 맞춰 두었다. 예전 초안의 삭제 여부는 사용자가 정한다.
+
+편집 중 확인:
+
+- `assets/js/game-media-gallery.js`에 같은 `data-media-gallery` 값을 가진 그림을 하나의 뷰어로 묶는 기능과 이미지 전환 시 스크롤 초기화를 추가했다. 값이 비어 있는 기존 길봄·게임 페이지는 이전처럼 컨테이너 단위로 동작한다. 로컬 Jekyll 빌드와 헤드리스 Chrome에서 TravelMate 페이지만 확인했다(클릭 열기, 좌우 이동·순환, Esc 닫기, 모바일 가로 넘침 없음). 길봄·게임 페이지의 뷰어는 다시 확인하지 않았다.
+- TravelMate 페이지의 `asset_version`을 `20261027-1`로 함께 올렸다.
