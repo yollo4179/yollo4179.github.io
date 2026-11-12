@@ -54,10 +54,6 @@ void CLevel_GamePlay::Adjusting_Triangle(TRIANGLE_VERTICES& Triangle)
 | 클라이언트 | 셀 수·삼각형 좌표·스테이지 | 셀 생성과 이동 판정 |
 | 맵툴 | 셀 데이터·편집 점 목록 | 삼각형 편집 재개 |
 
-파일 열기 실패 처리는 보완이 필요하다. 아래 원본의 <span class="notice-yellow">0 == hFile</span>은 <span class="notice-yellow">CreateFile</span>의
-실패 반환값을 검사하지 못한다. 실패 분기는 <span class="notice-yellow">hFile == INVALID_HANDLE_VALUE</span>로
-수정해야 한다.
-
 ```cpp
 HRESULT CNavigation::Initialize_Prototype(const _tchar* pNavigationDataFile)
 {
