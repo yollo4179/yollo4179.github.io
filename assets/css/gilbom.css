@@ -53,6 +53,8 @@
 .gilbom-snapshot { display: grid; gap: 1.25rem; padding: 1.5rem; margin: 2rem 0; border-block: 1px solid var(--gilbom-line); }
 .gilbom-snapshot dt { color: var(--gilbom-muted); font-size: .85rem; }
 .gilbom-snapshot dd { margin: .4rem 0 0; font-weight: 600; }
+.gilbom-content .game-media-feature { width: min(100%, 24rem); min-width: 0; margin: 1.5rem auto 2rem; overflow: hidden; border: 1px solid var(--color-line); border-radius: var(--radius-medium); background: var(--color-surface); }
+.gilbom-content .game-media-feature video { aspect-ratio: 9 / 16; }
 .gilbom-feature-grid, .gilbom-role-grid { display: grid; gap: 1.25rem; margin: 1.5rem 0; }
 .gilbom-feature-card { min-width: 0; overflow: hidden; background: #fff; border: 1px solid var(--gilbom-line); border-radius: .5rem; }
 .gilbom-feature-card figure { margin: 0; }

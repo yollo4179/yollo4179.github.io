@@ -292,3 +292,9 @@ LangSmith 캡처 4장:
 
 - `assets/js/game-media-gallery.js`에 같은 `data-media-gallery` 값을 가진 그림을 하나의 뷰어로 묶는 기능과 이미지 전환 시 스크롤 초기화를 추가했다. 값이 비어 있는 기존 길봄·게임 페이지는 이전처럼 컨테이너 단위로 동작한다. 로컬 Jekyll 빌드와 헤드리스 Chrome에서 TravelMate 페이지만 확인했다(클릭 열기, 좌우 이동·순환, Esc 닫기, 모바일 가로 넘침 없음). 길봄·게임 페이지의 뷰어는 다시 확인하지 않았다.
 - TravelMate 페이지의 `asset_version`을 `20261027-1`로 함께 올렸다.
+
+## 길봄 실제 로봇 주행 영상 (2026-11-25)
+
+- 사용자가 제공한 Drive 폴더의 [우산피하는영상.MP4](https://drive.google.com/file/d/1MQsEIvXbiQoWaDMcP-z4N6NDRhesmCtf/view)를 사용자의 승인에 따라 서비스 소개 아래에 추가했다. 로봇이 보도에 놓인 우산을 피해 이동하는 실제 촬영 영상이며, 영상만으로 회피 알고리즘이나 개인의 구현 기여를 추가로 단정하지 않는다.
+- 배포 파일은 `assets/videos/projects/gilbom/robot-obstacle-avoidance.mp4`다. 전체 약 24초를 720×1280 H.264로 변환하고 음성·메타데이터를 제거했다. 용량은 약 7.5MB이며, 대표 이미지는 원본 영상의 4초 지점에서 추출했다. 원본은 Drive에 보존한다.
+- 편집 검증: 로컬 Jekyll 빌드 통과. Chromium의 360px·1440px 화면에서 영상 재생, 대표 이미지 응답, 세로 비율, 가로 넘침 없음, 메뉴의 버튼·바깥 영역·링크·Escape 닫기와 ARIA 상태를 확인했다. 페이지 JavaScript 오류는 없었다. PDF 변경과 GitHub Pages 배포는 수행하지 않았다.

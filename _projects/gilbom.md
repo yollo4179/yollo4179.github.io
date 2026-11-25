@@ -46,6 +46,8 @@ footer_label: GILBOM / DETAIL ARCHIVE
 
 <dl class="gilbom-snapshot"><div><dt>기간</dt><dd>{{ page.period }}</dd></div><div><dt>팀 구성</dt><dd>{{ page.team }}</dd></div><div><dt>담당 기술</dt><dd>{{ page.stack }}</dd></div></dl>
 
+{% include game-local-video.html slug="gilbom" file="robot-obstacle-avoidance" title="실제 로봇 주행 · 우산 장애물 회피" %}
+
 <h2 id="features">탐지부터 관리와 보고서까지</h2>
 
 <div class="gilbom-feature-grid" data-media-gallery>
