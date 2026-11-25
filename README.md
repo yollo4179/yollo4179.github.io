@@ -298,3 +298,9 @@ LangSmith 캡처 4장:
 - 사용자가 제공한 Drive 폴더의 [우산피하는영상.MP4](https://drive.google.com/file/d/1MQsEIvXbiQoWaDMcP-z4N6NDRhesmCtf/view)를 사용자의 승인에 따라 서비스 소개 아래에 추가했다. 로봇이 보도에 놓인 우산을 피해 이동하는 실제 촬영 영상이며, 영상만으로 회피 알고리즘이나 개인의 구현 기여를 추가로 단정하지 않는다.
 - 배포 파일은 `assets/videos/projects/gilbom/robot-obstacle-avoidance.mp4`다. 전체 약 24초를 720×1280 H.264로 변환하고 음성·메타데이터를 제거했다. 용량은 약 7.5MB이며, 대표 이미지는 원본 영상의 4초 지점에서 추출했다. 원본은 Drive에 보존한다.
 - 편집 검증: 로컬 Jekyll 빌드 통과. Chromium의 360px·1440px 화면에서 영상 재생, 대표 이미지 응답, 세로 비율, 가로 넘침 없음, 메뉴의 버튼·바깥 영역·링크·Escape 닫기와 ARIA 상태를 확인했다. 페이지 JavaScript 오류는 없었다. PDF 변경과 GitHub Pages 배포는 수행하지 않았다.
+
+### 2026-11-25 Mission 지도 재생성 설명
+
+- 사용자가 네모·차 위치만 있는 SSE 전후 이미지로는 변화를 알아보기 어렵다고 지적했다. 두 Fake Naver SDK 이미지는 로봇 위치와 궤적 데이터의 변화만 담고 있어, 지도 제거·Loading 교체·재생성 순간을 설명하는 자료로 사용하지 않는다. 이미지 파일은 보존하고 공개 본문에서 제외한 기존 로컬 수정을 유지했다.
+- 03번 글의 문제 상황에 수정 전후 화면 처리 도식을 추가했다. `MissionManagePage`의 Loading 조건 분기와 `MissionNaverMap`의 생성·정리·Snapshot Effect를 근거로 지도 제거·시점 초기화와 지도 유지·Overlay 갱신을 구분했다. 실제 지도 GIF는 해결 후 궤적 갱신 자료로 유지하며, 수정 전 장애를 촬영한 영상으로 설명하지 않는다.
+- 편집 검증: Jekyll 빌드와 Chromium 360px·1440px 도식 렌더링, 실제 지도 GIF 응답, 가로 넘침 없음과 페이지 JavaScript 오류 없음을 확인했다. PDF 수정·커밋·배포는 수행하지 않았다.

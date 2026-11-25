@@ -2043,6 +2043,24 @@ ul {
   word-break: keep-all;
 }
 
+.mission-map-comparison { display: grid; gap: 1.5rem; margin-block: 1.5rem 2rem; }
+.mission-map-comparison section { min-width: 0; }
+.mission-map-comparison h4 { margin-top: 0; }
+.mission-map-flow { display: grid; gap: 1.75rem; margin: 0; padding: 0; list-style: none; }
+.mission-map-flow li { position: relative; padding: 1rem; border: 1px solid var(--color-line); border-radius: var(--radius-small); background: var(--color-surface); }
+.mission-map-flow li + li::before { position: absolute; top: -1.6rem; left: 50%; color: var(--color-text-muted); content: "↓"; transform: translateX(-50%); }
+.mission-map-flow span { display: block; margin-bottom: .4rem; color: var(--color-text-muted); font-size: .75rem; }
+.mission-map-flow strong { display: block; font-size: 1rem; line-height: 1.6; }
+.mission-map-flow p { margin: .5rem 0 0; color: var(--color-text-muted); font-size: .85rem; line-height: 1.8; }
+.mission-map-flow .mission-map-flow__interrupted { border-color: var(--color-warning); }
+.mission-map-flow__interrupted strong { color: var(--color-warning); }
+.mission-map-flow .mission-map-flow__preserved { border-color: var(--color-accent); }
+.mission-map-flow__preserved strong { color: var(--color-accent); }
+
+@media (min-width: 48rem) {
+  .mission-map-comparison { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
 .flow-strip {
   display: grid;
   grid-template-columns: 1fr;
