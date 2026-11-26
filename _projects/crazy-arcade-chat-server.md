@@ -32,9 +32,25 @@ tags:
 - UI 툴
 nav_context: GAME PORTFOLIO / CHAT SERVER
 game_slug: crazy-arcade-chat-server
+project_sidebar: true
+article_cards: individual
 hero_image: /assets/images/projects/crazy-arcade-chat-server/ui-load-demo.gif
 hero_alt: 크레이지 아케이드 UI 배치 도구에서 저장한 화면을 다시 불러오는 장면
 hero_caption: UI 도구 · 저장한 화면 다시 불러오기
+showcase:
+- title: 부모·자식 UI의 그리드 정렬
+  image: /assets/images/projects/crazy-arcade-chat-server/grid-align-demo.gif
+  image_alt: UI 도구가 부모 패널의 자식 UI를 그리드로 정렬하는 장면
+  image_width: 1920
+  image_height: 1080
+  caption: UI 도구가 부모 패널의 자식 UI를 그리드로 정렬하는 장면
+  article_url: /projects/crazy-arcade-chat-server/technical/ui-layout-tool/
+  article_label: ImGui UI 배치 도구 구현 읽기
+- title: TCP 클라이언트와 IOCP 채팅 서버
+  video_src: /assets/videos/projects/crazy-arcade-chat-server/chat-demo.mp4
+  caption: 채팅 서버와 클라이언트 시연
+  article_url: /projects/crazy-arcade-chat-server/technical/iocp-chat/
+  article_label: TCP·IOCP 채팅 서버 구현 읽기
 topics:
 - id: ui
   name: UI 제작 도구
@@ -60,7 +76,7 @@ topics:
 
 ## 구현 장면
 
-![UI 도구가 부모 패널의 자식 UI를 그리드로 정렬하는 장면]({{ '/assets/images/projects/crazy-arcade-chat-server/grid-align-demo.gif' | relative_url }})
+{% include game-showcase.html items=page.showcase %}
 
 부모 패널의 패딩·간격·열 수를 바꾸고 자식 UI를 다시 정렬한다. 저장한 계층은 JSON의 `CHILDREN` 배열을 따라 클라이언트에서 다시 만든다.
 

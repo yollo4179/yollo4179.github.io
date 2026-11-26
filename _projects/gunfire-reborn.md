@@ -31,9 +31,26 @@ tags:
 - FPS
 nav_context: GAME PORTFOLIO / GUNFIRE REBORN
 game_slug: gunfire-reborn
+project_sidebar: true
+article_cards: individual
 hero_image: /assets/images/projects/gunfire-reborn/effect-result.png
 hero_alt: 건파이어 리본 FPS 전투 화면에서 보스, 트레일, UI가 보이는 장면
 hero_caption: FPS 전투 장면 · 렌더링 효과와 UI
+showcase:
+- title: 트레일과 화면 효과
+  image: /assets/images/projects/gunfire-reborn/trail-demo.gif
+  image_alt: 몬스터 공격을 따라 곡선 트레일이 이어지는 전투 장면
+  image_width: 484
+  image_height: 272
+  caption: 몬스터 공격을 따라 곡선 트레일이 이어지는 전투 장면
+  article_url: /projects/gunfire-reborn/technical/trail-ownership/
+  article_label: 객체별 동적 버퍼와 트레일 구현 읽기
+- title: 맵툴의 삼각형 내비메시 편집과 저장
+  video_src: /assets/videos/projects/gunfire-reborn/navmesh-editing.mp4
+  video_poster: /assets/images/projects/gunfire-reborn/navmesh-editing-poster.jpg
+  caption: 맵툴의 삼각형 내비메시 편집과 저장
+  article_url: /projects/gunfire-reborn/technical/map-tool-binary/
+  article_label: 맵툴 편집과 바이너리 저장 구현 읽기
 topics:
 - id: map
   name: 맵 제작과 이동
@@ -60,11 +77,11 @@ DirectX 11로 만든 개인 FPS 프로젝트다. 플레이어가 이동하며 �
 
 ## 구현 장면
 
-![몬스터 공격을 따라 곡선 트레일이 이어지는 전투 장면]({{ '/assets/images/projects/gunfire-reborn/trail-demo.gif' | relative_url }})
+{% include game-showcase.html items=page.showcase %}
 
 트레일의 동적 버퍼, 파티클 인스턴싱, 외곽선·글로우·디졸브·물 효과는 [트레일과 화면 효과 목록]({{ '/projects/gunfire-reborn/details/rendering/' | relative_url }})에서 기능별로 다룬다.
 
-{% include game-local-video.html slug="gunfire-reborn" file="navmesh-editing" title="맵툴의 삼각형 내비메시 편집과 저장" %}
+
 
 맵툴에서 만든 셀은 클라이언트용과 편집용 `.dat` 파일로 저장한다. 파일 구조와 셀 생성 과정은 [맵 제작과 이동 목록]({{ '/projects/gunfire-reborn/details/map/' | relative_url }})에서 다룬다.
 

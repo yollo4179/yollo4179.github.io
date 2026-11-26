@@ -2,7 +2,7 @@
 layout: default
 ---
 {% assign game_articles = site.details | where: 'project_slug', page.game_slug | sort: 'game_order' %}
-<main id="main-content" class="game-project-page" data-project="{{ page.game_slug }}">
+<main id="main-content" class="game-project-page{% if page.project_sidebar %} game-project-page--sidebar{% endif %}" data-project="{{ page.game_slug }}">
   <article>
     <header class="game-project-hero">
       <div class="page-container">
@@ -28,10 +28,13 @@ layout: default
     <div class="page-container game-project-layout">
       <details class="game-project-sidebar" open>
         <summary>프로젝트 목차</summary>
+        {% assign project_sections = content | split: '<h2 id="' %}
         <nav aria-label="프로젝트 목차">
-          <a href="#overview">프로젝트 소개</a>
-          <a href="#contribution">담당 구현</a>
-          {% if page.showcase %}<a href="#showcase">구현 장면</a>{% endif %}
+          {% for section in project_sections offset:1 %}
+            {% assign section_id = section | split: '"' | first %}
+            {% assign section_title = section | split: '</h2>' | first | split: '>' | slice: 1, 100 | join: '>' | strip_html %}
+            <a href="#{{ section_id | escape }}">{{ section_title | escape }}</a>
+          {% endfor %}
           <a href="#technical-articles">구현 내용</a>
         </nav>
       </details>

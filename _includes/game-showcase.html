@@ -9,6 +9,14 @@
       </a>
       <figcaption>{{ item.caption | escape }} · 사진을 누르면 확대</figcaption>
     </figure>
+    {% elsif item.video_src %}
+    <figure class="game-media-feature">
+      <video controls playsinline preload="none"{% if item.video_poster %} poster="{{ item.video_poster | relative_url }}"{% endif %} aria-label="{{ item.caption | escape }}">
+        <source src="{{ item.video_src | relative_url }}" type="video/mp4">
+        <a href="{{ item.video_src | relative_url }}">{{ item.caption | escape }} 영상 열기</a>
+      </video>
+      <figcaption>{{ item.caption | escape }} · <a href="{{ item.video_src | relative_url }}">MP4 직접 열기</a></figcaption>
+    </figure>
     {% elsif item.youtube_id %}
       {% include game-video-embed.html id=item.youtube_id title=item.caption %}
     {% endif %}

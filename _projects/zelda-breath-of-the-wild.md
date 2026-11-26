@@ -31,9 +31,33 @@ tags:
 - 렌더링
 nav_context: GAME PORTFOLIO / ZELDA
 game_slug: zelda-breath-of-the-wild
+project_sidebar: true
+article_cards: individual
 hero_image: /assets/images/projects/zelda-breath-of-the-wild/ssao-result-01.png
 hero_alt: 젤다 프로젝트에서 SSAO 적용 전후와 차폐 마스크를 비교한 화면
 hero_caption: 지형 장면의 SSAO 적용 비교
+showcase:
+- title: SSAO 적용 비교
+  image: /assets/images/projects/zelda-breath-of-the-wild/ssao-result-02.png
+  image_alt: SSAO 적용 전후와 차폐 마스크를 비교한 지형 화면
+  image_width: 1911
+  image_height: 996
+  caption: SSAO 적용 전후와 차폐 마스크를 비교한 지형 화면
+  article_url: /projects/zelda-breath-of-the-wild/technical/ssao/
+  article_label: 깊이·노멀 버퍼와 SSAO 구현 읽기
+- title: 톤매핑 적용 영상
+  youtube_id: Q9VEHbAQBt0
+  caption: 톤매핑 적용 영상
+  article_url: /projects/zelda-breath-of-the-wild/technical/tone-mapping/
+  article_label: 평균 휘도와 톤매핑 구현 읽기
+- title: 가논의 벽 전환
+  image: /assets/images/projects/zelda-breath-of-the-wild/ganon-wall-transition-poster.jpg
+  image_alt: 가논 벽 전환 영상의 플레이 화면
+  image_width: 1280
+  image_height: 720
+  caption: 가논 벽 전환 영상의 플레이 화면
+  article_url: /projects/zelda-breath-of-the-wild/technical/ganon-combat/
+  article_label: 가논의 공격과 행렬 회전 구현 읽기
 topics:
 - id: lighting
   name: 화면의 밝기와 음영
@@ -62,15 +86,15 @@ ImGui HDR 설정 도구에서는 MiddleGrey와 White 값을 조정하고 JSON으
 
 ## 구현 장면
 
-![SSAO 적용 전후와 차폐 마스크를 비교한 지형 화면]({{ '/assets/images/projects/zelda-breath-of-the-wild/ssao-result-02.png' | relative_url }})
+{% include game-showcase.html items=page.showcase %}
 
 SSAO 글은 깊이·노멀의 뷰 공간 복원과 차폐값 계산, 깊이 기반 블러를 HLSL 코드로 설명한다.
 
-{% include game-video-embed.html id="Q9VEHbAQBt0" title="톤매핑 적용 영상" %}
+
 
 톤매핑에서는 화면의 평균 휘도를 컴퓨트 셰이더로 축소하고 Yxy 휘도에 톤 커브를 적용한다.
 
-![가논 벽 전환 영상의 플레이 화면]({{ '/assets/images/projects/zelda-breath-of-the-wild/ganon-wall-transition-poster.jpg' | relative_url }})
+
 
 라이넬과 가논의 상태 전환과 공격 오브젝트 재사용은 [보스 전투 구현 목록]({{ '/projects/zelda-breath-of-the-wild/details/combat/' | relative_url }})에서 이어진다.
 

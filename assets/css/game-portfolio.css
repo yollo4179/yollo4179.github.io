@@ -482,16 +482,16 @@ body.game-gallery-open { overflow: hidden; }
   overflow-wrap: normal;
 }
 
-/* Keep UnityChan's introduction, media and article lists on the same gutters. */
-.game-project-page[data-project="unitychan-rpg"] { --page-width: 70rem; }
-.game-project-page[data-project="unitychan-rpg"] .game-project-body.markdown-content > :is(p, ul, ol, h3, blockquote, pre, table) {
+/* Keep sidebar project introductions, media and article lists on the same gutters. */
+.game-project-page--sidebar { --page-width: 70rem; }
+.game-project-page--sidebar .game-project-body.markdown-content > :is(p, ul, ol, h3, blockquote, pre, table) {
   max-width: none;
   margin-inline: 0;
 }
-.game-project-page[data-project="unitychan-rpg"] .game-project-body.markdown-content > h2 {
+.game-project-page--sidebar .game-project-body.markdown-content > h2 {
   padding-left: 0;
 }
-.game-project-page[data-project="unitychan-rpg"] .game-project-body.markdown-content > h2::before {
+.game-project-page--sidebar .game-project-body.markdown-content > h2::before {
   position: static;
   display: inline-block;
   margin-right: .75rem;
@@ -521,7 +521,7 @@ body.game-gallery-open { overflow: hidden; }
   word-break: keep-all;
   overflow-wrap: anywhere;
 }
-.markdown-content .game-showcase-card :is(.game-video-embed, .game-showcase-card__media) {
+.markdown-content .game-showcase-card :is(.game-video-embed, .game-showcase-card__media, .game-media-feature) {
   width: 100%;
   min-width: 0;
   margin: 0 0 1rem;
@@ -568,7 +568,7 @@ body.game-gallery-open { overflow: hidden; }
   .game-showcase-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
-/* Project navigation stays beside UnityChan's content on desktop. */
+/* Project navigation stays beside its content on desktop. */
 .game-project-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
