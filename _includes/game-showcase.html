@@ -1,0 +1,18 @@
+<div class="game-showcase-grid" data-media-gallery>
+  {% for item in include.items %}
+  <article class="game-showcase-card">
+    <h3>{{ item.title | escape }}</h3>
+    {% if item.image %}
+    <figure class="game-showcase-card__media">
+      <a href="{{ item.image | relative_url }}" aria-label="{{ item.title | escape }} 사진 크게 보기">
+        <img src="{{ item.image | relative_url }}" alt="{{ item.image_alt | escape }}" width="{{ item.image_width }}" height="{{ item.image_height }}" loading="lazy">
+      </a>
+      <figcaption>{{ item.caption | escape }} · 사진을 누르면 확대</figcaption>
+    </figure>
+    {% elsif item.youtube_id %}
+      {% include game-video-embed.html id=item.youtube_id title=item.caption %}
+    {% endif %}
+    <a class="game-showcase-card__article" href="{{ item.article_url | relative_url }}">{{ item.article_label | escape }} <span aria-hidden="true">↗</span></a>
+  </article>
+  {% endfor %}
+</div>
