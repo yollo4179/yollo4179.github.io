@@ -619,6 +619,38 @@ body.game-gallery-open { overflow: hidden; }
   text-decoration: none;
 }
 .game-project-sidebar a:hover { background: #243e60; color: #fff; }
+
+.game-project-sidebar .detail-back-link {
+  display: flex;
+  justify-content: flex-start;
+  margin: 0 0 .65rem;
+  border-color: transparent;
+  background: transparent;
+  color: #d9eaff;
+}
+.game-project-sidebar .detail-back-link:hover,
+.game-project-sidebar .detail-back-link:focus-visible {
+  border-color: #6480a4;
+  background: #243e60;
+  color: #fff;
+}
+.game-project-sidebar .game-project-sidebar__articles {
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+  margin-top: .5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #354b69;
+  border-radius: 0;
+}
+.game-project-sidebar__articles-title { font-size: .875rem; font-weight: 700; }
+.game-project-sidebar__articles-count {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .5rem;
+  font-size: .85rem;
+}
 .game-project-sidebar :is(a, summary):focus-visible { outline: 3px solid #9bc3ff; outline-offset: 2px; }
 .game-project-content > #technical-articles { scroll-margin-top: calc(var(--header-height) + 1rem); }
 @media (min-width: 68rem) {

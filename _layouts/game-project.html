@@ -30,12 +30,16 @@ layout: default
         <summary>프로젝트 목차</summary>
         {% assign project_sections = content | split: '<h2 id="' %}
         <nav aria-label="프로젝트 목차">
+          {% include detail-back-link.html url='/games/list/' label='이전으로 돌아가기' %}
           {% for section in project_sections offset:1 %}
             {% assign section_id = section | split: '"' | first %}
             {% assign section_title = section | split: '</h2>' | first | split: '>' | slice: 1, 100 | join: '>' | strip_html %}
             <a href="#{{ section_id | escape }}">{{ section_title | escape }}</a>
           {% endfor %}
-          <a href="#technical-articles">구현 내용</a>
+          <a class="game-project-sidebar__articles" href="#technical-articles">
+            <span class="game-project-sidebar__articles-title">구현내용/상세페이지</span>
+            <span class="game-project-sidebar__articles-count">{{ game_articles.size }}편 보기 <span aria-hidden="true">↓</span></span>
+          </a>
         </nav>
       </details>
       <div class="game-project-content">
